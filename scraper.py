@@ -2,6 +2,16 @@ import requests
 from bs4 import BeautifulSoup
 from wikidata.client import Client
 from wikimapper import WikiMapper
+import pandas as pd
+import matplotlib.pyplot as plt
+import lxml
+import networkx as nx
+import cchardet
+import time 
+from multiprocessing import Pool 
+from itertools import compress
+
+start_time = time.time()
 
 """
 a method to map the wikipedia article to the wikidata id 
@@ -51,6 +61,11 @@ def titleGetter(link):
         return title.text
     return False 
 
+def handler(method, x):
+    p = Pool(10)
+    r = p.map(method, x)
+    return r 
+
 """
 kinda the driver method but should send requests out
 and get all the links of the wikipedia page that are human 
@@ -62,8 +77,32 @@ def requestPage(URL):
     # 200 so we're chill
     assert response.status_code == 200, "request did not succeed"
 
-    soup = BeautifulSoup(response.content, 'html.parser')
+    soup = BeautifulSoup(response.content, 'lxml')
+    
+    """
 
+    for headline in soup('span', {'class' : 'mw-headline'}):
+        print(headline.text)
+        if(headline.text=="Sources"):
+            break
+        else:  
+            links = headline.find_all('a')
+            for link in links:
+                print('*', link.text)   
+                      
+        
+            links = headline.find_all('a')
+            for link in links:
+                print('*', link.text) 
+        
+        # what we need to do now 
+        # go through get all links 
+        # extract the names
+        
+        # as soon as we get to see also we are out 
+        
+      """  
+    
     title = soup.find(id="firstHeading")
 
     print(title.string)
@@ -78,28 +117,53 @@ def requestPage(URL):
             links[link.text.strip()] = url
 
     # need to go through and get all the links that are humans
-    keys = list(links.keys())
-    length = len(keys)
     
-    for i in range(length):
-        key = keys[i]
-        # trouble links and also definitely not webpages for a human 
-        if 'http' in links[key]:
-            del links[key]
-            continue
-        
-        # getting the link for their wikipedia page 
-        links[key] = mapToWikiData("https://en.wikipedia.org" + links[key])
-        if not (isName(links[key])):
-            del links[key]
-            
-    # now need to sort through links and see if the items is a name
-    print("Number of PEOPLE linked to")
-    print(len(links))
-    print("people linked to")
-    # not all people, but mostly people 
-    print(links) 
-    return links
+    values = list(links.values())
+    keys1 = list(links.keys())
+    length = len(values)
+    
+    # add any spaces after each dot?? 
+    
+    keys = ["https://en.wikipedia.org" + i for i in values]
+    
+    wikiData = handler(mapToWikiData, keys)
+    names = handler(isName, wikiData)
+    
+    indexes = list(compress(range(len(names)), names))    
+
+    return [keys1[i] for i in indexes]
+
 
 if __name__ == "__main__":
+    print("Ragoonathachary")
     names = requestPage("https://en.wikipedia.org/wiki/Chinthamani_Ragoonatha_Chary")
+    
+    # CANNOT DEAL WITH THE FACT THAT N._R._POGSON AND N.R_.POGSON LINK TO SAME PLACE 
+    print(set(names))
+    
+    
+    f = open("demo2.txt","a")
+    f.truncate(0) 
+    f.write("Source,Target,weight,Type \n")
+    for name in names:
+        f.write("Ragoonathachary, " + name + ", Undirected" + "Ragoonathachary" + "\n")                
+    f.close()  
+    
+    
+    df = pd.read_csv('demo2.txt')
+    G = nx.from_pandas_edgelist(df, 
+                            source='Source',
+                            target='Target',
+                            edge_attr='weight')
+
+    # create vis network
+    from pyvis.network import Network
+
+    net = Network(notebook=True)
+    # load the networkx graph
+    net.from_nx(G)
+    # show
+    net.save_graph("beautiful.html")
+
+    
+    print("--- %s seconds ---" % (time.time() - start_time))
