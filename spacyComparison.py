@@ -129,6 +129,15 @@ def make_file(method, person):
     net.save_graph(filename + ".html")
     
     
+def similarNames(name, names):
+    print(":)")
+    # methods to check against
+    # levenshtein
+    # jaro winkler
+    # longest common substring
+    
+    
+    
 def ntlkNames(sentence):
     people = []
     for sent in nltk.sent_tokenize(sentence):
