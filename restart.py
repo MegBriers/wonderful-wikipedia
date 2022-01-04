@@ -1,6 +1,8 @@
 import sys
 import os
 import re
+import wikipedia
+import spacy
 
 # code needs to
 
@@ -19,6 +21,29 @@ import re
                 # do all three methods
                 # provide individual statistical summary of how well each performed
                 # do statistics for the comparison of methods
+
+def getLinkedNames(page):
+    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+
+def getUnlinkedNames(person):
+    # title = person
+
+    # need to get input into this form
+    title = "Mary Somerville"
+
+    # getting the relevant wikipedia page
+    page = wikipedia.page(title)
+
+    # getting all the text from the page
+    content = page.content
+
+    # removing the irrelevant sections
+    split_string = content.split("== See also ==", 1)
+
+    substring = split_string[0]
+
+    # contains all the relevant text for a wikipedia article
+    return substring
 
 
 def validateName(name):
@@ -46,7 +71,29 @@ if __name__ == '__main__':
         print("yay")
         if len(sys.argv) > 3:
             # perform the specific method
+
+            if sys.argv[2].equals('option1'):
+                spacy.extractingUnlinkedSpacy()
+                # from this point it is written in file
+            elif sys.argv[2].equals('option2'):
+                print("do wikidata methods")
+            elif sys.argv[2].equals('option3'):
+                print("do retrained spacy model")
+            else:
+                print("invalid option given, please refer to the accepted options below")
+                print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+                print("option1 = normal spacy methods")
+                print("option2 = using wikidata")
+                print("option3 = retrained spacy model")
         else:
             # do all three methods
+            print("hold on, this is going to take about 10 years")
+            getLinkedNames("Dummy variable")
+
+        # after the getlinked names
+        # called get linked names here
+        # do the comparison here (call from a comparison file?)
+        # file for comparison : comparisonCurrent
+
     else:
         print("error message")
