@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from wikidata.client import Client
 from wikimapper import WikiMapper
+import concurrent.futures
 import pandas as pd
 import matplotlib.pyplot as plt
 import lxml
@@ -11,16 +12,22 @@ import time
 from multiprocessing import Pool 
 from itertools import compress
 
+from concurrent.futures import ThreadPoolExecutor as PoolExecutor
+from concurrent.futures import Future
+
 start_time = time.time()
 
 """
 a method to map the wikipedia article to the wikidata id 
 so we can figure out if the article refers to a human 
 """
-def mapToWikiData(article):
-    mapper = WikiMapper("data/index_enwiki-latest.db")
-    wikidata_id = mapper.url_to_id(article)
-    return wikidata_id
+def mapToWikiData(articles):
+    wikidataIds = []
+    for article in articles:
+        mapper = WikiMapper("data/index_enwiki-latest.db")
+        wikidata_id = mapper.url_to_id(article)
+        wikidataIds.append(wikidata_id)
+    return wikidataIds
 
 """
 a method that checks whether a wikidata entity
@@ -28,43 +35,21 @@ is a human or not (only want links to other humans)
 """
 def isName(id):
     client = Client()
-    entity = client.get(id, load=True)
-    try:
-        val = client.get('P31')
-        typeOfThing = entity[val]
-        if str(typeOfThing.label) == "human":
-            return True
-    except:
-        return False
+
+    # assertion error : assert self.data is not None
+    print(id)
+
+    # some weird looking links that need chucking out so we are only left with proper links
+
+    if id:
+        entity = client.get(id, load=True)
+        instance_of = client.get('P31', load=True)
+        types = entity.getlist(instance_of)
+        for t in types:
+            t.load()
+        print(types)
+
     return False
-
-    
-"""
-a method to get the title of the 
-current wikipedia article we are looking at
-"""
-def titleGetter(link):
-    if "http" not in link['href']:
-        return False
-    
-    response = requests.get(
-        url=link['href'],
-    )
-    
-    if response.status_code != 200:
-        return False
-    
-    soup = BeautifulSoup(response.content, 'html.parser')
-    
-    title = soup.find(id="firstHeading")
-    if title:
-        return title.text
-    return False 
-
-def handler(method, x):
-    p = Pool(10)
-    r = p.map(method, x)
-    return r 
 
 """
 kinda the driver method but should send requests out
@@ -78,30 +63,6 @@ def requestPage(URL):
     assert response.status_code == 200, "request did not succeed"
 
     soup = BeautifulSoup(response.content, 'lxml')
-    
-    """
-
-    for headline in soup('span', {'class' : 'mw-headline'}):
-        print(headline.text)
-        if(headline.text=="Sources"):
-            break
-        else:  
-            links = headline.find_all('a')
-            for link in links:
-                print('*', link.text)   
-                      
-        
-            links = headline.find_all('a')
-            for link in links:
-                print('*', link.text) 
-        
-        # what we need to do now 
-        # go through get all links 
-        # extract the names
-        
-        # as soon as we get to see also we are out 
-        
-      """  
     
     title = soup.find(id="firstHeading")
 
@@ -121,17 +82,30 @@ def requestPage(URL):
     values = list(links.values())
     keys1 = list(links.keys())
     length = len(values)
-    
-    # add any spaces after each dot?? 
-    
-    keys = ["https://en.wikipedia.org" + i for i in values]
-    
-    wikiData = handler(mapToWikiData, keys)
-    names = handler(isName, wikiData)
-    
-    indexes = list(compress(range(len(names)), names))    
 
-    return [keys1[i] for i in indexes]
+    keys = ["https://en.wikipedia.org" + i for i in values]
+
+    # still very fast :)
+    mapToWikiData(keys)
+
+    futures = []
+    futures2 = []
+    # making it asynchronous
+    # https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        for url in keys:
+            futures.append(executor.submit(isName, id=url))
+
+        for future in concurrent.futures.as_completed(futures):
+            # isName is not identifying the people who are named
+            # apparently not getting any benefit of the parallelism
+            print(future.result())
+            if future.result():
+                futures2.append(url)
+
+    print("people who are people:")
+    print(futures2)
+    return keys
 
 
 if __name__ == "__main__":
@@ -141,7 +115,7 @@ if __name__ == "__main__":
     # CANNOT DEAL WITH THE FACT THAT N._R._POGSON AND N.R_.POGSON LINK TO SAME PLACE 
     print(set(names))
     
-    
+    """
     f = open("demo2.txt","a")
     f.truncate(0) 
     f.write("Source,Target,weight,Type \n")
@@ -156,6 +130,7 @@ if __name__ == "__main__":
                             target='Target',
                             edge_attr='weight')
 
+    
     # create vis network
     from pyvis.network import Network
 
@@ -164,6 +139,6 @@ if __name__ == "__main__":
     net.from_nx(G)
     # show
     net.save_graph("beautiful.html")
-
+    """
     
     print("--- %s seconds ---" % (time.time() - start_time))

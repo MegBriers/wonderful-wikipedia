@@ -1,8 +1,18 @@
+"""
+
+driver code
+
+"""
+
 import sys
 import os
 import re
 import wikipedia
-import spacy
+import spacyExtract
+import scraper
+
+import urlopen
+from bs4 import BeautifulSoup
 
 # code needs to
 
@@ -24,6 +34,13 @@ import spacy
 
 def getLinkedNames(page):
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+
+    # can't do this line
+    html = urlopen("https://en.wikipedia.org/wiki/Mary_Somerville")
+    bsObj = BeautifulSoup(html)
+    for link in bsObj.findAll("a"):
+        if 'href' in link.attrs:
+            print(link.attrs['href'])
 
 def getUnlinkedNames(person):
     # title = person
@@ -73,9 +90,12 @@ if __name__ == '__main__':
             # perform the specific method
 
             if sys.argv[2].equals('option1'):
-                spacy.extractingUnlinkedSpacy()
+                spacyExtract.extractingUnlinkedSpacy()
                 # from this point it is written in file
             elif sys.argv[2].equals('option2'):
+                # this isn't an unlinked option
+                # ntlk ??
+                # find another option that extracts names from text that isn't spacy
                 print("do wikidata methods")
             elif sys.argv[2].equals('option3'):
                 print("do retrained spacy model")
