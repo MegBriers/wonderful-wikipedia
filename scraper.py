@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct 14 09:42:25 2021
+
+CODE THAT EXTRACTS ALL THE LINKED PEOPLE IN AN ARTICLE
+(INCLUDING IRRELEVANT SECTIONS ATM)
+
+@author: Meg
+"""
 import requests
 from bs4 import BeautifulSoup
 from wikidata.client import Client
@@ -7,11 +16,59 @@ import time
 
 start_time = time.time()
 
-"""
-a method to map the wikipedia article to the wikidata id 
-so we can figure out if the article refers to a human 
-"""
+def writeToFile(person, links):
+    """
+
+    A method that outputs all the titles of the linked articles to a text file
+    that can be found in the /output/wikidata folder
+
+    Parameters
+    ----------
+    person : string
+        the person whose wikipedia article we have been scraping
+
+    links : array of strings
+        all the urls from wikipedia articles linked
+
+    """
+    print("✰⋆🌟✪🔯✨")
+    fileName = './output/wikidata/' + person + ".txt"
+    with open(fileName, 'w') as f:
+        # can we do this concurrently (and write to a file??)
+        # maybe do it concurrently, save to a data structure, then write that data structure to the file
+        for URL in links:
+            response = requests.get(
+                url=URL,
+            )
+            # 200 so we're chill
+            assert response.status_code == 200, "request did not succeed"
+
+            soup = BeautifulSoup(response.content, 'lxml')
+
+            title = soup.find(id="firstHeading")
+
+            f.write(title.string)
+            f.write('\n')
+
+
 def mapToWikiData(articles):
+    """
+
+    A  method to map the wikipedia article to the wikidata id
+    so we can figure out if the article refers to a human
+
+    Parameters
+    ----------
+    articles : array of strings
+        all the links from a wikipedia article
+
+    Returns
+    -------
+    wikidataIds : array of strings
+        all the wikidata id's from the articles passed in so the wikidata information
+        can be accessed
+
+    """
     wikidataIds = []
     for article in articles:
         mapper = WikiMapper("data/index_enwiki-latest.db")
@@ -19,13 +76,30 @@ def mapToWikiData(articles):
         wikidataIds.append(wikidata_id)
     return wikidataIds
 
-"""
-a method that checks whether a wikidata entity
-is a human or not (only want links to other humans)
-"""
+
 def isName(id):
+    """
+
+    A method that checks whether a wikidata entity
+    is a human or not (as we only want links to other humans)
+
+    Parameters
+    ----------
+    id : string
+        wikidata id
+
+    Returns
+    -------
+    result, id : Bool, string
+        whether of not the relevant id was a person and the id of the person
+
+    """
+
     client = Client()
+    # manually setting up an entity we know is a person to compare the entity types
+    # Q268702 - Mary Somerville
     entityCompare = client.get('Q268702',load=True)
+    # P31 - 'instance of'
     instance_of = client.get('P31', load=True)
     typesCompare = entityCompare.getlist(instance_of)
     for t in typesCompare:
@@ -34,7 +108,6 @@ def isName(id):
     try:
         entity = client.get(id, load=True)
         instance_of = client.get('P31', load=True)
-        # breaks after here
         types = entity.getlist(instance_of)
         for t in types:
             t.load()
@@ -45,19 +118,31 @@ def isName(id):
 
     except Exception as inst:
         print(type(inst))
-        print(id)
 
     return False, id
 
-"""
-kinda the driver method but should send requests out
-and get all the links of the wikipedia page that are human 
-"""
 def requestPage(URL):
+    """
+
+    The driver method, gets all the titles of the wikipedia
+    pages of people linked to on a given page
+
+    Parameters
+    ----------
+    URL : string
+        url of the wikipedia article we want to get links from
+
+    Returns
+    -------
+    res : list of strings
+        the title of all wikipedia pages that are linked to from main article
+
+    """
+
     response = requests.get(
         url=URL,
     )
-    # 200 so we're chill
+
     assert response.status_code == 200, "request did not succeed"
 
     soup = BeautifulSoup(response.content, 'lxml')
@@ -66,22 +151,25 @@ def requestPage(URL):
 
     print(title.string)
 
-    # gets all the links within the article
-
     links = {}
     for link in soup.find(id="bodyContent").find_all("a"):
         url = link.get("href", "")
-        # only looking for the links in the article that are wiki links atm 
+        # only looking for the links in the article that are wiki links
         if url.startswith("/wiki/") and "/wiki/Category" not in url:
             links[link.text.strip()] = url
 
-    # need to go through and get all the links that are humans
-    
     values = list(links.values())
+
+    print("Values")
+    print(values)
+
     values = ["https://en.wikipedia.org" + i for i in values]
 
-    # still very fast :)
+    # getting the wikidata keys for all the linked articles
     keys = mapToWikiData(values)
+
+    print("Keys")
+    print(keys)
 
     # create a dictionary at this point with the ids as the keys
     dictionary = dict(zip(keys, values))
@@ -90,6 +178,7 @@ def requestPage(URL):
     results = []
 
     # https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
+    # concurrent execution so it is faster
     with concurrent.futures.ThreadPoolExecutor() as executor:
         for url in keys:
             futures.append(executor.submit(isName, id=url))
@@ -107,11 +196,11 @@ def requestPage(URL):
 
 
 if __name__ == "__main__":
-    print("Ragoonathachary")
-    names = requestPage("https://en.wikipedia.org/wiki/Chinthamani_Ragoonatha_Chary")
+    print("Somerville")
+    names = requestPage("https://en.wikipedia.org/wiki/Mary_Somerville")
     
-    # can now deal with unique by the id function but also gives back the wikipedia pages and not the titles
     print(set(names))
-    # would probably be very quick from here to get the titles
+
+    writeToFile("Somerville", names)
 
     print("--- %s seconds ---" % (time.time() - start_time))
