@@ -36,6 +36,7 @@ def spacy_links(links):
         according to spacy 
 
     """
+    print(".・。.・゜✭ getting names via spacy i think ・.・✫・゜・。.")
     names = []
     for doc in links:
         proper = nlp(doc)

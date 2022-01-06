@@ -1,6 +1,45 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jan 04 15:45:07 2022
+
+code that should assess how well the methods have
+performed against the manual test data
+
+@author: Meg
+"""
 import pandas as pd
 
-def comparison_of_nodes(method, person):
+def mutliple_evaluation(person):
+    """
+
+    A method to call the analysis on multiple methods if all three methods want
+    to be compared
+
+    Parameters
+    ----------
+    person : string
+        the person whose wikipedia article we are looking at
+
+    Returns
+    -------
+    None.
+
+    """
+    print("＊*•̩̩͙✩•̩̩͙*˚　MULTIPLE ANALYSIS BEGIN　˚*•̩̩͙✩•̩̩͙*˚＊")
+    max_accuracy = 0
+    max_method = "🐸"
+    for item in ["spacy","ntlk","retrained"]:
+        acc = method_evaluation(item, person)
+        if acc > max_accuracy:
+            max_accuracy = acc
+            max_method = item
+
+    print("＊*•̩̩͙✩•̩̩͙*˚ THE BEST METHOD WAS　˚*•̩̩͙✩•̩̩͙*˚＊")
+    print("＊*•̩̩͙✩•̩̩͙*˚ " + max_method + "　˚*•̩̩͙✩•̩̩͙*˚＊")
+    print("＊*•̩̩͙✩•̩̩͙*˚　with an accuracy of　˚*•̩̩͙✩•̩̩͙*˚＊")
+    print("＊*•̩̩͙✩•̩̩͙*˚ " + max_accuracy + " ˚*•̩̩͙✩•̩̩͙*˚＊")
+
+def method_evaluation(method, person):
     """
 
     A method to give statistics on how accurate the
@@ -15,60 +54,86 @@ def comparison_of_nodes(method, person):
 
     Returns
     -------
-    None.
+    float
+        the proportion of unlinked people identified
 
     """
-    print(":)")
+    # ASSUME THAT THE PERSON HAS BEEN PASSED THROUGH IN DESIRED FORM
 
-    filename = method + "_" + person
+    filename = "./output/" + method + "/" + person + ".txt"
 
-    df = pd.read_csv(filename + ".txt")
+    # the file that stores the method names
+    fileUnlinked = pd.read_csv(filename + ".txt")
 
-    df2 = pd.read_csv("marySomerville_manual.txt")
+    # just line after line of the words
+    # the file that stores linked names
+    fileLinked = pd.read_csv("./output/wikidata/Somerville.txt")
 
-    columnManual = []
+    # the file that stores the manual names
+    manual = pd.read_csv("./output/manual/marySomerville_manual.txt")
 
-    manualLinked = []
-    manualUnLinked = []
+    # all linked in the article
+    linked = []
+    # all unlinked names in the article
+    unlinked = []
+    # all names in article
+    complete = []
 
-    columnMethod = []
+    # identified by method
+    identifiedUnlinked = []
 
-    for index, row in df2.iterrows():
-        columnManual.append(row["Target"])
+    # identified by wikidata
+    identifiedLinked = []
+
+    # manual
+    for index, row in manual.iterrows():
+        complete.append(row["Target"])
         actualRow = row["link"].replace(' ', '')
         if actualRow == "linked":
-            manualLinked.append(row["Target"])
+            linked.append(row["Target"])
         else:
-            manualUnLinked.append(row["Target"])
+            unlinked.append(row["Target"])
 
-    for index, row in df.iterrows():
-        columnMethod.append(row["Target"])
+    # selected method
+    for index, row in fileUnlinked.iterrows():
+        identifiedUnlinked.append(row["Target"])
 
-    columnManual = list(set(columnManual))
+    # wikidata
+    for index,row in fileLinked.iterrows():
+        identifiedLinked.append(row)
 
-    columnMethod = list(set(columnMethod))
 
-    manualLinked = list(set(manualLinked))
+    # make them all sets, as we don't need duplicates
+    linked = list(set(linked))
 
-    manualUnLinked = list(set(manualUnLinked))
+    unlinked = list(set(unlinked))
 
-    com = list(set(columnManual).intersection(columnMethod))
+    identifiedUnlinked = list(set(identifiedUnlinked))
+
+    identifiedLinked = list(set(identifiedLinked))
+
+    completeIdentified = list(set(identifiedUnlinked).intersection(identifiedLinked))
 
     print("")
+    print("·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ 　　.·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ .")
+    print("Welcome to the statistical overview")
+    print("·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ 　　.·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ .")
 
+    print("＊*•̩̩͙✩•̩̩͙*˚　OVERALL PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("Overall proportion of people picked up")
-    print("%.2f" % ((len(com) / len(columnManual)) * 100))
+    print("%.2f" % ((len(completeIdentified) / len(complete)) * 100))
 
+    print("")
+    print("＊*•̩̩͙✩•̩̩͙*˚　UNLINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("Proportion of unlinked people picked up")
-    comUnlinked = list(set(manualUnLinked).intersection(columnMethod))
-    print("%.2f" % ((len(comUnlinked) / len(manualUnLinked)) * 100))
-
-    if method == "spacyText":
-        print("Proportion of linked people picked up")
-        comLinked = list(set(manualLinked).intersection(columnMethod))
-        print("%.2f" % ((len(comLinked) / len(manualLinked)) * 100))
-
+    commonUnlinked = list(set(identifiedUnlinked).intersection(unlinked))
+    print("%.2f" % ((len(commonUnlinked) / len(unlinked)) * 100))
     print("")
-    print("Additional ones by the method")
-    print(list(set(columnMethod).difference(set(columnManual))))
-    print("")
+
+    print("＊*•̩̩͙✩•̩̩͙*˚　GIVEN METHOD PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
+    print("＊*•̩̩͙✩•̩̩͙*˚　chosen method : " + method + "　˚*•̩̩͙✩•̩̩͙*˚＊")
+    print("Proportion of linked people picked up")
+    commonLinked = list(set(identifiedLinked).intersection(linked))
+    print("%.2f" % ((len(commonLinked) / len(linked)) * 100))
+
+    return (len(commonUnlinked) / len(unlinked)) * 100

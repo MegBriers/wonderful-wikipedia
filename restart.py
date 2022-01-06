@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
 """
+Created on Tue Jan 04 09:05:18 2022
 
 driver code
-
+🦆
+@author: Meg
 """
 
 import sys
@@ -10,9 +13,7 @@ import re
 import wikipedia
 import spacyExtract
 import scraper
-
-import urlopen
-from bs4 import BeautifulSoup
+import comparisonCurrent
 
 # code needs to
 
@@ -24,7 +25,7 @@ from bs4 import BeautifulSoup
         # if we have the comparison data ✓
             # if not comparison
                 # get all the names using that specified method
-                    # linked
+                    # linked ✓
                     # unlinked
                 # give a statistical summary of how well it has performed
             # if no second argument given
@@ -32,18 +33,13 @@ from bs4 import BeautifulSoup
                 # provide individual statistical summary of how well each performed
                 # do statistics for the comparison of methods
 
-def getLinkedNames(page):
-    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-
-    # can't do this line
-    html = urlopen("https://en.wikipedia.org/wiki/Mary_Somerville")
-    bsObj = BeautifulSoup(html)
-    for link in bsObj.findAll("a"):
-        if 'href' in link.attrs:
-            print(link.attrs['href'])
+def getLinkedNames(person):
+    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　getting linked names　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+    scraper.requestPage(person)
 
 def getUnlinkedNames(person):
     # title = person
+    print("‧͙⁺˚*･༓☾　getting the page data for unlinked names　☽༓･*˚⁺‧͙")
 
     # need to get input into this form
     title = "Mary Somerville"
@@ -64,6 +60,9 @@ def getUnlinkedNames(person):
 
 
 def validateName(name):
+    # 🦆 - needs to be changed to match file description
+    # space -> _
+    # capitals where normal capitals should be
     print("hello")
     # reformat the names
     pattern = re.compile(r'\s+')
@@ -72,6 +71,8 @@ def validateName(name):
     return os.path.isfile(filePath)
 
 if __name__ == '__main__':
+    Dict = {'option1': 'spacy', 'option2': 'ntlk', 'option3': 'retrained'}
+
     if len(sys.argv) < 2:
         print("")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
@@ -79,13 +80,12 @@ if __name__ == '__main__':
         print("if desired NER method left out then a comparison of all three methods will be performed (warning : longer running time)")
         print("options : ")
         print("option1 = normal spacy methods")
-        print("option2 = using wikidata")
+        print("option2 = using method 2")
         print("option3 = retrained spacy model")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         exit(0)
 
     if (validateName(sys.argv[1])):
-        print("yay")
         if len(sys.argv) > 3:
             # perform the specific method
 
@@ -94,10 +94,11 @@ if __name__ == '__main__':
                 # from this point it is written in file
             elif sys.argv[2].equals('option2'):
                 # this isn't an unlinked option
-                # ntlk ??
+                # ntlk ?? 🦆
                 # find another option that extracts names from text that isn't spacy
-                print("do wikidata methods")
+                print("do a different method")
             elif sys.argv[2].equals('option3'):
+                # 🦆
                 print("do retrained spacy model")
             else:
                 print("invalid option given, please refer to the accepted options below")
@@ -110,10 +111,19 @@ if __name__ == '__main__':
             print("hold on, this is going to take about 10 years")
             getLinkedNames("Dummy variable")
 
-        # after the getlinked names
-        # called get linked names here
+        # formatting to be done here 🦆
+        # replace spaces with underline and any thing either at start or after
+        # underline gets put into capitals
+
+        # must have name in form for wikipedia here
+        scraper.request_linked("Mary_Somerville")
+        
         # do the comparison here (call from a comparison file?)
         # file for comparison : comparisonCurrent
 
+        # 🦆 to be replaced with reformatted name when i've written the code to reformat name
+        comparisonCurrent.method_evaluation(Dict[sys.argv[2]], "Mary_Somerville")
+
     else:
         print("error message")
+        print(".・。.・゜✭・.・✫・゜・。.")

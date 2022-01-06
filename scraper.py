@@ -114,6 +114,7 @@ def isName(id):
         result = 0
         if(len(types) > 0):
             result = (types[0] == typesCompare[0])
+        # if result is true then can check age here to see if the timelines overlapped
         return result, id
 
     except Exception as inst:
@@ -195,12 +196,14 @@ def requestPage(URL):
     return res
 
 
-if __name__ == "__main__":
-    print("Somerville")
-    names = requestPage("https://en.wikipedia.org/wiki/Mary_Somerville")
-    
+def request_linked(person):
+    print("*＊✿❀　❀✿＊*")
+    page = "https://en.wikipedia.org/wiki/" + person
+
+    names = requestPage(page)
+
     print(set(names))
 
-    writeToFile("Somerville", names)
+    writeToFile(person, names)
 
     print("--- %s seconds ---" % (time.time() - start_time))
