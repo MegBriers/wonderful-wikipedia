@@ -66,7 +66,7 @@ def spacy_text(page):
     persons = [ent.text for ent in doc.ents if ent.label_ == 'PER']
     return persons 
 
-def write_to_file(method, title, names):
+def write_to_file(title, names):
     """
     
 
@@ -84,7 +84,12 @@ def write_to_file(method, title, names):
     None.
 
     """
-    filename = "./data/" + method + "_" + title + ".txt"
+
+    underlinedTitle = title.replace(" ", "_")
+
+    filename = "./output/spacy/" + underlinedTitle + "_Unlinked.txt"
+
+    # whether it is necessary to have it in this form TO BE DECIDED
     f = open(filename,"a",encoding='utf-8')
     f.truncate(0) 
     f.write("Source,Target,weight,Type \n")
@@ -149,7 +154,7 @@ def ntlkNames(sentence, title):
                     people.append(text)
 
     # replace with title
-    write_to_file("ntlk", "Mary Somerville", people)
+    write_to_file("ntlk", title, people)
 
 
 def extractingUnlinkedSpacy(data, title):
@@ -157,9 +162,5 @@ def extractingUnlinkedSpacy(data, title):
     spacyTextResult = spacy_text(data)
 
     # creating the data files
-    # write_to_file("spacyLinks", title, spacyLinksResult)
-    write_to_file("spacyText", title, spacyTextResult)
+    write_to_file(title, spacyTextResult)
 
-    # creating the graphs based on the files
-    # make_file("spacyLinks", title)
-    make_graph("spacyText", title)

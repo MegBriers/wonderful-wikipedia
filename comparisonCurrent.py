@@ -60,17 +60,19 @@ def method_evaluation(method, person):
     """
     # ASSUME THAT THE PERSON HAS BEEN PASSED THROUGH IN DESIRED FORM
 
-    filename = "./output/" + method + "/" + person + ".txt"
+    filename = "./output/" + method + "/" + person + "_Unlinked.txt"
 
     # the file that stores the method names
     fileUnlinked = pd.read_csv(filename + ".txt")
 
     # just line after line of the words
     # the file that stores linked names
-    fileLinked = pd.read_csv("./output/wikidata/Somerville.txt")
+
+    # needs renaming
+    fileLinked = pd.read_csv("./output/wikidata/" + person + "_Linked.txt")
 
     # the file that stores the manual names
-    manual = pd.read_csv("./output/manual/marySomerville_manual.txt")
+    manual = pd.read_csv("./people/Mary_Somerville.txt")
 
     # all linked in the article
     linked = []

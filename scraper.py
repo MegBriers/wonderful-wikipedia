@@ -32,7 +32,7 @@ def writeToFile(person, links):
 
     """
     print("✰⋆🌟✪🔯✨")
-    fileName = './output/wikidata/' + person + ".txt"
+    fileName = './output/wikidata/' + person + "_Links.txt"
     with open(fileName, 'w') as f:
         # can we do this concurrently (and write to a file??)
         # maybe do it concurrently, save to a data structure, then write that data structure to the file
@@ -107,6 +107,7 @@ def isName(id):
 
     try:
         entity = client.get(id, load=True)
+        # this will throw an error whenever the item loaded is not a person currently (hence the need for try, except blocks)
         instance_of = client.get('P31', load=True)
         types = entity.getlist(instance_of)
         for t in types:
@@ -118,7 +119,7 @@ def isName(id):
         return result, id
 
     except Exception as inst:
-        print(type(inst))
+        print("✨")
 
     return False, id
 
@@ -185,8 +186,12 @@ def requestPage(URL):
             futures.append(executor.submit(isName, id=url))
 
         for future in concurrent.futures.as_completed(futures):
-            if future.result()[0]:
-                results.append(future.result()[1])
+            # exception here
+            try:
+                if future.result()[0]:
+                    results.append(future.result()[1])
+            except:
+                print("uh oh")
 
     print("wikidata ids for the items who are people:")
     print(results)
@@ -203,6 +208,8 @@ def request_linked(person):
     names = requestPage(page)
 
     print(set(names))
+
+    print("*＊✿❀　❀✿＊*")
 
     writeToFile(person, names)
 
