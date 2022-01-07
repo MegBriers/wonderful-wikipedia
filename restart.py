@@ -25,7 +25,7 @@ import comparisonCurrent
             # if not comparison
                 # get all the names using that specified method
                     # linked ✓
-                    # unlinked (spacy ✓, ntlk, new spacy)
+                    # unlinked (spacy ✓, ntlk ✓, new spacy)
                 # give a statistical summary of how well it has performed ✓
             # if no second argument given
                 # do all three methods
@@ -144,27 +144,23 @@ if __name__ == '__main__':
     res, newName = validateName(sys.argv[1])
 
     if (res):
+        spaceNewName = newName.replace("_", " ")
+
+        print(spaceNewName)
+
+        # the wikipedia page
+        data = getPageContent(spaceNewName)
+
         if len(sys.argv) >= 3:
-            inp = sys.argv[1]
-
-            spaceNewName = newName.replace("_", " ")
-
-            print(spaceNewName)
-
-            # the wikipedia page
-            data = getPageContent(spaceNewName)
 
             if sys.argv[2] == 'option1':
                 print("Getting all the names mentioned in the article using standard spacy....")
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
                 spacyExtract.extractingUnlinkedSpacy(data, spaceNewName)
             elif sys.argv[2] == 'option2':
-                print("Getting all the names mentioned in the article using [insert name here]....")
+                print("Getting all the names mentioned in the article using NTLK....")
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-                # this isn't an unlinked option
-                # ntlk ?? 🦆
-                # find another option that extracts names from text that isn't spacy
-                print("do a different method")
+                spacyExtract.ntlkNames(data, spaceNewName)
             elif sys.argv[2] == 'option3':
                 # 🦆
                 print("Getting all the names mentioned in the article using [retrained spacy]....")
@@ -178,7 +174,13 @@ if __name__ == '__main__':
         else:
             print("hold on, this is going to take about 10 years")
             print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+            print("Performing all methods of named entity recognition....")
+            print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
             # do all three methods 🦆
+            print(".・。.・゜✭spacy・.・✫・゜・。.")
+            spacyExtract.ntlkNames(data, spaceNewName)
+            print(".・。.・゜✭ntlk・.・✫・゜・。.")
+            spacyExtract.extractingUnlinkedSpacy(data, spaceNewName)
 
 
         print("Getting all linked names from the wikipedia article....")

@@ -5,6 +5,10 @@ Created on Fri Oct 22 20:20:54 2021
 CODE THAT EXTRACTS ALL THE NAMED PEOPLE WITHIN A GIVEN ARTICLE
 USING THE STANDARD SPACY MODEL
 
+AND NTLK
+
+POSSIBLY NEEDS RENAMING
+
 @author: Meg
 """
 
@@ -66,7 +70,7 @@ def spacy_text(page):
     persons = [ent.text for ent in doc.ents if ent.label_ == 'PER']
     return persons 
 
-def write_to_file(title, names):
+def write_to_file(method, title, names):
     """
     
 
@@ -87,9 +91,9 @@ def write_to_file(title, names):
 
     underlinedTitle = title.replace(" ", "_")
 
-    filename = "./output/spacy/" + underlinedTitle + "_Unlinked.txt"
+    filename = "./output/" + method + "/" + underlinedTitle + "_Unlinked.txt"
 
-    # whether it is necessary to have it in this form TO BE DECIDED
+    # whether it is necessary to have it in this form TO BE DECIDED 🦆
     f = open(filename,"a",encoding='utf-8')
     f.truncate(0) 
     f.write("Source,Target,weight,Type \n")
@@ -145,6 +149,7 @@ def similarNames(name, names):
     
 
 def ntlkNames(sentence, title):
+    # haven't looked at this for a while but let's hope it works :)
     people = []
     for sent in nltk.sent_tokenize(sentence):
         for chunk in nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(sent))):
@@ -153,8 +158,7 @@ def ntlkNames(sentence, title):
                     text = ' '.join(c[0] for c in chunk)
                     people.append(text)
 
-    # replace with title
-    write_to_file("ntlk", title, people)
+    write_to_file("ntlk", title, list(set(people)))
 
 
 def extractingUnlinkedSpacy(data, title):
@@ -162,5 +166,6 @@ def extractingUnlinkedSpacy(data, title):
     spacyTextResult = spacy_text(data)
 
     # creating the data files
-    write_to_file(title, spacyTextResult)
+    write_to_file("spacy", title, spacyTextResult)
+
 
