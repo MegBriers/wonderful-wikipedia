@@ -3,7 +3,7 @@
 Created on Thu Oct 14 09:42:25 2021
 
 CODE THAT EXTRACTS ALL THE LINKED PEOPLE IN AN ARTICLE
-(INCLUDING IRRELEVANT SECTIONS ATM)
+(INCLUDING IRRELEVANT SECTIONS ATM and irrelevant people by year of birth)
 
 @author: Meg
 """
@@ -104,6 +104,8 @@ def isName(id):
     typesCompare = entityCompare.getlist(instance_of)
     for t in typesCompare:
         t.load()
+
+    # get date of birth here 🦆
 
     try:
         entity = client.get(id, load=True)
@@ -213,4 +215,5 @@ def request_linked(person):
 
     writeToFile(person, names)
 
+    print("Time taken to extract articles linked to that where the subject atter is human : ")
     print("--- %s seconds ---" % (time.time() - start_time))

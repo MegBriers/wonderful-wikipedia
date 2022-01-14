@@ -174,6 +174,7 @@ if __name__ == '__main__':
         else:
             print("hold on, this is going to take about 10 years")
             print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+            """
             print("Performing all methods of named entity recognition....")
             print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
             # do all three methods 🦆
@@ -181,6 +182,7 @@ if __name__ == '__main__':
             spacyExtract.ntlkNames(data, spaceNewName)
             print(".・。.・゜✭ntlk・.・✫・゜・。.")
             spacyExtract.extractingUnlinkedSpacy(data, spaceNewName)
+            """
 
 
         print("Getting all linked names from the wikipedia article....")
