@@ -17,58 +17,38 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import spacy
 from pyvis.network import Network
-import nltk 
+import nltk
 
-nlp = spacy.load("xx_ent_wiki_sm")
+nlp1 = spacy.load("xx_ent_wiki_sm")
+nlp2 = spacy.load("maths_ner_model")
 
 
-def spacy_links(links):
+def spacy_text(page, nlp):
     """
-    
-    A method that checks which of the links from a given wikipedia
-    page are pages of people 
 
-    Parameters
-    ----------
-    links : array of strings 
-        all the links from a wikipedia article 
-
-    Returns
-    -------
-    names : array of strings 
-        all the links from a wikipedia article that are names
-        according to spacy 
-
-    """
-    print(".・。.・゜✭ getting names via spacy i think ・.・✫・゜・。.")
-    names = []
-    for doc in links:
-        proper = nlp(doc)
-        persons = [ent.text for ent in proper.ents if ent.label_ == "PERSON"]
-        if len(persons) > 0:
-            names.append(persons[0])
-    return names 
-    
-    
-def spacy_text(page):
-    """
-    
+    A method to extract all the identified people in
+    the file getting analysised
 
     Parameters
     ----------
     page : string
         the content of a wikipedia page EXCLUDING everything 
-        after see also 
+        after see also
+
+    nlp : nlp model
+        the relevant model for the method requested
 
     Returns
     -------
     persons : array of strings
-        all the people named in the article 
+        all the people named in the article
 
     """
     doc = nlp(page)
+    # 'PERSON'?
     persons = [ent.text for ent in doc.ents if ent.label_ == 'PER']
-    return persons 
+    return persons
+
 
 def write_to_file(method, title, names):
     """
@@ -94,15 +74,16 @@ def write_to_file(method, title, names):
     filename = "./output/" + method + "/" + underlinedTitle + "_Unlinked.txt"
 
     # whether it is necessary to have it in this form TO BE DECIDED 🦆
-    f = open(filename,"a",encoding='utf-8')
-    f.truncate(0) 
+    f = open(filename, "a", encoding='utf-8')
+    f.truncate(0)
     f.write("Source,Target,weight,Type \n")
-    i = 0 
+    i = 0
     for key in names:
         f.write(title + "," + key + "," + title + ",Undirected" + "\n")
-        i+=1             
-    f.close()  
-    
+        i += 1
+    f.close()
+
+
 def make_graph(method, title):
     """
     
@@ -122,31 +103,30 @@ def make_graph(method, title):
 
     """
     filename = method + "_" + title
-    
+
     df = pd.read_csv(filename + ".txt")
 
-
     # load pandas df as networkx graph
-    G = nx.from_pandas_edgelist(df, 
-                            source='Source',
-                            target='Target',
-                            edge_attr='weight')
+    G = nx.from_pandas_edgelist(df,
+                                source='Source',
+                                target='Target',
+                                edge_attr='weight')
 
     # create vis network
     net = Network(notebook=True)
     # load the networkx graph
     net.from_nx(G)
-    
+
     net.save_graph(filename + ".html")
-    
-    
+
+
 def similar_names(name, names):
     print(":)")
     # methods to check against
     # levenshtein
     # jaro winkler
     # longest common substring
-    
+
 
 def ntlk_names(sentence, title):
     # haven't looked at this for a while but let's hope it works :)
@@ -161,11 +141,12 @@ def ntlk_names(sentence, title):
     write_to_file("ntlk", title, list(set(people)))
 
 
-def extracting_unlinked_spacy(data, title):
+def extracting_unlinked_spacy(data, title, method):
     # getting all the names mentioned in the text
-    spacyTextResult = spacy_text(data)
+    if method == "spacy":
+        text_result = spacy_text(data, nlp1)
+    else:
+        text_result = spacy_text(data, nlp2)
 
     # creating the data files
-    write_to_file("spacy", title, spacyTextResult)
-
-
+    write_to_file(method, title, text_result)

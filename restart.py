@@ -3,7 +3,7 @@
 Created on Tue Jan 04 09:05:18 2022
 
 driver code
-🦆
+🦆 - comparison to go back in
 @author: Meg
 """
 
@@ -13,24 +13,6 @@ import wikipedia
 import spacyExtract
 import scraper
 import comparisonCurrent
-
-# code needs to
-
-# methods : [option 1] [option 2] [option 3] [comparison option]
-
-# for a specified wikipedia page and method
-    # check we have the comparison data for that specified page ✓
-        # if not then reject name ✓
-        # if we have the comparison data ✓
-            # if not comparison
-                # get all the names using that specified method
-                    # linked ✓
-                    # unlinked (spacy ✓, ntlk ✓, new spacy)
-                # give a statistical summary of how well it has performed ✓
-            # if no second argument given
-                # do all three methods
-                # provide individual statistical summary of how well each performed ✓
-                # do statistics for the comparison of methods ✓
 
 def get_linked_names(person):
     """
@@ -156,15 +138,15 @@ if __name__ == '__main__':
             if sys.argv[2] == 'option1':
                 print("Getting all the names mentioned in the article using standard spacy....")
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-                spacyExtract.extracting_unlinked_spacy(data, spaceNewName)
+                spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy")
             elif sys.argv[2] == 'option2':
                 print("Getting all the names mentioned in the article using NTLK....")
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
                 spacyExtract.ntlk_names(data, spaceNewName)
             elif sys.argv[2] == 'option3':
-                # 🦆
                 print("Getting all the names mentioned in the article using [retrained spacy]....")
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+                spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy_new")
             else:
                 print("Invalid option given, please refer to the accepted options below")
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
@@ -174,15 +156,16 @@ if __name__ == '__main__':
         else:
             print("hold on, this is going to take about 10 years")
             print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-            """
+
             print("Performing all methods of named entity recognition....")
             print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-            # do all three methods 🦆
             print(".・。.・゜✭spacy・.・✫・゜・。.")
-            spacyExtract.ntlkNames(data, spaceNewName)
+            spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy")
             print(".・。.・゜✭ntlk・.・✫・゜・。.")
-            spacyExtract.extractingUnlinkedSpacy(data, spaceNewName)
-            """
+            spacyExtract.ntlk_names(data, spaceNewName)
+            print(".・。.・゜✭retrained spacy・.・✫・゜・。.")
+            spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy_new")
+
 
 
         print("Getting all linked names from the wikipedia article....")
