@@ -32,7 +32,7 @@ import comparisonCurrent
                 # provide individual statistical summary of how well each performed ✓
                 # do statistics for the comparison of methods ✓
 
-def getLinkedNames(person):
+def get_linked_names(person):
     """
 
     A method that calls the relevant part of the code to access all the linked names
@@ -48,10 +48,10 @@ def getLinkedNames(person):
 
     """
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　getting linked names　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-    scraper.requestPage(person)
+    scraper.request_page(person)
 
 
-def getPageContent(person):
+def get_page_content(person):
     """
 
     A method that gets the relevant text content of the wikipedia for
@@ -85,7 +85,7 @@ def getPageContent(person):
     return substring
 
 
-def validateName(name):
+def validate_name(name):
     """
 
     A method that calls the relevant part of the code to access all the linked names
@@ -141,7 +141,7 @@ if __name__ == '__main__':
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         exit(0)
 
-    res, newName = validateName(sys.argv[1])
+    res, newName = validate_name(sys.argv[1])
 
     if (res):
         spaceNewName = newName.replace("_", " ")
@@ -149,18 +149,18 @@ if __name__ == '__main__':
         print(spaceNewName)
 
         # the wikipedia page
-        data = getPageContent(spaceNewName)
+        data = get_page_content(spaceNewName)
 
         if len(sys.argv) >= 3:
 
             if sys.argv[2] == 'option1':
                 print("Getting all the names mentioned in the article using standard spacy....")
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-                spacyExtract.extractingUnlinkedSpacy(data, spaceNewName)
+                spacyExtract.extracting_unlinked_spacy(data, spaceNewName)
             elif sys.argv[2] == 'option2':
                 print("Getting all the names mentioned in the article using NTLK....")
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-                spacyExtract.ntlkNames(data, spaceNewName)
+                spacyExtract.ntlk_names(data, spaceNewName)
             elif sys.argv[2] == 'option3':
                 # 🦆
                 print("Getting all the names mentioned in the article using [retrained spacy]....")

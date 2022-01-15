@@ -16,7 +16,8 @@ import time
 
 start_time = time.time()
 
-def writeToFile(person, links):
+
+def write_to_file(person, links):
     """
 
     A method that outputs all the titles of the linked articles to a text file
@@ -51,7 +52,7 @@ def writeToFile(person, links):
             f.write('\n')
 
 
-def mapToWikiData(articles):
+def map_to_wiki_data(articles):
     """
 
     A  method to map the wikipedia article to the wikidata id
@@ -77,7 +78,7 @@ def mapToWikiData(articles):
     return wikidataIds
 
 
-def isName(id):
+def is_name(id):
     """
 
     A method that checks whether a wikidata entity
@@ -98,7 +99,7 @@ def isName(id):
     client = Client()
     # manually setting up an entity we know is a person to compare the entity types
     # Q268702 - Mary Somerville
-    entityCompare = client.get('Q268702',load=True)
+    entityCompare = client.get('Q268702', load=True)
     # P31 - 'instance of'
     instance_of = client.get('P31', load=True)
     typesCompare = entityCompare.getlist(instance_of)
@@ -115,7 +116,7 @@ def isName(id):
         for t in types:
             t.load()
         result = 0
-        if(len(types) > 0):
+        if (len(types) > 0):
             result = (types[0] == typesCompare[0])
         # if result is true then can check age here to see if the timelines overlapped
         return result, id
@@ -125,7 +126,8 @@ def isName(id):
 
     return False, id
 
-def requestPage(URL):
+
+def request_page(URL):
     """
 
     The driver method, gets all the titles of the wikipedia
@@ -150,7 +152,7 @@ def requestPage(URL):
     assert response.status_code == 200, "request did not succeed"
 
     soup = BeautifulSoup(response.content, 'lxml')
-    
+
     title = soup.find(id="firstHeading")
 
     print(title.string)
@@ -170,7 +172,7 @@ def requestPage(URL):
     values = ["https://en.wikipedia.org" + i for i in values]
 
     # getting the wikidata keys for all the linked articles
-    keys = mapToWikiData(values)
+    keys = map_to_wiki_data(values)
 
     print("Keys")
     print(keys)
@@ -185,7 +187,7 @@ def requestPage(URL):
     # concurrent execution so it is faster
     with concurrent.futures.ThreadPoolExecutor() as executor:
         for url in keys:
-            futures.append(executor.submit(isName, id=url))
+            futures.append(executor.submit(is_name, id=url))
 
         for future in concurrent.futures.as_completed(futures):
             # exception here
@@ -207,13 +209,13 @@ def request_linked(person):
     print("*＊✿❀　❀✿＊*")
     page = "https://en.wikipedia.org/wiki/" + person
 
-    names = requestPage(page)
+    names = request_page(page)
 
     print(set(names))
 
     print("*＊✿❀　❀✿＊*")
 
-    writeToFile(person, names)
+    write_to_file(person, names)
 
     print("Time taken to extract articles linked to that where the subject atter is human : ")
     print("--- %s seconds ---" % (time.time() - start_time))

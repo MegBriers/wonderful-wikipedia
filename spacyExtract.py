@@ -140,7 +140,7 @@ def make_graph(method, title):
     net.save_graph(filename + ".html")
     
     
-def similarNames(name, names):
+def similar_names(name, names):
     print(":)")
     # methods to check against
     # levenshtein
@@ -148,7 +148,7 @@ def similarNames(name, names):
     # longest common substring
     
 
-def ntlkNames(sentence, title):
+def ntlk_names(sentence, title):
     # haven't looked at this for a while but let's hope it works :)
     people = []
     for sent in nltk.sent_tokenize(sentence):
@@ -161,7 +161,7 @@ def ntlkNames(sentence, title):
     write_to_file("ntlk", title, list(set(people)))
 
 
-def extractingUnlinkedSpacy(data, title):
+def extracting_unlinked_spacy(data, title):
     # getting all the names mentioned in the text
     spacyTextResult = spacy_text(data)
 

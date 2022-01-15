@@ -9,6 +9,7 @@ performed against the manual test data
 """
 import pandas as pd
 
+
 def mutliple_evaluation(person):
     """
 
@@ -28,7 +29,7 @@ def mutliple_evaluation(person):
     print("＊*•̩̩͙✩•̩̩͙*˚　MULTIPLE ANALYSIS BEGIN　˚*•̩̩͙✩•̩̩͙*˚＊")
     max_accuracy = 0
     max_method = "🐸"
-    for item in ["spacy","ntlk","retrained"]:
+    for item in ["spacy", "ntlk", "retrained"]:
         acc = method_evaluation(item, person)
         if acc > max_accuracy:
             max_accuracy = acc
@@ -38,6 +39,7 @@ def mutliple_evaluation(person):
     print("＊*•̩̩͙✩•̩̩͙*˚ " + max_method + "　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("＊*•̩̩͙✩•̩̩͙*˚　with an accuracy of　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("＊*•̩̩͙✩•̩̩͙*˚ " + max_accuracy + " ˚*•̩̩͙✩•̩̩͙*˚＊")
+
 
 def method_evaluation(method, person):
     """
@@ -101,9 +103,8 @@ def method_evaluation(method, person):
         identifiedUnlinked.append(row["Target"])
 
     # wikidata
-    for index,row in fileLinked.iterrows():
+    for index, row in fileLinked.iterrows():
         identifiedLinked.append(row)
-
 
     # make them all sets, as we don't need duplicates
     linked = list(set(linked))
