@@ -118,7 +118,7 @@ if __name__ == '__main__':
         print("if desired NER method left out then a comparison of all three methods will be performed (warning : longer running time)")
         print("options : ")
         print("option1 = normal spacy methods")
-        print("option2 = using method 2")
+        print("option2 = using NTLK")
         print("option3 = retrained spacy model")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         exit(0)
