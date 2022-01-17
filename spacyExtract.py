@@ -14,7 +14,6 @@ POSSIBLY NEEDS RENAMING
 
 import networkx as nx
 import pandas as pd
-import matplotlib.pyplot as plt
 import spacy
 from pyvis.network import Network
 import nltk

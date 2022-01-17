@@ -33,7 +33,7 @@ def write_to_file(person, links):
 
     """
     print("✰⋆🌟✪🔯✨")
-    fileName = './output/wikidata/' + person + "_Links.txt"
+    fileName = './output/wikidata/' + person + "_Linked.txt"
     with open(fileName, 'w') as f:
         # can we do this concurrently (and write to a file??)
         # maybe do it concurrently, save to a data structure, then write that data structure to the file

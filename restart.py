@@ -133,6 +133,7 @@ if __name__ == '__main__':
         # the wikipedia page
         data = get_page_content(spaceNewName)
 
+        """
         if len(sys.argv) >= 3:
 
             if sys.argv[2] == 'option1':
@@ -172,13 +173,16 @@ if __name__ == '__main__':
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         # must have name in form for wikipedia here
         scraper.request_linked(newName)
+        
+        """
 
-        print("phew we got through it")
-        # do the comparison here (call from a comparison file?)
-        # file for comparison : comparisonCurrent
+        print("time to do some STATZ")
+        print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
 
-        # there will not be a sys.argv[2] if all the methods
-        # comparisonCurrent.method_evaluation(Dict[sys.argv[2]], newName)
+        if len(sys.argv) >= 3:
+            comparisonCurrent.method_evaluation(Dict[sys.argv[2]], newName)
+        else:
+            comparisonCurrent.method_evaluation("all",newName)
 
     else:
         print("There does not seem to be manual data to allow comparison, apologies")

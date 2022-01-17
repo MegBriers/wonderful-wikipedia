@@ -10,7 +10,7 @@ performed against the manual test data
 import pandas as pd
 
 
-def mutliple_evaluation(person):
+def multiple_evaluation(person):
     """
 
     A method to call the analysis on multiple methods if all three methods want
@@ -29,7 +29,7 @@ def mutliple_evaluation(person):
     print("＊*•̩̩͙✩•̩̩͙*˚　MULTIPLE ANALYSIS BEGIN　˚*•̩̩͙✩•̩̩͙*˚＊")
     max_accuracy = 0
     max_method = "🐸"
-    for item in ["spacy", "ntlk", "retrained"]:
+    for item in ["spacy", "ntlk", "spacy_new"]:
         acc = method_evaluation(item, person)
         if acc > max_accuracy:
             max_accuracy = acc
@@ -38,7 +38,7 @@ def mutliple_evaluation(person):
     print("＊*•̩̩͙✩•̩̩͙*˚ THE BEST METHOD WAS　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("＊*•̩̩͙✩•̩̩͙*˚ " + max_method + "　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("＊*•̩̩͙✩•̩̩͙*˚　with an accuracy of　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("＊*•̩̩͙✩•̩̩͙*˚ " + max_accuracy + " ˚*•̩̩͙✩•̩̩͙*˚＊")
+    print("＊*•̩̩͙✩•̩̩͙*˚ " + str(max_accuracy) + " ˚*•̩̩͙✩•̩̩͙*˚＊")
 
 
 def method_evaluation(method, person):
@@ -62,81 +62,94 @@ def method_evaluation(method, person):
     """
     # ASSUME THAT THE PERSON HAS BEEN PASSED THROUGH IN DESIRED FORM
 
-    filename = "./output/" + method + "/" + person + "_Unlinked.txt"
+    if method == "all":
+        multiple_evaluation(person)
+    else:
 
-    # the file that stores the method names
-    fileUnlinked = pd.read_csv(filename + ".txt")
+        filename = "./output/" + method + "/" + person + "_Unlinked"
 
-    # just line after line of the words
-    # the file that stores linked names
+        # the file that stores the method names
+        fileUnlinked = pd.read_csv(filename + ".txt")
 
-    # needs renaming
-    fileLinked = pd.read_csv("./output/wikidata/" + person + "_Linked.txt")
+        # just line after line of the words
+        # the file that stores linked names
 
-    # the file that stores the manual names
-    manual = pd.read_csv("./people/Mary_Somerville.txt")
+        # needs renaming
+        # doesn't work if there are multiple commas for the one person
 
-    # all linked in the article
-    linked = []
-    # all unlinked names in the article
-    unlinked = []
-    # all names in article
-    complete = []
+        # read txt and just have a check for whether name IN the longer version of name
+        # THIS GIVES SUCH A WEIRD DATA ITEM
+        fileLinked = pd.read_csv("./output/wikidata/" + person + "_Linked.txt", sep="\n")
 
-    # identified by method
-    identifiedUnlinked = []
+        fileLinked = open("./output/wikidata/" + person + "_Linked.txt", "r")
+        content = fileLinked.read()
+        # identified by wikidata
+        identifiedLinked = content.split("\n")
+        fileLinked.close()
 
-    # identified by wikidata
-    identifiedLinked = []
+        # the file that stores the manual names
+        manual = pd.read_csv("./people/Mary_Somerville.txt")
 
-    # manual
-    for index, row in manual.iterrows():
-        complete.append(row["Target"])
-        actualRow = row["link"].replace(' ', '')
-        if actualRow == "linked":
-            linked.append(row["Target"])
-        else:
-            unlinked.append(row["Target"])
+        # all linked in the article
+        linked = []
+        # all unlinked names in the article
+        unlinked = []
+        # all names in article
+        complete = []
 
-    # selected method
-    for index, row in fileUnlinked.iterrows():
-        identifiedUnlinked.append(row["Target"])
+        # identified by method
+        identifiedUnlinked = []
 
-    # wikidata
-    for index, row in fileLinked.iterrows():
-        identifiedLinked.append(row)
+        # manual
+        for index, row in manual.iterrows():
+            complete.append(row["Target"])
+            actualRow = row["link"].replace(' ', '')
+            if actualRow == "linked":
+                linked.append(row["Target"])
+            else:
+                unlinked.append(row["Target"])
 
-    # make them all sets, as we don't need duplicates
-    linked = list(set(linked))
+        # selected method
+        for index, row in fileUnlinked.iterrows():
+            identifiedUnlinked.append(row["Target"])
 
-    unlinked = list(set(unlinked))
+        # make them all sets, as we don't need duplicates
+        linked = list(set(linked))
 
-    identifiedUnlinked = list(set(identifiedUnlinked))
+        unlinked = list(set(unlinked))
 
-    identifiedLinked = list(set(identifiedLinked))
+        identifiedUnlinked = list(set(identifiedUnlinked))
 
-    completeIdentified = list(set(identifiedUnlinked).intersection(identifiedLinked))
+        print(":)")
+        print(identifiedUnlinked)
+        print("")
+        print(identifiedLinked)
 
-    print("")
-    print("·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ 　　.·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ .")
-    print("Welcome to the statistical overview")
-    print("·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ 　　.·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ .")
+        # breaking at this line, but how is it getting past that first LINE
+        identifiedLinked = list(set(identifiedLinked))
 
-    print("＊*•̩̩͙✩•̩̩͙*˚　OVERALL PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("Overall proportion of people picked up")
-    print("%.2f" % ((len(completeIdentified) / len(complete)) * 100))
+        completeIdentified = list(set(identifiedUnlinked).intersection(identifiedLinked))
 
-    print("")
-    print("＊*•̩̩͙✩•̩̩͙*˚　UNLINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("Proportion of unlinked people picked up")
-    commonUnlinked = list(set(identifiedUnlinked).intersection(unlinked))
-    print("%.2f" % ((len(commonUnlinked) / len(unlinked)) * 100))
-    print("")
+        print("")
+        print("·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ 　　.·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ .")
+        print("Welcome to the statistical overview")
+        print("·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ 　　.·͙*̩̩͙˚̩̥̩̥*̩̩̥͙　✩　*̩̩̥͙˚̩̥̩̥*̩̩͙‧͙ .")
 
-    print("＊*•̩̩͙✩•̩̩͙*˚　GIVEN METHOD PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("＊*•̩̩͙✩•̩̩͙*˚　chosen method : " + method + "　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("Proportion of linked people picked up")
-    commonLinked = list(set(identifiedLinked).intersection(linked))
-    print("%.2f" % ((len(commonLinked) / len(linked)) * 100))
+        print("＊*•̩̩͙✩•̩̩͙*˚　OVERALL PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
+        print("Overall proportion of people picked up")
+        print("%.2f" % ((len(completeIdentified) / len(complete)) * 100))
 
-    return (len(commonUnlinked) / len(unlinked)) * 100
+        print("")
+        print("＊*•̩̩͙✩•̩̩͙*˚　UNLINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
+        print("Proportion of unlinked people picked up")
+        commonUnlinked = list(set(identifiedUnlinked).intersection(unlinked))
+        print("%.2f" % ((len(commonUnlinked) / len(unlinked)) * 100))
+        print("")
+
+        print("＊*•̩̩͙✩•̩̩͙*˚　GIVEN METHOD PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
+        print("＊*•̩̩͙✩•̩̩͙*˚　chosen method : " + method + "　˚*•̩̩͙✩•̩̩͙*˚＊")
+        print("Proportion of linked people picked up")
+        commonLinked = list(set(identifiedLinked).intersection(linked))
+        print("%.2f" % ((len(commonLinked) / len(linked)) * 100))
+
+        return (len(commonUnlinked) / len(unlinked)) * 100
