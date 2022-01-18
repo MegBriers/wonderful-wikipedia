@@ -35,13 +35,12 @@ def write_to_file(person, links):
     print("✰⋆🌟✪🔯✨")
     fileName = './output/wikidata/' + person + "_Linked.txt"
     with open(fileName, 'w') as f:
-        # can we do this concurrently (and write to a file??)
-        # maybe do it concurrently, save to a data structure, then write that data structure to the file
+        # Ada Lovelace making it in twice ???
         for URL in links:
             response = requests.get(
                 url=URL,
             )
-            # 200 so we're chill
+
             assert response.status_code == 200, "request did not succeed"
 
             soup = BeautifulSoup(response.content, 'lxml')

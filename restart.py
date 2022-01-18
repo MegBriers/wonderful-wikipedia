@@ -3,7 +3,6 @@
 Created on Tue Jan 04 09:05:18 2022
 
 driver code
-🦆 - comparison to go back in
 @author: Meg
 """
 
@@ -99,8 +98,6 @@ def validate_name(name):
         else:
             newName = newName + "_" + parts[i].capitalize()
 
-    print(newName)
-
     filePath = './people/' + newName + '.txt'
 
     return os.path.isfile(filePath), newName
@@ -128,12 +125,11 @@ if __name__ == '__main__':
     if (res):
         spaceNewName = newName.replace("_", " ")
 
-        print(spaceNewName)
-
         # the wikipedia page
+        """
         data = get_page_content(spaceNewName)
 
-        """
+        
         if len(sys.argv) >= 3:
 
             if sys.argv[2] == 'option1':
