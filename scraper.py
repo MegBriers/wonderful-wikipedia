@@ -165,16 +165,10 @@ def request_page(URL):
 
     values = list(links.values())
 
-    print("Values")
-    print(values)
-
     values = ["https://en.wikipedia.org" + i for i in values]
 
     # getting the wikidata keys for all the linked articles
     keys = map_to_wiki_data(values)
-
-    print("Keys")
-    print(keys)
 
     # create a dictionary at this point with the ids as the keys
     dictionary = dict(zip(keys, values))
@@ -196,23 +190,18 @@ def request_page(URL):
             except:
                 print("uh oh")
 
-    print("wikidata ids for the items who are people:")
-    print(results)
-
     res = [dictionary[fut] for fut in results]
 
     return res
 
 
 def request_linked(person):
-    print("*＊✿❀　❀✿＊*")
+    print("*＊✿❀ Requesting links　❀✿＊*")
     page = "https://en.wikipedia.org/wiki/" + person
 
     names = request_page(page)
 
-    print(set(names))
-
-    print("*＊✿❀　❀✿＊*")
+    print("*＊✿❀　Writing linked people to a file ❀✿＊*")
 
     write_to_file(person, names)
 
