@@ -36,10 +36,11 @@ for i in range(2,649):
         else:
             correspondences[F_val] += 1
     else:
-        if not(E_val in correspondences):
-            correspondences[E_val] = 1
-        else:
-            correspondences[E_val] += 1
+        if 'Somerville' in str(F_val):
+            if not(E_val in correspondences):
+                correspondences[E_val] = 1
+            else:
+                correspondences[E_val] += 1
 
 print("The name of people in correspondence with Somerville:")
 print(correspondences)
