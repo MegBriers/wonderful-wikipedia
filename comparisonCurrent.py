@@ -218,7 +218,8 @@ def method_evaluation(method, person, complete, linked, unlinked):
     for people in complete:
         for identified in identifiedUnlinked:
             # this might be letting in some false positives
-            if (people in identified and Levenshtein.ratio(people,identified) > 0.85) or (identified in people and Levenshtein.ratio(people,identified) > 0.85):
+            if Levenshtein.ratio(people,identified) > 0.9:
+            #if (people in identified and Levenshtein.ratio(people,identified) > 0.85) or (identified in people and Levenshtein.ratio(people,identified) > 0.85):
                 copyComplete.remove(people)
                 # method picks up the same person multiple time, so this is okay
                 if not(identified in copyIdentified):
