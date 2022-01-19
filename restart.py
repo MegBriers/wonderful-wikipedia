@@ -126,7 +126,7 @@ if __name__ == '__main__':
         spaceNewName = newName.replace("_", " ")
 
         # the wikipedia page
-        """
+
         data = get_page_content(spaceNewName)
 
         
@@ -170,15 +170,14 @@ if __name__ == '__main__':
         # must have name in form for wikipedia here
         scraper.request_linked(newName)
         
-        """
 
-        print("time to do some STATZ")
+        print("time to do some stats")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
 
         if len(sys.argv) >= 3:
-            comparisonCurrent.method_evaluation(Dict[sys.argv[2]], newName)
+            comparisonCurrent.evaluation(Dict[sys.argv[2]], newName)
         else:
-            comparisonCurrent.method_evaluation("all",newName)
+            comparisonCurrent.evaluation("all",newName)
 
     else:
         print("There does not seem to be manual data to allow comparison, apologies")
