@@ -120,6 +120,7 @@ def make_graph(method, title):
 
 
 def similar_names(name, names):
+    # 🦆 to do
     print(":)")
     # methods to check against
     # levenshtein

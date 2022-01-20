@@ -163,7 +163,7 @@ if __name__ == '__main__':
             print(".・。.・゜✭retrained spacy・.・✫・゜・。.")
             spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy_new")
 
-
+        
 
         print("Getting all linked names from the wikipedia article....")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")

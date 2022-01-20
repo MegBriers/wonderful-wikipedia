@@ -151,8 +151,10 @@ def wikidata_evaluation(person, complete, linked, unlinked):
 
     print("%.2f" % ((count/allLinked)*100))
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-    print("those who were not identified:")
-    print(notIdentified)
+    print("those who were not identified: ")
+    print("")
+    for no in notIdentified:
+        print(no)
     print("")
     print("")
     # PICKING UP PEOPLE WHO HAVE STUB ARTICLES THAT ARE NOT FILLED IN
@@ -226,17 +228,21 @@ def method_evaluation(method, person, complete, linked, unlinked):
                     copyIdentified.append(identified)
                 break
 
-    print("Those not identified by method")
-    print(copyComplete)
+    print("Those not identified by method : ")
+    print("")
+    for cop in copyComplete:
+        print(cop)
     print("")
     numberIdentified = len(complete) - len(copyComplete)
 
     print("Percentage identified from the proper data set (positive matches): ")
     print("%.2f" % ((numberIdentified/len(complete))*100))
     print("")
-    print("Those identified by method that have not provided a match with the manual data")
+    print("Those identified by method that have not provided a match with the manual data :")
     print("")
-    print(set(identifiedUnlinked).difference(set(copyIdentified)))
+    noMatch = list(set(identifiedUnlinked).difference(set(copyIdentified)))
+    for no in noMatch:
+        print(no)
     print("")
 
     # do proper stats for the methods - 🦆 (week 2)

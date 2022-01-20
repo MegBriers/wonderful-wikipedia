@@ -121,6 +121,7 @@ def is_name(id):
         return result, id
 
     except Exception as inst:
+        # 🦆 TO DO - what is the source of this problem, potentially causing people to be missed from Wikidata recognition
         print("✨")
 
     return False, id
@@ -189,7 +190,7 @@ def request_page(URL):
                     results.append(future.result()[1])
             except:
                 print("uh oh")
-
+                
     res = [dictionary[fut] for fut in results]
 
     return res
