@@ -11,7 +11,8 @@ Created on Sat Jan 22 07:39:49 2022
 import spacy
 from spacy import displacy
 
-# visualisation of dependency parser 
+# visualisation of dependency parser
+"""
 nlp = spacy.load("en_core_web_sm")
 doc = nlp("She was among those who discussed a hypothetical planet perturbing Uranus.")
 #displacy.serve(doc, style="dep")
@@ -23,3 +24,16 @@ colors = {"ORG": "linear-gradient(90deg, #aa9cfc, #fc9ce7)"}
 doc = nlp(text)
 options = {"ents": ["PERSON"], "colors": colors}
 displacy.serve(doc, style="ent", options=options)
+"""
+
+
+from spacy.lang.en import English
+
+nlp = English()
+text = '''"Let's go!"'''
+print(nlp.pipeline)
+doc = nlp(text)
+tok_exp = nlp.tokenizer.explain(text)
+assert [t.text for t in doc if not t.is_space] == [t[1] for t in tok_exp]
+for t in tok_exp:
+    print(t[1], "\t", t[0])

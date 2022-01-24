@@ -13,8 +13,46 @@ from wikidata.client import Client
 from wikimapper import WikiMapper
 import concurrent.futures
 import time
+import restart
+import json
 
 start_time = time.time()
+
+
+# https://hackersandslackers.com/extract-data-from-complex-json-python/
+def json_extract(obj, key):
+    """Recursively fetch values from nested JSON."""
+    arr = []
+
+    def extract(obj, arr, key):
+        """Recursively search for values of key in JSON tree."""
+        if isinstance(obj, dict):
+            for k, v in obj.items():
+                if isinstance(v, (dict, list)):
+                    extract(v, arr, key)
+                elif k == key:
+                    arr.append(v)
+        elif isinstance(obj, list):
+            for item in obj:
+                extract(item, arr, key)
+        return arr
+
+    values = extract(obj, arr, key)
+    return values
+
+
+def get_title(URL):
+    response = requests.get(
+        url=URL,
+    )
+
+    assert response.status_code == 200, "request did not succeed"
+
+    soup = BeautifulSoup(response.content, 'lxml')
+
+    title = soup.find(id="firstHeading")
+
+    return (title.string)
 
 
 def write_to_file(person, links):
@@ -50,7 +88,10 @@ def write_to_file(person, links):
             f.write(title.string)
             f.write('\n')
 
+def substring_after(s, delim):
+    return s.partition(delim)[2]
 
+# NEED TO MAKE CONCURRENT
 def map_to_wiki_data(articles):
     """
 
@@ -69,11 +110,31 @@ def map_to_wiki_data(articles):
         can be accessed
 
     """
-    wikidataIds = []
+    wikidataIds = {}
+    string_thing = "https://en.wikipedia.org/wiki/"
     for article in articles:
+        # MUST BE DOWNLOADED
         mapper = WikiMapper("data/index_enwiki-latest.db")
         wikidata_id = mapper.url_to_id(article)
-        wikidataIds.append(wikidata_id)
+
+        title2 = substring_after(article, string_thing)
+
+        if wikidata_id is not None:
+            wikidataIds[wikidata_id] = article
+        else:
+            try:
+                response = requests.get(
+                    "https://en.wikipedia.org/w/api.php?action=query&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=" + title2 + "&format=json")
+
+                metainfo = response.json()
+
+                key = json_extract(metainfo, 'wikibase_item')
+                if len(key) > 0:
+                    wikidataIds[key[0]] = string_thing + title2
+            except:
+                print("aw no")
+
+
     return wikidataIds
 
 
@@ -110,6 +171,7 @@ def is_name(id):
     try:
         entity = client.get(id, load=True)
         # this will throw an error whenever the item loaded is not a person currently (hence the need for try, except blocks)
+
         instance_of = client.get('P31', load=True)
         types = entity.getlist(instance_of)
         for t in types:
@@ -122,6 +184,8 @@ def is_name(id):
 
     except Exception as inst:
         # 🦆 TO DO - what is the source of this problem, potentially causing people to be missed from Wikidata recognition
+        # throwing way too many of these
+        print(inst)
         print("✨")
 
     return False, id
@@ -164,15 +228,15 @@ def request_page(URL):
         if url.startswith("/wiki/") and "/wiki/Category" not in url:
             links[link.text.strip()] = url
 
-    values = list(links.values())
+    values1 = list(links.values())
+    print(values1)
 
-    values = ["https://en.wikipedia.org" + i for i in values]
+    values = ["https://en.wikipedia.org" + i for i in values1]
+    print(len(values))
 
     # getting the wikidata keys for all the linked articles
-    keys = map_to_wiki_data(values)
-
-    # create a dictionary at this point with the ids as the keys
-    dictionary = dict(zip(keys, values))
+    dictionary = map_to_wiki_data(values)
+    print(dictionary)
 
     futures = []
     results = []
@@ -180,8 +244,8 @@ def request_page(URL):
     # https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
     # concurrent execution so it is faster
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        for url in keys:
-            futures.append(executor.submit(is_name, id=url))
+        for wikidataId in dictionary.keys():
+            futures.append(executor.submit(is_name, id=wikidataId))
 
         for future in concurrent.futures.as_completed(futures):
             # exception here
@@ -190,9 +254,11 @@ def request_page(URL):
                     results.append(future.result()[1])
             except:
                 print("uh oh")
-                
+
+    # breaking at this part
     res = [dictionary[fut] for fut in results]
 
+    print(res)
     return res
 
 
@@ -203,6 +269,9 @@ def request_linked(person):
     names = request_page(page)
 
     print("*＊✿❀　Writing linked people to a file ❀✿＊*")
+
+    print(names)
+    print(len(names))
 
     write_to_file(person, names)
 

@@ -13,6 +13,18 @@ import spacyExtract
 import scraper
 import comparisonCurrent
 
+
+def formatting(name, char):
+    parts = name.split()
+    new_name = ""
+    for i in range(len(parts)):
+        if i == 0:
+            new_name = new_name + parts[i].capitalize()
+        else:
+            new_name = new_name + char + parts[i].capitalize()
+    return new_name
+
+
 def get_linked_names(person):
     """
 
@@ -89,14 +101,7 @@ def validate_name(name):
     """
     # desired file path ./people/Firstname_Secondname.txt
 
-    parts = name.split()
-    newName = ""
-    for i in range(len(parts)):
-        if i == 0:
-            # does this uncapitalize everything else in the string ?
-            newName = newName + parts[i].capitalize()
-        else:
-            newName = newName + "_" + parts[i].capitalize()
+    newName = formatting(name, "_")
 
     filePath = './people/' + newName + '.txt'
 
@@ -112,7 +117,8 @@ if __name__ == '__main__':
         print("")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         print("usage : [desired mathematician] [options : specified NER method]")
-        print("if desired NER method left out then a comparison of all three methods will be performed (warning : longer running time)")
+        print(
+            "if desired NER method left out then a comparison of all three methods will be performed (warning : longer running time)")
         print("options : ")
         print("option1 = normal spacy methods")
         print("option2 = using NTLK")
@@ -129,7 +135,7 @@ if __name__ == '__main__':
 
         data = get_page_content(spaceNewName)
 
-        
+        """
         if len(sys.argv) >= 3:
 
             if sys.argv[2] == 'option1':
@@ -164,12 +170,11 @@ if __name__ == '__main__':
             spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy_new")
 
         
-
+        """
         print("Getting all linked names from the wikipedia article....")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         # must have name in form for wikipedia here
         scraper.request_linked(newName)
-        
 
         print("time to do some stats")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
@@ -177,7 +182,7 @@ if __name__ == '__main__':
         if len(sys.argv) >= 3:
             comparisonCurrent.evaluation(Dict[sys.argv[2]], newName)
         else:
-            comparisonCurrent.evaluation("all",newName)
+            comparisonCurrent.evaluation("all", newName)
 
     else:
         print("There does not seem to be manual data to allow comparison, apologies")

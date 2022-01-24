@@ -100,6 +100,7 @@ def multiple_evaluation(person, complete, linked, unlinked):
 
 
 def wikidata_evaluation(person, complete, linked, unlinked):
+    # THIS IS NOT PICKING UP EVERYONE WHO SHOULD BE GETTING PICKED UP
     """
 
     A method that analyses the performance of the wikidata way of extracting
@@ -147,6 +148,7 @@ def wikidata_evaluation(person, complete, linked, unlinked):
             # this is a fair enough analysis, not picking up any false positives but unsure how many true positives are being missed
             if (human in wiki or wiki in human or Levenshtein.ratio(human,wiki) > .85):
                 count +=1
+                notIdentified.remove(human)
                 break
 
     print("%.2f" % ((count/allLinked)*100))
