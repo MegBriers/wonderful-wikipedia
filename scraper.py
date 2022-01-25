@@ -18,6 +18,7 @@ import json
 
 start_time = time.time()
 
+string_thing = "https://en.wikipedia.org/wiki/"
 
 # https://hackersandslackers.com/extract-data-from-complex-json-python/
 def json_extract(obj, key):
@@ -70,22 +71,12 @@ def write_to_file(person, links):
         all the urls from wikipedia articles linked
 
     """
-    print("✰⋆🌟✪🔯✨")
     fileName = './output/wikidata/' + person + "_Linked.txt"
     with open(fileName, 'w') as f:
-        # Ada Lovelace making it in twice ???
         for URL in links:
-            response = requests.get(
-                url=URL,
-            )
-
-            assert response.status_code == 200, "request did not succeed"
-
-            soup = BeautifulSoup(response.content, 'lxml')
-
-            title = soup.find(id="firstHeading")
-
-            f.write(title.string)
+            new_title = substring_after(URL, string_thing)
+            new_title = new_title.replace("_", " ")
+            f.write(new_title)
             f.write('\n')
 
 def substring_after(s, delim):
@@ -132,6 +123,7 @@ def map_to_wiki_data(articles):
                 if len(key) > 0:
                     wikidataIds[key[0]] = string_thing + title2
             except:
+                print(title2)
                 print("aw no")
 
 
@@ -158,7 +150,7 @@ def is_name(id):
 
     client = Client()
     # manually setting up an entity we know is a person to compare the entity types
-    # Q268702 - Mary Somerville
+    # Q268702 - Mary Somerville (can be used as the dummy variable regardless of the person being tested)
     entityCompare = client.get('Q268702', load=True)
     # P31 - 'instance of'
     instance_of = client.get('P31', load=True)
@@ -166,7 +158,13 @@ def is_name(id):
     for t in typesCompare:
         t.load()
 
-    # get date of birth here 🦆
+    dob = client.get('P569', load=True)
+    dod = client.get('P570', load=True)
+
+    date_of_birth = (entityCompare.getlist(dob)[0]).year
+
+    date_of_death = (entityCompare.getlist(dod)[0]).year
+
 
     try:
         entity = client.get(id, load=True)
@@ -180,12 +178,43 @@ def is_name(id):
         if (len(types) > 0):
             result = (types[0] == typesCompare[0])
         # if result is true then can check age here to see if the timelines overlapped
+        if result:
+            # check dob of the person lies within date_of_birth and date_of_death
+            dob_compare = client.get('P569', load=True)
+            dod_compare = client.get('P570', load=True)
+
+            dates_ob = entity.getlist(dob_compare)
+            dates_od = entity.getlist(dod_compare)
+
+            if len(dates_ob) > 0 and len(dates_od) > 0:
+                caught = [False,False]
+                if type(dates_ob[0]) == int:
+                    date_of_birth_compare = dates_ob[0]
+                    caught[0] = True
+                if type(dates_od[0]) == int:
+                    date_of_death_compare = dates_od[0]
+                    caught[1] = True
+
+                if caught[0] == False and caught[1] == False:
+                    date_of_birth_compare = (entity.getlist(dob)[0]).year
+                    date_of_death_compare = (entity.getlist(dod)[0]).year
+                elif caught[0] == False:
+                    date_of_birth_compare = (entity.getlist(dob)[0]).year
+                elif caught[1] == False:
+                    date_of_death_compare = (entity.getlist(dod)[0]).year
+
+                # used to check if the person falls within the same time span as the person whose page we are analysing
+                # only checked when we know that it is a person (so we definitely have a date)
+                if (date_of_birth <= date_of_birth_compare <= date_of_death) or (date_of_birth_compare <= date_of_birth and date_of_death_compare >= date_of_birth):
+                    result = True
+                else:
+                    # doesn't matter that they are a person, because they are not a relevant person (f)
+                    result = False
+
         return result, id
 
     except Exception as inst:
-        # 🦆 TO DO - what is the source of this problem, potentially causing people to be missed from Wikidata recognition
-        # throwing way too many of these
-        print(inst)
+        # IF WE DON'T HAVE A GREGORIAN CALENDAR WE CAN DISREGARD THE PERSON BC THEY ARE NOT IN THE 19TH CENTURY
         print("✨")
 
     return False, id
@@ -229,14 +258,11 @@ def request_page(URL):
             links[link.text.strip()] = url
 
     values1 = list(links.values())
-    print(values1)
 
     values = ["https://en.wikipedia.org" + i for i in values1]
-    print(len(values))
 
     # getting the wikidata keys for all the linked articles
     dictionary = map_to_wiki_data(values)
-    print(dictionary)
 
     futures = []
     results = []
@@ -252,13 +278,17 @@ def request_page(URL):
             try:
                 if future.result()[0]:
                     results.append(future.result()[1])
-            except:
+            except Exception as inst:
+                # sometimes this doesn't work ?!?!?
+                # this is well sus, why is it printing this
+                print(inst)
                 print("uh oh")
 
-    # breaking at this part
-    res = [dictionary[fut] for fut in results]
+    # this needs converted to unicode form in the file !!!!!!!!!!!!!!!!!!!!!!!!!!! (half an hour work tuesday am)
+    # current situation \35% etc -> e with an accent
+    # TO DO 🦆
+    res = [(dictionary[fut]) for fut in results]
 
-    print(res)
     return res
 
 
@@ -270,10 +300,7 @@ def request_linked(person):
 
     print("*＊✿❀　Writing linked people to a file ❀✿＊*")
 
-    print(names)
-    print(len(names))
-
     write_to_file(person, names)
 
-    print("Time taken to extract articles linked to that where the subject atter is human : ")
+    print("Time taken to extract articles linked to that where the subject is human and within time period : ")
     print("--- %s seconds ---" % (time.time() - start_time))

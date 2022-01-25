@@ -135,7 +135,7 @@ if __name__ == '__main__':
 
         data = get_page_content(spaceNewName)
 
-        """
+
         if len(sys.argv) >= 3:
 
             if sys.argv[2] == 'option1':
@@ -143,7 +143,7 @@ if __name__ == '__main__':
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
                 spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy")
             elif sys.argv[2] == 'option2':
-                print("Getting all the names mentioned in the article using NTLK....")
+                print("Getting all the names mentioned in the article using NLTK....")
                 print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
                 spacyExtract.ntlk_names(data, spaceNewName)
             elif sys.argv[2] == 'option3':
@@ -164,13 +164,13 @@ if __name__ == '__main__':
             print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
             print(".・。.・゜✭spacy・.・✫・゜・。.")
             spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy")
-            print(".・。.・゜✭ntlk・.・✫・゜・。.")
+            print(".・。.・゜✭nltk・.・✫・゜・。.")
             spacyExtract.ntlk_names(data, spaceNewName)
             print(".・。.・゜✭retrained spacy・.・✫・゜・。.")
             spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy_new")
 
         
-        """
+
         print("Getting all linked names from the wikipedia article....")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         # must have name in form for wikipedia here
@@ -189,4 +189,4 @@ if __name__ == '__main__':
         print(".・。.・゜✭・.・✫・゜・。.")
         print("If you believe there is, please ensure the file is correctly formatted as below")
         print(".・。.・゜✭・.・✫・゜・。.")
-        print("./data/Firstname_Secondname.txt")
+        print("./people/Firstname_Secondname.txt")

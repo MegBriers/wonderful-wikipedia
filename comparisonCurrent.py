@@ -126,7 +126,7 @@ def wikidata_evaluation(person, complete, linked, unlinked):
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
     print("proportion of people linked who have been picked up by wikidata")
     # need to get the wikidata people at this point
-    fileLinked = open("./output/wikidata/" + person + "_Linked.txt", "r")
+    fileLinked = open("./output/wikidata/" + person + "_Linked.txt", "r", encoding="utf-8")
 
     content = fileLinked.read()
     # identified by wikidata
@@ -143,22 +143,39 @@ def wikidata_evaluation(person, complete, linked, unlinked):
 
     notIdentified = linked[:]
 
+    additional = wikiData[:]
+
     for human in linked:
         for wiki in wikiData:
+            # TO DO - remove everything after a comma in a string !!
             # this is a fair enough analysis, not picking up any false positives but unsure how many true positives are being missed
             if (human in wiki or wiki in human or Levenshtein.ratio(human,wiki) > .85):
                 count +=1
                 notIdentified.remove(human)
+                if wiki in additional:
+                    additional.remove(wiki)
                 break
 
     print("%.2f" % ((count/allLinked)*100))
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+
+    # filtered people out now
+    # this is no longer representative of whether it is performing well
+    # only want people in the time frame to be compared
     print("those who were not identified: ")
     print("")
     for no in notIdentified:
         print(no)
     print("")
     print("")
+
+    print("those who were picked up additionally by wikidata")
+    print("")
+    for add in additional:
+        print(add)
+    print("")
+    print("")
+
     # PICKING UP PEOPLE WHO HAVE STUB ARTICLES THAT ARE NOT FILLED IN
     # these people have been identified it's just they go under different names/french symbols OR they have stub articles
     # couple due to different way to refer, others idk, may have to check what's happening with scraper for those specifics
@@ -186,6 +203,8 @@ def method_evaluation(method, person, complete, linked, unlinked):
     filename = "./output/" + method + "/" + person + "_Unlinked"
 
     # the file that stores the method names
+    # breaking here for john tyndall
+    print(method)
     fileUnlinked = pd.read_csv(filename + ".txt")
 
     # identified by method

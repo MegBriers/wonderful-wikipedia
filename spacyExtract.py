@@ -77,9 +77,13 @@ def write_to_file(method, title, names):
     f.truncate(0)
     f.write("Source,Target,weight,Type \n")
     i = 0
+    j = len(names)
     for key in names:
-        f.write(title + "," + key + "," + title + ",Undirected" + "\n")
+        f.write(title + "," + key.replace('\r', ' ').replace('\n', ' ').replace(',',' ') + "," + title + ",Undirected")
+        if i != len(names)-1:
+            f.write("\n")
         i += 1
+    # NEED TO NOT RIGHT A NEW LINE AT THE END BECAUSE IT WILL CAUSE AN ERROR CLOSING FILE
     f.close()
 
 
