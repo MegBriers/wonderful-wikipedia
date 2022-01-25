@@ -10,8 +10,9 @@ performed against the manual test data
 import pandas as pd
 import Levenshtein
 import sys
+import restart
 
-def setup():
+def setup(name):
     """
 
     This method sets up all the information used for the rest of the methods, regardless if
@@ -35,7 +36,8 @@ def setup():
     """
 
     # the file that stores the manual names
-    manual = pd.read_csv("./people/Mary_Somerville.txt")
+    new_name = restart.formatting(name,"_")
+    manual = pd.read_csv("./people/" + new_name + ".txt")
 
     # all linked in the article
     linked = []
@@ -200,12 +202,14 @@ def method_evaluation(method, person, complete, linked, unlinked):
 
     """
 
+    print("")
+    print(method)
+    print("")
     filename = "./output/" + method + "/" + person + "_Unlinked"
 
     # the file that stores the method names
     # breaking here for john tyndall
-    print(method)
-    fileUnlinked = pd.read_csv(filename + ".txt")
+    fileUnlinked = pd.read_csv(filename + ".txt", quotechar=",")
 
     # identified by method
     identifiedUnlinked = []
@@ -297,7 +301,7 @@ def evaluation(method,newName):
     None.
 
     """
-    complete, linked, unlinked = setup()
+    complete, linked, unlinked = setup(newName)
     if method == "all":
         multiple_evaluation(newName, complete, linked, unlinked)
     else:

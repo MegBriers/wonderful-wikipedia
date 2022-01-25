@@ -135,7 +135,7 @@ if __name__ == '__main__':
 
         data = get_page_content(spaceNewName)
 
-
+        """
         if len(sys.argv) >= 3:
 
             if sys.argv[2] == 'option1':
@@ -175,7 +175,8 @@ if __name__ == '__main__':
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         # must have name in form for wikipedia here
         scraper.request_linked(newName)
-
+        
+        """
         print("time to do some stats")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
 
