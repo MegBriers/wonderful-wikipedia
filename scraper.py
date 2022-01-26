@@ -73,10 +73,8 @@ def write_to_file(person, links):
     """
     fileName = './output/wikidata/' + person + "_Linked.txt"
     with open(fileName, 'w') as f:
-        for URL in links:
-            new_title = substring_after(URL, string_thing)
-            new_title = new_title.replace("_", " ")
-            f.write(new_title)
+        for title in links:
+            f.write(title)
             f.write('\n')
 
 def substring_after(s, delim):
@@ -112,7 +110,7 @@ def map_to_wiki_data(articles):
         title2 = substring_after(article, string_thing)
 
         if wikidata_id is not None:
-            wikidataIds[wikidata_id] = article
+            wikidataIds[wikidata_id] = title
         else:
             try:
                 response = requests.get(

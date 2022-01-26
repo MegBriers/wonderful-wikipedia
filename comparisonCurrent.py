@@ -128,7 +128,7 @@ def wikidata_evaluation(person, complete, linked, unlinked):
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
     print("proportion of people linked who have been picked up by wikidata")
     # need to get the wikidata people at this point
-    fileLinked = open("./output/wikidata/" + person + "_Linked.txt", "r", encoding="utf-8")
+    fileLinked = open("./output/wikidata/" + person + "_Linked.txt", "r")
 
     content = fileLinked.read()
     # identified by wikidata
