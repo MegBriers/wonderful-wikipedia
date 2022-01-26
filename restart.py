@@ -170,13 +170,13 @@ if __name__ == '__main__':
             spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy_new")
 
         
-
+        """
         print("Getting all linked names from the wikipedia article....")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         # must have name in form for wikipedia here
         scraper.request_linked(newName)
         
-        """
+
         print("time to do some stats")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
 

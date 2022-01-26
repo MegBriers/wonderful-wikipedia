@@ -103,8 +103,9 @@ def map_to_wiki_data(articles):
     """
     wikidataIds = {}
     string_thing = "https://en.wikipedia.org/wiki/"
-    for article in articles:
-        # MUST BE DOWNLOADED
+
+    for title in articles.keys():
+        article = articles[title]
         mapper = WikiMapper("data/index_enwiki-latest.db")
         wikidata_id = mapper.url_to_id(article)
 
@@ -121,9 +122,9 @@ def map_to_wiki_data(articles):
 
                 key = json_extract(metainfo, 'wikibase_item')
                 if len(key) > 0:
-                    wikidataIds[key[0]] = string_thing + title2
+                    wikidataIds[key[0]] = title
             except:
-                print(title2)
+                print(title)
                 print("aw no")
 
 
@@ -219,6 +220,9 @@ def is_name(id):
 
     return False, id
 
+def convert_fake_unicode_to_real_unicode(string):
+    return ''.join(map(chr, map(ord, string))).decode('utf-8')
+
 
 def request_page(URL):
     """
@@ -244,7 +248,7 @@ def request_page(URL):
 
     assert response.status_code == 200, "request did not succeed"
 
-    soup = BeautifulSoup(response.content, 'lxml')
+    soup = BeautifulSoup(response.content, 'lxml', from_encoding='utf-8')
 
     title = soup.find(id="firstHeading")
 
@@ -255,13 +259,13 @@ def request_page(URL):
         url = link.get("href", "")
         # only looking for the links in the article that are wiki links
         if url.startswith("/wiki/") and "/wiki/Category" not in url:
-            links[link.text.strip()] = url
+            links[link.get("title")] = url
 
-    values1 = list(links.values())
-
-    values = ["https://en.wikipedia.org" + i for i in values1]
+    values = {title : "https://en.wikipedia.org" + links[title] for title in links.keys()}
 
     # getting the wikidata keys for all the linked articles
+
+    # need to re code for the values coming in
     dictionary = map_to_wiki_data(values)
 
     futures = []
@@ -284,9 +288,6 @@ def request_page(URL):
                 print(inst)
                 print("uh oh")
 
-    # this needs converted to unicode form in the file !!!!!!!!!!!!!!!!!!!!!!!!!!! (half an hour work tuesday am)
-    # current situation \35% etc -> e with an accent
-    # TO DO 🦆
     res = [(dictionary[fut]) for fut in results]
 
     return res
