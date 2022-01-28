@@ -12,6 +12,51 @@ import Levenshtein
 import sys
 import restart
 
+
+def statistics(false_pos, false_neg, true_pos):
+    """
+
+    A method that analyses the performance of the wikidata way of extracting
+    people that are linked in an article
+
+    Parameters
+    ----------
+    false_pos : integer
+        the number of additional things picked up by method
+
+    false_neg : integer
+        the number of manually identified people who were NOT picked up
+
+    true_pos : integer
+        the number of manually identified people who were picked up
+
+    Returns
+    -------
+    None.
+
+    """
+    # precision = (true positives)/(true positives + false positives)
+    print("precision")
+    precision = true_pos / (true_pos + false_pos)
+    print(precision)
+    print("")
+
+    print("recall")
+    # recall = (true positives)/(true positives + false negatives)
+    recall = true_pos / (true_pos + false_neg)
+    print(recall)
+    print("")
+
+    # f1 score = 2 x (precision * recall)/(precision + recll)
+    f1 = 2 * ((precision * recall) / (precision + recall))
+
+    print("the f1 score")
+    print(f1)
+    print("")
+
+    return f1
+
+
 def setup(name):
     """
 
@@ -36,7 +81,7 @@ def setup(name):
     """
 
     # the file that stores the manual names
-    new_name = restart.formatting(name,"_")
+    new_name = restart.formatting(name, "_")
     manual = pd.read_csv("./people/" + new_name + ".txt")
 
     # all linked in the article
@@ -95,7 +140,7 @@ def multiple_evaluation(person, complete, linked, unlinked):
     print("")
     print("＊*•̩̩͙✩•̩̩͙*˚ THE BEST METHOD WAS　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("＊*•̩̩͙✩•̩̩͙*˚ " + max_method + "　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("＊*•̩̩͙✩•̩̩͙*˚　with an accuracy of　˚*•̩̩͙✩•̩̩͙*˚＊")
+    print("＊*•̩̩͙✩•̩̩͙*˚　with an f1 score of　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("＊*•̩̩͙✩•̩̩͙*˚ " + str(max_accuracy) + " ˚*•̩̩͙✩•̩̩͙*˚＊")
     sys.stdout.close()
     sys.stdout = stdoutOrigin
@@ -124,7 +169,7 @@ def wikidata_evaluation(person, complete, linked, unlinked):
     print("")
     print("")
     print("proportion of people who are linked in the article")
-    print("%.2f" % (len(linked)/len(complete) * 100))
+    print("%.2f" % (len(linked) / len(complete) * 100))
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
     print("proportion of people linked who have been picked up by wikidata")
     # need to get the wikidata people at this point
@@ -135,8 +180,6 @@ def wikidata_evaluation(person, complete, linked, unlinked):
     wikiData = content.split("\n")
     fileLinked.close()
 
-    # manually removing last line (cheap fix - can do better) 🦆 TO DO : FIX THIS
-    # also Ada Lovelace is popping up twice so just making it a set but needs to be fixed at the root
     wikiData.pop()
     wikiData = list(set(wikiData))
 
@@ -151,14 +194,14 @@ def wikidata_evaluation(person, complete, linked, unlinked):
         for wiki in wikiData:
             # TO DO - remove everything after a comma in a string !!
             # this is a fair enough analysis, not picking up any false positives but unsure how many true positives are being missed
-            if (human in wiki or wiki in human or Levenshtein.ratio(human,wiki) > .85):
-                count +=1
+            if (human in wiki or wiki in human or Levenshtein.ratio(human, wiki) > .85):
+                count += 1
                 notIdentified.remove(human)
                 if wiki in additional:
                     additional.remove(wiki)
                 break
 
-    print("%.2f" % ((count/allLinked)*100))
+    print("%.2f" % ((count / allLinked) * 100))
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
 
     # filtered people out now
@@ -178,9 +221,13 @@ def wikidata_evaluation(person, complete, linked, unlinked):
     print("")
     print("")
 
-    # PICKING UP PEOPLE WHO HAVE STUB ARTICLES THAT ARE NOT FILLED IN
-    # these people have been identified it's just they go under different names/french symbols OR they have stub articles
-    # couple due to different way to refer, others idk, may have to check what's happening with scraper for those specifics
+    true_pos = count  # how many were correctly identified
+    false_pos = len(additional)  # how many were identified as human but are not human
+    false_neg = len(notIdentified)  # how many of our true ones are missing
+
+    # NOT REPRESENTATIVE BECAUSE WE'RE FILTERING BY HISTORICAL PEOPLE
+    statistics(false_pos, false_neg, true_pos)
+
 
 def method_evaluation(method, person, complete, linked, unlinked):
     """
@@ -245,11 +292,11 @@ def method_evaluation(method, person, complete, linked, unlinked):
     for people in complete:
         for identified in identifiedUnlinked:
             # this might be letting in some false positives
-            if Levenshtein.ratio(people,identified) > 0.9:
-            #if (people in identified and Levenshtein.ratio(people,identified) > 0.85) or (identified in people and Levenshtein.ratio(people,identified) > 0.85):
+            if Levenshtein.ratio(people, identified) > 0.9:
+                # if (people in identified and Levenshtein.ratio(people,identified) > 0.85) or (identified in people and Levenshtein.ratio(people,identified) > 0.85):
                 copyComplete.remove(people)
                 # method picks up the same person multiple time, so this is okay
-                if not(identified in copyIdentified):
+                if not (identified in copyIdentified):
                     copyIdentified.append(identified)
                 break
 
@@ -261,7 +308,7 @@ def method_evaluation(method, person, complete, linked, unlinked):
     numberIdentified = len(complete) - len(copyComplete)
 
     print("Percentage identified from the proper data set (positive matches): ")
-    print("%.2f" % ((numberIdentified/len(complete))*100))
+    print("%.2f" % ((numberIdentified / len(complete)) * 100))
     print("")
     print("Those identified by method that have not provided a match with the manual data :")
     print("")
@@ -270,18 +317,19 @@ def method_evaluation(method, person, complete, linked, unlinked):
         print(no)
     print("")
 
-    # do proper stats for the methods - 🦆 (week 2)
-    """Correct (COR) : both are the same;
-        Incorrect (INC) : the output of a system and the golden annotation don’t match;
-        Partial (PAR) : system and the golden annotation are somewhat “similar” but not the same;
-        Missing (MIS) : a golden annotation is not captured by a system;
-        Spurius (SPU) : system produces a response which doesn’t exist in the golden annotation;"""
+    # false_pos, false_neg, true_pos
+    # i believe these are set up correctly
+    false_pos = len(noMatch)
+    true_pos = numberIdentified
+    false_neg = len(copyComplete)
+
+    return statistics(false_pos, false_neg, true_pos)
 
 
-    return (numberIdentified / len(complete)) * 100
+    # return (numberIdentified / len(complete)) * 100
 
 
-def evaluation(method,newName):
+def evaluation(method, newName):
     """
 
     Driver method for this code to deal with the problem of the three arrays

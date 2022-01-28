@@ -132,10 +132,9 @@ def similar_names(name, names):
     # longest common substring
 
 
-def ntlk_names(sentence, title):
-    # haven't looked at this for a while but let's hope it works :)
+def nltk_names(text, title):
     people = []
-    for sent in nltk.sent_tokenize(sentence):
+    for sent in nltk.sent_tokenize(text):
         for chunk in nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(sent))):
             if hasattr(chunk, 'label'):
                 if chunk.label() == "PERSON":
