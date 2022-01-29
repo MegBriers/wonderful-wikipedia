@@ -74,7 +74,6 @@ def get_page_content(person):
 
     substring = split_string[0]
 
-    # contains all the relevant text for a wikipedia article
     return substring
 
 

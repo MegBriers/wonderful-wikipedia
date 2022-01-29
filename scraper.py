@@ -248,22 +248,18 @@ def request_page(URL):
 
     soup = BeautifulSoup(response.content, 'lxml', from_encoding='utf-8')
 
-    title = soup.find(id="firstHeading")
-
-    print(title.string)
-
     links = {}
-    for link in soup.find(id="bodyContent").find_all("a"):
-        url = link.get("href", "")
-        # only looking for the links in the article that are wiki links
-        if url.startswith("/wiki/") and "/wiki/Category" not in url:
-            links[link.get("title")] = url
+
+    for item in soup.find_all("p"):
+        if item.text.startswith("See also"): break
+        for link in item.find_all('a', href=True):
+            url = link.get("href", "")
+            if url.startswith("/wiki/") and "/wiki/Category" not in url:
+                links[link.get("title")] = url
 
     values = {title : "https://en.wikipedia.org" + links[title] for title in links.keys()}
 
     # getting the wikidata keys for all the linked articles
-
-    # need to re code for the values coming in
     dictionary = map_to_wiki_data(values)
 
     futures = []
