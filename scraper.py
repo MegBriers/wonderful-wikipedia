@@ -73,8 +73,8 @@ def write_to_file(person, links):
     """
     fileName = './output/wikidata/' + person + "_Linked.txt"
     with open(fileName, 'w') as f:
-        for title in links:
-            f.write(title)
+        for tup in links:
+            f.write(tup)
             f.write('\n')
 
 def substring_after(s, delim):
@@ -174,6 +174,8 @@ def is_name(id):
         for t in types:
             t.load()
         result = 0
+        # statistically more contemporaries on wikipedia pages than dead people ??? - design choice
+        alive = True
         if (len(types) > 0):
             result = (types[0] == typesCompare[0])
         # if result is true then can check age here to see if the timelines overlapped
@@ -277,12 +279,10 @@ def request_page(URL):
                 if future.result()[0]:
                     results.append(future.result()[1])
             except Exception as inst:
-                # sometimes this doesn't work ?!?!?
-                # this is well sus, why is it printing this
                 print(inst)
                 print("uh oh")
 
-    res = [(dictionary[fut]) for fut in results]
+    res = [dictionary[fut] for fut in results]
 
     return res
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Jan 04 15:45:07 2022
-
+    fp.write('\n'.join('{} {}'.format(x[0],x[1]) for x in mylist)
 code that should assess how well the methods have
 performed against the manual test data
 
@@ -11,6 +11,59 @@ import pandas as pd
 import Levenshtein
 import sys
 import restart
+
+
+def setup(name):
+    """
+
+    This method sets up all the information used for the rest of the methods, regardless if
+    multiple evaluation or single evaluation
+
+    Parameters
+    ----------
+    None.
+
+    Returns
+    -------
+    complete : array of strings
+        all the manually identified UNIQUE people in the article
+
+    linked : array of strings
+        all the manually identified people that are linked in the article
+
+    unlinked : TYPE
+        all the manually identified people that are unlinked in the article
+
+    """
+
+    # the file that stores the manual names
+    new_name = restart.formatting(name, "_")
+    manual = pd.read_csv("./people/" + new_name + ".txt")
+
+    # all linked in the article
+    linked = []
+    # all unlinked names in the article
+    unlinked = []
+    # all names in article
+    complete = []
+
+    relevant_linked = []
+
+    # set up weirdly for the graph, may modify file structure
+    for index, row in manual.iterrows():
+        dob = row["alive"]
+        complete.append(row["Target"])
+        actualRow = row["link"].replace(' ', '')
+        if actualRow == "linked":
+            linked.append(row["Target"])
+            if dob:
+                relevant_linked.append(row["Target"])
+        else:
+            unlinked.append(row["Target"])
+
+    complete = list(set(complete))
+    relevant_linked = list(set(relevant_linked))
+    return complete, linked, unlinked, relevant_linked
 
 
 def statistics(false_pos, false_neg, true_pos):
@@ -57,53 +110,7 @@ def statistics(false_pos, false_neg, true_pos):
     return f1
 
 
-def setup(name):
-    """
-
-    This method sets up all the information used for the rest of the methods, regardless if
-    multiple evaluation or single evaluation
-
-    Parameters
-    ----------
-    None.
-
-    Returns
-    -------
-    complete : array of strings
-        all the manually identified UNIQUE people in the article
-
-    linked : array of strings
-        all the manually identified people that are linked in the article
-
-    unlinked : TYPE
-        all the manually identified people that are unlinked in the article
-
-    """
-
-    # the file that stores the manual names
-    new_name = restart.formatting(name, "_")
-    manual = pd.read_csv("./people/" + new_name + ".txt")
-
-    # all linked in the article
-    linked = []
-    # all unlinked names in the article
-    unlinked = []
-    # all names in article
-    complete = []
-
-    # set up weirdly for the graph, may modify file structure
-    for index, row in manual.iterrows():
-        complete.append(row["Target"])
-        actualRow = row["link"].replace(' ', '')
-        if actualRow == "linked":
-            linked.append(row["Target"])
-        else:
-            unlinked.append(row["Target"])
-    complete = list(set(complete))
-    return complete, linked, unlinked
-
-
-def multiple_evaluation(person, complete, linked, unlinked):
+def multiple_evaluation(person, complete, linked, unlinked, rel_linked):
     """
 
     A method to call the analysis on multiple methods if all three methods want
@@ -129,7 +136,10 @@ def multiple_evaluation(person, complete, linked, unlinked):
     max_accuracy = 0
     max_method = "🐸"
 
-    wikidata_evaluation(person, complete, linked, unlinked)
+    # our wikidata method will filter out people outside of the age range of the person
+    # so it should be compared to com_relevant
+    # FOR MULTIPLE PEOPLE THIS NEEDS TO BE SLIGHTLY CHANGED
+    wikidata_evaluation(person, rel_linked, linked)
 
     for item in ["spacy", "ntlk", "spacy_new"]:
         acc = method_evaluation(item, person, complete, linked, unlinked)
@@ -146,7 +156,7 @@ def multiple_evaluation(person, complete, linked, unlinked):
     sys.stdout = stdoutOrigin
 
 
-def wikidata_evaluation(person, complete, linked, unlinked):
+def wikidata_evaluation(person, rel_linked, linked):
     # THIS IS NOT PICKING UP EVERYONE WHO SHOULD BE GETTING PICKED UP
     """
 
@@ -168,8 +178,11 @@ def wikidata_evaluation(person, complete, linked, unlinked):
     print("＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("")
     print("")
-    print("proportion of people who are linked in the article")
-    print("%.2f" % (len(linked) / len(complete) * 100))
+
+    print("proportion of the links that are going to contemporaries of the person")
+    # does default to yes if it's unknown
+    print("%.2f" % (len(rel_linked) / len(linked) * 100))
+
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
     print("proportion of people linked who have been picked up by wikidata")
     # need to get the wikidata people at this point
@@ -183,14 +196,14 @@ def wikidata_evaluation(person, complete, linked, unlinked):
     wikiData.pop()
     wikiData = list(set(wikiData))
 
-    allLinked = len(linked)
+    allLinked = len(rel_linked)
     count = 0
 
-    notIdentified = linked[:]
+    notIdentified = rel_linked[:]
 
     additional = wikiData[:]
 
-    for human in linked:
+    for human in rel_linked:
         for wiki in wikiData:
             # TO DO - remove everything after a comma in a string !!
             # this is a fair enough analysis, not picking up any false positives but unsure how many true positives are being missed
@@ -207,6 +220,7 @@ def wikidata_evaluation(person, complete, linked, unlinked):
     # filtered people out now
     # this is no longer representative of whether it is performing well
     # only want people in the time frame to be compared
+    # THIS IS NOT REPRESENTATIVE ANYMORE NEED TO MANUALLY FILTER THIS LIST BASED ON DATES
     print("those who were not identified: ")
     print("")
     for no in notIdentified:
@@ -225,7 +239,6 @@ def wikidata_evaluation(person, complete, linked, unlinked):
     false_pos = len(additional)  # how many were identified as human but are not human
     false_neg = len(notIdentified)  # how many of our true ones are missing
 
-    # NOT REPRESENTATIVE BECAUSE WE'RE FILTERING BY HISTORICAL PEOPLE
     statistics(false_pos, false_neg, true_pos)
 
 
@@ -325,7 +338,6 @@ def method_evaluation(method, person, complete, linked, unlinked):
 
     return statistics(false_pos, false_neg, true_pos)
 
-
     # return (numberIdentified / len(complete)) * 100
 
 
@@ -349,8 +361,8 @@ def evaluation(method, newName):
     None.
 
     """
-    complete, linked, unlinked = setup(newName)
+    complete, linked, unlinked, relevant_linked = setup(newName)
     if method == "all":
-        multiple_evaluation(newName, complete, linked, unlinked)
+        multiple_evaluation(newName, complete, linked, unlinked, relevant_linked)
     else:
         method_evaluation(method, newName, complete, linked, unlinked)
