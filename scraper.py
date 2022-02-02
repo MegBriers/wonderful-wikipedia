@@ -20,6 +20,7 @@ start_time = time.time()
 
 string_thing = "https://en.wikipedia.org/wiki/"
 
+
 # https://hackersandslackers.com/extract-data-from-complex-json-python/
 def json_extract(obj, key):
     """Recursively fetch values from nested JSON."""
@@ -77,8 +78,10 @@ def write_to_file(person, links):
             f.write(tup)
             f.write('\n')
 
+
 def substring_after(s, delim):
     return s.partition(delim)[2]
+
 
 # NEED TO MAKE CONCURRENT
 def map_to_wiki_data(articles):
@@ -125,7 +128,6 @@ def map_to_wiki_data(articles):
                 print(title)
                 print("aw no")
 
-
     return wikidataIds
 
 
@@ -164,7 +166,6 @@ def is_name(id):
 
     date_of_death = (entityCompare.getlist(dod)[0]).year
 
-
     try:
         entity = client.get(id, load=True)
         # this will throw an error whenever the item loaded is not a person currently (hence the need for try, except blocks)
@@ -188,7 +189,7 @@ def is_name(id):
             dates_od = entity.getlist(dod_compare)
 
             if len(dates_ob) > 0 and len(dates_od) > 0:
-                caught = [False,False]
+                caught = [False, False]
                 if type(dates_ob[0]) == int:
                     date_of_birth_compare = dates_ob[0]
                     caught[0] = True
@@ -206,7 +207,8 @@ def is_name(id):
 
                 # used to check if the person falls within the same time span as the person whose page we are analysing
                 # only checked when we know that it is a person (so we definitely have a date)
-                if (date_of_birth <= date_of_birth_compare <= date_of_death) or (date_of_birth_compare <= date_of_birth and date_of_death_compare >= date_of_birth):
+                if (date_of_birth <= date_of_birth_compare <= date_of_death) or (
+                        date_of_birth_compare <= date_of_birth and date_of_death_compare >= date_of_birth):
                     result = True
                 else:
                     # doesn't matter that they are a person, because they are not a relevant person (f)
@@ -214,11 +216,12 @@ def is_name(id):
 
         return result, id
 
-    except Exception as inst:
+    except:
         # IF WE DON'T HAVE A GREGORIAN CALENDAR WE CAN DISREGARD THE PERSON BC THEY ARE NOT IN THE 19TH CENTURY
-        print("✨")
+        pass
 
     return False, id
+
 
 def convert_fake_unicode_to_real_unicode(string):
     return ''.join(map(chr, map(ord, string))).decode('utf-8')
@@ -252,17 +255,36 @@ def request_page(URL):
 
     links = {}
 
-    for item in soup.find_all("p"):
-        if item.text.startswith("See also"): break
-        for link in item.find_all('a', href=True):
-            url = link.get("href", "")
-            if url.startswith("/wiki/") and "/wiki/Category" not in url:
-                links[link.get("title")] = url
+    accepted_headings = ['Co']
 
-    values = {title : "https://en.wikipedia.org" + links[title] for title in links.keys()}
+    div2 = soup.select("div", {"id": "toc"})
+
+    ul = div2[0].find_next('ul')
+    for l in ul:
+        if 'See also' in l.text:
+            accepted_headings.append(new_links[0].find_next("span", {"class": "toctext"}).text)
+            break
+        else:
+            try:
+                new_links = l.find_all('a', href=True)
+                accepted_headings.append(new_links[0].find_next("span", {"class": "toctext"}).text)
+            except:
+                pass
+
+    for item in soup.select('a'):
+        cur_h2 = item.find_next('h2')
+        if cur_h2 != None and (cur_h2.text[:len(cur_h2.text)-6] in accepted_headings):
+            url = item.get("href", "")
+            if url.startswith("/wiki/") and "/wiki/Category" not in url:
+                links[item.get("title")] = url
+        else:
+            break
+
+    values = {title: "https://en.wikipedia.org" + links[title] for title in links.keys()}
 
     # getting the wikidata keys for all the linked articles
     dictionary = map_to_wiki_data(values)
+
 
     futures = []
     results = []
