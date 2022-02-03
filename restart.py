@@ -10,8 +10,50 @@ import sys
 import os
 import wikipedia
 import spacyExtract
+import requests
+from bs4 import BeautifulSoup
 import scraper
 import comparisonCurrent
+import random
+
+
+def choose_people():
+    print(":)")
+    URL = "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians"
+    # going to extract 3 random mathematicians from this file and write to a page
+    response = requests.get(
+        url=URL,
+    )
+
+    assert response.status_code == 200, "request did not succeed"
+
+    soup = BeautifulSoup(response.content, 'lxml')
+
+    links = {}
+    for link in soup.find(id="bodyContent").find_all("a"):
+        url = link.get("href", "")
+        # looking for relevant links only
+        if url.startswith("/wiki/") and "/wiki/Category" not in url and "Categor" not in url:
+            print(url)
+            links[link.text.strip()] = url
+
+    values = []
+    for i in range(3):
+        val = random.choice(list(links.keys()))
+        while val in values:
+            val = random.choice(list(links.keys()))
+        values.append(val)
+
+    print(values)
+
+    fileName = './output/test_people.txt'
+    with open(fileName, 'w') as f:
+        f.write('Mary Somerville\n')
+        f.write('John Tyndall\n')
+        for person in values:
+            f.write(person)
+            f.write('\n')
+    f.close()
 
 
 def formatting(name, char):
@@ -23,6 +65,19 @@ def formatting(name, char):
         else:
             new_name = new_name + char + parts[i].capitalize()
     return new_name
+
+
+def get_test_data():
+    # could be made into a method
+    test_set = open("./output/test_people.txt", "r")
+
+    content = test_set.read()
+    people = content.split("\n")
+    test_set.close()
+
+    people.pop()
+    people = list(set(people))
+    return people
 
 
 def get_linked_names(person):
@@ -77,6 +132,24 @@ def get_page_content(person):
     return substring
 
 
+def usage_options():
+    print("")
+    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+    print("usage : [type of run] [options : specified NER method]")
+    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+    print("type of run : ")
+    print("test = evaluates the methods based off of annotated test data")
+    print("network = applies the methods to a larger group with no test data or evaluation option")
+    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+    print("options : ")
+    print("spacy = normal spacy methods")
+    print("nltk = using NTLK")
+    print("spacy_new = retrained spacy model")
+    print("wikidata = only extracts the linked people")
+    print("all = all three methods compared")
+    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+
+
 def validate_name(name):
     """
 
@@ -108,85 +181,49 @@ def validate_name(name):
 
 
 if __name__ == '__main__':
-    Dict = {'option1': 'spacy', 'option2': 'ntlk', 'option3': 'retrained'}
-
     # assumptions with input - has a space between parts of name
 
     if len(sys.argv) < 2:
-        print("")
-        print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-        print("usage : [desired mathematician] [options : specified NER method]")
-        print(
-            "if desired NER method left out then a comparison of all three methods will be performed (warning : longer running time)")
-        print("options : ")
-        print("option1 = normal spacy methods")
-        print("option2 = using NTLK")
-        print("option3 = retrained spacy model")
-        print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+        usage_options()
         exit(0)
 
-    res, newName = validate_name(sys.argv[1])
+    if sys.argv[1] == "test":
+        people = get_test_data()
 
-    if (res):
-        spaceNewName = newName.replace("_", " ")
+        print("people")
+        print(people)
 
-        # the wikipedia page
-
-        data = get_page_content(spaceNewName)
-
-        """
-        if len(sys.argv) >= 3:
-
-            if sys.argv[2] == 'option1':
-                print("Getting all the names mentioned in the article using standard spacy....")
-                print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-                spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy")
-            elif sys.argv[2] == 'option2':
-                print("Getting all the names mentioned in the article using NLTK....")
-                print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-                spacyExtract.ntlk_names(data, spaceNewName)
-            elif sys.argv[2] == 'option3':
-                print("Getting all the names mentioned in the article using [retrained spacy]....")
-                print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-                spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy_new")
+        # if we have enough arguments
+        for pep in people:
+            print(pep)
+            data = get_page_content(pep)
+            if sys.argv[2] == 'spacy':
+                spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
+            elif sys.argv[2] == 'nltk':
+                spacyExtract.ntlk_names(data, pep)
+            elif sys.argv[2] == 'spacy_new':
+                spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
+            elif sys.argv[2] == 'wikidata':
+                scraper.request_linked(pep)
+            elif sys.argv[2] == 'all':
+                print("buckle up")
+                spacyExtract.extracting_unlinked_spacy(data, pep, "spacy")
+                spacyExtract.nltk_names(data, pep)
+                spacyExtract.extracting_unlinked_spacy(data, pep, "spacy_new")
             else:
-                print("Invalid option given, please refer to the accepted options below")
-                print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-                print("option1 = normal spacy methods")
-                print("option2 = using wikidata")
-                print("option3 = retrained spacy model")
-        else:
-            print("hold on, this is going to take about 10 years")
+                print("method is incorrect, please refer to usage instructions")
+                usage_options()
+                exit(0)
+
+            print("time to do some stats")
             print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+            comparisonCurrent.evaluate2(sys.argv[2])
 
-            print("Performing all methods of named entity recognition....")
-            print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-            print(".・。.・゜✭spacy・.・✫・゜・。.")
-            spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy")
-            print(".・。.・゜✭nltk・.・✫・゜・。.")
-            spacyExtract.ntlk_names(data, spaceNewName)
-            print(".・。.・゜✭retrained spacy・.・✫・゜・。.")
-            spacyExtract.extracting_unlinked_spacy(data, spaceNewName, "spacy_new")
-
-        
-        """
-        print("Getting all linked names from the wikipedia article....")
-        print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-        # must have name in form for wikipedia here
-        scraper.request_linked(newName)
-        
-
-        print("time to do some stats")
-        print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-
-        if len(sys.argv) >= 3:
-            comparisonCurrent.evaluation(Dict[sys.argv[2]], newName)
-        else:
-            comparisonCurrent.evaluation("all", newName)
-
+    elif sys.argv[1] == "network":
+        print("🦆")
     else:
-        print("There does not seem to be manual data to allow comparison, apologies")
+        print("The methods you have indicated are not accepted input")
         print(".・。.・゜✭・.・✫・゜・。.")
-        print("If you believe there is, please ensure the file is correctly formatted as below")
+        print("Please follow the below usage instructions")
         print(".・。.・゜✭・.・✫・゜・。.")
-        print("./people/Firstname_Secondname.txt")
+        usage_options()

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Jan 04 15:45:07 2022
-    fp.write('\n'.join('{} {}'.format(x[0],x[1]) for x in mylist)
 code that should assess how well the methods have
 performed against the manual test data
 
@@ -110,54 +109,7 @@ def statistics(false_pos, false_neg, true_pos):
     return f1
 
 
-def multiple_evaluation(person, complete, linked, unlinked, rel_linked):
-    """
-
-    A method to call the analysis on multiple methods if all three methods want
-    to be compared
-
-    Parameters
-    ----------
-    person : string
-        the person whose wikipedia article we are looking at
-
-    Returns
-    -------
-    None.
-
-    """
-    stdoutOrigin = sys.stdout
-    sys.stdout = open("./output/log.txt", "w", encoding="utf-8")
-
-    print("＊*•̩̩͙✩•̩̩͙*˚　MULTIPLE ANALYSIS BEGIN　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("")
-
-    # dummy values, will be replaced
-    max_accuracy = 0
-    max_method = "🐸"
-
-    # our wikidata method will filter out people outside of the age range of the person
-    # so it should be compared to com_relevant
-    # FOR MULTIPLE PEOPLE THIS NEEDS TO BE SLIGHTLY CHANGED
-    wikidata_evaluation(person, rel_linked, linked)
-
-    for item in ["spacy", "ntlk", "spacy_new"]:
-        acc = method_evaluation(item, person, complete, linked, unlinked)
-        if acc > max_accuracy:
-            max_accuracy = acc
-            max_method = item
-
-    print("")
-    print("＊*•̩̩͙✩•̩̩͙*˚ THE BEST METHOD WAS　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("＊*•̩̩͙✩•̩̩͙*˚ " + max_method + "　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("＊*•̩̩͙✩•̩̩͙*˚　with an f1 score of　˚*•̩̩͙✩•̩̩͙*˚＊")
-    print("＊*•̩̩͙✩•̩̩͙*˚ " + str(max_accuracy) + " ˚*•̩̩͙✩•̩̩͙*˚＊")
-    sys.stdout.close()
-    sys.stdout = stdoutOrigin
-
-
-def wikidata_evaluation(person, rel_linked, linked):
-    # THIS IS NOT PICKING UP EVERYONE WHO SHOULD BE GETTING PICKED UP
+def wikidata_evaluation2(person, rel_linked, linked):
     """
 
     A method that analyses the performance of the wikidata way of extracting
@@ -173,6 +125,10 @@ def wikidata_evaluation(person, rel_linked, linked):
     None.
 
     """
+    stdoutOrigin = sys.stdout
+    sys.stdout = open("./output/wikidata/evaluation/" + person + ".txt", "w", encoding="utf-8")
+
+    # do the wikidata evaluation
     print("")
     print("")
     print("＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
@@ -206,8 +162,7 @@ def wikidata_evaluation(person, rel_linked, linked):
     for human in rel_linked:
         for wiki in wikiData:
             # TO DO - remove everything after a comma in a string !!
-            # this is a fair enough analysis, not picking up any false positives but unsure how many true positives are being missed
-            if (human in wiki or wiki in human or Levenshtein.ratio(human, wiki) > .85):
+            if human in wiki or wiki in human or Levenshtein.ratio(human, wiki) > .85:
                 count += 1
                 notIdentified.remove(human)
                 if wiki in additional:
@@ -217,10 +172,6 @@ def wikidata_evaluation(person, rel_linked, linked):
     print("%.2f" % ((count / allLinked) * 100))
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
 
-    # filtered people out now
-    # this is no longer representative of whether it is performing well
-    # only want people in the time frame to be compared
-    # THIS IS NOT REPRESENTATIVE ANYMORE NEED TO MANUALLY FILTER THIS LIST BASED ON DATES
     print("those who were not identified: ")
     print("")
     for no in notIdentified:
@@ -239,32 +190,44 @@ def wikidata_evaluation(person, rel_linked, linked):
     false_pos = len(additional)  # how many were identified as human but are not human
     false_neg = len(notIdentified)  # how many of our true ones are missing
 
-    statistics(false_pos, false_neg, true_pos)
+    f1 = statistics(false_pos, false_neg, true_pos)
+
+    sys.stdout.close()
+    sys.stdout = stdoutOrigin
+
+    return f1
 
 
-def method_evaluation(method, person, complete, linked, unlinked):
+def multiple_evaluation2(person, complete, linked, unlinked):
+    performances = []
+    for item in ["spacy", "ntlk", "spacy_new"]:
+        acc = method_evaluation2(item, person, complete)
+        performances.append(acc)
+    return performances
+
+
+def method_evaluation2(method, person, complete):
     """
 
-    A method to give statistics on how accurate the
-    method passed in is performing on the wikipedia page
+        A method to give statistics on how accurate the
+        method passed in is performing on the wikipedia page
 
-    Parameters
-    ----------
-    method : string
-        how the list of names has been generated
-    person : string
-        the person whose wikipedia article we are looking at
+        Parameters
+        ----------
+        method : string
+            how the list of names has been generated
+        person : string
+            the person whose wikipedia article we are looking at
 
-    Returns
-    -------
-    float
-        the proportion of unlinked people identified
+        Returns
+        -------
+        float
+            the proportion of unlinked people identified
 
-    """
+        """
+    stdoutOrigin = sys.stdout
+    sys.stdout = open("./output/" + method + "/evaluation/" + person + ".txt", "w", encoding="utf-8")
 
-    print("")
-    print(method)
-    print("")
     filename = "./output/" + method + "/" + person + "_Unlinked"
 
     # the file that stores the method names
@@ -330,39 +293,68 @@ def method_evaluation(method, person, complete, linked, unlinked):
         print(no)
     print("")
 
-    # false_pos, false_neg, true_pos
-    # i believe these are set up correctly
     false_pos = len(noMatch)
     true_pos = numberIdentified
     false_neg = len(copyComplete)
 
-    return statistics(false_pos, false_neg, true_pos)
+    stats = statistics(false_pos, false_neg, true_pos)
 
-    # return (numberIdentified / len(complete)) * 100
+    sys.stdout.close()
+    sys.stdout = stdoutOrigin
+
+    return stats
 
 
-def evaluation(method, newName):
-    """
+def evaluate_statistics(performances):
+    stdoutOrigin = sys.stdout
+    sys.stdout = open("./output/evaluation.txt", "w", encoding="utf-8")
+    wikidata_scores = []
+    spacy_scores = []
+    nltk_scores = []
+    new_spacy_scores = []
 
-    Driver method for this code to deal with the problem of the three arrays
-    (complete, linked, unlinked) needed for both methods but don't want to read file in
-    multiple times
+    for person in performances.keys():
+        print(person + " performance")
+        print("spacy " + performances[person][0])
+        spacy_scores.append(performances[person][0])
+        print("nltk " + performances[person][1])
+        nltk_scores.append(performances[person][1])
+        print("new spacy " + performances[person][2])
+        new_spacy_scores.append(performances[person][2])
+        print("wikidata " + performances[person][3])
+        wikidata_scores.append(performances[person][3])
+        print("")
 
-    Parameters
-    ----------
-    method : string
-        the method we want to evaluate
+    # take the average of each method
+    num = len(performances.keys())
+    spacy_average = sum(spacy_scores)/num
+    nltk_average = sum(nltk_scores)/num
+    new_spacy_average = sum(new_spacy_scores)/num
+    wikidata_average = sum(wikidata_scores)/num
 
-    newName : string
-        the person whose article we are evaluating in the correct form for file retrieval
+    print("spacy average : " + spacy_average)
+    print("nltk_average : " + nltk_average)
+    print("new spacy average : " + new_spacy_average)
+    print("new wikidata average : " + wikidata_average)
 
-    Returns
-    -------
-    None.
+    sys.stdout.close()
+    sys.stdout = stdoutOrigin
 
-    """
-    complete, linked, unlinked, relevant_linked = setup(newName)
+
+def evaluate2(method):
+    people = restart.get_test_data()
     if method == "all":
-        multiple_evaluation(newName, complete, linked, unlinked, relevant_linked)
+        performances = {}
+        for peep in people:
+            # need to do set up on each person
+            complete, linked, unlinked, rel_linked = setup(peep)
+            performance = multiple_evaluation2(peep, complete, linked, unlinked)
+            performance.append(wikidata_evaluation2(peep, rel_linked, linked))
+            performances[peep] = performance
+        # should be an array of arrays for the number of people with [spacy, nltk, new_space, wikidata] performance (f1 scores)
+        print(performances)
+        evaluate_statistics(performances)
     else:
-        method_evaluation(method, newName, complete, linked, unlinked)
+        for peep in people:
+            complete, linked, unlinked, rel_linked = setup(peep)
+            method_evaluation2(method, peep, complete, linked, unlinked)
