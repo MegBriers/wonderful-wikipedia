@@ -217,7 +217,8 @@ if __name__ == '__main__':
 
         print("time to do some stats")
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-        comparisonCurrent.evaluate2(sys.argv[2])
+        print(":)")
+        comparisonCurrent.evaluate(sys.argv[2])
 
     elif sys.argv[1] == "network":
         print("🦆")

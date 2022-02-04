@@ -109,7 +109,7 @@ def statistics(false_pos, false_neg, true_pos):
     return f1
 
 
-def wikidata_evaluation2(person, rel_linked, linked):
+def wikidata_evaluation(person, rel_linked, linked):
     """
 
     A method that analyses the performance of the wikidata way of extracting
@@ -199,15 +199,15 @@ def wikidata_evaluation2(person, rel_linked, linked):
     return f1
 
 
-def multiple_evaluation2(person, complete, linked, unlinked):
+def multiple_evaluation(person, complete, linked, unlinked):
     performances = []
     for item in ["spacy", "ntlk", "spacy_new"]:
-        acc = method_evaluation2(item, person, complete)
+        acc = method_evaluation(item, person, complete)
         performances.append(acc)
     return performances
 
 
-def method_evaluation2(method, person, complete):
+def method_evaluation(method, person, complete):
     """
 
         A method to give statistics on how accurate the
@@ -343,15 +343,15 @@ def evaluate_statistics(performances):
     sys.stdout = stdoutOrigin
 
 
-def evaluate2(method):
+def evaluate(method):
     people = restart.get_test_data()
     if method == "all":
         performances = {}
         for peep in people:
             # need to do set up on each person
             complete, linked, unlinked, rel_linked = setup(peep)
-            performance = multiple_evaluation2(peep, complete, linked, unlinked)
-            performance.append(wikidata_evaluation2(peep, rel_linked, linked))
+            performance = multiple_evaluation(peep, complete, linked, unlinked)
+            performance.append(wikidata_evaluation(peep, rel_linked, linked))
             performances[peep] = performance
         # should be an array of arrays for the number of people with [spacy, nltk, new_space, wikidata] performance (f1 scores)
         print(performances)
@@ -359,4 +359,4 @@ def evaluate2(method):
     else:
         for peep in people:
             complete, linked, unlinked, rel_linked = setup(peep)
-            method_evaluation2(method, peep, complete, linked, unlinked)
+            method_evaluation(method, peep, complete, linked, unlinked)
