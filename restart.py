@@ -215,9 +215,9 @@ if __name__ == '__main__':
                 usage_options()
                 exit(0)
 
-            print("time to do some stats")
-            print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-            comparisonCurrent.evaluate2(sys.argv[2])
+        print("time to do some stats")
+        print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+        comparisonCurrent.evaluate2(sys.argv[2])
 
     elif sys.argv[1] == "network":
         print("🦆")

@@ -126,6 +126,7 @@ def wikidata_evaluation2(person, rel_linked, linked):
 
     """
     stdoutOrigin = sys.stdout
+    person = restart.formatting(person,"_")
     sys.stdout = open("./output/wikidata/evaluation/" + person + ".txt", "w", encoding="utf-8")
 
     # do the wikidata evaluation
@@ -226,6 +227,7 @@ def method_evaluation2(method, person, complete):
 
         """
     stdoutOrigin = sys.stdout
+    person = restart.formatting(person,"_")
     sys.stdout = open("./output/" + method + "/evaluation/" + person + ".txt", "w", encoding="utf-8")
 
     filename = "./output/" + method + "/" + person + "_Unlinked"
@@ -315,13 +317,13 @@ def evaluate_statistics(performances):
 
     for person in performances.keys():
         print(person + " performance")
-        print("spacy " + performances[person][0])
+        print("spacy " + str(performances[person][0]))
         spacy_scores.append(performances[person][0])
-        print("nltk " + performances[person][1])
+        print("nltk " + str(performances[person][1]))
         nltk_scores.append(performances[person][1])
-        print("new spacy " + performances[person][2])
+        print("new spacy " + str(performances[person][2]))
         new_spacy_scores.append(performances[person][2])
-        print("wikidata " + performances[person][3])
+        print("wikidata " + str(performances[person][3]))
         wikidata_scores.append(performances[person][3])
         print("")
 
@@ -332,10 +334,10 @@ def evaluate_statistics(performances):
     new_spacy_average = sum(new_spacy_scores)/num
     wikidata_average = sum(wikidata_scores)/num
 
-    print("spacy average : " + spacy_average)
-    print("nltk_average : " + nltk_average)
-    print("new spacy average : " + new_spacy_average)
-    print("new wikidata average : " + wikidata_average)
+    print("spacy average : " + str(spacy_average))
+    print("nltk_average : " + str(nltk_average))
+    print("new spacy average : " + str(new_spacy_average))
+    print("new wikidata average : " + str(wikidata_average))
 
     sys.stdout.close()
     sys.stdout = stdoutOrigin
