@@ -72,7 +72,7 @@ def write_to_file(person, links):
         all the urls from wikipedia articles linked
 
     """
-    fileName = './output/wikidata/' + person + "_Linked.txt"
+    fileName = './output/wikidata/' + restart.formatting(person,"_") + "_Linked.txt"
     with open(fileName, 'w') as f:
         for tup in links:
             f.write(tup)
@@ -131,7 +131,7 @@ def map_to_wiki_data(articles):
     return wikidataIds
 
 
-def is_name(id):
+def is_name(id, client_id):
     """
 
     A method that checks whether a wikidata entity
@@ -152,7 +152,7 @@ def is_name(id):
     client = Client()
     # manually setting up an entity we know is a person to compare the entity types
     # Q268702 - Mary Somerville (can be used as the dummy variable regardless of the person being tested)
-    entityCompare = client.get('Q268702', load=True)
+    entityCompare = client.get(client_id, load=True)
     # P31 - 'instance of'
     instance_of = client.get('P31', load=True)
     typesCompare = entityCompare.getlist(instance_of)
@@ -162,9 +162,15 @@ def is_name(id):
     dob = client.get('P569', load=True)
     dod = client.get('P570', load=True)
 
-    date_of_birth = (entityCompare.getlist(dob)[0]).year
+    if type((entityCompare.getlist(dob)[0])) == int:
+        date_of_birth = (entityCompare.getlist(dob)[0])
+    else:
+        date_of_birth = (entityCompare.getlist(dob)[0]).year
 
-    date_of_death = (entityCompare.getlist(dod)[0]).year
+    if type((entityCompare.getlist(dod)[0])) == int:
+        date_of_death = entityCompare.getlist(dod)[0]
+    else:
+        date_of_death = (entityCompare.getlist(dod)[0]).year
 
     try:
         entity = client.get(id, load=True)
@@ -208,12 +214,11 @@ def is_name(id):
                 # used to check if the person falls within the same time span as the person whose page we are analysing
                 # only checked when we know that it is a person (so we definitely have a date)
                 if (date_of_birth <= date_of_birth_compare <= date_of_death) or (
-                        date_of_birth_compare <= date_of_birth and date_of_death_compare >= date_of_birth):
+                        date_of_birth_compare <= date_of_birth and date_of_death_compare >= date_of_birth):#
                     result = True
                 else:
                     # doesn't matter that they are a person, because they are not a relevant person (f)
                     result = False
-
         return result, id
 
     except:
@@ -257,11 +262,13 @@ def request_page(URL):
 
     accepted_headings = ['Co']
 
-    div2 = soup.select("div", {"id": "toc"})
+    div3 = soup.find(id="toc")
 
-    ul = div2[0].find_next('ul')
+    ul = div3.find_next('ul')
+
     for l in ul:
-        if 'See also' in l.text:
+        if 'See also' in l.text or 'Bibliography' in l.text or 'Works' in l.text:
+            new_links = l.find_all('a',href=True)
             accepted_headings.append(new_links[0].find_next("span", {"class": "toctext"}).text)
             break
         else:
@@ -273,6 +280,7 @@ def request_page(URL):
 
     for item in soup.select('a'):
         cur_h2 = item.find_next('h2')
+        # magic number-y
         if cur_h2 != None and (cur_h2.text[:len(cur_h2.text)-6] in accepted_headings):
             url = item.get("href", "")
             if url.startswith("/wiki/") and "/wiki/Category" not in url:
@@ -285,15 +293,17 @@ def request_page(URL):
     # getting the wikidata keys for all the linked articles
     dictionary = map_to_wiki_data(values)
 
-
     futures = []
     results = []
+
+    # TEMPORARY FIX - CAN BE CHANGED WHEN TIDYING UP CODE
+    wikidata_keys = {'Charles Howard Hinton': 'Q1064912', 'Mary Somerville': 'Q268702', 'Michael Faraday' : 'Q8750', 'John Tyndall' : 'Q360808', 'John Herschel' : 'Q14278'}
 
     # https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
     # concurrent execution so it is faster
     with concurrent.futures.ThreadPoolExecutor() as executor:
         for wikidataId in dictionary.keys():
-            futures.append(executor.submit(is_name, id=wikidataId))
+            futures.append(executor.submit(is_name, id=wikidataId, client_id=wikidata_keys[get_title(URL)]))
 
         for future in concurrent.futures.as_completed(futures):
             # exception here
@@ -310,14 +320,11 @@ def request_page(URL):
 
 
 def request_linked(person):
-    print("*＊✿❀ Requesting links　❀✿＊*")
     page = "https://en.wikipedia.org/wiki/" + person
 
     names = request_page(page)
 
-    print("*＊✿❀　Writing linked people to a file ❀✿＊*")
+    print("people linked in " + person + "'s article")
+    print(names)
 
     write_to_file(person, names)
-
-    print("Time taken to extract articles linked to that where the subject is human and within time period : ")
-    print("--- %s seconds ---" % (time.time() - start_time))

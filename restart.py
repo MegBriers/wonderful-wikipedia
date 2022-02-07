@@ -38,7 +38,7 @@ def choose_people():
             links[link.text.strip()] = url
 
     values = []
-    for i in range(3):
+    for i in range(2):
         val = random.choice(list(links.keys()))
         while val in values:
             val = random.choice(list(links.keys()))
@@ -50,6 +50,10 @@ def choose_people():
     with open(fileName, 'w') as f:
         f.write('Mary Somerville\n')
         f.write('John Tyndall\n')
+        f.write('John Herschel\n')
+        f.write('Michael Faraday\n')
+        f.write('Charles Howard Hinton\n')
+        f.write('John Viriamu Jones\n')
         for person in values:
             f.write(person)
             f.write('\n')
@@ -77,6 +81,7 @@ def get_test_data():
 
     people.pop()
     people = list(set(people))
+    print(people)
     return people
 
 
@@ -119,7 +124,8 @@ def get_page_content(person):
     print("‧͙⁺˚*･༓☾　getting the page data for unlinked names　☽༓･*˚⁺‧͙")
 
     # getting the relevant wikipedia page
-    page = wikipedia.page(person)
+    print(person)
+    page = wikipedia.page(person, auto_suggest=False, redirect=True)
 
     # getting all the text from the page
     content = page.content
@@ -210,6 +216,7 @@ if __name__ == '__main__':
                 spacyExtract.extracting_unlinked_spacy(data, pep, "spacy")
                 spacyExtract.nltk_names(data, pep)
                 spacyExtract.extracting_unlinked_spacy(data, pep, "spacy_new")
+                scraper.request_linked(pep)
             else:
                 print("method is incorrect, please refer to usage instructions")
                 usage_options()
@@ -228,3 +235,4 @@ if __name__ == '__main__':
         print("Please follow the below usage instructions")
         print(".・。.・゜✭・.・✫・゜・。.")
         usage_options()
+
