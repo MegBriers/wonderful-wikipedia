@@ -270,8 +270,10 @@ def method_evaluation(method, person, complete):
     for people in complete:
         for identified in identifiedUnlinked:
             # this might be letting in some false positives
-            if Levenshtein.ratio(people, identified) > 0.9:
-                # if (people in identified and Levenshtein.ratio(people,identified) > 0.85) or (identified in people and Levenshtein.ratio(people,identified) > 0.85):
+            if ((people in identified or identified in people) and Levenshtein.ratio(people,identified) > .75) or Levenshtein.ratio(people,identified) > 0.9:
+                print("matching")
+                print(people,identified)
+                print("")
                 copyComplete.remove(people)
                 # method picks up the same person multiple time, so this is okay
                 if not (identified in copyIdentified):
@@ -359,4 +361,4 @@ def evaluate(method):
     else:
         for peep in people:
             complete, linked, unlinked, rel_linked = setup(peep)
-            method_evaluation(method, peep, complete, linked, unlinked)
+            value = method_evaluation(method, peep, complete)

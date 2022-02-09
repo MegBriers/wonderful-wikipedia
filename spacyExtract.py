@@ -17,12 +17,28 @@ import pandas as pd
 import spacy
 from pyvis.network import Network
 import nltk
+from spacy_transformers import Transformer, TransformerModel
+from spacy_transformers.annotation_setters import null_annotation_setter
+from spacy_transformers.span_getters import get_doc_spans
 
+nlp = spacy.load("en_core_web_trf")
 nlp1 = spacy.load("xx_ent_wiki_sm")
 nlp2 = spacy.load("maths_ner_model")
 
+# idk what this deos
+trf = Transformer(
+    nlp.vocab,
+    TransformerModel(
+        "bert-base-cased",
+        get_spans=get_doc_spans,
+        tokenizer_config={"use_fast": True},
+    ),
+    set_extra_annotations=null_annotation_setter,
+    max_batch_items=4096,
+)
 
-def spacy_text(page, nlp):
+
+def spacy_text(page, nlp_cur):
     """
 
     A method to extract all the identified people in
@@ -43,9 +59,10 @@ def spacy_text(page, nlp):
         all the people named in the article
 
     """
-    doc = nlp(page)
+    doc = nlp_cur(page)
     # 'PERSON'?
     persons = [ent.text for ent in doc.ents if ent.label_ == 'PER']
+    print(persons)
     return persons
 
 
@@ -132,6 +149,11 @@ def similar_names(name, names):
     # longest common substring
 
 
+def transformers(text, title):
+    print("🦆")
+    people = []
+    write_to_file("transformers", title, people)
+
 def nltk_names(text, title):
     people = []
     for sent in nltk.sent_tokenize(text):
@@ -148,8 +170,10 @@ def extracting_unlinked_spacy(data, title, method):
     # getting all the names mentioned in the text
     if method == "spacy":
         text_result = spacy_text(data, nlp1)
+    elif method == "transformers":
+        text_result = spacy_text(data, nlp)
     else:
-        text_result = spacy_text(data, nlp2)
+        text_result = spacy_text(data,nlp2)
 
     # creating the data files
     write_to_file(method, title, text_result)

@@ -15,10 +15,9 @@ from bs4 import BeautifulSoup
 import scraper
 import comparisonCurrent
 import random
-
+import time
 
 def choose_people():
-    print(":)")
     URL = "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians"
     # going to extract 3 random mathematicians from this file and write to a page
     response = requests.get(
@@ -81,7 +80,6 @@ def get_test_data():
 
     people.pop()
     people = list(set(people))
-    print(people)
     return people
 
 
@@ -100,7 +98,6 @@ def get_linked_names(person):
         None.
 
     """
-    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　getting linked names　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
     scraper.request_page(person)
 
 
@@ -121,10 +118,6 @@ def get_page_content(person):
         the wikipedia page in text form ready for analysis
 
     """
-    print("‧͙⁺˚*･༓☾　getting the page data for unlinked names　☽༓･*˚⁺‧͙")
-
-    # getting the relevant wikipedia page
-    print(person)
     page = wikipedia.page(person, auto_suggest=False, redirect=True)
 
     # getting all the text from the page
@@ -132,6 +125,11 @@ def get_page_content(person):
 
     # removing the irrelevant sections
     split_string = content.split("== See also ==", 1)
+
+    other_areas = ["== Works ==", "== Bibliography =="]
+    for area in other_areas:
+        if area in split_string[0]:
+            split_string = content.split(area, 1)
 
     substring = split_string[0]
 
@@ -188,6 +186,7 @@ def validate_name(name):
 
 if __name__ == '__main__':
     # assumptions with input - has a space between parts of name
+    start_time = time.time()
 
     if len(sys.argv) < 2:
         usage_options()
@@ -196,12 +195,9 @@ if __name__ == '__main__':
     if sys.argv[1] == "test":
         people = get_test_data()
 
-        print("people")
-        print(people)
-
-        # if we have enough arguments
         for pep in people:
             print(pep)
+            print("🦆")
             data = get_page_content(pep)
             if sys.argv[2] == 'spacy':
                 spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
@@ -211,11 +207,13 @@ if __name__ == '__main__':
                 spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
             elif sys.argv[2] == 'wikidata':
                 scraper.request_linked(pep)
+            elif sys.argv[2] == "transformers":
+                spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
             elif sys.argv[2] == 'all':
-                print("buckle up")
                 spacyExtract.extracting_unlinked_spacy(data, pep, "spacy")
                 spacyExtract.nltk_names(data, pep)
                 spacyExtract.extracting_unlinked_spacy(data, pep, "spacy_new")
+                #spacyExtract.extracting_unlinked_spacy(data, pep, "transformers")
                 scraper.request_linked(pep)
             else:
                 print("method is incorrect, please refer to usage instructions")
@@ -226,6 +224,9 @@ if __name__ == '__main__':
         print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
         print(":)")
         comparisonCurrent.evaluate(sys.argv[2])
+        end_time = time.time()
+        time_taken = end_time - start_time
+        print("time taken to run code : %.2f \n" % time_taken)
 
     elif sys.argv[1] == "network":
         print("🦆")

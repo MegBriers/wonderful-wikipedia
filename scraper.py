@@ -324,7 +324,4 @@ def request_linked(person):
 
     names = request_page(page)
 
-    print("people linked in " + person + "'s article")
-    print(names)
-
     write_to_file(person, names)
