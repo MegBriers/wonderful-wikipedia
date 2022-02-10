@@ -5,7 +5,7 @@ Created on Fri Oct 22 20:20:54 2021
 CODE THAT EXTRACTS ALL THE NAMED PEOPLE WITHIN A GIVEN ARTICLE
 USING THE STANDARD SPACY MODEL
 
-AND NTLK
+AND NLTK
 
 POSSIBLY NEEDS RENAMING
 
@@ -62,7 +62,6 @@ def spacy_text(page, nlp_cur):
     doc = nlp_cur(page)
     # 'PERSON'?
     persons = [ent.text for ent in doc.ents if ent.label_ == 'PER']
-    print(persons)
     return persons
 
 
@@ -85,9 +84,15 @@ def write_to_file(method, title, names):
 
     """
 
+    # THIS NEEDS TO BE FIXED THEN HOPEFULLY ACCURACY SHOULD BE BACK UP TO USUAL NUMBERS
+
     underlinedTitle = title.replace(" ", "_")
 
-    filename = "./output/" + method + "/" + underlinedTitle + "_Unlinked.txt"
+
+    filename = "./output/" + method + "/network/" + underlinedTitle + "_Unlinked.txt"
+
+    if title == "Sir William Hamilton, 9th Baronet":
+        title = "William Hamilton"
 
     # whether it is necessary to have it in this form TO BE DECIDED 🦆
     f = open(filename, "a", encoding='utf-8')
@@ -163,7 +168,7 @@ def nltk_names(text, title):
                     text = ' '.join(c[0] for c in chunk)
                     people.append(text)
 
-    write_to_file("ntlk", title, list(set(people)))
+    write_to_file("nltk", title, list(set(people)))
 
 
 def extracting_unlinked_spacy(data, title, method):

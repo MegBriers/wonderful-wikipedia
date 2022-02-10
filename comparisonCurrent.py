@@ -10,6 +10,7 @@ import pandas as pd
 import Levenshtein
 import sys
 import restart
+import helper
 
 
 def setup(name):
@@ -20,7 +21,8 @@ def setup(name):
 
     Parameters
     ----------
-    None.
+    name : string
+        the name of the person whose article we are evaluating
 
     Returns
     -------
@@ -30,8 +32,11 @@ def setup(name):
     linked : array of strings
         all the manually identified people that are linked in the article
 
-    unlinked : TYPE
+    unlinked : array of strings
         all the manually identified people that are unlinked in the article
+
+    relevant_linked : array of strings
+        all the manually identified people that are ALIVE during lifespan of article's subject
 
     """
 
@@ -46,6 +51,7 @@ def setup(name):
     # all names in article
     complete = []
 
+    # all linked and alive people in the article
     relevant_linked = []
 
     # set up weirdly for the graph, may modify file structure
@@ -84,7 +90,9 @@ def statistics(false_pos, false_neg, true_pos):
 
     Returns
     -------
-    None.
+    f1 : float
+        the f1 value based on the precision and recall from data
+        (representation of how well the method is picking up the people)
 
     """
     # precision = (true positives)/(true positives + false positives)
@@ -102,10 +110,6 @@ def statistics(false_pos, false_neg, true_pos):
     # f1 score = 2 x (precision * recall)/(precision + recll)
     f1 = 2 * ((precision * recall) / (precision + recall))
 
-    print("the f1 score")
-    print(f1)
-    print("")
-
     return f1
 
 
@@ -120,16 +124,23 @@ def wikidata_evaluation(person, rel_linked, linked):
     person : string
         the person whose wikipedia article is being analysed
 
+    rel_linked : list of strings
+        the people that were linked in the article (and alive at the right point)
+
+    linked : list of strings
+        the people that were linked in the article (regardless of status of life at relevant time)
+
     Returns
     -------
-    None.
+    f1 : float
+        the f1 value based on the precision and recall from data
+        (representation of how well the method is picking up the people)
 
     """
     stdoutOrigin = sys.stdout
-    person = restart.formatting(person,"_")
+    person = helper.formatting(person,"_")
     sys.stdout = open("./output/wikidata/evaluation/" + person + ".txt", "w", encoding="utf-8")
 
-    # do the wikidata evaluation
     print("")
     print("")
     print("＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
@@ -137,7 +148,7 @@ def wikidata_evaluation(person, rel_linked, linked):
     print("")
 
     print("proportion of the links that are going to contemporaries of the person")
-    # does default to yes if it's unknown
+    # does default to yes if it's unknown - statistically more likely (can be proven by looking at these values for all test files)
     print("%.2f" % (len(rel_linked) / len(linked) * 100))
 
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
@@ -150,6 +161,7 @@ def wikidata_evaluation(person, rel_linked, linked):
     wikiData = content.split("\n")
     fileLinked.close()
 
+    # additional line in the file due to the way it was set up
     wikiData.pop()
     wikiData = list(set(wikiData))
 
@@ -162,7 +174,6 @@ def wikidata_evaluation(person, rel_linked, linked):
 
     for human in rel_linked:
         for wiki in wikiData:
-            # TO DO - remove everything after a comma in a string !!
             if human in wiki or wiki in human or Levenshtein.ratio(human, wiki) > .85:
                 count += 1
                 notIdentified.remove(human)
@@ -199,9 +210,25 @@ def wikidata_evaluation(person, rel_linked, linked):
     return f1
 
 
-def multiple_evaluation(person, complete, linked, unlinked):
+def multiple_evaluation(person, complete):
+    """
+    A driver method that sets off the evaluation of the
+    methods to do nlp processing of the text
+
+    Parameters
+    ----------
+    person : string
+        the person whose wikipedia article we are looking at
+    complete : list of strings
+        all the people both linked and mentioned in the article
+
+    Returns
+    -------
+    performances : list of list of floats
+        the precision, recall and f1 value for all the methods
+    """
     performances = []
-    for item in ["spacy", "ntlk", "spacy_new"]:
+    for item in ["spacy", "nltk", "spacy_new"]:
         acc = method_evaluation(item, person, complete)
         performances.append(acc)
     return performances
@@ -210,24 +237,26 @@ def multiple_evaluation(person, complete, linked, unlinked):
 def method_evaluation(method, person, complete):
     """
 
-        A method to give statistics on how accurate the
-        method passed in is performing on the wikipedia page
+    A method to give statistics on how accurate the
+    method passed in is performing on the wikipedia page
 
-        Parameters
-        ----------
-        method : string
-            how the list of names has been generated
-        person : string
-            the person whose wikipedia article we are looking at
+    Parameters
+    ----------
+    method : string
+        how the list of names has been generated
+    person : string
+        the person whose wikipedia article we are looking at
+    complete : list of strings
+        all the people both linked and mentioned in the article
 
-        Returns
-        -------
-        float
-            the proportion of unlinked people identified
+    Returns
+    -------
+    stats : list of floats
+        the precision, recall and f1 value for the method
 
-        """
+    """
     stdoutOrigin = sys.stdout
-    person = restart.formatting(person,"_")
+    person = helper.formatting(person,"_")
     sys.stdout = open("./output/" + method + "/evaluation/" + person + ".txt", "w", encoding="utf-8")
 
     filename = "./output/" + method + "/" + person + "_Unlinked"
@@ -269,11 +298,7 @@ def method_evaluation(method, person, complete):
 
     for people in complete:
         for identified in identifiedUnlinked:
-            # this might be letting in some false positives
             if ((people in identified or identified in people) and Levenshtein.ratio(people,identified) > .75) or Levenshtein.ratio(people,identified) > 0.9:
-                print("matching")
-                print(people,identified)
-                print("")
                 copyComplete.remove(people)
                 # method picks up the same person multiple time, so this is okay
                 if not (identified in copyIdentified):
@@ -310,6 +335,17 @@ def method_evaluation(method, person, complete):
 
 
 def evaluate_statistics(performances):
+    """
+    [DESCRIPTION OF METHOD HERE]
+
+    Parameters
+    ----------
+    performances :
+
+    Returns
+    -------
+    None.
+    """
     stdoutOrigin = sys.stdout
     sys.stdout = open("./output/evaluation.txt", "w", encoding="utf-8")
     wikidata_scores = []
@@ -346,19 +382,36 @@ def evaluate_statistics(performances):
 
 
 def evaluate(method):
+    """
+    [DESCRIPTION OF METHOD HERE]
+
+    Parameters
+    ----------
+    method :
+
+    Returns
+    -------
+    None.
+    """
+
     people = restart.get_test_data()
     if method == "all":
         performances = {}
         for peep in people:
             # need to do set up on each person
             complete, linked, unlinked, rel_linked = setup(peep)
-            performance = multiple_evaluation(peep, complete, linked, unlinked)
+            performance = multiple_evaluation(peep, complete)
             performance.append(wikidata_evaluation(peep, rel_linked, linked))
             performances[peep] = performance
-        # should be an array of arrays for the number of people with [spacy, nltk, new_space, wikidata] performance (f1 scores)
-        print(performances)
         evaluate_statistics(performances)
     else:
+        performances = []
         for peep in people:
             complete, linked, unlinked, rel_linked = setup(peep)
             value = method_evaluation(method, peep, complete)
+            performances.append(value)
+            print("")
+            print(peep + ":" + str(value))
+            print("")
+        print("average")
+        print(sum(performances)/len(performances))
