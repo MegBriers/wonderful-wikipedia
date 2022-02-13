@@ -1,5 +1,6 @@
 import spacyExtract
 import helper
+import scraper
 
 def run_on_group(URLS, method):
     for category in URLS:
@@ -16,9 +17,10 @@ def run_on_group(URLS, method):
             print(title)
             print("🦆")
 
-            spacyExtract.extracting_unlinked_spacy(data, title, "spacy")
+            if method == "spacy":
+                spacyExtract.extracting_unlinked_spacy(data, title, "spacy")
             # do something with names
-
-        if method != "spacy":
-            print("do wikidata")
+            else:
+                print("do wikidata")
+                scraper.request_linked(title)
             # TO BE IMPLEMENTED

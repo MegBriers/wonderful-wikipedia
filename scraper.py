@@ -13,7 +13,7 @@ from wikidata.client import Client
 from wikimapper import WikiMapper
 import concurrent.futures
 import time
-import restart
+import helper
 import json
 
 start_time = time.time()
@@ -72,8 +72,8 @@ def write_to_file(person, links):
         all the urls from wikipedia articles linked
 
     """
-    fileName = './output/wikidata/' + restart.formatting(person,"_") + "_Linked.txt"
-    with open(fileName, 'w') as f:
+    fileName = './output/wikidata/network/' + helper.formatting(person,"_") + "_Linked.txt"
+    with open(fileName, "w", encoding="utf-8") as f:
         for tup in links:
             f.write(tup)
             f.write('\n')
@@ -262,62 +262,77 @@ def request_page(URL):
 
     accepted_headings = ['Co']
 
-    div3 = soup.find(id="toc")
+    try:
+        div3 = soup.find(id="toc")
+        ul = div3.find_next('ul')
+        for l in ul:
+            if 'See also' in l.text or 'Bibliography' in l.text or 'Works' in l.text:
+                new_links = l.find_all('a',href=True)
+                accepted_headings.append(l.find_next("span", {"class": "toctext"}).text)
+                break
+            else:
+                try:
+                    new_links = l.find_all('a', href=True)
+                    accepted_headings.append(l.find_next("span", {"class": "toctext"}).text)
+                except:
+                    pass
 
-    ul = div3.find_next('ul')
+        for item in soup.select('a'):
+            cur_h2 = item.find_next('h2')
+            # magic number-y
+            if cur_h2 != None and (cur_h2.text[:len(cur_h2.text)-6] in accepted_headings):
+                url = item.get("href", "")
+                if url.startswith("/wiki/") and "/wiki/Category" not in url:
+                    title = item.get("title")
+                    if title in links.keys():
+                        continue
+                    else:
+                        links[title] = url
+            else:
+                break
 
-    for l in ul:
-        if 'See also' in l.text or 'Bibliography' in l.text or 'Works' in l.text:
-            new_links = l.find_all('a',href=True)
-            accepted_headings.append(new_links[0].find_next("span", {"class": "toctext"}).text)
-            break
-        else:
-            try:
-                new_links = l.find_all('a', href=True)
-                accepted_headings.append(new_links[0].find_next("span", {"class": "toctext"}).text)
-            except:
-                pass
+        print(":0")
+        values = {title: "https://en.wikipedia.org" + links[title] for title in links.keys()}
 
-    for item in soup.select('a'):
-        cur_h2 = item.find_next('h2')
-        # magic number-y
-        if cur_h2 != None and (cur_h2.text[:len(cur_h2.text)-6] in accepted_headings):
-            url = item.get("href", "")
-            if url.startswith("/wiki/") and "/wiki/Category" not in url:
-                links[item.get("title")] = url
-        else:
-            break
+        # getting the wikidata keys for all the linked articles
+        dictionary = map_to_wiki_data(values)
 
-    values = {title: "https://en.wikipedia.org" + links[title] for title in links.keys()}
+        title_true = get_title(URL)
+        dictionary_true = {title_true : "https://en.wikipedia.org/wiki/" + helper.formatting(title_true,"_")}
 
-    # getting the wikidata keys for all the linked articles
-    dictionary = map_to_wiki_data(values)
+        wikidata_true = map_to_wiki_data(dictionary_true)
 
-    futures = []
-    results = []
+        print(wikidata_true)
 
-    # TEMPORARY FIX - CAN BE CHANGED WHEN TIDYING UP CODE
-    wikidata_keys = {'Charles Howard Hinton': 'Q1064912', 'Mary Somerville': 'Q268702', 'Michael Faraday' : 'Q8750', 'John Tyndall' : 'Q360808', 'John Herschel' : 'Q14278'}
+        futures = []
+        results = []
 
-    # https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
-    # concurrent execution so it is faster
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        for wikidataId in dictionary.keys():
-            futures.append(executor.submit(is_name, id=wikidataId, client_id=wikidata_keys[get_title(URL)]))
+        # TEMPORARY FIX - CAN BE CHANGED WHEN TIDYING UP CODE
+        wikidata_keys = {'Charles Howard Hinton': 'Q1064912', 'Mary Somerville': 'Q268702', 'Michael Faraday' : 'Q8750', 'John Tyndall' : 'Q360808', 'John Herschel' : 'Q14278'}
 
-        for future in concurrent.futures.as_completed(futures):
-            # exception here
-            try:
-                if future.result()[0]:
-                    results.append(future.result()[1])
-            except Exception as inst:
-                print(inst)
-                print("uh oh")
+        mapper = WikiMapper("data/index_enwiki-latest.db")
 
-    res = [dictionary[fut] for fut in results]
+        # https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
+        # concurrent execution so it is faster
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            for wikidataId in dictionary.keys():
+                futures.append(executor.submit(is_name, id=wikidataId, client_id=list(wikidata_true.keys())[0]))
+            for future in concurrent.futures.as_completed(futures):
+                # exception here
+                try:
+                    if future.result()[0]:
+                        results.append(future.result()[1])
+                except Exception as inst:
+                    print(inst)
+                    print("uh oh")
 
-    return res
+        res = [dictionary[fut] for fut in results]
 
+        return res
+    except Exception as inst:
+        print(type(inst))
+        print(":(")
+        return []
 
 def request_linked(person):
     page = "https://en.wikipedia.org/wiki/" + person
