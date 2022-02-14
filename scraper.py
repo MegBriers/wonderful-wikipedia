@@ -125,8 +125,7 @@ def map_to_wiki_data(articles):
                 if len(key) > 0:
                     wikidataIds[key[0]] = title
             except:
-                print(title)
-                print("aw no")
+                pass
 
     return wikidataIds
 
@@ -159,18 +158,24 @@ def is_name(id, client_id):
     for t in typesCompare:
         t.load()
 
-    dob = client.get('P569', load=True)
-    dod = client.get('P570', load=True)
+    try:
+        dob = client.get('P569', load=True)
+        dod = client.get('P570', load=True)
 
-    if type((entityCompare.getlist(dob)[0])) == int:
-        date_of_birth = (entityCompare.getlist(dob)[0])
-    else:
-        date_of_birth = (entityCompare.getlist(dob)[0]).year
 
-    if type((entityCompare.getlist(dod)[0])) == int:
-        date_of_death = entityCompare.getlist(dod)[0]
-    else:
-        date_of_death = (entityCompare.getlist(dod)[0]).year
+        if type((entityCompare.getlist(dob)[0])) == int:
+            date_of_birth = (entityCompare.getlist(dob)[0])
+        else:
+            date_of_birth = (entityCompare.getlist(dob)[0]).year
+
+        if type((entityCompare.getlist(dod)[0])) == int:
+            date_of_death = entityCompare.getlist(dod)[0]
+        else:
+            date_of_death = (entityCompare.getlist(dod)[0]).year
+    except:
+        # broad exception to catch people in the 19th century
+        date_of_birth = 1900
+        date_of_death = 1899
 
     try:
         entity = client.get(id, load=True)
@@ -291,7 +296,6 @@ def request_page(URL):
             else:
                 break
 
-        print(":0")
         values = {title: "https://en.wikipedia.org" + links[title] for title in links.keys()}
 
         # getting the wikidata keys for all the linked articles
@@ -302,15 +306,8 @@ def request_page(URL):
 
         wikidata_true = map_to_wiki_data(dictionary_true)
 
-        print(wikidata_true)
-
         futures = []
         results = []
-
-        # TEMPORARY FIX - CAN BE CHANGED WHEN TIDYING UP CODE
-        wikidata_keys = {'Charles Howard Hinton': 'Q1064912', 'Mary Somerville': 'Q268702', 'Michael Faraday' : 'Q8750', 'John Tyndall' : 'Q360808', 'John Herschel' : 'Q14278'}
-
-        mapper = WikiMapper("data/index_enwiki-latest.db")
 
         # https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
         # concurrent execution so it is faster
@@ -323,7 +320,7 @@ def request_page(URL):
                     if future.result()[0]:
                         results.append(future.result()[1])
                 except Exception as inst:
-                    print(inst)
+                    print(type(inst))
                     print("uh oh")
 
         res = [dictionary[fut] for fut in results]
@@ -331,7 +328,6 @@ def request_page(URL):
         return res
     except Exception as inst:
         print(type(inst))
-        print(":(")
         return []
 
 def request_linked(person):

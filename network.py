@@ -21,6 +21,5 @@ def run_on_group(URLS, method):
                 spacyExtract.extracting_unlinked_spacy(data, title, "spacy")
             # do something with names
             else:
-                print("do wikidata")
                 scraper.request_linked(title)
             # TO BE IMPLEMENTED

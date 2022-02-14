@@ -20,7 +20,6 @@ def get_list(URL):
         url = link.get("href", "")
         # looking for relevant links only
         if url.startswith("/wiki/") and "/wiki/Category" not in url and "Categor" not in url:
-            print(url)
             links[link.text.strip()] = url
     return links
 
