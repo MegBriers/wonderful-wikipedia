@@ -3,7 +3,6 @@
 Created on Thu Oct 14 09:42:25 2021
 
 CODE THAT EXTRACTS ALL THE LINKED PEOPLE IN AN ARTICLE
-(INCLUDING IRRELEVANT SECTIONS ATM and irrelevant people by year of birth)
 
 @author: Meg
 """
@@ -14,14 +13,13 @@ from wikimapper import WikiMapper
 import concurrent.futures
 import time
 import helper
-import json
 
 start_time = time.time()
 
 string_thing = "https://en.wikipedia.org/wiki/"
 
 
-# https://hackersandslackers.com/extract-data-from-complex-json-python/
+# based off code from : https://hackersandslackers.com/extract-data-from-complex-json-python/
 def json_extract(obj, key):
     """Recursively fetch values from nested JSON."""
     arr = []
@@ -44,6 +42,21 @@ def json_extract(obj, key):
 
 
 def get_title(URL):
+    """
+
+    A method that extracts the title of a wikipedia page
+
+    Parameters
+    ----------
+    URL : string
+        the URL of the wikipedia whose title we would like to get
+
+    Returns
+    ----------
+    title.string : string
+        the title of the given Wikipedia article
+
+    """
     response = requests.get(
         url=URL,
     )
@@ -57,7 +70,7 @@ def get_title(URL):
     return (title.string)
 
 
-def write_to_file(person, links):
+def write_to_file(person, links, subfolder):
     """
 
     A method that outputs all the titles of the linked articles to a text file
@@ -72,7 +85,7 @@ def write_to_file(person, links):
         all the urls from wikipedia articles linked
 
     """
-    fileName = './output/wikidata/network/' + helper.formatting(person,"_") + "_Linked.txt"
+    fileName = './output/wikidata/' + subfolder + helper.formatting(person, "_") + "_Linked.txt"
     with open(fileName, "w", encoding="utf-8") as f:
         for tup in links:
             f.write(tup)
@@ -83,7 +96,6 @@ def substring_after(s, delim):
     return s.partition(delim)[2]
 
 
-# NEED TO MAKE CONCURRENT
 def map_to_wiki_data(articles):
     """
 
@@ -158,10 +170,12 @@ def is_name(id, client_id):
     for t in typesCompare:
         t.load()
 
+    date_of_birth = 1900
+    date_of_death = 1899
+
     try:
         dob = client.get('P569', load=True)
         dod = client.get('P570', load=True)
-
 
         if type((entityCompare.getlist(dob)[0])) == int:
             date_of_birth = (entityCompare.getlist(dob)[0])
@@ -174,8 +188,7 @@ def is_name(id, client_id):
             date_of_death = (entityCompare.getlist(dod)[0]).year
     except:
         # broad exception to catch people in the 19th century
-        date_of_birth = 1900
-        date_of_death = 1899
+        print("had to go manual style")
 
     try:
         entity = client.get(id, load=True)
@@ -187,13 +200,14 @@ def is_name(id, client_id):
             t.load()
         result = 0
         # statistically more contemporaries on wikipedia pages than dead people ??? - design choice
-        alive = True
         if (len(types) > 0):
             result = (types[0] == typesCompare[0])
         # if result is true then can check age here to see if the timelines overlapped
         if result:
             # check dob of the person lies within date_of_birth and date_of_death
             dob_compare = client.get('P569', load=True)
+
+            # people may still be alive and linked
             dod_compare = client.get('P570', load=True)
 
             dates_ob = entity.getlist(dob_compare)
@@ -219,18 +233,19 @@ def is_name(id, client_id):
                 # used to check if the person falls within the same time span as the person whose page we are analysing
                 # only checked when we know that it is a person (so we definitely have a date)
                 if (date_of_birth <= date_of_birth_compare <= date_of_death) or (
-                        date_of_birth_compare <= date_of_birth and date_of_death_compare >= date_of_birth):#
+                        date_of_birth_compare <= date_of_birth and date_of_death_compare >= date_of_birth):  #
                     result = True
                 else:
                     # doesn't matter that they are a person, because they are not a relevant person (f)
                     result = False
+            else:
+                # probably still alive 
+                result = False 
         return result, id
 
     except:
         # IF WE DON'T HAVE A GREGORIAN CALENDAR WE CAN DISREGARD THE PERSON BC THEY ARE NOT IN THE 19TH CENTURY
-        pass
-
-    return False, id
+        return False, id
 
 
 def convert_fake_unicode_to_real_unicode(string):
@@ -265,27 +280,14 @@ def request_page(URL):
 
     links = {}
 
-    accepted_headings = ['Co']
+    unaccepted_headings = ['Works', 'Bibliography', 'Further Reading', 'References', 'Main Works', 'See also']
 
     try:
-        div3 = soup.find(id="toc")
-        ul = div3.find_next('ul')
-        for l in ul:
-            if 'See also' in l.text or 'Bibliography' in l.text or 'Works' in l.text:
-                new_links = l.find_all('a',href=True)
-                accepted_headings.append(l.find_next("span", {"class": "toctext"}).text)
-                break
-            else:
-                try:
-                    new_links = l.find_all('a', href=True)
-                    accepted_headings.append(l.find_next("span", {"class": "toctext"}).text)
-                except:
-                    pass
-
         for item in soup.select('a'):
-            cur_h2 = item.find_next('h2')
+            cur_h2 = item.find_previous('h2')
             # magic number-y
-            if cur_h2 != None and (cur_h2.text[:len(cur_h2.text)-6] in accepted_headings):
+            # the ones at the top
+            if cur_h2 == None or not (cur_h2.text[:len(cur_h2.text) - 6] in unaccepted_headings):
                 url = item.get("href", "")
                 if url.startswith("/wiki/") and "/wiki/Category" not in url:
                     title = item.get("title")
@@ -294,18 +296,16 @@ def request_page(URL):
                     else:
                         links[title] = url
             else:
+                print("breaking at : " + cur_h2.text[:len(cur_h2.text) - 6])
                 break
 
         values = {title: "https://en.wikipedia.org" + links[title] for title in links.keys()}
 
         # getting the wikidata keys for all the linked articles
         dictionary = map_to_wiki_data(values)
-
         title_true = get_title(URL)
-        dictionary_true = {title_true : "https://en.wikipedia.org/wiki/" + helper.formatting(title_true,"_")}
-
+        dictionary_true = {title_true: "https://en.wikipedia.org/wiki/" + helper.formatting(title_true, "_")}
         wikidata_true = map_to_wiki_data(dictionary_true)
-
         futures = []
         results = []
 
@@ -323,16 +323,16 @@ def request_page(URL):
                     print(type(inst))
                     print("uh oh")
 
-        res = [dictionary[fut] for fut in results]
+        return [dictionary[fut] for fut in results]
 
-        return res
     except Exception as inst:
         print(type(inst))
         return []
 
-def request_linked(person):
+
+def request_linked(person, subfolder):
     page = "https://en.wikipedia.org/wiki/" + person
 
     names = request_page(page)
 
-    write_to_file(person, names)
+    write_to_file(person, names, subfolder)

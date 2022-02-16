@@ -2,7 +2,10 @@ import spacyExtract
 import helper
 import scraper
 
+
 def run_on_group(URLS, method):
+    subfolder = {"https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers": "philosophy/",
+                 "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians": "maths/"}
     for category in URLS:
         list = helper.get_list(category)
         # send it through spacy processing, optionally send it through wikidata
@@ -11,7 +14,7 @@ def run_on_group(URLS, method):
             title = helper.get_page_title(person)
 
             if "," in title:
-                substring = title.split(",",1)
+                substring = title.split(",", 1)
                 title = substring[0]
 
             print(title)
@@ -19,7 +22,5 @@ def run_on_group(URLS, method):
 
             if method == "spacy":
                 spacyExtract.extracting_unlinked_spacy(data, title, "spacy")
-            # do something with names
             else:
-                scraper.request_linked(title)
-            # TO BE IMPLEMENTED
+                scraper.request_linked(title, subfolder[category])

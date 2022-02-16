@@ -8,11 +8,9 @@ driver code
 
 import sys
 import os
-import wikipedia
 import spacyExtract
 import scraper
 import comparisonCurrent
-import random
 import time
 import network
 import helper
@@ -75,7 +73,6 @@ if __name__ == '__main__':
 
     if sys.argv[1] == "test":
         people = helper.get_test_data()
-
         for pep in people:
             print(pep)
             print("🦆")
@@ -87,7 +84,7 @@ if __name__ == '__main__':
             elif sys.argv[2] == 'spacy_new':
                 spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
             elif sys.argv[2] == 'wikidata':
-                scraper.request_linked(pep)
+                scraper.request_linked(pep, "")
             elif sys.argv[2] == "transformers":
                 spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
             elif sys.argv[2] == 'all':
@@ -95,7 +92,7 @@ if __name__ == '__main__':
                 spacyExtract.nltk_names(data, pep)
                 spacyExtract.extracting_unlinked_spacy(data, pep, "spacy_new")
                 #spacyExtract.extracting_unlinked_spacy(data, pep, "transformers")
-                scraper.request_linked(pep)
+                scraper.request_linked(pep, "")
             else:
                 print("method is incorrect, please refer to usage instructions")
                 usage_options()

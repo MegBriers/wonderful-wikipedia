@@ -9,7 +9,6 @@ performed against the manual test data
 import pandas as pd
 import Levenshtein
 import sys
-import restart
 import helper
 
 
@@ -41,7 +40,7 @@ def setup(name):
     """
 
     # the file that stores the manual names
-    new_name = restart.formatting(name, "_")
+    new_name = helper.formatting(name, "_")
     manual = pd.read_csv("./people/" + new_name + ".txt")
 
     # all linked in the article
@@ -394,11 +393,10 @@ def evaluate(method):
     None.
     """
 
-    people = restart.get_test_data()
+    people = helper.get_test_data()
     if method == "all":
         performances = {}
         for peep in people:
-            # need to do set up on each person
             complete, linked, unlinked, rel_linked = setup(peep)
             performance = multiple_evaluation(peep, complete)
             performance.append(wikidata_evaluation(peep, rel_linked, linked))
@@ -408,7 +406,10 @@ def evaluate(method):
         performances = []
         for peep in people:
             complete, linked, unlinked, rel_linked = setup(peep)
-            value = method_evaluation(method, peep, complete)
+            if method != "wikidata":
+                value = method_evaluation(method, peep, complete)
+            else:
+                value = wikidata_evaluation(peep, rel_linked, linked)
             performances.append(value)
             print("")
             print(peep + ":" + str(value))

@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import scraper
 import random
 
-# TO DO LIST : MAKE A FUNCTION THAT WILL GET THE TITLE OF A WIKIPEDIA ARTICLE WITH GIVEN URL
 
 def get_list(URL):
     response = requests.get(
@@ -29,9 +28,9 @@ def formatting(name, char):
     new_name = ""
     for i in range(len(parts)):
         if i == 0:
-            new_name = new_name + parts[i].capitalize()
+            new_name = new_name + parts[i]
         else:
-            new_name = new_name + char + parts[i].capitalize()
+            new_name = new_name + char + parts[i]
     return new_name
 
 
