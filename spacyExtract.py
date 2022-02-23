@@ -50,7 +50,7 @@ def spacy_text(page, nlp_cur):
     return persons
 
 
-def write_to_file(method, title, names, folder):
+def write_to_file(method, title, names, folder, file_length):
     """
     
 
@@ -74,19 +74,17 @@ def write_to_file(method, title, names, folder):
     underlinedTitle = title.replace(" ", "_")
 
 
-    filename = "./output/" +  method + "/network/" + folder + underlinedTitle + "_Unlinked.txt"
-
-    if title == "Sir William Hamilton, 9th Baronet":
-        title = "William Hamilton"
+    filename = "./output/" +  method  + "/" + folder + underlinedTitle + "_Unlinked.txt"
 
     # whether it is necessary to have it in this form TO BE DECIDED 🦆
     f = open(filename, "a", encoding='utf-8')
     f.truncate(0)
-    f.write("Source,Target,weight,Type \n")
+    # should write file name first
+
+    f.write(str(file_length) + "\n")
     i = 0
-    j = len(names)
     for key in names:
-        f.write(title + "," + key.replace('\r', ' ').replace('\n', ' ').replace(',',' ') + "," + title + ",Undirected")
+        f.write(key.replace('\r', ' ').replace('\n', ' ').replace(',',' '))
         if i != len(names)-1:
             f.write("\n")
         i += 1
@@ -138,7 +136,7 @@ def nltk_names(text, title):
                     text = ' '.join(c[0] for c in chunk)
                     people.append(text)
 
-    write_to_file("nltk", title, list(set(people)))
+    write_to_file("nltk", title, list(set(people)), len(text))
 
 
 def extracting_unlinked_spacy(data, title, method, folder):
@@ -151,4 +149,4 @@ def extracting_unlinked_spacy(data, title, method, folder):
         text_result = spacy_text(data,nlp2)
 
     # creating the data files
-    write_to_file(method, title, text_result, folder)
+    write_to_file(method, title, text_result, folder, len(data))

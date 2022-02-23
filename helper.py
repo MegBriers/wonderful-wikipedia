@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Feb 10 22:29:14 2022
+
+CODE CONTAINING SMALL PIECES OF FUNCTIONALITY USED IN MUTLIPLE FILES
+OR WITH THE POTENTIAL TO BE USED ACROSS THE FILES
+
+@author: Meg
+"""
 import wikipedia
 import requests
 from bs4 import BeautifulSoup

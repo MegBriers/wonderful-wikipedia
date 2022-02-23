@@ -14,6 +14,7 @@ import comparisonCurrent
 import time
 import network
 import helper
+import networkAnalysis
 
 
 def usage_options():
@@ -68,11 +69,11 @@ if __name__ == '__main__':
             print("🦆")
             data = helper.get_page_content(pep)
             if sys.argv[2] == 'spacy':
-                spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
+                spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2], "")
             elif sys.argv[2] == 'nltk':
                 spacyExtract.nltk_names(data, pep)
             elif sys.argv[2] == 'spacy_new':
-                spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
+                spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2], "")
             elif sys.argv[2] == 'wikidata':
                 scraper.request_linked(pep, "", "")
             elif sys.argv[2] == 'all':
@@ -93,7 +94,9 @@ if __name__ == '__main__':
     elif sys.argv[1] == "network":
         URLS = ["https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers",
                 "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians"]
-        network.run_on_group(URLS, sys.argv[2])
+        #network.run_on_group(URLS, sys.argv[2])
+        networkAnalysis.analysis_part1("spacy")
+
     else:
         print("The methods you have indicated are not accepted input")
         print(".・。.・゜✭・.・✫・゜・。.")

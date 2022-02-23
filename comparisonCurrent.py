@@ -258,20 +258,12 @@ def method_evaluation(method, person, complete):
     person = helper.formatting(person,"_")
     sys.stdout = open("./output/" + method + "/evaluation/" + person + ".txt", "w", encoding="utf-8")
 
-    filename = "./output/" + method + "/" + person + "_Unlinked"
+    filename = "./output/" + method + "/" + person + "_Unlinked.txt"
 
     # the file that stores the method names
     # breaking here for john tyndall
-    fileUnlinked = pd.read_csv(filename + ".txt", quotechar=",")
-
-    # identified by method
-    identifiedUnlinked = []
-
-    # selected method
-    for index, row in fileUnlinked.iterrows():
-        identifiedUnlinked.append(row["Target"])
-
-    identifiedUnlinked = list(set(identifiedUnlinked))
+    fileUnlinked = open(filename)
+    identifiedUnlinked = list(set(line.rstrip("\n") for count, line in enumerate(fileUnlinked) if count!=0))
 
     strippedUnlinked = []
     for ele in identifiedUnlinked:
@@ -285,7 +277,7 @@ def method_evaluation(method, person, complete):
     print("")
 
     # remove all the typical titles - is leaving a space at the start
-    typicalTitles = ["Dr", "Miss", "Mrs", "Sir", "Mr", "Lord"]
+    typicalTitles = ["Dr", "Miss", "Mrs", "Sir", "Mr", "Lord", "Professor"]
 
     for title in typicalTitles:
         complete = [name.replace(title, '') for name in complete]
