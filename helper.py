@@ -116,3 +116,9 @@ def get_linked_names(person):
 
     """
     scraper.request_page(person)
+
+
+def output_file(file_name):
+    f = open(file_name, "r")
+    print(f.read())
+    f.close()

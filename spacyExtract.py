@@ -17,25 +17,10 @@ import pandas as pd
 import spacy
 from pyvis.network import Network
 import nltk
-from spacy_transformers import Transformer, TransformerModel
-from spacy_transformers.annotation_setters import null_annotation_setter
-from spacy_transformers.span_getters import get_doc_spans
 
 nlp = spacy.load("en_core_web_trf")
 nlp1 = spacy.load("xx_ent_wiki_sm")
 nlp2 = spacy.load("maths_ner_model")
-
-# idk what this deos
-trf = Transformer(
-    nlp.vocab,
-    TransformerModel(
-        "bert-base-cased",
-        get_spans=get_doc_spans,
-        tokenizer_config={"use_fast": True},
-    ),
-    set_extra_annotations=null_annotation_setter,
-    max_batch_items=4096,
-)
 
 
 def spacy_text(page, nlp_cur):
@@ -65,7 +50,7 @@ def spacy_text(page, nlp_cur):
     return persons
 
 
-def write_to_file(method, title, names):
+def write_to_file(method, title, names, folder):
     """
     
 
@@ -89,7 +74,7 @@ def write_to_file(method, title, names):
     underlinedTitle = title.replace(" ", "_")
 
 
-    filename = "./output/" + method + "/network/" + underlinedTitle + "_Unlinked.txt"
+    filename = "./output/" +  method + "/network/" + folder + underlinedTitle + "_Unlinked.txt"
 
     if title == "Sir William Hamilton, 9th Baronet":
         title = "William Hamilton"
@@ -144,21 +129,6 @@ def make_graph(method, title):
 
     net.save_graph(filename + ".html")
 
-
-def similar_names(name, names):
-    # 🦆 to do
-    print(":)")
-    # methods to check against
-    # levenshtein
-    # jaro winkler
-    # longest common substring
-
-
-def transformers(text, title):
-    print("🦆")
-    people = []
-    write_to_file("transformers", title, people)
-
 def nltk_names(text, title):
     people = []
     for sent in nltk.sent_tokenize(text):
@@ -171,7 +141,7 @@ def nltk_names(text, title):
     write_to_file("nltk", title, list(set(people)))
 
 
-def extracting_unlinked_spacy(data, title, method):
+def extracting_unlinked_spacy(data, title, method, folder):
     # getting all the names mentioned in the text
     if method == "spacy":
         text_result = spacy_text(data, nlp1)
@@ -181,4 +151,4 @@ def extracting_unlinked_spacy(data, title, method):
         text_result = spacy_text(data,nlp2)
 
     # creating the data files
-    write_to_file(method, title, text_result)
+    write_to_file(method, title, text_result, folder)

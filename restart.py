@@ -15,22 +15,12 @@ import time
 import network
 import helper
 
+
 def usage_options():
-    print("")
-    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-    print("usage : [type of run] [options : specified NER method]")
-    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-    print("type of run : ")
-    print("test = evaluates the methods based off of annotated test data")
-    print("network = applies the methods to a larger group with no test data or evaluation option")
-    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-    print("options : ")
-    print("spacy = normal spacy methods")
-    print("nltk = using nltk")
-    print("spacy_new = retrained spacy model")
-    print("wikidata = only extracts the linked people")
-    print("all = all three methods compared")
-    print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
+    """
+    A method to output the usage instructions if the wrong set of parameters is entered
+    """
+    helper.output_file("usage.txt")
 
 
 def validate_name(name):
@@ -64,10 +54,10 @@ def validate_name(name):
 
 
 if __name__ == '__main__':
-    # assumptions with input - has a space between parts of name
     start_time = time.time()
 
     if len(sys.argv) < 2:
+        print("number of arguments is incorrect, please refer to usage instructions")
         usage_options()
         exit(0)
 
@@ -84,32 +74,25 @@ if __name__ == '__main__':
             elif sys.argv[2] == 'spacy_new':
                 spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
             elif sys.argv[2] == 'wikidata':
-                scraper.request_linked(pep, "")
-            elif sys.argv[2] == "transformers":
-                spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2])
+                scraper.request_linked(pep, "", "")
             elif sys.argv[2] == 'all':
                 spacyExtract.extracting_unlinked_spacy(data, pep, "spacy")
                 spacyExtract.nltk_names(data, pep)
                 spacyExtract.extracting_unlinked_spacy(data, pep, "spacy_new")
-                #spacyExtract.extracting_unlinked_spacy(data, pep, "transformers")
-                scraper.request_linked(pep, "")
+                scraper.request_linked(pep, "", "")
             else:
                 print("method is incorrect, please refer to usage instructions")
                 usage_options()
                 exit(0)
 
-        print("time to do some stats")
-        print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
-        print(":)")
         comparisonCurrent.evaluate(sys.argv[2])
         end_time = time.time()
         time_taken = end_time - start_time
         print("time taken to run code : %.2f \n" % time_taken)
 
     elif sys.argv[1] == "network":
-        print("🦆")
-        # TO DO
-        URLS = ["https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers", "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians"]
+        URLS = ["https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers",
+                "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians"]
         network.run_on_group(URLS, sys.argv[2])
     else:
         print("The methods you have indicated are not accepted input")

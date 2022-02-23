@@ -6,6 +6,8 @@ CODE THAT EXTRACTS ALL THE LINKED PEOPLE IN AN ARTICLE
 
 @author: Meg
 """
+import urllib
+
 import requests
 from bs4 import BeautifulSoup
 from wikidata.client import Client
@@ -70,7 +72,7 @@ def get_title(URL):
     return (title.string)
 
 
-def write_to_file(person, links, subfolder):
+def write_to_file(person, links, network, subfolder):
     """
 
     A method that outputs all the titles of the linked articles to a text file
@@ -85,7 +87,7 @@ def write_to_file(person, links, subfolder):
         all the urls from wikipedia articles linked
 
     """
-    fileName = './output/wikidata/' + subfolder + helper.formatting(person, "_") + "_Linked.txt"
+    fileName = './output/wikidata/' + network + subfolder + helper.formatting(person, "_") + "_Linked.txt"
     with open(fileName, "w", encoding="utf-8") as f:
         for tup in links:
             f.write(tup)
@@ -319,6 +321,9 @@ def request_page(URL):
                 try:
                     if future.result()[0]:
                         results.append(future.result()[1])
+                except urllib.error.URLError as e:
+                    ResponseData = e.read().decode("utf8", 'ignore')
+                    print(ResponseData)
                 except Exception as inst:
                     print(type(inst))
                     print("uh oh")
@@ -330,9 +335,9 @@ def request_page(URL):
         return []
 
 
-def request_linked(person, subfolder):
+def request_linked(person, network, subfolder):
     page = "https://en.wikipedia.org/wiki/" + person
 
     names = request_page(page)
 
-    write_to_file(person, names, subfolder)
+    write_to_file(person, names, network, subfolder)
