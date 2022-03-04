@@ -81,7 +81,8 @@ def write_to_file(method, title, names, folder, file_length):
     f.truncate(0)
     # should write file name first
 
-    f.write(str(file_length) + "\n")
+    f.write(str(file_length))
+    f.write("\n")
     i = 0
     for key in names:
         f.write(key.replace('\r', ' ').replace('\n', ' ').replace(',',' '))

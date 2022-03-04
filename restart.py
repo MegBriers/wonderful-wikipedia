@@ -75,12 +75,12 @@ if __name__ == '__main__':
             elif sys.argv[2] == 'spacy_new':
                 spacyExtract.extracting_unlinked_spacy(data, pep, sys.argv[2], "")
             elif sys.argv[2] == 'wikidata':
-                scraper.request_linked(pep, "", "")
+                scraper.request_linked(pep, "", "", len(data))
             elif sys.argv[2] == 'all':
                 spacyExtract.extracting_unlinked_spacy(data, pep, "spacy")
                 spacyExtract.nltk_names(data, pep)
                 spacyExtract.extracting_unlinked_spacy(data, pep, "spacy_new")
-                scraper.request_linked(pep, "", "")
+                scraper.request_linked(pep, "", "", len(data))
             else:
                 print("method is incorrect, please refer to usage instructions")
                 usage_options()
@@ -95,7 +95,8 @@ if __name__ == '__main__':
         URLS = ["https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers",
                 "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians"]
         #network.run_on_group(URLS, sys.argv[2])
-        networkAnalysis.analysis_part1("spacy")
+        #networkAnalysis.analysis_part1("wikidata")
+        networkAnalysis.analysis_part2()
 
     else:
         print("The methods you have indicated are not accepted input")

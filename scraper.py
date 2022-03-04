@@ -72,7 +72,7 @@ def get_title(URL):
     return (title.string)
 
 
-def write_to_file(person, links, network, subfolder):
+def write_to_file(person, links, length_of_file, network, subfolder, subsubfolder):
     """
 
     A method that outputs all the titles of the linked articles to a text file
@@ -87,8 +87,13 @@ def write_to_file(person, links, network, subfolder):
         all the urls from wikipedia articles linked
 
     """
-    fileName = './output/wikidata/' + network + subfolder + helper.formatting(person, "_") + "_Linked.txt"
+    if network == "" or not (subsubfolder in ["male", "female"]): subsubfolder = ""
+
+    fileName = './output/wikidata/' + network + subfolder + subsubfolder + "/" + helper.formatting(person,
+                                                                                                   "_") + "_Linked.txt"
     with open(fileName, "w", encoding="utf-8") as f:
+        f.write(length_of_file)
+        f.write('\n')
         for tup in links:
             f.write(tup)
             f.write('\n')
@@ -144,7 +149,7 @@ def map_to_wiki_data(articles):
     return wikidataIds
 
 
-def is_name(id, client_id):
+def is_name(id, client, date_of_birth, date_of_death, typesCompare):
     """
 
     A method that checks whether a wikidata entity
@@ -161,36 +166,6 @@ def is_name(id, client_id):
         whether of not the relevant id was a person and the id of the person
 
     """
-
-    client = Client()
-    # manually setting up an entity we know is a person to compare the entity types
-    # Q268702 - Mary Somerville (can be used as the dummy variable regardless of the person being tested)
-    entityCompare = client.get(client_id, load=True)
-    # P31 - 'instance of'
-    instance_of = client.get('P31', load=True)
-    typesCompare = entityCompare.getlist(instance_of)
-    for t in typesCompare:
-        t.load()
-
-    date_of_birth = 1900
-    date_of_death = 1899
-
-    try:
-        dob = client.get('P569', load=True)
-        dod = client.get('P570', load=True)
-
-        if type((entityCompare.getlist(dob)[0])) == int:
-            date_of_birth = (entityCompare.getlist(dob)[0])
-        else:
-            date_of_birth = (entityCompare.getlist(dob)[0]).year
-
-        if type((entityCompare.getlist(dod)[0])) == int:
-            date_of_death = entityCompare.getlist(dod)[0]
-        else:
-            date_of_death = (entityCompare.getlist(dod)[0]).year
-    except:
-        # broad exception to catch people in the 19th century
-        print("had to go manual style")
 
     try:
         entity = client.get(id, load=True)
@@ -225,12 +200,12 @@ def is_name(id, client_id):
                     caught[1] = True
 
                 if caught[0] == False and caught[1] == False:
-                    date_of_birth_compare = (entity.getlist(dob)[0]).year
-                    date_of_death_compare = (entity.getlist(dod)[0]).year
+                    date_of_birth_compare = dates_ob[0].year
+                    date_of_death_compare = dates_od[0].year
                 elif caught[0] == False:
-                    date_of_birth_compare = (entity.getlist(dob)[0]).year
+                    date_of_birth_compare = dates_ob[0].year
                 elif caught[1] == False:
-                    date_of_death_compare = (entity.getlist(dod)[0]).year
+                    date_of_death_compare = dates_od[0].year
 
                 # used to check if the person falls within the same time span as the person whose page we are analysing
                 # only checked when we know that it is a person (so we definitely have a date)
@@ -242,7 +217,7 @@ def is_name(id, client_id):
                     result = False
             else:
                 # probably still alive 
-                result = False 
+                result = False
         return result, id
 
     except:
@@ -311,11 +286,47 @@ def request_page(URL):
         futures = []
         results = []
 
+        client = Client()
+
+        print(list(wikidata_true.keys())[0])
+
+        print("yikes")
+        # manually setting up an entity we know is a person to compare the entity types
+        # Q268702 - Mary Somerville (can be used as the dummy variable regardless of the person being tested)
+        entityCompare = client.get(list(wikidata_true.keys())[0], load=True)
+        # P31 - 'instance of'
+        instance_of = client.get('P31', load=True)
+        gender = client.get('P21', load=True)
+        typesCompare = entityCompare.getlist(instance_of)
+        for t in typesCompare:
+            t.load()
+        date_of_birth = 1900
+        date_of_death = 1899
+
+        try:
+            dob = client.get('P569', load=True)
+            dod = client.get('P570', load=True)
+
+            if type((entityCompare.getlist(dob)[0])) == int:
+                date_of_birth = (entityCompare.getlist(dob)[0])
+            else:
+                date_of_birth = (entityCompare.getlist(dob)[0]).year
+
+            if type((entityCompare.getlist(dod)[0])) == int:
+                date_of_death = entityCompare.getlist(dod)[0]
+            else:
+                date_of_death = (entityCompare.getlist(dod)[0]).year
+        except Exception as e:
+            # broad exception to catch people in the 19th century
+            print("had to go manual style")
+            print(type(e))
+
         # https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
         # concurrent execution so it is faster
         with concurrent.futures.ThreadPoolExecutor() as executor:
             for wikidataId in dictionary.keys():
-                futures.append(executor.submit(is_name, id=wikidataId, client_id=list(wikidata_true.keys())[0]))
+                futures.append(executor.submit(is_name, id=wikidataId, client=client, date_of_birth=date_of_birth,
+                                               date_of_death=date_of_death, typesCompare=typesCompare))
             for future in concurrent.futures.as_completed(futures):
                 # exception here
                 try:
@@ -328,16 +339,16 @@ def request_page(URL):
                     print(type(inst))
                     print("uh oh")
 
-        return [dictionary[fut] for fut in results]
+        return [dictionary[fut] for fut in results], str(entityCompare.getlist(gender)[0].label)
 
     except Exception as inst:
         print(type(inst))
         return []
 
 
-def request_linked(person, network, subfolder):
+def request_linked(person, network, subfolder, length_of_file):
     page = "https://en.wikipedia.org/wiki/" + person
 
-    names = request_page(page)
+    names, subsubfolder = request_page(page)
 
-    write_to_file(person, names, network, subfolder)
+    write_to_file(person, names, length_of_file, network, subfolder, subsubfolder)
