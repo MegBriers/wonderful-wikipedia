@@ -1,0 +1,67 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Catherine Duchess of Cambridge
+Comte
+ Halliday
+Anthony Giddens
+Princess Victoria
+Ld. Brougham
+Baddeley
+William Johnson Fox
+
+Percentage identified from the proper data set (positive matches): 
+89.04
+
+Those identified by method that have not provided a match with the manual data :
+
+Bodichon
+Final Causes
+Past
+Charles
+Philosophie Positive
+Perfect
+Poor Laws
+Man
+Hockley
+Species
+Elizabeth Greenhow
+Martineau Guest House
+Eastern Life
+Peace
+Hill Cemetery
+Legacy
+Radicals
+Charles Lyell
+Giddens
+Life
+Paupers Illustrated
+Observe Morals
+Addresses
+Elizabeth Barrett Browning
+London
+Game Law Tales
+Bracondale Lodge
+Religion
+Darwins
+Darwin
+Eldon Square
+Johnson Fox
+William
+Feats
+Fox
+Atkinson
+Mesmerism
+Hymns
+Erasmus
+
+precision
+0.625
+
+recall
+0.8904109589041096
+

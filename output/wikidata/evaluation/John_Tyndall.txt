@@ -1,0 +1,32 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+proportion of the links that are going to contemporaries of the person
+100.00
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+proportion of people linked who have been picked up by wikidata
+88.24
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+those who were not identified: 
+
+de Saussure
+Poggendoff
+Mihajlo Idvorski Pupin
+Louisa Hamilton
+
+
+those who were picked up additionally by wikidata
+
+Louisa Charlotte Tyndall
+Johann Christian Poggendorff
+Mihajlo Pupin
+
+
+precision
+0.9090909090909091
+
+recall
+0.8823529411764706
+

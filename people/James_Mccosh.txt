@@ -1,0 +1,16 @@
+Source,Target,weight,Type,link,alive
+McCosh,James McCosh,McCosh,Undirected,unlinked,True
+McCosh,John McCosh,McCosh,Undirected,linked,True
+McCosh,John Maclean Jr,McCosh,Undirected,linked,True
+McCosh,Francis Landey Patton,McCosh,Undirected,linked,True
+McCosh,A. J. McCosh,McCosh,Undirected,linked,True
+McCosh,Sir William Hamilton,McCosh,Undirected,linked,True
+McCosh,Isabella McCosh,McCosh,Undirected,unlinked,True
+McCosh,Emmett Louis Till,McCosh,Undirected,linked,False
+McCosh,Thomas Reid,McCosh,Undirected,linked,True
+McCosh,Kant,McCosh,Undirected,unlinked,True
+McCosh,Charles Hodge,McCosh,Undirected,linked,True
+McCosh,Hodge,McCosh,Undirected,unlinked,True
+McCosh,John Maclean,McCosh,Undirected,unlinked,True
+McCosh,McCosh,McCosh,Undirected,unlinked,True
+McCosh,Darwin,McCosh,Undirected,linked,True

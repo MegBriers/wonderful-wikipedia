@@ -1,0 +1,33 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Charles Leadbeater
+Madeleine L'Engle
+William Howard Hinton
+Aleister Crowley
+
+Percentage identified from the proper data set (positive matches): 
+90.00
+
+Those identified by method that have not provided a match with the manual data :
+
+ana
+Charles' mother
+Christ
+Fourth
+Charles Leadbeater's Clairvoyance
+Madeleine L'Engle's A Wrinkle in Time
+stodgy
+Charles Hinton
+Flatland
+
+precision
+0.8
+
+recall
+0.9
+

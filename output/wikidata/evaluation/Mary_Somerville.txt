@@ -1,0 +1,39 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+proportion of the links that are going to contemporaries of the person
+82.76
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+proportion of people linked who have been picked up by wikidata
+83.33
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+those who were not identified: 
+
+John Murray
+Elizabeth Oswald
+Anne Isabella Milbanke
+Lord Brougham
+Earl of Minto
+Henry Brougham
+Baron Humboldt
+Admiral Duncan
+
+
+those who were picked up additionally by wikidata
+
+Anne Isabella Byron, Baroness Byron
+Alexander von Humboldt
+Henry Peter Brougham, 1st Baron Brougham and Vaux
+Lord Byron
+James Townsend Oswald
+Adam Duncan, 1st Viscount Duncan
+
+
+precision
+0.8695652173913043
+
+recall
+0.8333333333333334
+

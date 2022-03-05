@@ -1,0 +1,86 @@
+Source,Target,weight,Type,link,alive
+Somerville,Mary Somerville,Somerville,Undirected,unlinked,True
+Somerville,Caroline Herschel,Somerville,Undirected,linked,True
+Somerville,John Stuart Mill,Somerville,Undirected,linked,True
+Somerville,Thomas Phillips,Somerville,Undirected,linked,True
+Somerville,William George Fairfax,Somerville,Undirected,linked,True
+Somerville,Margaret Charters,Somerville,Undirected,unlinked,True
+Somerville,Samuel Charters,Somerville,Undirected,unlinked,True
+Somerville,Thomas Somerville,Somerville,Undirected,linked,True
+Somerville,Sam,Somerville,Undirected,unlinked,True
+Somerville,Mary,Somerville,Undirected,unlinked,True
+Somerville,Shakespeare,Somerville,Undirected,unlinked,False
+Somerville,Janet,Somerville,Undirected,unlinked,True
+Somerville,Thomas Somerville,Somerville,Undirected,unlinked,True
+Somerville,Virgil,Somerville,Undirected,linked,False
+Somerville,William Charters,Somerville,Undirected,unlinked,True
+Somerville,Charles Lyell,Somerville,Undirected,linked,True
+Somerville,Xenophon,Somerville,Undirected,linked,False
+Somerville,Herodotus,Somerville,Undirected,linked,False
+Somerville,Alexander Nasmyth,Somerville,Undirected,linked,True
+Somerville,Euclid,Somerville,Undirected,unlinked,False
+Somerville,John Robertson,Somerville,Undirected,linked,False
+Somerville,Henry,Somerville,Undirected,unlinked,True
+Somerville,Mr Craw,Somerville,Undirected,unlinked,True
+Somerville,John Bonnycastle,Somerville,Undirected,linked,True
+Somerville,Lord Balmuto,Somerville,Undirected,linked,True
+Somerville,Elizabeth Oswald,Somerville,Undirected,linked,True
+Somerville,Thomas Bruce,Somerville,Undirected,linked,True
+Somerville,Lady Burchan,Somerville,Undirected,unlinked,True
+Somerville,Earl of Minto,Somerville,Undirected,linked,True
+Somerville,Admiral Duncan,Somerville,Undirected,linked,True
+Somerville,Samuel Greig,Somerville,Undirected,unlinked,True
+Somerville,Samuel Greig,Somerville,Undirected,linked,True
+Somerville,Woronzow Greig,Somerville,Undirected,unlinked,True
+Somerville,James Ferguson,Somerville,Undirected,linked,False
+Somerville,Isaac Newton,Somerville,Undirected,linked,False
+Somerville,John Playfair,Somerville,Undirected,linked,True
+Somerville,William Wallace,Somerville,Undirected,linked,True
+Somerville,Pierre-Simon Laplace,Somerville,Undirected,linked,True
+Somerville,Louis-Benjamin Francoeur,Somerville,Undirected,linked,True
+Somerville,Sylvestre François Lacroix,Somerville,Undirected,linked,True
+Somerville,Jean-Baptiste Biot,Somerville,Undirected,linked,True
+Somerville,Siméon Denis Poisson,Somerville,Undirected,linked,True
+Somerville,Joseph-Louis Lagrange,Somerville,Undirected,linked,True
+Somerville,Leonhard Euler,Somerville,Undirected,linked,True
+Somerville,Alexis Clairaut,Somerville,Undirected,linked,False
+Somerville,Gaspard Monge,Somerville,Undirected,linked,True
+Somerville,François Callet,Somerville,Undirected,linked,False
+Somerville,Charles Babbage,Somerville,Undirected,linked,True
+Somerville,John Herschel,Somerville,Undirected,linked,True
+Somerville,George Peacock,Somerville,Undirected,linked,True
+Somerville,Henry Brougham,Somerville,Undirected,linked,True
+Somerville,Letitia Elizabeth Landon,Somerville,Undirected,linked,True
+Somerville,William Somerville,Somerville,Undirected,linked,True
+Somerville,J.M.W. Turner,Somerville,Undirected,linked,True
+Somerville,Walter Scott,Somerville,Undirected,linked,True
+Somerville,Anne Isabella Milbanke,Somerville,Undirected,linked,True
+Somerville,Baroness Wentworth,Somerville,Undirected,unlinked,True
+Somerville,Babbage,Somerville,Undirected,unlinked,True
+Somerville,Ada Lovelace,Somerville,Undirected,linked,True
+Somerville,Lovelace,Somerville,Undirected,unlinked,True
+Somerville,Sir James Mackintosh,Somerville,Undirected,linked,True
+Somerville,Maria Edgeworth,Somerville,Undirected,linked,True
+Somerville,David Brewster,Somerville,Undirected,linked,True
+Somerville,Lord Brougham,Somerville,Undirected,linked,True
+Somerville,Pierre-Simon Laplace,Somerville,Undirected,linked,True
+Somerville,Laplace,Somerville,Undirected,unlinked,True
+Somerville,Joanna Baillie,Somerville,Undirected,linked,True
+Somerville,George Peacock,Somerville,Undirected,linked,True
+Somerville,John Murray,Somerville,Undirected,linked,True
+Somerville,Charles Darwin,Somerville,Undirected,linked,True
+Somerville,Baron Humboldt,Somerville,Undirected,linked,True
+Somerville,Alexander Keith Johnston,Somerville,Undirected,linked,True
+Somerville,Humboldt,Somerville,Undirected,unlinked,True
+Somerville,Maria Mitchell,Somerville,Undirected,linked,True
+Somerville,William Edward Parry,Somerville,Undirected,linked,True
+Somerville,E Bowell,Somerville,Undirected,unlinked,False
+Somerville,James Clerk Maxwell,Somerville,Undirected,linked,True
+Somerville,Thomas Telford,Somerville,Undirected,linked,True
+Somerville,Semyon Vorontsov,Somerville,Undirected,linked,True
+Somerville,Samuel Greig,Somerville,Undirected,unlinked,True
+Somerville,Agnes Graham,Somerville,Undirected,unlinked,True
+Somerville,Margaret Farquhar Somerville,Somerville,Undirected,unlinked,True
+Somerville,Thomas Somerville,Somerville,Undirected,unlinked,True
+Somerville,Martha Charters Somerville,Somerville,Undirected,unlinked,True
+Somerville,Mary Charlotte Somerville,Somerville,Undirected,unlinked,True

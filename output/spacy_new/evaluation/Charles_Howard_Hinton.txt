@@ -1,0 +1,42 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Ada Netlleship
+Aleister Crowley
+Sebastian
+Madeleine L'Engle
+William Howard Hinton
+Charles Leadbeater
+
+Percentage identified from the proper data set (positive matches): 
+85.00
+
+Those identified by method that have not provided a match with the manual data :
+
+Christ
+ana
+Charles Hinton
+Flatland
+Charles Howard
+Rudolf Rucker
+Fourth
+Arno Press
+Madeleine L'Engle's A Wrinkle in Time
+Charles Leadbeater's Clairvoyance
+Swan Sonnenschein
+stodgy
+Webb
+
+precision
+0.723404255319149
+
+recall
+0.85
+
+the f1 score
+0.7816091954022989
+

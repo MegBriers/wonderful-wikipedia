@@ -1,0 +1,55 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Florence Nightingale
+Catherine Duchess of Cambridge
+Elizabeth
+Baddeley
+Susan
+Jane Carlyle
+ Martneau
+
+Percentage identified from the proper data set (positive matches): 
+90.41
+
+Those identified by method that have not provided a match with the manual data :
+
+Darwin
+Susan thatErasmus
+Catherine
+Charles
+Erasmus
+Immobile
+Jane Carlyle. Life in the Sickroom
+Ambleside
+Erasmus Darwin
+Alarmed
+Review
+C.D.
+Ld
+Elizabeth Greenhow
+Charles Lyell
+Household Education
+Elizabeth Barrett
+Osiris
+Bodichon
+Fox
+Atkinson
+Literary London
+Tynemouth
+Darwins
+Deerbrook
+Illustrations
+Letters
+Hymns. 
+
+precision
+0.7021276595744681
+
+recall
+0.9041095890410958
+

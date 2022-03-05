@@ -96,7 +96,7 @@ if __name__ == '__main__':
                 "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians"]
         #network.run_on_group(URLS, sys.argv[2])
         #networkAnalysis.analysis_part1("wikidata")
-        networkAnalysis.analysis_part2()
+        networkAnalysis.analysis_part3()
 
     else:
         print("The methods you have indicated are not accepted input")

@@ -1,0 +1,28 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+John McCosh
+A. J. McCosh
+Francis Landey Patton
+Emmett Louis Till
+
+Percentage identified from the proper data set (positive matches): 
+73.33
+
+Those identified by method that have not provided a match with the manual data :
+
+Darwinian
+Covenanting
+Presbyterian Seminary
+Darwin
+
+precision
+0.7333333333333333
+
+recall
+0.7333333333333333
+

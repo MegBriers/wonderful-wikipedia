@@ -1,0 +1,204 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 500px;
+            height: 500px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+        #loadingBar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width: 500px;
+            height: 500px;
+            background-color:rgba(200,200,200,0.8);
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            opacity:1;
+        }
+
+        #bar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:20px;
+            height:20px;
+            margin:auto auto auto auto;
+            border-radius:11px;
+            border:2px solid rgba(30,30,30,0.05);
+            background: rgb(0, 173, 246); /* Old browsers */
+            box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+        }
+
+        #border {
+            position:absolute;
+            top:10px;
+            left:10px;
+            width:500px;
+            height:23px;
+            margin:auto auto auto auto;
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+            border-radius:10px;
+        }
+
+        #text {
+            position:absolute;
+            top:8px;
+            left:530px;
+            width:30px;
+            height:50px;
+            margin:auto auto auto auto;
+            font-size:22px;
+            color: #000000;
+        }
+
+        div.outerBorder {
+            position:relative;
+            top:400px;
+            width:600px;
+            height:44px;
+            margin:auto auto auto auto;
+            border:8px solid rgba(0,0,0,0.1);
+            background: rgb(252,252,252); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+            border-radius:72px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+<div id="loadingBar">
+    <div class="outerBorder">
+        <div id="text">0%</div>
+        <div id="border">
+            <div id="bar"></div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "Mary Somerville", "label": "Mary Somerville", "shape": "dot", "size": 10}, {"id": "Caroline Herschel", "label": "Caroline Herschel", "shape": "dot", "size": 10}, {"id": "Honorary Members", "label": "Honorary Members", "shape": "dot", "size": 10}, {"id": "John Stuart Mill", "label": "John Stuart Mill", "shape": "dot", "size": 10}, {"id": "Somerville", "label": "Somerville", "shape": "dot", "size": 10}, {"id": "William George Fairfax", "label": "William George Fairfax", "shape": "dot", "size": 10}, {"id": "Fairfaxes", "label": "Fairfaxes", "shape": "dot", "size": 10}, {"id": "Margaret Charters", "label": "Margaret Charters", "shape": "dot", "size": 10}, {"id": "Samuel Charters", "label": "Samuel Charters", "shape": "dot", "size": 10}, {"id": "Rev", "label": "Rev", "shape": "dot", "size": 10}, {"id": "Thomas Somerville", "label": "Thomas Somerville", "shape": "dot", "size": 10}, {"id": "Sam", "label": "Sam", "shape": "dot", "size": 10}, {"id": "Mary", "label": "Mary", "shape": "dot", "size": 10}, {"id": "Shakespeare", "label": "Shakespeare", "shape": "dot", "size": 10}, {"id": "Janet", "label": "Janet", "shape": "dot", "size": 10}, {"id": "Virgil", "label": "Virgil", "shape": "dot", "size": 10}, {"id": "William Charters", "label": "William Charters", "shape": "dot", "size": 10}, {"id": "Strange", "label": "Strange", "shape": "dot", "size": 10}, {"id": "Lyell", "label": "Lyell", "shape": "dot", "size": 10}, {"id": "Charles Lyell", "label": "Charles Lyell", "shape": "dot", "size": 10}, {"id": "Xenophon", "label": "Xenophon", "shape": "dot", "size": 10}, {"id": "Herodotus", "label": "Herodotus", "shape": "dot", "size": 10}, {"id": "Alexander Nasmyth", "label": "Alexander Nasmyth", "shape": "dot", "size": 10}, {"id": "Nasmyth", "label": "Nasmyth", "shape": "dot", "size": 10}, {"id": "Euclid", "label": "Euclid", "shape": "dot", "size": 10}, {"id": "John Robertson", "label": "John Robertson", "shape": "dot", "size": 10}, {"id": "Henry", "label": "Henry", "shape": "dot", "size": 10}, {"id": "John Bonnycastle", "label": "John Bonnycastle", "shape": "dot", "size": 10}, {"id": "Lord Balmuto", "label": "Lord Balmuto", "shape": "dot", "size": 10}, {"id": "Oswalds", "label": "Oswalds", "shape": "dot", "size": 10}, {"id": "Elizabeth Oswald", "label": "Elizabeth Oswald", "shape": "dot", "size": 10}, {"id": "Thomas Bruce", "label": "Thomas Bruce", "shape": "dot", "size": 10}, {"id": "Lady Burchan", "label": "Lady Burchan", "shape": "dot", "size": 10}, {"id": "Duncan", "label": "Duncan", "shape": "dot", "size": 10}, {"id": "Marriage", "label": "Marriage", "shape": "dot", "size": 10}, {"id": "Samuel Greig", "label": "Samuel Greig", "shape": "dot", "size": 10}, {"id": "Woronzow Greig", "label": "Woronzow Greig", "shape": "dot", "size": 10}, {"id": "Greig", "label": "Greig", "shape": "dot", "size": 10}, {"id": "James Ferguson", "label": "James Ferguson", "shape": "dot", "size": 10}, {"id": "Isaac Newton", "label": "Isaac Newton", "shape": "dot", "size": 10}, {"id": "John Playfair", "label": "John Playfair", "shape": "dot", "size": 10}, {"id": "William Wallace", "label": "William Wallace", "shape": "dot", "size": 10}, {"id": "Wallace", "label": "Wallace", "shape": "dot", "size": 10}, {"id": "Pierre", "label": "Pierre", "shape": "dot", "size": 10}, {"id": "Simon Laplace", "label": "Simon Laplace", "shape": "dot", "size": 10}, {"id": "Laplace", "label": "Laplace", "shape": "dot", "size": 10}, {"id": "Louis", "label": "Louis", "shape": "dot", "size": 10}, {"id": "Benjamin Franc\u0153ur", "label": "Benjamin Franc\u0153ur", "shape": "dot", "size": 10}, {"id": "Sylvestre Fran\u00e7ois Lacroix", "label": "Sylvestre Fran\u00e7ois Lacroix", "shape": "dot", "size": 10}, {"id": "Calculus Treatise", "label": "Calculus Treatise", "shape": "dot", "size": 10}, {"id": "Jean", "label": "Jean", "shape": "dot", "size": 10}, {"id": "Baptiste Biot", "label": "Baptiste Biot", "shape": "dot", "size": 10}, {"id": "Sim\u00e9on Denis Poisson", "label": "Sim\u00e9on Denis Poisson", "shape": "dot", "size": 10}, {"id": "Joseph", "label": "Joseph", "shape": "dot", "size": 10}, {"id": "Louis Lagrange", "label": "Louis Lagrange", "shape": "dot", "size": 10}, {"id": "Leonhard Euler", "label": "Leonhard Euler", "shape": "dot", "size": 10}, {"id": "Alexis Clairaut", "label": "Alexis Clairaut", "shape": "dot", "size": 10}, {"id": "Gaspard Monge", "label": "Gaspard Monge", "shape": "dot", "size": 10}, {"id": "Fran\u00e7ois Callet", "label": "Fran\u00e7ois Callet", "shape": "dot", "size": 10}, {"id": "Newton", "label": "Newton", "shape": "dot", "size": 10}, {"id": "Charles Babbage", "label": "Charles Babbage", "shape": "dot", "size": 10}, {"id": "John Herschel", "label": "John Herschel", "shape": "dot", "size": 10}, {"id": "George Peacock", "label": "George Peacock", "shape": "dot", "size": 10}, {"id": "Lacroix", "label": "Lacroix", "shape": "dot", "size": 10}, {"id": "Henry Brougham", "label": "Henry Brougham", "shape": "dot", "size": 10}, {"id": "Dr William Somerville", "label": "Dr William Somerville", "shape": "dot", "size": 10}, {"id": "J.M.W. Turner", "label": "J.M.W. Turner", "shape": "dot", "size": 10}, {"id": "Walter Scott", "label": "Walter Scott", "shape": "dot", "size": 10}, {"id": "Scott", "label": "Scott", "shape": "dot", "size": 10}, {"id": "Anne Isabella Milbanke", "label": "Anne Isabella Milbanke", "shape": "dot", "size": 10}, {"id": "Baroness Wentworth", "label": "Baroness Wentworth", "shape": "dot", "size": 10}, {"id": "Ada Lovelace", "label": "Ada Lovelace", "shape": "dot", "size": 10}, {"id": "Babbage", "label": "Babbage", "shape": "dot", "size": 10}, {"id": "Lovelace", "label": "Lovelace", "shape": "dot", "size": 10}, {"id": "Somervilles", "label": "Somervilles", "shape": "dot", "size": 10}, {"id": "Sir James Mackintosh", "label": "Sir James Mackintosh", "shape": "dot", "size": 10}, {"id": "London the Somervilles", "label": "London the Somervilles", "shape": "dot", "size": 10}, {"id": "Maria Edgeworth", "label": "Maria Edgeworth", "shape": "dot", "size": 10}, {"id": "David Brewster", "label": "David Brewster", "shape": "dot", "size": 10}, {"id": "Lord Brougham", "label": "Lord Brougham", "shape": "dot", "size": 10}, {"id": "M\u00e9canique C\u00e9leste", "label": "M\u00e9canique C\u00e9leste", "shape": "dot", "size": 10}, {"id": "Joanna Baillie", "label": "Joanna Baillie", "shape": "dot", "size": 10}, {"id": "John Murray", "label": "John Murray", "shape": "dot", "size": 10}, {"id": "Murray", "label": "Murray", "shape": "dot", "size": 10}, {"id": "Charles Darwin", "label": "Charles Darwin", "shape": "dot", "size": 10}, {"id": "Baron Humboldt", "label": "Baron Humboldt", "shape": "dot", "size": 10}, {"id": "Physical Geography", "label": "Physical Geography", "shape": "dot", "size": 10}, {"id": "Humboldt", "label": "Humboldt", "shape": "dot", "size": 10}, {"id": "Maria Mitchell", "label": "Maria Mitchell", "shape": "dot", "size": 10}, {"id": "Byron", "label": "Byron", "shape": "dot", "size": 10}, {"id": "William Edward Parry", "label": "William Edward Parry", "shape": "dot", "size": 10}, {"id": "Taylor", "label": "Taylor", "shape": "dot", "size": 10}, {"id": "Letitia Elizabeth Landon", "label": "Letitia Elizabeth Landon", "shape": "dot", "size": 10}, {"id": "E. Bowell", "label": "E. Bowell", "shape": "dot", "size": 10}, {"id": "Langrenus", "label": "Langrenus", "shape": "dot", "size": 10}, {"id": "James Clerk Maxwell", "label": "James Clerk Maxwell", "shape": "dot", "size": 10}, {"id": "Thomas Telford", "label": "Thomas Telford", "shape": "dot", "size": 10}, {"id": "Count Semyon Vorontsov", "label": "Count Semyon Vorontsov", "shape": "dot", "size": 10}, {"id": "Consul General", "label": "Consul General", "shape": "dot", "size": 10}, {"id": "Woronzow", "label": "Woronzow", "shape": "dot", "size": 10}, {"id": "Agnes Graham", "label": "Agnes Graham", "shape": "dot", "size": 10}, {"id": "Margaret Farquhar Somerville", "label": "Margaret Farquhar Somerville", "shape": "dot", "size": 10}, {"id": "Martha Charters Somerville", "label": "Martha Charters Somerville", "shape": "dot", "size": 10}, {"id": "Mary Charlotte Somerville", "label": "Mary Charlotte Somerville", "shape": "dot", "size": 10}, {"id": "Bibliography", "label": "Bibliography", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "Mary Somerville", "to": "Mary Somerville", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Caroline Herschel", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Honorary Members", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "John Stuart Mill", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Somerville", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "William George Fairfax", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Fairfaxes", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Margaret Charters", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Samuel Charters", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Rev", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Thomas Somerville", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Sam", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Mary", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Shakespeare", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Janet", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Virgil", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "William Charters", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Strange", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Lyell", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Charles Lyell", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Xenophon", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Herodotus", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Alexander Nasmyth", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Nasmyth", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Euclid", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "John Robertson", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Henry", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "John Bonnycastle", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Lord Balmuto", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Oswalds", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Elizabeth Oswald", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Thomas Bruce", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Lady Burchan", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Duncan", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Marriage", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Samuel Greig", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Woronzow Greig", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Greig", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "James Ferguson", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Isaac Newton", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "John Playfair", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "William Wallace", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Wallace", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Pierre", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Simon Laplace", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Laplace", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Louis", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Benjamin Franc\u0153ur", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Sylvestre Fran\u00e7ois Lacroix", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Calculus Treatise", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Jean", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Baptiste Biot", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Sim\u00e9on Denis Poisson", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Joseph", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Louis Lagrange", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Leonhard Euler", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Alexis Clairaut", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Gaspard Monge", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Fran\u00e7ois Callet", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Newton", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Charles Babbage", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "John Herschel", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "George Peacock", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Lacroix", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Henry Brougham", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Dr William Somerville", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "J.M.W. Turner", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Walter Scott", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Scott", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Anne Isabella Milbanke", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Baroness Wentworth", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Ada Lovelace", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Babbage", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Lovelace", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Somervilles", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Sir James Mackintosh", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "London the Somervilles", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Maria Edgeworth", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "David Brewster", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Lord Brougham", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "M\u00e9canique C\u00e9leste", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Joanna Baillie", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "John Murray", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Murray", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Charles Darwin", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Baron Humboldt", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Physical Geography", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Humboldt", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Maria Mitchell", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Byron", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "William Edward Parry", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Taylor", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Letitia Elizabeth Landon", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "E. Bowell", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Langrenus", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "James Clerk Maxwell", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Thomas Telford", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Count Semyon Vorontsov", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Consul General", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Woronzow", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Agnes Graham", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Margaret Farquhar Somerville", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Martha Charters Somerville", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Mary Charlotte Somerville", "weight": "Mary Somerville"}, {"from": "Mary Somerville", "to": "Bibliography", "weight": "Mary Somerville"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+        network.on("stabilizationProgress", function(params) {
+      		document.getElementById('loadingBar').removeAttribute("style");
+	        var maxWidth = 496;
+	        var minWidth = 20;
+	        var widthFactor = params.iterations/params.total;
+	        var width = Math.max(minWidth,maxWidth * widthFactor);
+
+	        document.getElementById('bar').style.width = width + 'px';
+	        document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+	    });
+	    network.once("stabilizationIterationsDone", function() {
+	        document.getElementById('text').innerHTML = '100%';
+	        document.getElementById('bar').style.width = '496px';
+	        document.getElementById('loadingBar').style.opacity = 0;
+	        // really clean the dom element
+	        setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+	    });
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

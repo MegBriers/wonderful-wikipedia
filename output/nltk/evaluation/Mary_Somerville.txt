@@ -1,0 +1,79 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Thomas Phillips
+Louis-Benjamin Francoeur
+E Bowell
+Joanna Baillie
+Earl of Minto
+Jean-Baptiste Biot
+Admiral Duncan
+Alexander Keith Johnston
+Pierre-Simon Laplace
+John Robertson
+J.M.W. Turner
+Joseph-Louis Lagrange
+
+Percentage identified from the proper data set (positive matches): 
+84.81
+
+Those identified by method that have not provided a match with the manual data :
+
+
+Physical
+Engine
+Hanover Square
+Mechanism Joanna Baillie
+Geography
+Latin
+Newton
+Scott
+Nasmyth
+Molecular
+Mécanique Céleste
+John
+Ada
+Fairfax
+Useful Knowledge
+College
+Somerville
+Mechanism
+Uranus
+Fife
+Lagrange
+Henry Brougham
+Earth
+Woronzow
+Francœur
+Calculus Treatise
+Microscopic Science
+Physical Geography
+Marines
+Algebra
+Murray
+Legacy
+Naturelle
+Chelsea Hospital
+Nunavut
+Google
+Ada Lovelace
+Somerville House
+Potter
+Principia
+Club
+Biot
+Astronomy
+Strange
+Crown
+Langrenus
+
+precision
+0.5877192982456141
+
+recall
+0.8481012658227848
+

@@ -1,0 +1,119 @@
+Source,Target,weight,Type 
+John Herschel,John Frederick William Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Uranus,John Herschel,Undirected
+John Herschel,William Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Mary Baldwin,John Herschel,Undirected
+John Herschel,William Herschel,John Herschel,Undirected
+John Herschel,Caroline Herschel,John Herschel,Undirected
+John Herschel,Senior Wrangler,John Herschel,Undirected
+John Herschel,Charles Babbage,John Herschel,Undirected
+John Herschel,George Peacock,John Herschel,Undirected
+John Herschel,James South,John Herschel,Undirected
+John Herschel,Copley Medal,John Herschel,Undirected
+John Herschel,Transactions,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,George Everest,John Herschel,Undirected
+John Herschel,Mary Boole,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Babbage,John Herschel,Undirected
+John Herschel,Brahmagupta,John Herschel,Undirected
+John Herschel,Lagrange,John Herschel,Undirected
+John Herschel,Euler,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Dionysius Lardner,John Herschel,Undirected
+John Herschel,Charles Darwin,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,S.S. Mountstuart Elphinstone,John Herschel,Undirected
+John Herschel,William Herschel,John Herschel,Undirected
+John Herschel,Comet Halley,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Thomas Maclear,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Margaret,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Flora Herscheliana,John Herschel,Undirected
+John Herschel,Field Houses,John Herschel,Undirected
+John Herschel,John,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Charles Lyell's Principles of Geology,John Herschel,Undirected
+John Herschel,Lyell,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Patriarchs,John Herschel,Undirected
+John Herschel,Charles Babbage,John Herschel,Undirected
+John Herschel,Charles Darwin,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Darwin,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Darwin,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Dione  Rhea,John Herschel,Undirected
+John Herschel,Iapetus,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Copley Medal,John Herschel,Undirected
+John Herschel,Uranus: Ariel,John Herschel,Undirected
+John Herschel,Oberon,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Henry Collen,John Herschel,Undirected
+John Herschel,William Willis,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Talbot,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Saskatchewan Canada,John Herschel,Undirected
+John Herschel,Mount Herschel Antarctica,John Herschel,Undirected
+John Herschel,J. Herschel,John Herschel,Undirected
+John Herschel,Herschel Island,John Herschel,Undirected
+John Herschel,John Franklin,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,John Herschel,John Herschel,Undirected
+John Herschel,William Herschel,John Herschel,Undirected
+John Herschel,Caroline Herschel,John Herschel,Undirected
+John Herschel,John.   ,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Margaret Brodie Stewart,John Herschel,Undirected
+John Herschel,Caroline Emilia Mary Herschel,John Herschel,Undirected
+John Herschel,Alexander Hamilton,John Herschel,Undirected
+John Herschel,Gordon Isabella Herschel,John Herschel,Undirected
+John Herschel,William James Herschel,John Herschel,Undirected
+John Herschel,Margaret Louisa Herschel,John Herschel,Undirected
+John Herschel,Alexander Stewart Herschel,John Herschel,Undirected
+John Herschel,John Herschel,John Herschel,Undirected
+John Herschel,Maria Sophia Herschel,John Herschel,Undirected
+John Herschel,Amelia Herschel,John Herschel,Undirected
+John Herschel,Thomas Francis Wade,John Herschel,Undirected
+John Herschel,Julia Herschel,John Herschel,Undirected
+John Herschel,John Fiot Lee,John Herschel,Undirected
+John Herschel,Rose Herschel,John Herschel,Undirected
+John Herschel,William Waterfield,John Herschel,Undirected
+John Herschel,Francisca Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Henry W,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Charles Babbage,John Herschel,Undirected
+John Herschel,William Whewell,John Herschel,Undirected
+John Herschel,Richard Jones,John Herschel,Undirected
+John Herschel,John Herschel,John Herschel,Undirected
+John Herschel,JOHN HERSCHEL,John Herschel,Undirected
+John Herschel,R. Derek Wood,John Herschel,Undirected
+John Herschel,'Fourteenth,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Herschel,John Herschel,Undirected
+John Herschel,Wikisource,John Herschel,Undirected

@@ -1,0 +1,48 @@
+Source,Target,weight,Type,link,alive
+Tyndall,John Tyndall,Tyndall,Undirected,unlinked,True
+Tyndall,Mihajlo Idvorski Pupin,Tyndall,Undirected,linked,True
+Tyndall,Edward Frankland,Tyndall,Undirected,linked,True
+Tyndall,Robert Bunsen,Tyndall,Undirected,linked,True
+Tyndall,Hermann Knoblauch,Tyndall,Undirected,linked,True
+Tyndall,Knoblauch,Tyndall,Undirected,unlinked,True
+Tyndall,Friedrich Ludwig Stegmann,Tyndall,Undirected,unlinked,True
+Tyndall,Heinrich Gustav Magnus,Tyndall,Undirected,linked,True
+Tyndall,Michael Faraday,Tyndall,Undirected,linked,True
+Tyndall,Michael Faraday,Tyndall,Undirected,unlinked,True
+Tyndall,James David Forbes,Tyndall,Undirected,linked,True
+Tyndall,Louis Rendu,Tyndall,Undirected,linked,True
+Tyndall,Louis Agassiz,Tyndall,Undirected,linked,True
+Tyndall,Fourier,Tyndall,Undirected,linked,True
+Tyndall,Pouillet,Tyndall,Undirected,linked,True
+Tyndall,William Hopkins,Tyndall,Undirected,linked,True
+Tyndall,Melloni,Tyndall,Undirected,linked,True
+Tyndall,M. Pouillet,Tyndall,Undirected,unlinked,True
+Tyndall,Eunice Newton Foote,Tyndall,Undirected,linked,True
+Tyndall,Desains,Tyndall,Undirected,linked,True
+Tyndall,Forbes,Tyndall,Undirected,linked,True
+Tyndall,Louis Pasteur,Tyndall,Undirected,linked,True
+Tyndall,Ferdinand Cohn,Tyndall,Undirected,linked,True
+Tyndall,Jean-Daniel Colladon,Tyndall,Undirected,linked,True
+Tyndall,Balfour Stewart,Tyndall,Undirected,linked,True
+Tyndall,Professor Tyndall,Tyndall,Undirected,unlinked,True
+Tyndall,Hermann von Helmholtz,Tyndall,Undirected,linked,True
+Tyndall,James Clerk Maxwell,Tyndall,Undirected,unlinked,True
+Tyndall,James Joule,Tyndall,Undirected,linked,True
+Tyndall,James Clerk Maxwell,Tyndall,Undirected,linked,True
+Tyndall,George Gabriel Stokes,Tyndall,Undirected,linked,True
+Tyndall,William Thomson,Tyndall,Undirected,linked,True
+Tyndall,Charles Darwin,Tyndall,Undirected,linked,True
+Tyndall,Thomas Henry Huzley,Tyndall,Undirected,linked,True
+Tyndall,Thomas Archer Hirst,Tyndall,Undirected,linked,True
+Tyndall,Herbert Spencer,Tyndall,Undirected,linked,True
+Tyndall,Pope Pius IX,Tyndall,Undirected,linked,True
+Tyndall,Louisa Hamilton,Tyndall,Undirected,linked,True
+Tyndall,Lord Claud Hamilton,Tyndall,Undirected,linked,True
+Tyndall,A. S. Eve,Tyndall,Undirected,unlinked,True
+Tyndall,C. H. Creasey,Tyndall,Undirected,unlinked,True
+Tyndall,Louisa Tyndall,Tyndall,Undirected,unlinked,True
+Tyndall,H. S. King,Tyndall,Undirected,unlinked,True
+Tyndall,D. Appleton,Tyndall,Undirected,unlinked,True
+Tyndall,de Saussure,Tyndall,Undirected,linked,True
+Tyndall,Poggendoff,Tyndall,Undirected,linked,True
+Tyndall,Darwin,Tyndall,Undirected,unlinked,True

@@ -1,0 +1,13 @@
+Source,Target,weight,Type 
+Chinthamani Ragoonatha Chary,N.R. Pogson,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,T. G. Taylor,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,N. R. Pogson,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,the Madras Catalogues,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,Wanaparthy,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,Cephei,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,U Cephei,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,the Madras Observatory,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,Chinthamani,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,P. Raghavachari,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,Sanskrit,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,Kannada,Chinthamani Ragoonatha Chary,Undirected,

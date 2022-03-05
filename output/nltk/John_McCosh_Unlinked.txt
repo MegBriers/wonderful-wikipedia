@@ -1,0 +1,44 @@
+Source,Target,weight,Type 
+John McCosh,Bengal Military Orphan Press,John McCosh,Undirected
+John McCosh,Amsterdam Island,John McCosh,Undirected
+John McCosh,Roddy,John McCosh,Undirected
+John McCosh,St Andrews,John McCosh,Undirected
+John McCosh,Dewan Mulraj,John McCosh,Undirected
+John McCosh,Mauritius,John McCosh,Undirected
+John McCosh,Simpson,John McCosh,Undirected
+John McCosh,McCosh,John McCosh,Undirected
+John McCosh,Bengal Army,John McCosh,Undirected
+John McCosh,Narrative,John McCosh,Undirected
+John McCosh,Tripe,John McCosh,Undirected
+John McCosh,Bengal Native Infantry,John McCosh,Undirected
+John McCosh,Dean Cemetery,John McCosh,Undirected
+John McCosh,Army Museum,John McCosh,Undirected
+John McCosh,Patrick Alexander Vans Agnew,John McCosh,Undirected
+John McCosh,Fife,John McCosh,Undirected
+John McCosh,John MacCosh,John McCosh,Undirected
+John McCosh,Bengal Artillery,John McCosh,Undirected
+John McCosh,Musée,John McCosh,Undirected
+John McCosh,John,John McCosh,Undirected
+John McCosh,Bengal European,John McCosh,Undirected
+John McCosh,Albert Museum,John McCosh,Undirected
+John McCosh,James McCosh,John McCosh,Undirected
+John McCosh,Medical,John McCosh,Undirected
+John McCosh,Light,John McCosh,Undirected
+John McCosh,Oxford,John McCosh,Undirected
+John McCosh,James Robertson,John McCosh,Undirected
+John McCosh,Paper Negatives,John McCosh,Undirected
+John McCosh,Larry John Schaaf,John McCosh,Undirected
+John McCosh,Oxford University,John McCosh,Undirected
+John McCosh,Photographic Journal,John McCosh,Undirected
+John McCosh,Roger Fenton,John McCosh,Undirected
+John McCosh,Robin Lenman,John McCosh,Undirected
+John McCosh,Vol,John McCosh,Undirected
+John McCosh,Abroad,John McCosh,Undirected
+John McCosh,Roger Taylor,John McCosh,Undirected
+John McCosh,John Hannavy,John McCosh,Undirected
+John McCosh,Ranjit Singh,John McCosh,Undirected
+John McCosh,Nuova Italia,John McCosh,Undirected
+John McCosh,Charles James Napier,John McCosh,Undirected
+John McCosh,Henry Fox Talbot,John McCosh,Undirected
+John McCosh,Peter Russell-Jones,John McCosh,Undirected
+John McCosh,Further,John McCosh,Undirected

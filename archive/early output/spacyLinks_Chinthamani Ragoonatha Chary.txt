@@ -1,0 +1,8 @@
+Source,Target,weight,Type 
+Chinthamani Ragoonatha Chary,Astronomer,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,Avanashi,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,Leslie Stephen,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,Madras Observatory,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,N.R. Pogson,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,N. R. Pogson,Chinthamani Ragoonatha Chary,Undirected,
+Chinthamani Ragoonatha Chary,Visvanatha Sastriyar,Chinthamani Ragoonatha Chary,Undirected,

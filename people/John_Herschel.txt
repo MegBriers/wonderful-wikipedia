@@ -1,0 +1,53 @@
+Source,Target,weight,Type,link,alive
+Herschel,John Frederick William Herschel,Herschel,Undirected,unlinked,True
+Herschel,Wiliam Herschel,Herschel,Undirected,linked,True
+Herschel,Caroline Herschel,Herschel,Undirected,linked,True
+Herschel,Mary Baldwin,Herschel,Undirected,unlinked,True
+Herschel,William Herschel,Herschel,Undirected,unlinked,True
+Herschel,Charles Babbage,Herschel,Undirected,linked,True
+Herschel,George Peacock,Herschel,Undirected,linked,True
+Herschel,Babbage,Herschel,Undirected,unlinked,True
+Herschel,James South,Herschel,Undirected,linked,True
+Herschel,George Everest,Herschel,Undirected,linked,True
+Herschel,Mary Boole,Herschel,Undirected,unlinked,True
+Herschel,Brahmagupta,Herschel,Undirected,unlinked,False
+Herschel,Lagrange,Herschel,Undirected,unlinked,True
+Herschel,Euler,Herschel,Undirected,unlinked,False
+Herschel,Herschel,Herschel,Undirected,unlinked,True
+Herschel,Charles Darwin,Herschel,Undirected,linked,True
+Herschel,Duke of Sussex,Herschel,Undirected,linked,True
+Herschel,Thomas Maclear,Herschel,Undirected,linked,True
+Herschel,Margaret,Herschel,Undirected,unlinked,True
+Herschel,John Herschel,Herschel,Undirected,unlinked,True
+Herschel,John,Herschel,Undirected,unlinked,True
+Herschel,Charles Lyell,Undirected,linked,True
+Herschel,Lyell,Herschel,Undirected,unlinked,True
+Herschel,Robert FitzRoy,Herschel,Undirected,linked,True
+Herschel,Henry Collen,Herschel,Undirected,linked,True
+Herschel,Queen Victoria,Herschel,Undirected,linked,True
+Herschel,William Willis,Herschel,Undirected,linked,True
+Herschel,Talbot,Herschel,Undirected,linked,True
+Herschel,Daguerre,Herschel,Undirected,linked,True
+Herschel,Julia Margaret Cameron,Herschel,Undirected,linked,True
+Herschel,Homer,Herschel,Undirected,unlinked,False
+Herschel,John Franklin,Herschel,Undirected,linked,True
+Herschel,Margaret Brodie Stewart,Herschel,Undirected,unlinked,True
+Herschel,Caroline Emilia Mary Herschel,Herschel,Undirected,unlinked,True
+Herschel,Alexander Hamilton-Gordon,Herschel,Undirected,linked,True
+Herschel,Alfred Edward Chalon,Herschel,Undirected,linked,True
+Herschel,Isabella Herschel,Herschel,Undirected,unlinked,True
+Herschel,William James Herschel,Herschel,Undirected,linked,True
+Herschel,Margaret Lousa Herschel,Herschel,Undirected,unlinked,True
+Herschel,Alexander Stewart Herschel,Herschel,Undirected,linked,True
+Herschel,John Herschel,Herschel,Undirected,linked,True
+Herschel,Maria Sophia Herschel,Herschel,Undirected,unlinked,True
+Herschel,Amelia Herschel,Herschel,Undirected,unlinked,True
+Herschel,Thomas Francis Wade,Herschel,Undirected,linked,True
+Herschel,Julia Herschel,Herschel,Undirected,unlinked,True
+Herschel,John Fiot Lee Pearse Maclear,Herschel,Undirected,linked,True
+Herschel,Matilda Rose Herschel,Herschel,Undirected,unlinked,True
+Herschel,William Waterfield,Herschel,Undirected,unlinked,True
+Herschel,Francisca Herschel,Herschel,Undirected,unlinked,True
+Herschel,Constance Anne Herschel,Herschel,Undirected,unlinked,True
+Herschel,Henry W Field,Herschel,Undirected,unlinked,True
+Herschel,Dionysius Lardner,Herschel,Undirected,unlinked,False

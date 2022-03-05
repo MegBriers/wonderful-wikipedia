@@ -1,0 +1,71 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Alfred Edward Chalon
+John Frederick William Herschel
+Daguerre
+Julia Margaret Cameron
+Caroline Emilia Mary Herschel
+Isabella Herschel
+Constance Anne Herschel
+Lagrange
+Euler
+John Fiot Lee Pearse Maclear
+Duke of Sussex
+Matilda Rose Herschel
+Brahmagupta
+Amelia Herschel
+Homer
+Alexander Hamilton-Gordon
+
+Percentage identified from the proper data set (positive matches): 
+68.00
+
+Those identified by method that have not provided a match with the manual data :
+
+
+Cape Town
+Double Stars
+Family
+Results
+Dione
+Africa
+Alexander Hamilton-Gordon Isabella Herschel
+Uranus
+John Fiot Lee Pearse Maclear Matilda Rose Herschel
+Dionysius Lardner
+Death
+John Herschel FRS
+Mount Herschel Antarctica
+Anne Herschel
+Mimas
+Cambridge
+Ariel
+John Frederick
+Rhea
+Field Houses
+John Herschel
+Umbriel
+Herschel Island
+Oberon
+William Herschel
+Light
+Darwin
+School
+Flora Herscheliana
+Caroline Emilia
+Table Mountain
+Iapetus
+Copley Medal
+Enceladus
+
+precision
+0.4927536231884058
+
+recall
+0.68
+

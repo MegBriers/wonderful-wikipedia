@@ -1,0 +1,40 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+proportion of the links that are going to contemporaries of the person
+90.57
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+proportion of people linked who have been picked up by wikidata
+83.33
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+those who were not identified: 
+
+Francis Martineau Lupton
+John Murray
+Thomas Malthus
+Adam Smith
+Henry G. Atkinson
+Hilary Bonham Carter
+Miss Martneau
+Princess Victoria
+
+
+those who were picked up additionally by wikidata
+
+Queen Victoria
+Charles Lyell
+Camille Silvy
+George Richmond (painter)
+Richard Evans (portrait painter)
+Charles Darwin
+Anne Whitney
+
+
+precision
+0.851063829787234
+
+recall
+0.8333333333333334
+

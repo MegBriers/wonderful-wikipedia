@@ -1,0 +1,28 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+proportion of the links that are going to contemporaries of the person
+88.89
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+proportion of people linked who have been picked up by wikidata
+75.00
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+those who were not identified: 
+
+Darwin
+Thomas Reid
+
+
+those who were picked up additionally by wikidata
+
+John Stuart Mill
+
+
+precision
+0.8571428571428571
+
+recall
+0.75
+

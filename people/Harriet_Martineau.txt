@@ -1,0 +1,81 @@
+Source,Target,weight,Type,link,alive
+Martineau,Harriet Martineau,Martineau,Undirected,unlinked,True
+Martineau,Auguste Comte,Martineau,Undirected,linked,True
+Martineau,Princess Victoria,Martineau,Undirected,linked,True
+Martineau,Martineau,Martineau,Undirected,unlinked,True
+Martineau,Margaret Oliphant,Martineau,Undirected,linked,True
+Martineau,James Martineau,Martineau,Undirected,linked,True
+Martineau,Peter Finch Martineau,Martineau,Undirected,linked,True
+Martineau,Thomas Michael Greenhow,Martineau,Undirected,linked,True
+Martineau,Thomas,Martineau,Undirected,unlinked,True
+Martineau,Philip Meadows Martineau,Martineau,Undirected,unlinked,True
+Martineau,James,Martineau,Undirected,linked,True
+Martineau,Diana Postlethwaite,Martineau,Undirected,unlinked,False
+Martineau,Harriet,Martineau,Undirected,unlinked,True
+Martineau,Rachel,Martineau,Undirected,unlinked,True
+Martineau,Hilary Bonham Carter,Martineau,Undirected,linked,True
+Martineau,Adam Smith,Martineau,Undirected,linked,True
+Martineau,Charles Dickens,Martineau,Undirected,linked,True
+Martineau,Adam Smith,Martineau,Undirected,unlinked,True
+Martineau,James Mill,Martineau,Undirected,linked,True
+Martineau,Bentham,Martineau,Undirected,linked,True
+Martineau,Ricardo,Martineau,Undirected,linked,True
+Martineau,Malthus,Martineau,Undirected,linked,True
+Martineau,Malthus,Martineau,Undirected,unlinked,True
+Martineau,William Johnson Fox,Martineau,Undirected,linked,True
+Martineau,William Darwin Fox,Martineau,Undirected,unlinked,True
+Martineau,Eramus Alvey Darwin,Martineau,Undirected,linked,True
+Martineau,Charles Darwin,Martineau,Undirected,unlinked,True
+Martineau,Henry Hallam,Martineau,Undirected,linked,True
+Martineau,Harriet Taylor,Martineau,Undirected,linked,True
+Martineau,Alexander Maconochie,Martineau,Undirected,linked,True
+Martineau,Henry Hart Milman,Martineau,Undirected,linked,True
+Martineau,Thomas Malthus,Martineau,Undirected,linked,True
+Martineau,Monckton Milnes,Martineau,Undirected,linked,True
+Martineau,Sydney Smith,Martineau,Undirected,linked,True
+Martineau,John Stuart Mill,Martineau,Undirected,linked,True
+Martineau,Edward Bulwer-Lytton,Martineau,Undirected,linked,True
+Martineau,Elizabeth Barrett Browning,Martineau,Undirected,linked,True
+Martineau,Sarah Austin,Martineau,Undirected,linked,True
+Martineau,Jane Welsh Carlyle,Martineau,Undirected,linked,True
+Martineau,Thomas Carlyle,Martineau,Undirected,linked,True
+Martineau,Florence Nightingale,Martineau,Undirected,linked,True
+Martineau,Charlotte Brontë,Martineau,Undirected,linked,True
+Martineau,George Eliot,Martineau,Undirected,linked,True
+Martineau,Charles Dickens,Martineau,Undirected,linked,True
+Martineau,Ld. Brougham,Martineau,Undirected,unlinked,True
+Martineau,James Madison,Martineau,Undirected,linked,True
+Martineau,Miss Martneau,Martineau,Undirected,linked,True
+Martineau,Robert,Martineau,Undirected,linked,True
+Martineau,Susan,Martineau,Undirected,unlinked,True
+Martineau,Lyell,Martineau,Undirected,unlinked,True
+Martineau,Toussaint L'Ouverture,Martineau,Undirected,linked,True
+Martineau,Thomas Michael Greenhow,Martineau,Undirected,linked,True
+Martineau,Mrs Halliday,Martineau,Undirected,unlinked,True
+Martineau,Richard Cobden,Martineau,Undirected,unlinked,True
+Martineau,Jane Carlyle,Martineau,Undirected,unlinked,True
+Martineau,Elizabeth Barrett,Martineau,Undirected,linked,True
+Martineau,Elizabeth,Martineau,Undirected,unlinked,True
+Martineau,John Murray,Martineau,Undirected,linked,True
+Martineau,Florence Fenwick Miller,Martineau,Undirected,unlinked,True
+Martineau,Samuel Taylor Coleridge,Martineau,Undirected,linked,True
+Martineau,Billie Melman,Martineau,Undirected,unlinked,True
+Martineau,Charles Knight,Martineau,Undirected,linked,True
+Martineau,William Wordsworth,Martineau,Undirected,linked,True
+Martineau,Baddeley,Martineau,Undirected,linked,True
+Martineau,Henry G. Atkinson,Martineau,Undirected,linked,True
+Martineau,Spencer T. Hall,Martineau,Undirected,unlinked,True
+Martineau,Barbara Bodichon,Martineau,Undirected,linked,True
+Martineau,George Holyoake,Martineau,Undirected,linked,True
+Martineau,Fanny Wedgwood,Martineau,Undirected,unlinked,True
+Martineau,Hensleigh Wedgwood,Martineau,Undirected,linked,True
+Martineau,Dalley Lana,Martineau,Undirected,unlinked,False
+Martineau,Auguste Comte,Martineau,Undirected,linked,True
+Martineau,Auguste Comte,Martineau,Undirected,unlinked,True
+Martineau,Comte,Martineau,Undirected,unlinked,True
+Martineau,James Martineau,Martineau,Undirected,linked,True
+Martineau,Anthony Giddens,Martineau,Undirected,unlinked,False
+Martineau,Simon Griffiths,Martineau,Undirected,unlinked,False
+Martineau,Francis Martineau Lupton,Martineau,Undirected,linked,True
+Martineau,Catherine Duchess of Cambridge,Martineau,Undirected,linked,False
+Martineau,Frances Lupton,Martineau,Undirected,linked,True

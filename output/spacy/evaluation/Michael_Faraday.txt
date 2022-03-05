@@ -1,0 +1,40 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+John Henry Foley
+John 'Mad Jack' Fuller
+Albert Einstein
+Harriet Jane Moore
+Prince Consort
+John Daniell
+Robert Gordon
+
+Percentage identified from the proper data set (positive matches): 
+83.72
+
+Those identified by method that have not provided a match with the manual data :
+
+Adult
+Abbott
+ Faraday
+glass
+Chance
+Chemistry
+London
+Jack' Fuller
+Michael Faraday
+Nobel
+John
+Faraday Gardens
+Shakespeare
+
+precision
+0.7346938775510204
+
+recall
+0.8372093023255814
+

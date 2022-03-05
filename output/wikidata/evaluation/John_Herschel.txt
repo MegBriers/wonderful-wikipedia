@@ -1,0 +1,30 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+proportion of the links that are going to contemporaries of the person
+100.00
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+proportion of people linked who have been picked up by wikidata
+87.50
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+those who were not identified: 
+
+Robert FitzRoy
+John Fiot Lee Pearse Maclear
+James South
+
+
+those who were picked up additionally by wikidata
+
+Charles Lyell
+John Maclear
+
+
+precision
+0.9130434782608695
+
+recall
+0.875
+

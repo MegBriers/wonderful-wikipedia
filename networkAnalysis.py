@@ -24,6 +24,12 @@ def get_file_path(file, bonus):
             return os.path.join(root, file)
 
 
+def update_counts(figures, people):
+    # add one into the dictionary counts of each person if mentioned in another article
+    for peep in people:
+        figures[peep] = figures.get(peep, 0) + 1
+    return figures
+
 def read_in_file(method):
     """
 
@@ -44,8 +50,10 @@ def read_in_file(method):
     """
     links = []
     total_links = []
+    pop_figs = []
     for folder in folders:
         new_dict = []
+        cur_figs = {}
         total_length = 0
         total_identified = 0
         # getting all the files within the correct folders
@@ -57,12 +65,14 @@ def read_in_file(method):
                 identifiedUnlinked = list(
                     set(line.rstrip("\n") for count, line in enumerate(fileUnlinked) if count != 0))
                 new_dict.append({length_of_file: len(identifiedUnlinked)})
+                cur_figs = update_counts(cur_figs, identifiedUnlinked)
                 total_length += length_of_file
                 total_identified += len(identifiedUnlinked)
                 fileUnlinked.close()
         total_links.append({total_length: total_identified})
         links.append(new_dict)
-    return links, total_links
+        pop_figs.append(cur_figs)
+    return links, total_links, pop_figs
 
 
 def statistics(values):

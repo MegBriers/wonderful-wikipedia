@@ -1,0 +1,24 @@
+Source,Target,weight,Type 
+Robert Haldane (mathematician),Elder,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Rev Stevenson,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Smith,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),John J.,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Robert,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Lt Col Sir Hugh Lyon Playfair,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Haldane FRSE,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Andrews,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),John Tulloch.Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Alexander Brunton,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Lee,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Cupar,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Lecropt,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),George Dunbar,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Edmund F.,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Patrick Neill,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Moderator,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Robert Jameson,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Robertson,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Robert Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Charles Moray,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Stephen,Robert Haldane (mathematician),Undirected

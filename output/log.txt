@@ -1,0 +1,261 @@
+＊*•̩̩͙✩•̩̩͙*˚　MULTIPLE ANALYSIS BEGIN　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+
+＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+proportion of the links that are going to contemporaries of the person
+82.76
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+proportion of people linked who have been picked up by wikidata
+83.33
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+those who were not identified: 
+
+Baron Humboldt
+Earl of Minto
+Elizabeth Oswald
+Henry Brougham
+Admiral Duncan
+Anne Isabella Milbanke
+John Murray
+Lord Brougham
+
+
+those who were picked up additionally by wikidata
+
+Henry Peter Brougham, 1st Baron Brougham and Vaux
+Mary R. Somerville
+Alexander von Humboldt
+James Townsend Oswald
+Anne Isabella Byron, Baroness Byron
+Adam Duncan, 1st Viscount Duncan
+Lord Byron
+
+
+precision
+0.851063829787234
+
+recall
+0.8333333333333334
+
+the f1 score
+0.8421052631578947
+
+
+spacy
+
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Henry
+Earl of Minto
+Admiral Duncan
+Joseph-Louis Lagrange
+Alexander Keith Johnston
+ Craw
+Semyon Vorontsov
+Siméon Denis Poisson
+Sylvestre François Lacroix
+Thomas Phillips
+
+Percentage identified from the proper data set (positive matches): 
+87.34
+
+Those identified by method that have not provided a match with the manual data :
+
+Lacroix
+Wallace
+Fairfaxes
+Newton
+Murray
+Duncan
+Mechanism
+Scott
+Somerville House
+Lyell
+Henry.  Craw
+Count Semyon
+Strange
+Uranus
+Nasmyth
+Navigations
+Recollections Somerville
+Recollections Mary
+Rev
+Mary Somerville
+Somervilles
+Somerville
+Byron
+Woronzow
+Langrenus
+François Lacroix' Algebra
+
+precision
+0.7263157894736842
+
+recall
+0.8734177215189873
+
+the f1 score
+0.7931034482758621
+
+
+ntlk
+
+
+
+＊*•̩̩͙✩•̩̩͙*˚　ntlk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Louis-Benjamin Francoeur
+Jean-Baptiste Biot
+Pierre-Simon Laplace
+Joanna Baillie
+E Bowell
+Earl of Minto
+Admiral Duncan
+J.M.W. Turner
+Joseph-Louis Lagrange
+Alexander Keith Johnston
+ Craw
+Semyon Vorontsov
+John Robertson
+Thomas Phillips
+
+Percentage identified from the proper data set (positive matches): 
+82.28
+
+Those identified by method that have not provided a match with the manual data :
+
+
+Count Semyon Vorontsov
+Physical Geography
+Ada
+Biot
+Newton
+Marines
+Francœur
+Molecular
+Engine
+Astronomy
+Google
+Physical
+Murray
+Craw
+Mechanism
+Calculus Treatise
+Scott
+Somerville House
+Fife
+Fairfax
+Nunavut
+Strange
+Useful Knowledge
+Uranus
+Earth
+Crown
+Mécanique Céleste
+Nasmyth
+Lagrange
+John
+Algebra
+Chelsea Hospital
+Microscopic Science
+Legacy
+Club
+Naturelle
+Principia
+Potter
+Hanover Square
+Geography
+Mechanism Joanna Baillie
+Somerville
+College
+Woronzow
+Latin
+Langrenus
+
+precision
+0.5803571428571429
+
+recall
+0.8227848101265823
+
+the f1 score
+0.680628272251309
+
+
+spacy_new
+
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Louis-Benjamin Francoeur
+Henry
+Earl of Minto
+Admiral Duncan
+Alexander Keith Johnston
+ Craw
+Semyon Vorontsov
+Siméon Denis Poisson
+Sylvestre François Lacroix
+Thomas Phillips
+
+Percentage identified from the proper data set (positive matches): 
+87.34
+
+Those identified by method that have not provided a match with the manual data :
+
+Lacroix
+Wallace
+Newton
+Murray
+Duncan
+Mechanism
+Scott
+Somerville House
+Lyell
+Henry.  Craw
+Count Semyon
+Strange
+Uranus
+Nasmyth
+Navigations
+Recollections Somerville
+Recollections Mary
+Honorary Members of the Royal Astronomical Society
+Mary Somerville
+Somervilles
+Whatever
+Somerville
+Byron
+Woronzow
+Langrenus
+François Lacroix' Algebra
+
+precision
+0.7263157894736842
+
+recall
+0.8734177215189873
+
+the f1 score
+0.7931034482758621
+
+
+＊*•̩̩͙✩•̩̩͙*˚ THE BEST METHOD WAS　˚*•̩̩͙✩•̩̩͙*˚＊
+＊*•̩̩͙✩•̩̩͙*˚ spacy　˚*•̩̩͙✩•̩̩͙*˚＊
+＊*•̩̩͙✩•̩̩͙*˚　with an f1 score of　˚*•̩̩͙✩•̩̩͙*˚＊
+＊*•̩̩͙✩•̩̩͙*˚ 0.7931034482758621 ˚*•̩̩͙✩•̩̩͙*˚＊

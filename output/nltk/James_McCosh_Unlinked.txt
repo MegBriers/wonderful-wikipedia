@@ -1,0 +1,23 @@
+Source,Target,weight,Type 
+James McCosh,Physical,James McCosh,Undirected
+James McCosh,Sir William Hamilton,James McCosh,Undirected
+James McCosh,John Maclean,James McCosh,Undirected
+James McCosh,Isabella McCosh,James McCosh,Undirected
+James McCosh,Queen,James McCosh,Undirected
+James McCosh,Robert Carter,James McCosh,Undirected
+James McCosh,Sons,James McCosh,Undirected
+James McCosh,Charles Scribner,James McCosh,Undirected
+James McCosh,Edinburgh,James McCosh,Undirected
+James McCosh,God,James McCosh,Undirected
+James McCosh,Main,James McCosh,Undirected
+James McCosh,Philosophical Papers,James McCosh,Undirected
+James McCosh,Sir W. Hamilton,James McCosh,Undirected
+James McCosh,Charles Hodge,James McCosh,Undirected
+James McCosh,Thomas Reid,James McCosh,Undirected
+James McCosh,Hodge,James McCosh,Undirected
+James McCosh,Mill,James McCosh,Undirected
+James McCosh,James,James McCosh,Undirected
+James McCosh,Darwin,James McCosh,Undirected
+James McCosh,McCosh,James McCosh,Undirected
+James McCosh,Joseph Heatly Dulles,James McCosh,Undirected
+James McCosh,Darwinism,James McCosh,Undirected

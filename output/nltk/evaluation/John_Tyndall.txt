@@ -1,0 +1,67 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Fourier
+Michael Faraday
+C. H. Creasey
+Mihajlo Idvorski Pupin
+de Saussure
+H. S. King
+ Claud Hamilton
+Poggendoff
+A. S. Eve
+Hermann von Helmholtz
+Desains
+
+Percentage identified from the proper data set (positive matches): 
+75.00
+
+Those identified by method that have not provided a match with the manual data :
+
+Solar Radiation
+Boston Tyndall
+Greenwood Press
+Great Britain
+John
+Michael
+Ticknor
+Regelation
+Reviews
+Mount Tyndall
+Roberts
+London Tyndall
+Chemist
+Tyndall FRS
+Nine Lectures
+Heat
+Longman
+Rendu
+Seven Lectures
+Lessons
+Marburg
+Magnus
+Light
+Roman Catholicism
+Six
+Three Scientific Addresses
+Notes
+County Carlow
+Hermann
+Huxley
+Heat Considered
+Louisa
+Knoblauch
+Bunsen
+Researches
+Tyndall
+
+precision
+0.4782608695652174
+
+recall
+0.75
+

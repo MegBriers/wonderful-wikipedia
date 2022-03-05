@@ -1,0 +1,40 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+James McCosh
+A. J. McCosh
+Francis Landey Patton
+Emmett Louis Till
+ J. S. Mill
+John McCosh
+Kant
+
+Percentage identified from the proper data set (positive matches): 
+61.11
+
+Those identified by method that have not provided a match with the manual data :
+
+Physical
+Darwin
+Edinburgh
+Queen
+Darwinism
+ W. Hamilton
+Mill
+Robert Carter
+God
+James
+Main
+Philosophical Papers
+Sons
+
+precision
+0.4583333333333333
+
+recall
+0.6111111111111112
+

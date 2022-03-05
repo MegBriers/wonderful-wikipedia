@@ -1,0 +1,38 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+HL Mansel
+William Brodie
+ Robert Hamilton of Preston
+Target
+Aristotle
+
+Percentage identified from the proper data set (positive matches): 
+86.49
+
+Those identified by method that have not provided a match with the manual data :
+
+Regius  of Anatomy
+Snell Exhibitioner
+Esser
+Baronet FRSE
+Robert Hamilton
+Blackwood
+Discussions
+Janet
+ W. Hamilton
+Thomas Hamilton
+William Stirling-Hamilton
+Philosophy
+God
+
+precision
+0.7111111111111111
+
+recall
+0.8648648648648649
+

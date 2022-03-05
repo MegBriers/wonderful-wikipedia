@@ -1,0 +1,69 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+W.F. Clay
+Aldous Huzley
+John Henry Foley
+Griffin
+Hans Christian Ørsted
+Robert Gordon
+Bohn
+Windus
+F.A.J.L. James
+John Daniell
+Chatto
+John 'Mad Jack' Fuller
+Harriet Jane Moore
+Prince Consort
+
+Percentage identified from the proper data set (positive matches): 
+76.27
+
+Those identified by method that have not provided a match with the manual data :
+
+Chain
+Faraday Medal
+Artisan Essay Circle
+Deep River
+Bunsen
+Edinburgh: W.F. Clay
+Huxley
+Abbott
+Hampton Court Road
+Michael Faraday Primary
+John 'Mad
+Coincidentally
+Michael Faraday's Mental Exercises
+Outhgill
+Glasite
+Sandemanian
+Faraday Gardens
+John Templeton
+Michael Faraday Memorial
+Inc. ISBN
+Virginia
+Barnsbury Grove
+Chance
+Shakespeare
+Buoy Store
+Francis.
+Faraday House
+Chemical Assistant
+County Durham
+” Calling Faraday
+Schoenbein
+Christmas
+
+precision
+0.5844155844155844
+
+recall
+0.7627118644067796
+
+the f1 score
+0.6617647058823529
+

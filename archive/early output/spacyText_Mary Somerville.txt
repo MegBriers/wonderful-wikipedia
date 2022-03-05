@@ -1,0 +1,169 @@
+Source,Target,weight,Type 
+Mary Somerville,Mary Somerville,Mary Somerville,Undirected
+Mary Somerville,Caroline Herschel,Mary Somerville,Undirected
+Mary Somerville,Honorary Members,Mary Somerville,Undirected
+Mary Somerville,John Stuart Mill,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,William George Fairfax,Mary Somerville,Undirected
+Mary Somerville,Fairfaxes,Mary Somerville,Undirected
+Mary Somerville,Margaret Charters,Mary Somerville,Undirected
+Mary Somerville,Samuel Charters,Mary Somerville,Undirected
+Mary Somerville,Rev,Mary Somerville,Undirected
+Mary Somerville,Thomas Somerville,Mary Somerville,Undirected
+Mary Somerville,Sam,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Shakespeare,Mary Somerville,Undirected
+Mary Somerville,Janet,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Thomas Somerville,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Virgil,Mary Somerville,Undirected
+Mary Somerville,William Charters,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Strange,Mary Somerville,Undirected
+Mary Somerville,Lyell,Mary Somerville,Undirected
+Mary Somerville,Charles Lyell,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Sam,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Xenophon,Mary Somerville,Undirected
+Mary Somerville,Herodotus,Mary Somerville,Undirected
+Mary Somerville,Alexander Nasmyth,Mary Somerville,Undirected
+Mary Somerville,Nasmyth,Mary Somerville,Undirected
+Mary Somerville,Euclid,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,John Robertson,Mary Somerville,Undirected
+Mary Somerville,Henry,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Euclid,Mary Somerville,Undirected
+Mary Somerville,John Bonnycastle,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Euclid,Mary Somerville,Undirected
+Mary Somerville,Lord Balmuto,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Oswalds,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Elizabeth Oswald,Mary Somerville,Undirected
+Mary Somerville,Thomas Bruce,Mary Somerville,Undirected
+Mary Somerville,Lady Burchan,Mary Somerville,Undirected
+Mary Somerville,Duncan,Mary Somerville,Undirected
+Mary Somerville,Marriage,Mary Somerville,Undirected
+Mary Somerville,Samuel Greig,Mary Somerville,Undirected
+Mary Somerville,Samuel Greig,Mary Somerville,Undirected
+Mary Somerville,Woronzow Greig,Mary Somerville,Undirected
+Mary Somerville,Greig,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,James Ferguson,Mary Somerville,Undirected
+Mary Somerville,Isaac Newton,Mary Somerville,Undirected
+Mary Somerville,Greig,Mary Somerville,Undirected
+Mary Somerville,John Playfair,Mary Somerville,Undirected
+Mary Somerville,William Wallace,Mary Somerville,Undirected
+Mary Somerville,Wallace,Mary Somerville,Undirected
+Mary Somerville,Pierre,Mary Somerville,Undirected
+Mary Somerville,Simon Laplace,Mary Somerville,Undirected
+Mary Somerville,Laplace,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Louis,Mary Somerville,Undirected
+Mary Somerville,Benjamin Francœur,Mary Somerville,Undirected
+Mary Somerville,Sylvestre François Lacroix,Mary Somerville,Undirected
+Mary Somerville,Calculus Treatise,Mary Somerville,Undirected
+Mary Somerville,Jean,Mary Somerville,Undirected
+Mary Somerville,Baptiste Biot,Mary Somerville,Undirected
+Mary Somerville,Siméon Denis Poisson,Mary Somerville,Undirected
+Mary Somerville,Joseph,Mary Somerville,Undirected
+Mary Somerville,Louis Lagrange,Mary Somerville,Undirected
+Mary Somerville,Leonhard Euler,Mary Somerville,Undirected
+Mary Somerville,Alexis Clairaut,Mary Somerville,Undirected
+Mary Somerville,Gaspard Monge,Mary Somerville,Undirected
+Mary Somerville,François Callet,Mary Somerville,Undirected
+Mary Somerville,Newton,Mary Somerville,Undirected
+Mary Somerville,Charles Babbage,Mary Somerville,Undirected
+Mary Somerville,John Herschel,Mary Somerville,Undirected
+Mary Somerville,George Peacock,Mary Somerville,Undirected
+Mary Somerville,Lacroix,Mary Somerville,Undirected
+Mary Somerville,Henry Brougham,Mary Somerville,Undirected
+Mary Somerville,Dr William Somerville,Mary Somerville,Undirected
+Mary Somerville,J.M.W. Turner,Mary Somerville,Undirected
+Mary Somerville,Walter Scott,Mary Somerville,Undirected
+Mary Somerville,Scott,Mary Somerville,Undirected
+Mary Somerville,Anne Isabella Milbanke,Mary Somerville,Undirected
+Mary Somerville,Baroness Wentworth,Mary Somerville,Undirected
+Mary Somerville,Ada Lovelace,Mary Somerville,Undirected
+Mary Somerville,Charles Babbage,Mary Somerville,Undirected
+Mary Somerville,Babbage,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Babbage,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Lovelace,Mary Somerville,Undirected
+Mary Somerville,Lovelace,Mary Somerville,Undirected
+Mary Somerville,Somervilles,Mary Somerville,Undirected
+Mary Somerville,Somervilles,Mary Somerville,Undirected
+Mary Somerville,Sir James Mackintosh,Mary Somerville,Undirected
+Mary Somerville,London the Somervilles,Mary Somerville,Undirected
+Mary Somerville,Somervilles,Mary Somerville,Undirected
+Mary Somerville,Maria Edgeworth,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,David Brewster,Mary Somerville,Undirected
+Mary Somerville,Mary Somerville,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Lord Brougham,Mary Somerville,Undirected
+Mary Somerville,Simon Laplace,Mary Somerville,Undirected
+Mary Somerville,Laplace,Mary Somerville,Undirected
+Mary Somerville,Mécanique Céleste,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Laplace,Mary Somerville,Undirected
+Mary Somerville,Joanna Baillie,Mary Somerville,Undirected
+Mary Somerville,George Peacock,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Somervilles,Mary Somerville,Undirected
+Mary Somerville,John Murray,Mary Somerville,Undirected
+Mary Somerville,Murray,Mary Somerville,Undirected
+Mary Somerville,Charles Darwin,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Baron Humboldt,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Physical Geography,Mary Somerville,Undirected
+Mary Somerville,Humboldt,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,John Stuart Mill,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Maria Mitchell,Mary Somerville,Undirected
+Mary Somerville,Mary Somerville,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Somerville,Mary Somerville,Undirected
+Mary Somerville,Byron,Mary Somerville,Undirected
+Mary Somerville,Lovelace,Mary Somerville,Undirected
+Mary Somerville,William Edward Parry,Mary Somerville,Undirected
+Mary Somerville,Mary Somerville,Mary Somerville,Undirected
+Mary Somerville,Taylor,Mary Somerville,Undirected
+Mary Somerville,Mary Somerville,Mary Somerville,Undirected
+Mary Somerville,Letitia Elizabeth Landon,Mary Somerville,Undirected
+Mary Somerville,E. Bowell,Mary Somerville,Undirected
+Mary Somerville,Langrenus,Mary Somerville,Undirected
+Mary Somerville,James Clerk Maxwell,Mary Somerville,Undirected
+Mary Somerville,Thomas Telford,Mary Somerville,Undirected
+Mary Somerville,Woronzow Greig,Mary Somerville,Undirected
+Mary Somerville,Count Semyon Vorontsov,Mary Somerville,Undirected
+Mary Somerville,Samuel Greig,Mary Somerville,Undirected
+Mary Somerville,Consul General,Mary Somerville,Undirected
+Mary Somerville,Woronzow,Mary Somerville,Undirected
+Mary Somerville,Agnes Graham,Mary Somerville,Undirected
+Mary Somerville,Margaret Farquhar Somerville,Mary Somerville,Undirected
+Mary Somerville,Thomas Somerville,Mary Somerville,Undirected
+Mary Somerville,Martha Charters Somerville,Mary Somerville,Undirected
+Mary Somerville,Mary Charlotte Somerville,Mary Somerville,Undirected
+Mary Somerville,Mary,Mary Somerville,Undirected
+Mary Somerville,Bibliography,Mary Somerville,Undirected
+Mary Somerville,Mary Somerville,Mary Somerville,Undirected

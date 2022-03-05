@@ -1,0 +1,69 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Queen Victoria
+Henry W Field
+Homer
+Daguerre
+Matilda Rose Herschel
+Alfred Edward Chalon
+Julia Margaret Cameron
+Robert FitzRoy
+Charles Lyell
+Isabella Herschel
+John Fiot Lee Pearse Maclear
+Constance Anne Herschel
+Duke of Sussex
+Alexander Hamilton-Gordon
+
+Percentage identified from the proper data set (positive matches): 
+72.00
+
+Those identified by method that have not provided a match with the manual data :
+
+Gordon Isabella Herschel
+John.   
+Henry W
+Copley Medal
+Iapetus
+Alexander Hamilton
+Field Houses
+Herschel Island
+Patriarchs
+John Fiot Lee
+William Whewell
+S.S. Mountstuart Elphinstone
+Comet Halley
+Dionysius Lardner
+Wikisource
+Senior Wrangler
+Flora Herscheliana
+Richard Jones
+Dione  Rhea
+Darwin
+Uranus: Ariel
+Rose Herschel
+Uranus
+Saskatchewan Canada
+R. Derek Wood
+'Fourteenth
+Mount Herschel Antarctica
+Charles Lyell's Principles of Geology
+J. Herschel
+Oberon
+Transactions
+JOHN HERSCHEL
+
+precision
+0.5294117647058824
+
+recall
+0.72
+
+the f1 score
+0.6101694915254237
+

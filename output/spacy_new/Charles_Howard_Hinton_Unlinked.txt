@@ -1,0 +1,86 @@
+Source,Target,weight,Type 
+Charles Howard Hinton,Charles Howard Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,James Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Charles Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Howard Candler,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Edwin Abbott Abbott,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Mary Ellen,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Mary Everest Boole,Charles Howard Hinton,Undirected
+Charles Howard Hinton,George Boole,Charles Howard Hinton,Undirected
+Charles Howard Hinton,George,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Eric,Charles Howard Hinton,Undirected
+Charles Howard Hinton,William,Charles Howard Hinton,Undirected
+Charles Howard Hinton,William,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Joan Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Maud Florence,Charles Howard Hinton,Undirected
+Charles Howard Hinton,John Weldon,Charles Howard Hinton,Undirected
+Charles Howard Hinton,James Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Charles,Charles Howard Hinton,Undirected
+Charles Howard Hinton,James,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Christ,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Charles,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Mary Ellen,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Mary Ellen,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Fourth,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Alicia Boole Stott,Charles Howard Hinton,Undirected
+Charles Howard Hinton,ana,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Swan Sonnenschein,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Abbott,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Flatland,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Abbott,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Abbott,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Edwin A. Abbott’s,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,stodgy,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Charles H. Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Charles Leadbeater's Clairvoyance,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Claude Bragdon,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Algernon Blackwood,Charles Howard Hinton,Undirected
+Charles Howard Hinton,H. P. Lovecraft,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Robert Heinlein,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Madeleine L'Engle's A Wrinkle in Time,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Christopher Nolan,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Jorge Luis Borges,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Borges,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Parmenides,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Francis Bradley,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,P. D. Ouspensky,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Ouspensky,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,John Dewey,Charles Howard Hinton,Undirected
+Charles Howard Hinton,John Dewey,Charles Howard Hinton,Undirected
+Charles Howard Hinton,John Dewey,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Carlos Atanes,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Charles Howard Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Charles Howard Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Alan Moore,Charles Howard Hinton,Undirected
+Charles Howard Hinton,James Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,James Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Charles Howard,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Webb,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Arno Press,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Swan Sonnenschein,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Charles H. Hinton,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Rudolf Rucker,Charles Howard Hinton,Undirected
+Charles Howard Hinton,Swan Sonnenschein,Charles Howard Hinton,Undirected

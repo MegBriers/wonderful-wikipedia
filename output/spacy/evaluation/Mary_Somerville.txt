@@ -1,0 +1,57 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Alexander Keith Johnston
+Thomas Phillips
+Joseph-Louis Lagrange
+Henry
+Earl of Minto
+Admiral Duncan
+Semyon Vorontsov
+Sylvestre François Lacroix
+ Craw
+Siméon Denis Poisson
+
+Percentage identified from the proper data set (positive matches): 
+87.34
+
+Those identified by method that have not provided a match with the manual data :
+
+Woronzow
+Somerville House
+Duncan
+Byron
+Langrenus
+Murray
+Wallace
+Mary Somerville
+Recollections Somerville
+Recollections Mary
+Navigations
+FranÃ§ois Lacroix' Algebra
+Count Semyon
+Uranus
+Fairfaxes
+Henry.  Craw
+Mechanism
+Ada Lovelace
+Lyell
+Nasmyth
+Strange
+Scott
+Lacroix
+Henry Brougham
+Somervilles
+Rev
+Newton
+
+precision
+0.71875
+
+recall
+0.8734177215189873
+

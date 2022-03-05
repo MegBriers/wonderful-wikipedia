@@ -1,0 +1,46 @@
+Source,Target,weight,Type,link,alive
+Faraday,Michael Faraday,Farday,Undirected,unlinked,True
+Faraday,Faraday,Farday,Undirected,unlinked,True
+Faraday,Sarah Barnard,Farday,Undirected,unlinked,True
+Faraday,James Clerk Maxwell,Faraday,Undirected,linked,True
+Faraday,Maxwell,Faraday,Undirected,unlinked,True
+Faraday,Albert Einstein,Faraday,Undirected,linked,False
+Faraday,Arthur Schopenhauer,Faraday,Undirected,linked,True
+Faraday,James Clerk Maxwell,Faraday,Undirected,unlinked,True
+Faraday,Ernest Rutherford,Faraday,Undirected,linked,False
+Faraday,James,Faraday,Undirected,unlinked,True
+Faraday,James Faraday,Faraday,Undirected,unlinked,True
+Faraday,George Riebau,Faraday,Undirected,linked,True
+Faraday,Isaac Watts,Faraday,Undirected,linked,False
+Faraday,Jane Marcet,Faraday,Undirected,linked,True
+Faraday,Humphry Davy,Faraday,Undirected,linked,True
+Faraday,John Tatum,Faraday,Undirected,linked,True
+Faraday,William Dance,Faraday,Undirected,linked,True
+Faraday,John Payne,Faraday,Undirected,unlinked,True
+Faraday,Davy,Faraday,Undirected,unlinked,True
+Faraday,Humphry Davy,Faraday,Undirected,unlinked,True
+Faraday,Prince Consort,Faraday,Undirected,linked,True
+Faraday,John Dalton,Faraday,Undirected,linked,True
+Faraday,Thomas Graham,Faraday,Undirected,linked,True
+Faraday,Joseph Loschmidt,Faraday,Undirected,linked,True
+Faraday,William Whewell,Faraday,Undirected,linked,True
+Faraday,Hans Christian Ørsted,Faraday,Undirected,linked,True
+Faraday,William Hyde Wollaston,Faraday,Undirected,linked,True
+Faraday,Wollaston,Faraday,Undirected,unlinked,True
+Faraday,John Daniell,Faraday,Undirected,linked,True
+Faraday,Pieter Zeeman,Faraday,Undirected,linked,True
+Faraday,Zeeman,Faraday,Undirected,unlinked,True
+Faraday,John 'Mad Jack' Fuller,Faraday,Undirected,linked,True
+Faraday,Charles Lyell,Faraday,Undirected,linked,True
+Faraday,Benjamin Abbott,Faraday,Undirected,unlinked,True
+Faraday,Robert Gordon,Faraday,Undirected,linked,False
+Faraday,John Henry Foley,Faraday,Undirected,linked,True
+Faraday,Aldous Huzley,Faraday,Undirected,linked,False
+Faraday,T. H. Huxley,Faraday,Undirected,linked,True
+Faraday,Matthew Arnold,Faraday,Undirected,linked,True
+Faraday,Andrew Huxley,Faraday,Undirected,linked,False
+Faraday,Julian Huxley,Faraday,Undirected,linked,False
+Faraday,Margaret Thatcher,Faraday,Undirected,linked,False
+Faraday,Harriet Jane Moore,Faraday,Undirected,linked,True
+Faraday,Isaac Newton,Faraday,Undirected,linked,False
+Faraday,Rodney Gordon,Faraday,Undirected,linked,False

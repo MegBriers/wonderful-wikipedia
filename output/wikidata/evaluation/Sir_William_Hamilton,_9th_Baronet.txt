@@ -1,0 +1,36 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+proportion of the links that are going to contemporaries of the person
+100.00
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+proportion of people linked who have been picked up by wikidata
+68.42
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+those who were not identified: 
+
+H. W. B. Joseph
+Sir Robert Hamilton of Preston
+Martin Luther
+Professor William Hamilton
+William Hunter
+HL Mansel
+
+
+those who were picked up additionally by wikidata
+
+Henry Longueville Mansel
+James Hutchison Stirling
+William Rowan Hamilton
+William Hamilton (physician)
+Herbert Spencer
+
+
+precision
+0.7222222222222222
+
+recall
+0.6842105263157895
+

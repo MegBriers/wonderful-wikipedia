@@ -1,0 +1,26 @@
+Source,Target,weight,Type 
+Robert Haldane (mathematician),Robert Haldane FRSE,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Robert Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Charles Moray of Abercairnie,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Peebles,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Principal George Hill,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),George Dunbar,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Robert Jameson,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Alexander Brunton,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Patrick Neill,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Rev Stevenson McGill,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Mary,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),St. Andrews,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),John Tulloch,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Andrews,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),O'Connor,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),John J.,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Robertson,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Edmund F.,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Robert Haldane,Robert Haldane (mathematician),Undirected
+Robert Haldane (mathematician),Stephen,Robert Haldane (mathematician),Undirected

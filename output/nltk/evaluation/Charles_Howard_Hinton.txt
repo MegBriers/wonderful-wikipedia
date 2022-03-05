@@ -1,0 +1,41 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Carlos Atanes
+Jorge Luis Borge
+Sebastian
+Eric
+P. D. Ouspensky
+Parmenides
+H. P. Lovecraft
+George
+Alan Moore
+
+Percentage identified from the proper data set (positive matches): 
+77.50
+
+Those identified by method that have not provided a match with the manual data :
+
+Atanes
+Swan Sonnenschein
+Alicia
+Orbis Tertius
+Naval
+Unæa
+Tertium Organum
+Patent Office
+Lovecraft
+Higher Space
+Christ
+Uqbar
+
+precision
+0.7209302325581395
+
+recall
+0.775
+

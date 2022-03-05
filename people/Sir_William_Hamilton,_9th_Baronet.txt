@@ -1,0 +1,38 @@
+Source,Target,weight,Type,link,alive
+Hamilton,William Hamilton,Hamilton,Undirected,unlinked,True
+Hamilton,William Stirling Hamilton,Hamilton,Undirected,unlinked,True
+Hamilton,Elizabeth Stirling,Hamilton,Undirected,unlinked,True
+Hamilton,Professor William Hamilton,Hamilton,Undirected,linked,True
+Hamilton,William Hunter,Hamilton,Undirected,linked,False
+Hamilton,Dr Thomas Hamilton,Hamilton,Undirected,unlinked,True
+Hamilton,Thomas Hamilton,Hamilton,Undirected,linked,True
+Hamilton,William,Hamilton,Undirected,unlinked,True
+Hamilton,William Brodie,Hamilton,Undirected,linked,True
+Hamilton,Sir Robert Hamilton of Preston,Hamilton,Undirected,linked,True
+Hamilton,Thomas Brown,Hamilton,Undirected,linked,True
+Hamilton,Dugald Stewart,Hamilton,Undirected,linked,True
+Hamilton,John Wilson,Hamilton,Undirected,linked,True
+Hamilton,Christopher North,Hamilton,Undirected,unlinked,True
+Hamilton,Janet Marshall,Hamilton,Undirected,unlinked,True
+Hamilton,Victor Cousin,Hamilton,Undirected,linked,True
+Hamilton,Thomas Reid,Hamilton,Undirected,linked,True
+Hamilton,Reid,Hamilton,Undirected,unlinked,True
+Hamilton,Augustus de Morgan,Hamilton,Undirected,linked,True
+Hamilton,Wilhelm Esser,Hamilton,Undirected,linked,True
+Hamilton,Martin Luther,Hamilton,Undirected,linked,False
+Hamilton,Stewart,Hamilton,Undirected,unlinked,True
+Hamilton,Hamilton,Hamilton,Undirected,unlinked,True
+Hamilton,Hubert Marshall,Hamilton,Undirected,unlinked,True
+Hamilton,Sir William Stirling-Hamilton,Hamilton,Undirected,unlinked,True
+Hamilton,Immanuel Kant,Hamilton,Undirected,linked,True
+Hamilton,Kant,Hamilton,Undirected,unlinked,True
+Hamilton,Stanley Jevons,Hamilton,Undirected,linked,True
+Hamilton,H. W. B. Joseph,Hamilton,Undirected,linked,True
+Hamilton,Aristotle,Hamilton,Undirected,unlinked,False
+Hamilton,George Buchanan,Hamilton,Undirected,unlinked,False
+Hamilton,Julius Caesar Scaliger,Hamilton,Undirected,unlinked,False
+Source,Target,weight,Type,link,alive
+Hamilton,John Stuart Mill,Hamilton,Undirected,linked,True
+Hamilton,HL Mansel,Hamilton,Undirected,linked,True
+Hamilton,John Veitch,Hamilton,Undirected,linked,True
+Hamilton,Veitch,Hamilton,Undirected,unlinked,True

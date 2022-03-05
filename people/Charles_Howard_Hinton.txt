@@ -1,0 +1,41 @@
+Source,Target,weight,Type,link,alive
+Hinton,Charles Howard Hinton,Hinton,Undirected,unlinked,True
+Hinton,James Hinton,Hinton,Undirected,linked,True
+Hinton,Ada Netlleship,Hinton,Undirected,linked,True
+Hinton,Howard Candler,Hinton,Undirected,unlinked,True
+Hinton,Edwin Abbott Abott,Hinton,Undirected,linked,True
+Hinton,Mary Ellen,Hinton,Undirected,unlinked,True
+Hinton,Mary Everest Boole,Hinton,Undirected,linked,True
+Hinton,George Boole,Hinton,Undirected,linked,True
+Hinton,George,Hinton,Undirected,unlinked,True
+Hinton,Eric,Hinton,Undirected,unlinked,True
+Hinton,William,Hinton,Undirected,unlinked,True
+Hinton,Sebastian,Hinton,Undirected,unlinked,True
+Hinton,William Howard Hinton,Hinton,Undirected,linked,False
+Hinton,Joan Hinton,Hinton,Undirected,linked,False
+Hinton,Maud Florence,Hinton,Undirected,unlinked,True
+Hinton,John Weldon,Hinton,Undirected,unlinked,True
+Hinton,Charles,Hinton,Undirected,unlinked,True
+Hinton,James,Hinton,Undirected,unlinked,True
+Hinton,Hinton,Hinton,Undirected,unlinked,True
+Hinton,Alicia Boole Stott,Hinton,Undirected,linked,True
+Hinton,Abbott,Hinton,Undirected,unlinked,True
+Hinton,Edwin A. Abbott,Hinton,Undirected,linked,True
+Hinton,Charles H. Hinton,Hinton,Undirected,unlinked,True
+Hinton,Charles Leadbeater,Hinton,Undirected,linked,True
+Hinton,Claude Bragdon,Hinton,Undirected,linked,True
+Hinton,Algernon Blackwood,Hinton,Undirected,linked,True
+Hinton,H. P. Lovecraft,Hinton,Undirected,linked,True
+Hinton,Robert Heinlein,Hinton,Undirected,linked,True
+Hinton,Madeleine L'Engle,Hinton,Undirected,linked,True
+Hinton,Christopher Nolan,Hinton,Undirected,linked,False
+Hinton,Jorge Luis Borge,Hinton,Undirected,linked,True
+Hinton,Borges,Hinton,Undirected,linked,True
+Hinton,Francis Bradley,Hinton,Undirected,linked,True
+Hinton,P. D. Ouspensky,Hinton,Undirected,linked,True
+Hinton,Ouspensky,Hinton,Undirected,unlinked,True
+Hinton,John Dewey,Hinton,Undirected,linked,True
+Hinton,Carlos Atanes,Hinton,Undirected,linked,False
+Hinton,Parmenides,Hinton,Undirected,linked,False
+Hinton,Alan Moore,Hinton,Undirected,linked,False
+Hinton,Aleister Crowley,Hinton,Undirected,linked,True

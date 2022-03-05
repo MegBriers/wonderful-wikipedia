@@ -1,0 +1,69 @@
+Source,Target,weight,Type 
+John Tyndall,Jean-Daniel Colladon,John Tyndall,Undirected
+John Tyndall,Solar Radiation,John Tyndall,Undirected
+John Tyndall,Thomas Henry Huxley,John Tyndall,Undirected
+John Tyndall,Robert Bunsen,John Tyndall,Undirected
+John Tyndall,Pouillet,John Tyndall,Undirected
+John Tyndall,Boston Tyndall,John Tyndall,Undirected
+John Tyndall,John Tyndall,John Tyndall,Undirected
+John Tyndall,Herbert Spencer,John Tyndall,Undirected
+John Tyndall,Greenwood Press,John Tyndall,Undirected
+John Tyndall,Great Britain,John Tyndall,Undirected
+John Tyndall,John,John Tyndall,Undirected
+John Tyndall,William Hopkins,John Tyndall,Undirected
+John Tyndall,Michael,John Tyndall,Undirected
+John Tyndall,Louisa Hamilton,John Tyndall,Undirected
+John Tyndall,Melloni,John Tyndall,Undirected
+John Tyndall,Ticknor,John Tyndall,Undirected
+John Tyndall,Regelation,John Tyndall,Undirected
+John Tyndall,Heinrich Gustav Magnus,John Tyndall,Undirected
+John Tyndall,Louis Agassiz,John Tyndall,Undirected
+John Tyndall,Forbes,John Tyndall,Undirected
+John Tyndall,Reviews,John Tyndall,Undirected
+John Tyndall,Mount Tyndall,John Tyndall,Undirected
+John Tyndall,Louis Rendu,John Tyndall,Undirected
+John Tyndall,Roberts,John Tyndall,Undirected
+John Tyndall,London Tyndall,John Tyndall,Undirected
+John Tyndall,Chemist,John Tyndall,Undirected
+John Tyndall,Ferdinand Cohn,John Tyndall,Undirected
+John Tyndall,Tyndall FRS,John Tyndall,Undirected
+John Tyndall,Louisa Tyndall,John Tyndall,Undirected
+John Tyndall,Balfour Stewart,John Tyndall,Undirected
+John Tyndall,Nine Lectures,John Tyndall,Undirected
+John Tyndall,Friedrich Ludwig Stegmann,John Tyndall,Undirected
+John Tyndall,Heat,John Tyndall,Undirected
+John Tyndall,Longman,John Tyndall,Undirected
+John Tyndall,Rendu,John Tyndall,Undirected
+John Tyndall,Hermann Knoblauch,John Tyndall,Undirected
+John Tyndall,William Thomson,John Tyndall,Undirected
+John Tyndall,Seven Lectures,John Tyndall,Undirected
+John Tyndall,Lessons,John Tyndall,Undirected
+John Tyndall,James Joule,John Tyndall,Undirected
+John Tyndall,Charles Darwin,John Tyndall,Undirected
+John Tyndall,Marburg,John Tyndall,Undirected
+John Tyndall,Appleton,John Tyndall,Undirected
+John Tyndall,Magnus,John Tyndall,Undirected
+John Tyndall,Louis Pasteur,John Tyndall,Undirected
+John Tyndall,Thomas Archer Hirst,John Tyndall,Undirected
+John Tyndall,James Clerk Maxwell,John Tyndall,Undirected
+John Tyndall,Light,John Tyndall,Undirected
+John Tyndall,Darwin,John Tyndall,Undirected
+John Tyndall,George Gabriel Stokes,John Tyndall,Undirected
+John Tyndall,Roman Catholicism,John Tyndall,Undirected
+John Tyndall,Edward Frankland,John Tyndall,Undirected
+John Tyndall,Pope Pius IX,John Tyndall,Undirected
+John Tyndall,Six,John Tyndall,Undirected
+John Tyndall,Three Scientific Addresses,John Tyndall,Undirected
+John Tyndall,Notes,John Tyndall,Undirected
+John Tyndall,County Carlow,John Tyndall,Undirected
+John Tyndall,Hermann,John Tyndall,Undirected
+John Tyndall,Huxley,John Tyndall,Undirected
+John Tyndall,James David Forbes,John Tyndall,Undirected
+John Tyndall,Heat Considered,John Tyndall,Undirected
+John Tyndall,Louisa,John Tyndall,Undirected
+John Tyndall,Professor Tyndall,John Tyndall,Undirected
+John Tyndall,Knoblauch,John Tyndall,Undirected
+John Tyndall,Newton Foote,John Tyndall,Undirected
+John Tyndall,Bunsen,John Tyndall,Undirected
+John Tyndall,Researches,John Tyndall,Undirected
+John Tyndall,Tyndall,John Tyndall,Undirected
