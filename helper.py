@@ -43,7 +43,6 @@ def formatting(name, char):
     return new_name
 
 
-
 def get_page_content(person):
     """
 
@@ -69,7 +68,8 @@ def get_page_content(person):
     # removing the irrelevant sections
     split_string = content.split("== See also ==", 1)
 
-    other_areas = ["== Works ==", "== Bibliography ==", "== Further Reading ==", "== References ==", "== Main Works ==", "== Main works =="]
+    other_areas = ["== Works ==", "== Bibliography ==", "== Further Reading ==", "== References ==", "== Main Works ==",
+                   "== Main works =="]
     for area in other_areas:
         if area in split_string[0]:
             split_string = content.split(area, 1)
@@ -78,11 +78,12 @@ def get_page_content(person):
 
     return substring
 
-def get_page_title(person):
 
+def get_page_title(person):
     page = wikipedia.page(person, auto_suggest=False, redirect=True)
 
     return page.title
+
 
 def choose_people():
     links = get_list("https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers")
@@ -95,6 +96,7 @@ def choose_people():
         values.append(val)
 
     print(values)
+
 
 def get_test_data():
     # could be made into a method
@@ -131,3 +133,13 @@ def output_file(file_name):
     f = open(file_name, "r")
     print(f.read())
     f.close()
+
+
+def get_name_from_filename(file_name, method):
+    file_name = file_name.replace("_", " ")
+    file_name = file_name[file_name.rfind('\\')+1:]
+    if method == "spacy":
+        file_name = file_name.replace(' Unlinked.txt', '')
+    else:
+        file_name = file_name.replace(' Linked.txt', '')
+    return file_name

@@ -10,25 +10,72 @@ CODE TO PERFORM ANALYSIS OF DATA EXTRACTED FROM WIKIPEDIA ARTICLES
 import glob
 import helper
 import os
-from operator import itemgetter
-import networkx as nx
-from networkx.algorithms import community
 
 folders = ['maths', 'philosophy']
-subfolders = ['male', 'female']
 
 
 def get_file_path(file, bonus):
+    """
+
+    A method to find the file path of the given file
+
+    Parameters
+    ----------
+    file : string
+        the file needed to be found
+
+    bonus : string
+        a string that (if spacy) will make sure the code finds the spacy output
+        as opposed to other NER methods
+
+    Returns
+    -------
+    file path of the given file (None if not found)
+
+
+    """
     for (root, dirs, files) in os.walk('.' + bonus):
         if file in files:
             return os.path.join(root, file)
 
 
-def update_counts(figures, people):
+def update_counts(figures, people, cur_person, method):
     # add one into the dictionary counts of each person if mentioned in another article
+    """
+
+    A method to find the file path of the given file
+
+    Parameters
+    ----------
+    figures : dictionary
+        stores the people mentioned in articles, how many times they have been mentioned and who they have been mentioned by
+        STRUCTURE -> figure : [no_of_mentions, [people mentioned]]
+
+    people : array of strings
+        all the unique people mentioned in the article of cur_person
+
+    cur_person : string
+        the person whose article mentions we are working with currently
+
+    method : string
+        the way these mentions have been identified (spacy or wikidata)
+
+    Returns
+    -------
+    figures : dictionary
+        as above, just updated for new counts
+
+
+    """
     for peep in people:
-        figures[peep] = figures.get(peep, 0) + 1
+        if peep in figures.keys():
+            cur_values = figures.get(peep, 0)
+            name = helper.get_name_from_filename(cur_person, method)
+            figures[peep] = [cur_values[0] + 1, cur_values[1] + [name]]
+        else:
+            figures[peep] = [1, [helper.get_name_from_filename(cur_person, method)]]
     return figures
+
 
 def read_in_file(method):
     """
@@ -48,31 +95,45 @@ def read_in_file(method):
             value - number of people mentioned in that article
 
     """
+
+    # spacy doesn't separate people by gender, compared to wikidata that stores females and males separately
+    # setting subfolders to a dummy value allows the files from the two methods to be read in using a common method
+    if method == "spacy":
+        subfolders = [""]
+    else:
+        subfolders = ['male/', 'female/']
+
+    # stores the overall length of articles and the number mentioned for each of the disciplines
+    # order - links[0] = mathematicians, links[1] = philosophers
     links = []
-    total_links = []
+
+    # same as above but stores it with a breakdown for gender (only used for wikdata where there are separate folders)
+    # order - links[0][0] = male mathematicians, links[0][1] = female mathematicians, links[1][0] = male philosophers, links[1][1] = female philosophers
+    gender_links = []
+
+    # stores the statistics for the number of mentions of individuals in the articles
+    # mathematicians in first entry, philosophers in second
     pop_figs = []
+
     for folder in folders:
-        new_dict = []
-        cur_figs = {}
-        total_length = 0
-        total_identified = 0
-        # getting all the files within the correct folders
+        discipline_mentions = []
+        folder_gender_mentions = []
+        discipline_pop = {}
         for subfolder in subfolders:
-            print('./output/' + method + '/network/' + folder + "/" + subfolder + '/*.txt')
-            for filepath in glob.iglob('./output/' + method + '/network/' + folder + "/" + subfolder + '/*.txt'):
-                fileUnlinked = open(filepath)
-                length_of_file = fileUnlinked.readline().rstrip()
-                identifiedUnlinked = list(
-                    set(line.rstrip("\n") for count, line in enumerate(fileUnlinked) if count != 0))
-                new_dict.append({length_of_file: len(identifiedUnlinked)})
-                cur_figs = update_counts(cur_figs, identifiedUnlinked)
-                total_length += length_of_file
-                total_identified += len(identifiedUnlinked)
-                fileUnlinked.close()
-        total_links.append({total_length: total_identified})
-        links.append(new_dict)
-        pop_figs.append(cur_figs)
-    return links, total_links, pop_figs
+            gender_dict = []
+            for filepath in glob.iglob('./output/' + method + '/network/' + folder + "/" + subfolder + '*.txt'):
+                file_unlinked = open(filepath)
+                length_of_file = file_unlinked.readline().rstrip()
+                identified_unlinked = list(set(line.rstrip("\n") for count, line in enumerate(file_unlinked)))
+                discipline_mentions.append({length_of_file: len(identified_unlinked)})
+                gender_dict.append({length_of_file: len(identified_unlinked)})
+                discipline_pop = update_counts(discipline_pop, identified_unlinked, filepath, method)
+                file_unlinked.close()
+            folder_gender_mentions.append(gender_dict)
+        links.append(discipline_mentions)
+        gender_links.append(folder_gender_mentions)
+        pop_figs.append(discipline_pop)
+    return links, gender_links, pop_figs
 
 
 def statistics(values):
@@ -107,19 +168,33 @@ def statistics(values):
 
 # number of pages in an article
 def analysis_part1(method):
-    links, total_links = read_in_file(method)
+    """
 
-    print(total_links)
+    A method that outputs the average number of mentions (either linked or unlinked, depending on method)
+    from articles of mathematicians and philosophers
+
+
+    Parameters
+    ----------
+    method : string
+        the method used to extract names from article
+
+    Returns
+    -------
+    None.
+
+    """
+    links, total_links, pop = read_in_file(method)
 
     print(links)
 
-    avg_maths_overall, avg_maths_length, avg_maths_normalized = statistics(total_links[0])
-    avg_phil_overall, avg_phil_length, avg_phil_normalized = statistics(total_links[1])
+    avg_maths_overall, avg_maths_length, avg_maths_normalized = statistics(links[0])
+    avg_phil_overall, avg_phil_length, avg_phil_normalized = statistics(links[1])
 
-    print("            average overall, length, normalized")
-    # need to round properly
-    print("maths      " + str(avg_maths_overall), str(avg_maths_length), str(avg_maths_normalized))
-    print("philosophy " + str(avg_phil_overall), str(avg_phil_length), str(avg_phil_normalized))
+    print("          average, length, normalized")
+    print("maths      " + str(format(avg_maths_overall,".2f")), str(format(avg_maths_length,".2f")), str(format(avg_maths_normalized,".2f")))
+    print("philosophy " + str(format(avg_phil_overall,".2f")), str(format(avg_phil_length,".2f")), str(format(avg_phil_normalized,".2f")))
+    print("")
 
 
 # % linked
@@ -155,7 +230,7 @@ def analysis_part2():
             if len(number_linked) == 0 and len(number_mentioned) == 0:
                 continue
 
-            avg = len(number_linked)/(len(number_mentioned) + len(number_linked))
+            avg = len(number_linked) / (len(number_mentioned) + len(number_linked))
 
             overall.append(avg)
             if "female" in file_path_linked:
@@ -164,19 +239,36 @@ def analysis_part2():
                 male.append(avg)
 
         print("male % of overall mentions that are links")
-        print(sum(male)/len(male))
+        print(sum(male) / len(male))
 
         print("female % of overall mentions that are links")
-        print(sum(female)/len(female))
+        print(sum(female) / len(female))
 
         print("overall % of overall mentions that are links")
-        print(sum(overall)/len(overall))
+        print(sum(overall) / len(overall))
 
         print("")
 
+
 # most popular people in articles
-def analysis_part3():
-    print(";)")
+def analysis_part3(method):
+    links, total_links, figs = read_in_file(method)
+
+    sorted_maths = dict(sorted(figs[0].items(), key=lambda item: item[1], reverse=True))
+    sorted_phil = dict(sorted(figs[1].items(), key=lambda item: item[1], reverse=True))
+
+    print(sorted_maths)
+    print(sorted_phil)
+
+    with open('./analysis/commonly_linked_maths_' + method + '.txt', 'w') as f:
+        for key in sorted_maths.keys():
+            f.write("" + key + ", " + str(sorted_maths[key][0]) + ", " + str(sorted_maths[key][1]))
+            f.write('\n')
+
+    with open('./analysis/commonly_linked_phil_' + method + '.txt', 'w') as f:
+        for key in sorted_phil.keys():
+            f.write("" + key + ", " + str(sorted_phil[key][0]) + ", " + str(sorted_phil[key][1]))
+            f.write('\n')
 
 
 # comparison with epsilon data
