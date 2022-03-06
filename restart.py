@@ -100,6 +100,12 @@ if __name__ == '__main__':
         networkAnalysis.analysis_part2()
         networkAnalysis.analysis_part3("spacy")
 
+    elif sys.argv[1] == "evaluation":
+        networkAnalysis.analysis_part1(sys.argv[2])
+        networkAnalysis.analysis_part2()
+        networkAnalysis.analysis_part3(sys.argv[2])
+        networkAnalysis.analysis_part4()
+
     else:
         print("The methods you have indicated are not accepted input")
         print(".・。.・゜✭・.・✫・゜・。.")
