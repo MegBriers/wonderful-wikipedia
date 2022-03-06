@@ -1,0 +1,15 @@
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+usage : [type of run] [options : specified NER method]
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+type of run : 
+test = evaluates the methods based off of annotated test data
+network = applies the methods to a larger group with no test data or evaluation option
+evaluation = performs the statistical analysis 
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+options : 
+spacy = off the shelf spacy methods
+nltk = off the shelf nltk methods
+spacy_new = retrained spacy model
+wikidata = extraction of the linked people using wikidata files
+all = all three methods compared
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
