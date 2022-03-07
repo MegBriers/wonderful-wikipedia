@@ -188,7 +188,6 @@ def setup():
                     male_phil[0] += number_mentioned
                     male_phil[1] += number_linked
 
-
                     male_phil_lengths_s.append({length_of_file : number_mentioned})
                     male_phil_lengths_w.append({length_of_file : number_linked})
 
@@ -357,7 +356,6 @@ def analysis_part1(spacy_counts, wikidata_counts):
     print("maths      " + str(avg_maths_overall_s_m), str(avg_maths_length_s_m), str(avg_maths_normalized_s_m))
     print("philosophy " + str(avg_phil_overall_s_m), str(avg_phil_length_s_m), str(avg_phil_normalized_s_m))
 
-
     avg_maths_overall_w_m, avg_maths_length_w_m, avg_maths_normalized_w_m = statistics(wikidata_counts[1])
     avg_phil_overall_w_m, avg_phil_length_w_m, avg_phil_normalized_w_m = statistics(wikidata_counts[4])
 
@@ -366,6 +364,25 @@ def analysis_part1(spacy_counts, wikidata_counts):
     print("maths      " + str(avg_maths_overall_w_m), str(avg_maths_length_w_m), str(avg_maths_normalized_w_m))
     print("philosophy " + str(avg_phil_overall_w_m), str(avg_phil_length_w_m), str(avg_phil_normalized_w_m))
 
+    label_fig12 = ["maths", "philosophy"]
+
+    label_fig34 = ["male math", "male phil", "female maths", "female phil"]
+
+
+    data = []
+    data.append([avg_maths_normalized_s_m, avg_phil_normalized_s_m, avg_maths_normalized_s_f, avg_phil_normalized_s_f])
+    data.append([avg_maths_normalized_w_m, avg_phil_normalized_w_m, avg_maths_normalized_w_f, avg_phil_normalized_w_f])
+
+    df = pd.DataFrame({'spacy' : data[0], 'wikidata' : data[1]}, index = label_fig34)
+    my_colors = ['#96CDCD', '#FFC0CB']
+
+    fig = plt.figure()
+    ax = plt.subplot(111)
+
+    df.plot.bar(rot=0, color=my_colors, ax=ax)
+    plt.xlabel('Group classification')
+    plt.ylabel('Number of mentions picked up by given method')
+    plt.show()
 
 
 # % linked
@@ -560,6 +577,7 @@ def analysis_part4():
 def start():
     print("YEE HAW")
     breakdown, spacy_lengths, wikidata_lengths, pop_figs = setup()
+    print("")
     analysis_part1(spacy_lengths, wikidata_lengths)
 
     analysis_part2(breakdown[0], breakdown[1], breakdown[2], breakdown[3], breakdown[4], breakdown[5])
