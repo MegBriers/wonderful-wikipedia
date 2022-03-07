@@ -11,17 +11,18 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
-Darwin
 Thomas Reid
+Darwin
 
 
 those who were picked up additionally by wikidata
 
+4956
 John Stuart Mill
 
 
 precision
-0.8571428571428571
+0.75
 
 recall
 0.75

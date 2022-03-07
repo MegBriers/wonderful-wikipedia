@@ -92,7 +92,7 @@ def write_to_file(person, links, length_of_file, network, subfolder, subsubfolde
     fileName = './output/wikidata/' + network + subfolder + subsubfolder + "/" + helper.formatting(person,
                                                                                                    "_") + "_Linked.txt"
     with open(fileName, "w", encoding="utf-8") as f:
-        f.write(length_of_file)
+        f.write(str(length_of_file))
         f.write('\n')
         for tup in links:
             f.write(tup)
@@ -290,7 +290,6 @@ def request_page(URL):
 
         print(list(wikidata_true.keys())[0])
 
-        print("yikes")
         # manually setting up an entity we know is a person to compare the entity types
         # Q268702 - Mary Somerville (can be used as the dummy variable regardless of the person being tested)
         entityCompare = client.get(list(wikidata_true.keys())[0], load=True)

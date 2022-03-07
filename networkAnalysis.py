@@ -13,6 +13,8 @@ import os
 import Levenshtein
 from openpyxl import load_workbook
 import pandas as pd
+import matplotlib.pyplot as plt
+plt.rc('figure', figsize=(8, 5))
 
 folders = ['maths', 'philosophy']
 
@@ -70,15 +72,133 @@ def update_counts(figures, people, cur_person, method):
 
 
     """
+    print(people)
     for peep in people:
         if peep in figures.keys():
             cur_values = figures.get(peep, 0)
-            name = helper.get_name_from_filename(cur_person, method)
-            figures[peep] = [cur_values[0] + 1, cur_values[1] + [name]]
+            figures[peep] = [cur_values[0] + 1, cur_values[1] + [cur_person]]
         else:
-            figures[peep] = [1, [helper.get_name_from_filename(cur_person, method)]]
+            figures[peep] = [1, [cur_person]]
     return figures
 
+
+def setup():
+    subfolder = {"https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers": "philosophy/",
+                 "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians": "maths/"}
+
+    maths = [0,0]
+    phil = [0,0]
+
+    maths_pop = {}
+    phil_pop = {}
+
+    phil_lengths_s = []
+    math_lengths_s = []
+
+    male_maths_lengths_s = []
+    female_maths_lengths_s = []
+
+    male_phil_lengths_s = []
+    female_phil_lengths_s = []
+
+    phil_lengths_w = []
+    math_lengths_w = []
+
+    male_maths_lengths_w = []
+    female_maths_lengths_w = []
+
+    male_phil_lengths_w = []
+    female_phil_lengths_w = []
+
+    female_maths = [0,0]
+    female_phil = [0,0]
+
+    male_maths = [0,0]
+    male_phil = [0,0]
+
+    # DOES IT THE OPPOSITE ORDER
+
+    for category in subfolder.keys():
+        list_of_people = helper.get_list(category)
+        for person in list_of_people:
+            person_format = person.replace(" ", "_")
+
+            file_path_linked = get_file_path(person_format + "_Linked.txt", "")
+            file_path_unlinked = get_file_path(person_format + "_Unlinked.txt", "\output\spacy")
+
+            if file_path_linked is None or file_path_unlinked is None:
+                continue
+
+            file_linked = open(file_path_linked)
+            file_unlinked = open(file_path_unlinked)
+
+            # get rid of the first line
+            length_of_file = file_unlinked.readline().rstrip()
+
+            # when number goes at the top put this back in
+            mentioned = list(set(line.rstrip("\n") for count, line in enumerate(file_unlinked)))
+
+            linked = list(set(line.rstrip("\n") for count, line in enumerate(file_linked)))
+
+            # dealing with requests that went wrong
+            if len(mentioned) == 0 and len(linked) == 0:
+                continue
+
+            number_linked = len(linked)
+            number_mentioned = len(mentioned)
+
+
+            if subfolder[category] == "maths/":
+                maths[0] += number_mentioned
+                maths[1] += number_linked
+                math_lengths_w.append({length_of_file : number_linked})
+                math_lengths_s.append({length_of_file : number_mentioned})
+
+                maths_pop = update_counts(maths_pop, mentioned, person, "spacy")
+                phil_pop = update_counts(phil_pop, linked, person, "wikidata")
+
+                if "female" in file_path_linked:
+                    female_maths[0] += number_mentioned
+                    female_maths[1] += number_linked
+
+                    female_maths_lengths_s.append({length_of_file : number_mentioned})
+                    female_maths_lengths_w.append({length_of_file : number_linked})
+
+                else:
+                    male_maths[0] += number_mentioned
+                    male_maths[1] += number_linked
+
+
+                    male_maths_lengths_s.append({length_of_file : number_mentioned})
+                    male_maths_lengths_w.append({length_of_file : number_linked})
+            else:
+                phil[0] += number_mentioned
+                phil[1] += number_linked
+                phil_lengths_w.append({length_of_file: number_linked})
+                phil_lengths_s.append({length_of_file: number_mentioned})
+
+                if "female" in file_path_linked:
+                    female_phil[0] += number_mentioned
+                    female_phil[1] += number_linked
+
+
+                    female_phil_lengths_s.append({length_of_file : number_mentioned})
+                    female_phil_lengths_w.append({length_of_file : number_linked})
+                else:
+                    male_phil[0] += number_mentioned
+                    male_phil[1] += number_linked
+
+
+                    male_phil_lengths_s.append({length_of_file : number_mentioned})
+                    male_phil_lengths_w.append({length_of_file : number_linked})
+
+    spacy_lengths = [math_lengths_s, male_maths_lengths_s, female_maths_lengths_s, phil_lengths_s, male_phil_lengths_s, female_phil_lengths_s]
+    wikidata_lengths = [math_lengths_w, male_maths_lengths_w, female_maths_lengths_w, phil_lengths_w, male_phil_lengths_w, female_phil_lengths_w]
+    pop_figs = [maths_pop, phil_pop]
+
+    breakdown = [maths, male_maths, female_maths, phil, male_phil, female_phil]
+
+    return breakdown, spacy_lengths, wikidata_lengths, pop_figs
 
 def read_in_file(method):
     """
@@ -166,12 +286,14 @@ def statistics(values):
     avg_overall = sum(list(list(cur.values())[0] for cur in values)) / len(values)
     avg_numerator = sum([cur[list(cur.keys())[0]] / int(list(cur.keys())[0]) for cur in values]) / len(values)
     avg_length = sum(list(int(list(cur.keys())[0]) for cur in values)) / len(values)
+
+
     avg_normalized = avg_numerator * avg_length
-    return avg_overall, avg_length, avg_normalized
+    return float(format(avg_overall,".2f")), float(format(avg_length,".2f")), float(format(avg_normalized,".2f"))
 
 
 # number of pages in an article
-def analysis_part1(method):
+def analysis_part1(spacy_counts, wikidata_counts):
     """
 
     A method that outputs the average number of mentions (either linked or unlinked, depending on method)
@@ -188,71 +310,131 @@ def analysis_part1(method):
     None.
 
     """
-    links, total_links, pop = read_in_file(method)
+    print("DISCIPLINE ANALYSIS")
+    avg_maths_overall_s, avg_maths_length_s, avg_maths_normalized_s = statistics(spacy_counts[0])
+    avg_phil_overall_s, avg_phil_length_s, avg_phil_normalized_s = statistics(spacy_counts[3])
 
-    print(links)
-
-    avg_maths_overall, avg_maths_length, avg_maths_normalized = statistics(links[0])
-    avg_phil_overall, avg_phil_length, avg_phil_normalized = statistics(links[1])
-
+    print("spacy")
     print("          average, length, normalized")
-    print("maths      " + str(format(avg_maths_overall,".2f")), str(format(avg_maths_length,".2f")), str(format(avg_maths_normalized,".2f")))
-    print("philosophy " + str(format(avg_phil_overall,".2f")), str(format(avg_phil_length,".2f")), str(format(avg_phil_normalized,".2f")))
+    print("maths      " + str(avg_maths_overall_s), str(avg_maths_length_s), str(avg_maths_normalized_s))
+    print("philosophy " + str(avg_phil_overall_s), str(avg_phil_length_s), str(avg_phil_normalized_s))
+
+
+    avg_maths_overall_w, avg_maths_length_w, avg_maths_normalized_w = statistics(wikidata_counts[0])
+    avg_phil_overall_w, avg_phil_length_w, avg_phil_normalized_w = statistics(wikidata_counts[3])
+
+    print("wikidata")
+    print("          average, length, normalized")
+    print("maths      " + str(avg_maths_overall_w), str(avg_maths_length_w), str(avg_maths_normalized_w))
+    print("philosophy " + str(avg_phil_overall_w), str(avg_phil_length_w), str(avg_phil_normalized_w))
+
     print("")
+    print("gender breakdown")
+    avg_maths_overall_s_f, avg_maths_length_s_f, avg_maths_normalized_s_f = statistics(spacy_counts[2])
+    avg_phil_overall_s_f, avg_phil_length_s_f, avg_phil_normalized_s_f = statistics(spacy_counts[5])
+
+    print("spacy female")
+    print("          average, length, normalized")
+    print("maths      " + str(avg_maths_overall_s_f), str(avg_maths_length_s_f), str(avg_maths_normalized_s_f))
+    print("philosophy " + str(avg_phil_overall_s_f), str(avg_phil_length_s_f), str(avg_phil_normalized_s_f))
+
+
+    avg_maths_overall_w_f, avg_maths_length_w_f, avg_maths_normalized_w_f = statistics(wikidata_counts[2])
+    avg_phil_overall_w_f, avg_phil_length_w_f, avg_phil_normalized_w_f = statistics(wikidata_counts[5])
+
+    print("wikidata female")
+    print("          average, length, normalized")
+    print("maths      " + str(avg_maths_overall_w_f), str(avg_maths_length_w_f), str(avg_maths_normalized_w_f))
+    print("philosophy " + str(avg_phil_overall_w_f), str(avg_phil_length_w_f), str(avg_phil_normalized_w_f))
+
+    print("MALE")
+
+    avg_maths_overall_s_m, avg_maths_length_s_m, avg_maths_normalized_s_m = statistics(spacy_counts[1])
+    avg_phil_overall_s_m, avg_phil_length_s_m, avg_phil_normalized_s_m = statistics(spacy_counts[4])
+
+    print("spacy male")
+    print("          average, length, normalized")
+    print("maths      " + str(avg_maths_overall_s_m), str(avg_maths_length_s_m), str(avg_maths_normalized_s_m))
+    print("philosophy " + str(avg_phil_overall_s_m), str(avg_phil_length_s_m), str(avg_phil_normalized_s_m))
+
+
+    avg_maths_overall_w_m, avg_maths_length_w_m, avg_maths_normalized_w_m = statistics(wikidata_counts[1])
+    avg_phil_overall_w_m, avg_phil_length_w_m, avg_phil_normalized_w_m = statistics(wikidata_counts[4])
+
+    print("wikidata male")
+    print("          average, length, normalized")
+    print("maths      " + str(avg_maths_overall_w_m), str(avg_maths_length_w_m), str(avg_maths_normalized_w_m))
+    print("philosophy " + str(avg_phil_overall_w_m), str(avg_phil_length_w_m), str(avg_phil_normalized_w_m))
+
 
 
 # % linked
-def analysis_part2():
-    subfolder = {"https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers": "philosophy/",
-                 "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians": "maths/"}
-    for category in subfolder.keys():
-        print(subfolder[category])
-        male = []
-        female = []
-        overall = []
+def analysis_part2(maths, phil, male_maths, female_maths, male_phil, female_phil):
+    avg_maths = float(format(maths[0]/(maths[0]+maths[1]),".4f"))
+    avg_phil = float(format(phil[0]/(phil[0]+phil[1]), ".4f"))
 
-        list_of_people = helper.get_list(category)
-        for person in list_of_people:
-            person_format = person.replace(" ", "_")
+    avg_maths_m = float(format(male_maths[0]/(male_maths[0]+male_maths[1]),".4f"))
+    avg_maths_f = float(format(female_maths[0]/(female_maths[0]+female_maths[1]),".4f"))
 
-            file_path_linked = get_file_path(person_format + "_Linked.txt", "")
-            file_path_unlinked = get_file_path(person_format + "_Unlinked.txt", "\output\spacy")
+    avg_phil_m = float(format(male_phil[0]/(male_phil[0]+male_phil[1]),".4f"))
+    avg_phil_f = float(format(female_phil[0]/(female_phil[0]+female_phil[1]),".4f"))
 
-            if file_path_linked is None or file_path_unlinked is None:
-                continue
 
-            file_linked = open(file_path_linked)
-            file_unlinked = open(file_path_unlinked)
+    print("maths breakdown")
+    print("average maths linked : " + str(1 - avg_maths))
+    print("average male maths linked : " + str(1 - avg_maths_m))
+    print("average female maths linked : " + str(1 - avg_maths_f))
 
-            file_unlinked.readline().rstrip()
+    print("")
+    print("phil breakdown")
+    print("average phil linked : " + str(1 - avg_phil))
+    print("average male phil linked : " + str(1 - avg_phil_m))
+    print("average female phil linked : " + str(1 - avg_phil_f))
 
-            # when number goes at the top put this back in
-            number_mentioned = list(set(line.rstrip("\n") for count, line in enumerate(file_unlinked)))
+    labels_maths = ["maths", "male maths", "female maths"]
 
-            number_linked = list(set(line.rstrip("\n") for count, line in enumerate(file_linked)))
+    labels_phil = ["phil", "male phil", "female phil"]
 
-            if len(number_linked) == 0 and len(number_mentioned) == 0:
-                continue
+    labels_overall = ["maths", "phil"]
 
-            avg = len(number_linked) / (len(number_mentioned) + len(number_linked))
+    chart1_linked = [1 - avg_maths, 1 - avg_maths_m, 1 - avg_maths_f]
+    chart1_unlinked = [avg_maths, avg_maths_m, avg_maths_f]
 
-            overall.append(avg)
-            if "female" in file_path_linked:
-                female.append(avg)
-            else:
-                male.append(avg)
+    chart2_linked = [1 - avg_phil, 1 - avg_phil_m, 1 - avg_phil_f]
+    chart2_unlinked = [avg_phil, avg_phil_m, avg_phil_f]
 
-        print("male % of overall mentions that are links")
-        print(sum(male) / len(male))
+    chart3_linked = [1 - avg_maths, 1 - avg_phil]
+    chart3_unlinked = [avg_maths, avg_phil]
 
-        print("female % of overall mentions that are links")
-        print(sum(female) / len(female))
+    fig, (ax2, ax3) = plt.subplots(1, 2, sharey=True)
 
-        print("overall % of overall mentions that are links")
-        print(sum(overall) / len(overall))
+    fig2, ax1 = plt.subplots()
 
-        print("")
+    width = 0.25
 
+    ax1.bar(labels_overall, chart3_unlinked, width, label='Unlinked', color='#1A85FF')
+    ax1.bar(labels_overall, chart3_linked, width, label='Linked', bottom=chart3_unlinked, color='#D41159')
+
+    ax1.set_ylabel('Proportion')
+    ax1.set_title('Breakdown of maths and philosophy')
+    ax1.legend(loc='best')
+
+    ax2.bar(labels_maths, chart1_unlinked, width, label='Unlinked', color='#1A85FF')
+    ax2.bar(labels_maths, chart1_linked, width, bottom=chart1_unlinked,
+            label='Linked', color='#D41159')
+
+    ax2.set_ylabel('Proportion')
+    ax2.set_title('Breakdown of maths with gender')
+    ax2.legend(loc='lower left')
+
+    ax3.bar(labels_phil, chart2_unlinked, width, label='Unlinked', color='#1A85FF')
+    ax3.bar(labels_phil, chart2_linked, width, bottom=chart2_unlinked,label='Linked', color='#D41159')
+
+    ax3.set_ylabel('Proportion')
+    ax3.set_title('Breakdown of phil with gender')
+    ax3.legend(loc='lower left')
+
+    plt.show()
 
 # most popular people in articles
 def analysis_part3(method):
@@ -279,6 +461,21 @@ def analysis_part3(method):
 
 # comparison with epsilon data
 def analysis_part4():
+    """
+
+    Code that compares the unique people known to be in correspondence with
+    Mary Somerville and those mentioned on her Wikipedia page
+
+
+    Parameters
+    ----------
+    None.
+
+    Returns
+    -------
+    None.
+
+    """
     wb = load_workbook('data\somerville_letters.xlsx')
     sheet_ranges = wb['Sheet1']
 
@@ -358,4 +555,16 @@ def analysis_part4():
     print("People written to in order of decreasing number of correspondences")
     new = {k: v for k, v in sorted(correspondences.items(), key=lambda item: item[1], reverse=True)}
     print(new)
+
+
+def start():
+    print("YEE HAW")
+    breakdown, spacy_lengths, wikidata_lengths, pop_figs = setup()
+    analysis_part1(spacy_lengths, wikidata_lengths)
+
+    analysis_part2(breakdown[0], breakdown[1], breakdown[2], breakdown[3], breakdown[4], breakdown[5])
+
+    #analysis_part3()
+
+    #analysis_part4()
 
