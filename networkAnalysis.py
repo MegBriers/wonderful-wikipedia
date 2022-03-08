@@ -15,6 +15,7 @@ from openpyxl import load_workbook
 import pandas as pd
 import matplotlib.pyplot as plt
 plt.rc('figure', figsize=(8, 5))
+my_colors = ['#79CDCD', '#FF7F00']
 
 folders = ['maths', 'philosophy']
 
@@ -72,7 +73,6 @@ def update_counts(figures, people, cur_person, method):
 
 
     """
-    print(people)
     for peep in people:
         if peep in figures.keys():
             cur_values = figures.get(peep, 0)
@@ -89,8 +89,13 @@ def setup():
     maths = [0,0]
     phil = [0,0]
 
-    maths_pop = {}
-    phil_pop = {}
+    pop = {'spacy' : [], 'wikidata' : []}
+
+    maths_pop_s = {}
+    phil_pop_s = {}
+
+    maths_pop_w = {}
+    phil_pop_w = {}
 
     phil_lengths_s = []
     math_lengths_s = []
@@ -119,6 +124,8 @@ def setup():
     # DOES IT THE OPPOSITE ORDER
 
     for category in subfolder.keys():
+        print(category)
+        print("")
         list_of_people = helper.get_list(category)
         for person in list_of_people:
             person_format = person.replace(" ", "_")
@@ -147,6 +154,11 @@ def setup():
             number_linked = len(linked)
             number_mentioned = len(mentioned)
 
+            print(person)
+            print("number linked : " + str(number_linked))
+            print("number mentioned : " + str(number_mentioned))
+            print("file length : " + str(length_of_file))
+            print("")
 
             if subfolder[category] == "maths/":
                 maths[0] += number_mentioned
@@ -154,8 +166,11 @@ def setup():
                 math_lengths_w.append({length_of_file : number_linked})
                 math_lengths_s.append({length_of_file : number_mentioned})
 
-                maths_pop = update_counts(maths_pop, mentioned, person, "spacy")
-                phil_pop = update_counts(phil_pop, linked, person, "wikidata")
+                maths_pop_s = update_counts(maths_pop_s, mentioned, person, "spacy")
+                maths_pop_w = update_counts(maths_pop_w, linked, person, "wikidata")
+
+                phil_pop_s = update_counts(phil_pop_s, mentioned, person, "spacy")
+                phil_pop_w = update_counts(phil_pop_w, mentioned, person, "wikidata")
 
                 if "female" in file_path_linked:
                     female_maths[0] += number_mentioned
@@ -193,11 +208,13 @@ def setup():
 
     spacy_lengths = [math_lengths_s, male_maths_lengths_s, female_maths_lengths_s, phil_lengths_s, male_phil_lengths_s, female_phil_lengths_s]
     wikidata_lengths = [math_lengths_w, male_maths_lengths_w, female_maths_lengths_w, phil_lengths_w, male_phil_lengths_w, female_phil_lengths_w]
-    pop_figs = [maths_pop, phil_pop]
+
+    pop['spacy'] = [maths_pop_s, phil_pop_s]
+    pop['wikidata'] = [maths_pop_w, phil_pop_w]
 
     breakdown = [maths, male_maths, female_maths, phil, male_phil, female_phil]
 
-    return breakdown, spacy_lengths, wikidata_lengths, pop_figs
+    return breakdown, spacy_lengths, wikidata_lengths, pop
 
 def read_in_file(method):
     """
@@ -286,7 +303,6 @@ def statistics(values):
     avg_numerator = sum([cur[list(cur.keys())[0]] / int(list(cur.keys())[0]) for cur in values]) / len(values)
     avg_length = sum(list(int(list(cur.keys())[0]) for cur in values)) / len(values)
 
-
     avg_normalized = avg_numerator * avg_length
     return float(format(avg_overall,".2f")), float(format(avg_length,".2f")), float(format(avg_normalized,".2f"))
 
@@ -310,7 +326,9 @@ def analysis_part1(spacy_counts, wikidata_counts):
 
     """
     print("DISCIPLINE ANALYSIS")
+    print("maths")
     avg_maths_overall_s, avg_maths_length_s, avg_maths_normalized_s = statistics(spacy_counts[0])
+    print("philosophy")
     avg_phil_overall_s, avg_phil_length_s, avg_phil_normalized_s = statistics(spacy_counts[3])
 
     print("spacy")
@@ -368,20 +386,33 @@ def analysis_part1(spacy_counts, wikidata_counts):
 
     label_fig34 = ["male math", "male phil", "female maths", "female phil"]
 
-
     data = []
     data.append([avg_maths_normalized_s_m, avg_phil_normalized_s_m, avg_maths_normalized_s_f, avg_phil_normalized_s_f])
     data.append([avg_maths_normalized_w_m, avg_phil_normalized_w_m, avg_maths_normalized_w_f, avg_phil_normalized_w_f])
 
-    df = pd.DataFrame({'spacy' : data[0], 'wikidata' : data[1]}, index = label_fig34)
-    my_colors = ['#96CDCD', '#FFC0CB']
+    data2 = []
+    data2.append([avg_maths_normalized_s, avg_phil_normalized_s])
+    data2.append([avg_maths_normalized_w, avg_phil_normalized_w])
 
-    fig = plt.figure()
-    ax = plt.subplot(111)
+    df = pd.DataFrame({'Spacy' : data[0], 'Wikidata' : data[1]}, index = label_fig34)
+
+    df2 = pd.DataFrame({'Spacy' : data2[0], 'Wikidata' : data2[1]}, index=label_fig12)
+
+    fig, ax = plt.subplots()
+    fig2, ax2 = plt.subplots()
 
     df.plot.bar(rot=0, color=my_colors, ax=ax)
-    plt.xlabel('Group classification')
-    plt.ylabel('Number of mentions picked up by given method')
+    df2.plot.bar(rot=0, color=my_colors, ax=ax2)
+
+    ax.set_xlabel('Group classification')
+    ax.set_ylabel('Number of mentions picked up by given method')
+    ax.set_title('Mentions in an article by group and gender')
+
+
+    ax2.set_xlabel('Group classification')
+    ax2.set_ylabel('Number of mentions picked up by given method')
+    ax2.set_title('Mentions in an article by group')
+
     plt.show()
 
 
@@ -429,23 +460,25 @@ def analysis_part2(maths, phil, male_maths, female_maths, male_phil, female_phil
 
     width = 0.25
 
-    ax1.bar(labels_overall, chart3_unlinked, width, label='Unlinked', color='#1A85FF')
-    ax1.bar(labels_overall, chart3_linked, width, label='Linked', bottom=chart3_unlinked, color='#D41159')
+    ax1.bar(labels_overall, chart3_unlinked, width, label='Unlinked', color=my_colors[0])
+    ax1.bar(labels_overall, chart3_linked, width, label='Linked', bottom=chart3_unlinked, color=my_colors[1])
 
+    ax1.set_xlabel('Group classification')
     ax1.set_ylabel('Proportion')
     ax1.set_title('Breakdown of maths and philosophy')
     ax1.legend(loc='best')
 
-    ax2.bar(labels_maths, chart1_unlinked, width, label='Unlinked', color='#1A85FF')
+    ax2.bar(labels_maths, chart1_unlinked, width, label='Unlinked', color=my_colors[0])
     ax2.bar(labels_maths, chart1_linked, width, bottom=chart1_unlinked,
-            label='Linked', color='#D41159')
+            label='Linked', color=my_colors[1])
 
+    ax2.set_ylabel('Group classification')
     ax2.set_ylabel('Proportion')
     ax2.set_title('Breakdown of maths with gender')
     ax2.legend(loc='lower left')
 
-    ax3.bar(labels_phil, chart2_unlinked, width, label='Unlinked', color='#1A85FF')
-    ax3.bar(labels_phil, chart2_linked, width, bottom=chart2_unlinked,label='Linked', color='#D41159')
+    ax3.bar(labels_phil, chart2_unlinked, width, label='Unlinked', color=my_colors[0])
+    ax3.bar(labels_phil, chart2_linked, width, bottom=chart2_unlinked,label='Linked', color=my_colors[1])
 
     ax3.set_ylabel('Proportion')
     ax3.set_title('Breakdown of phil with gender')
@@ -454,8 +487,9 @@ def analysis_part2(maths, phil, male_maths, female_maths, male_phil, female_phil
     plt.show()
 
 # most popular people in articles
-def analysis_part3(method):
-    links, total_links, figs = read_in_file(method)
+def analysis_part3(figs):
+
+    # NEED TO LOOP THROUGH KEYS (different methods)
 
     sorted_maths = dict(sorted(figs[0].items(), key=lambda item: item[1], reverse=True))
     sorted_phil = dict(sorted(figs[1].items(), key=lambda item: item[1], reverse=True))
@@ -463,17 +497,49 @@ def analysis_part3(method):
     print(sorted_maths)
     print(sorted_phil)
 
+    top_phil = []
+    top_maths = []
+
+    math_num = []
+    phil_num = []
+
+
     with open('./analysis/commonly_linked_maths_' + method + '.txt', 'w') as f:
+        i = 0
         for key in sorted_maths.keys():
             f.write("" + key + ", " + str(sorted_maths[key][0]) + ", " + str(sorted_maths[key][1]))
+            if i < 11:
+                top_maths.append(sorted_maths[key][0])
+                math_num.append(sorted_maths[key][1])
+            i+=1
             f.write('\n')
 
     with open('./analysis/commonly_linked_phil_' + method + '.txt', 'w') as f:
+        i = 0
         for key in sorted_phil.keys():
             f.write("" + key + ", " + str(sorted_phil[key][0]) + ", " + str(sorted_phil[key][1]))
+            if i < 10:
+                top_phil.append(sorted_phil[key][0])
+                phil_num.append(sorted_phil[key][1])
+            i+=1
             f.write('\n')
     print("")
     print("")
+
+    fig, ax = plt.subplots()
+    fig2, ax2 = plt.subplots()
+
+    ax.barh(top_maths, math_num, color=my_colors[0])
+    ax.invert_yaxis()
+    ax.set_xlabel('Number of mentions')
+    ax.set_title('Commonly linked mathematicians')
+
+    ax2.barh(top_phil, phil_num, color=my_colors[0])
+    ax2.invert_yaxis()
+    ax2.set_xlabel('Number of mentions')
+    ax2.set_title('Commonly linked philosophers')
+
+    plt.show()
 
 
 # comparison with epsilon data
@@ -582,7 +648,7 @@ def start():
 
     analysis_part2(breakdown[0], breakdown[1], breakdown[2], breakdown[3], breakdown[4], breakdown[5])
 
-    #analysis_part3()
+    analysis_part3(pop_figs)
 
     #analysis_part4()
 
