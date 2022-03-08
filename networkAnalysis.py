@@ -14,7 +14,9 @@ import Levenshtein
 from openpyxl import load_workbook
 import pandas as pd
 import matplotlib.pyplot as plt
-plt.rc('figure', figsize=(8, 5))
+import numpy as np
+
+plt.rc('figure', figsize=(15, 5))
 my_colors = ['#79CDCD', '#FF7F00']
 
 folders = ['maths', 'philosophy']
@@ -169,9 +171,6 @@ def setup():
                 maths_pop_s = update_counts(maths_pop_s, mentioned, person, "spacy")
                 maths_pop_w = update_counts(maths_pop_w, linked, person, "wikidata")
 
-                phil_pop_s = update_counts(phil_pop_s, mentioned, person, "spacy")
-                phil_pop_w = update_counts(phil_pop_w, mentioned, person, "wikidata")
-
                 if "female" in file_path_linked:
                     female_maths[0] += number_mentioned
                     female_maths[1] += number_linked
@@ -191,6 +190,10 @@ def setup():
                 phil[1] += number_linked
                 phil_lengths_w.append({length_of_file: number_linked})
                 phil_lengths_s.append({length_of_file: number_mentioned})
+
+
+                phil_pop_s = update_counts(phil_pop_s, mentioned, person, "spacy")
+                phil_pop_w = update_counts(phil_pop_w, linked, person, "wikidata")
 
                 if "female" in file_path_linked:
                     female_phil[0] += number_mentioned
@@ -215,65 +218,6 @@ def setup():
     breakdown = [maths, male_maths, female_maths, phil, male_phil, female_phil]
 
     return breakdown, spacy_lengths, wikidata_lengths, pop
-
-def read_in_file(method):
-    """
-
-    A method that reads in the files outputted by the method
-
-    Parameters
-    ----------
-    method : string
-        the method used to extract names from article
-
-    Returns
-    -------
-    links : array of dictionaries
-        for each item in array
-            key - length of the article
-            value - number of people mentioned in that article
-
-    """
-
-    # spacy doesn't separate people by gender, compared to wikidata that stores females and males separately
-    # setting subfolders to a dummy value allows the files from the two methods to be read in using a common method
-    if method == "spacy":
-        subfolders = [""]
-    else:
-        subfolders = ['male/', 'female/']
-
-    # stores the overall length of articles and the number mentioned for each of the disciplines
-    # order - links[0] = mathematicians, links[1] = philosophers
-    links = []
-
-    # same as above but stores it with a breakdown for gender (only used for wikdata where there are separate folders)
-    # order - links[0][0] = male mathematicians, links[0][1] = female mathematicians, links[1][0] = male philosophers, links[1][1] = female philosophers
-    gender_links = []
-
-    # stores the statistics for the number of mentions of individuals in the articles
-    # mathematicians in first entry, philosophers in second
-    pop_figs = []
-
-    for folder in folders:
-        discipline_mentions = []
-        folder_gender_mentions = []
-        discipline_pop = {}
-        for subfolder in subfolders:
-            gender_dict = []
-            for filepath in glob.iglob('./output/' + method + '/network/' + folder + "/" + subfolder + '*.txt'):
-                file_unlinked = open(filepath)
-                # relies on the fact that you have the length of the article at the top of the file !!!
-                length_of_file = file_unlinked.readline().rstrip()
-                identified_unlinked = list(set(line.rstrip("\n") for count, line in enumerate(file_unlinked)))
-                discipline_mentions.append({length_of_file: len(identified_unlinked)})
-                gender_dict.append({length_of_file: len(identified_unlinked)})
-                discipline_pop = update_counts(discipline_pop, identified_unlinked, filepath, method)
-                file_unlinked.close()
-            folder_gender_mentions.append(gender_dict)
-        links.append(discipline_mentions)
-        gender_links.append(folder_gender_mentions)
-        pop_figs.append(discipline_pop)
-    return links, gender_links, pop_figs
 
 
 def statistics(values):
@@ -491,55 +435,68 @@ def analysis_part3(figs):
 
     # NEED TO LOOP THROUGH KEYS (different methods)
 
-    sorted_maths = dict(sorted(figs[0].items(), key=lambda item: item[1], reverse=True))
-    sorted_phil = dict(sorted(figs[1].items(), key=lambda item: item[1], reverse=True))
+    for method in figs.keys():
+        print(len(figs[method]))
 
-    print(sorted_maths)
-    print(sorted_phil)
+        print("")
+        print(figs[method][0])
+        print("")
+        print(figs[method][1])
+        print("")
 
-    top_phil = []
-    top_maths = []
+        sorted_maths = dict(sorted(figs[method][0].items(), key=lambda item: item[1], reverse=True))
+        sorted_phil = dict(sorted(figs[method][1].items(), key=lambda item: item[1], reverse=True))
 
-    math_num = []
-    phil_num = []
+        top_phil = []
+        top_maths = []
+
+        math_num = []
+        phil_num = []
 
 
-    with open('./analysis/commonly_linked_maths_' + method + '.txt', 'w') as f:
-        i = 0
-        for key in sorted_maths.keys():
-            f.write("" + key + ", " + str(sorted_maths[key][0]) + ", " + str(sorted_maths[key][1]))
-            if i < 11:
-                top_maths.append(sorted_maths[key][0])
-                math_num.append(sorted_maths[key][1])
-            i+=1
-            f.write('\n')
+        with open('./analysis/commonly_linked_maths_' + method + '.txt', 'w') as f:
+            i = 0
+            for key in sorted_maths.keys():
+                f.write("" + key + ", " + str(sorted_maths[key][0]) + ", " + str(sorted_maths[key][1]))
+                if i < 11 and key != "Recent changes in pages linked from this page [k]":
+                    top_maths.append(key)
+                    math_num.append(sorted_maths[key][0])
+                i+=1
+                f.write('\n')
 
-    with open('./analysis/commonly_linked_phil_' + method + '.txt', 'w') as f:
-        i = 0
-        for key in sorted_phil.keys():
-            f.write("" + key + ", " + str(sorted_phil[key][0]) + ", " + str(sorted_phil[key][1]))
-            if i < 10:
-                top_phil.append(sorted_phil[key][0])
-                phil_num.append(sorted_phil[key][1])
-            i+=1
-            f.write('\n')
-    print("")
-    print("")
+        with open('./analysis/commonly_linked_phil_' + method + '.txt', 'w') as f:
+            i = 0
+            for key in sorted_phil.keys():
+                f.write("" + key + ", " + str(sorted_phil[key][0]) + ", " + str(sorted_phil[key][1]))
+                if i < 10:
+                    top_phil.append(key)
+                    phil_num.append(sorted_phil[key][0])
+                i+=1
+                f.write('\n')
+        print("")
+        print("")
 
-    fig, ax = plt.subplots()
-    fig2, ax2 = plt.subplots()
+        print(top_maths)
+        print("")
+        print("")
+        print(math_num)
 
-    ax.barh(top_maths, math_num, color=my_colors[0])
-    ax.invert_yaxis()
-    ax.set_xlabel('Number of mentions')
-    ax.set_title('Commonly linked mathematicians')
+        fig, ax = plt.subplots()
+        fig2, ax2 = plt.subplots()
 
-    ax2.barh(top_phil, phil_num, color=my_colors[0])
-    ax2.invert_yaxis()
-    ax2.set_xlabel('Number of mentions')
-    ax2.set_title('Commonly linked philosophers')
+        ax.barh(top_maths, math_num, color=my_colors[0])
+        ax.invert_yaxis()
+        ax.set_xlabel('Number of mentions')
+        ax.set_title('Commonly identified mathematicians using ' + method)
+        ax.set_xticks(np.arange(0, max(math_num) + 1, 1))
 
-    plt.show()
+        ax2.barh(top_phil, phil_num, color=my_colors[0])
+        ax2.invert_yaxis()
+        ax2.set_xlabel('Number of mentions')
+        ax2.set_title('Commonly identified philosophers using ' + method)
+        ax2.set_xticks(np.arange(0, max(phil_num) +1, 1))
+
+        plt.show()
 
 
 # comparison with epsilon data
@@ -644,9 +601,9 @@ def start():
     print("YEE HAW")
     breakdown, spacy_lengths, wikidata_lengths, pop_figs = setup()
     print("")
-    analysis_part1(spacy_lengths, wikidata_lengths)
+    #analysis_part1(spacy_lengths, wikidata_lengths)
 
-    analysis_part2(breakdown[0], breakdown[1], breakdown[2], breakdown[3], breakdown[4], breakdown[5])
+    #analysis_part2(breakdown[0], breakdown[1], breakdown[2], breakdown[3], breakdown[4], breakdown[5])
 
     analysis_part3(pop_figs)
 
