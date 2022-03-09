@@ -182,7 +182,6 @@ def setup():
                     male_maths[0] += number_mentioned
                     male_maths[1] += number_linked
 
-
                     male_maths_lengths_s.append({length_of_file : number_mentioned})
                     male_maths_lengths_w.append({length_of_file : number_linked})
             else:
@@ -198,7 +197,6 @@ def setup():
                 if "female" in file_path_linked:
                     female_phil[0] += number_mentioned
                     female_phil[1] += number_linked
-
 
                     female_phil_lengths_s.append({length_of_file : number_mentioned})
                     female_phil_lengths_w.append({length_of_file : number_linked})
@@ -361,7 +359,7 @@ def analysis_part1(spacy_counts, wikidata_counts):
 
 
 # % linked
-def analysis_part2(maths, phil, male_maths, female_maths, male_phil, female_phil):
+def analysis_part2(maths, male_maths, female_maths, phil, male_phil, female_phil):
     avg_maths = float(format(maths[0]/(maths[0]+maths[1]),".4f"))
     avg_phil = float(format(phil[0]/(phil[0]+phil[1]), ".4f"))
 
@@ -603,7 +601,7 @@ def start():
     print("")
     #analysis_part1(spacy_lengths, wikidata_lengths)
 
-    #analysis_part2(breakdown[0], breakdown[1], breakdown[2], breakdown[3], breakdown[4], breakdown[5])
+    analysis_part2(breakdown[0], breakdown[1], breakdown[2], breakdown[3], breakdown[4], breakdown[5])
 
     analysis_part3(pop_figs)
 

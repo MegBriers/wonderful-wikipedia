@@ -266,7 +266,7 @@ def request_page(URL):
             # the ones at the top
             if cur_h2 == None or not (cur_h2.text[:len(cur_h2.text) - 6] in unaccepted_headings):
                 url = item.get("href", "")
-                if url.startswith("/wiki/") and "/wiki/Category" not in url:
+                if url.startswith("/wiki/") and "/wiki/Category" not in url and "":
                     title = item.get("title")
                     if title in links.keys():
                         continue
