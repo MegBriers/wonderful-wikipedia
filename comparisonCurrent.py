@@ -13,6 +13,8 @@ import sys
 import helper
 import csv
 import os
+plt.rc('figure', figsize=(25, 22))
+plt.rcParams.update({'font.size': 22})
 
 
 def setup(name):
@@ -370,6 +372,8 @@ def evaluate_statistics():
         reader = csv.DictReader(csvfile)
         for row in reader:
             people.append(row["name"])
+            
+            # get first letter of first name and second letter of second name for axis purposes
 
             f1_spacy.append(float(row["f1 spacy"]))
             f1_nltk.append(float(row["f1 nltk"]))
@@ -391,16 +395,23 @@ def evaluate_statistics():
 
     df = pd.DataFrame({'f1': f1s, 'precision': precisions, 'recall': recalls}, index=small_methods)
 
+    df2 = pd.DataFrame({'nltk' : precision_nltk, 'spacy' : precision_spacy}, index=people)
+
     my_colors = ['#00B2EE', '#E9967A', '#3CB371', '#8B475D']
 
-    fig = plt.figure()
     ax = plt.subplot(111)
 
     df.plot.bar(rot=0, color=my_colors, ax=ax)
     plt.xlabel('method for NER')
     plt.ylabel('idek')
-
     plt.savefig('./analysis/nlp_evaluation.png')
+    plt.show()
+
+    ax2 = plt.subplot(111)
+    df2.plot.bar(rot=0, color=my_colors, ax=ax2)
+    plt.xlabel('test figure')
+    plt.xticks(rotation=45)
+    plt.ylabel('precision value')
     plt.show()
 
     sys.stdout.close()

@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 
-plt.rc('figure', figsize=(15, 5))
+#plt.rc('figure', figsize=(15, 5))
 my_colors = ['#79CDCD', '#FF7F00']
 folders = ['maths', 'philosophy']
 
