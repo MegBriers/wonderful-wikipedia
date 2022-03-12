@@ -1,3 +1,4 @@
+./output/spacy/Charles_Howard_Hinton_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -5,25 +6,25 @@
 
 Those not identified by method : 
 
-Charles Leadbeater
 Madeleine L'Engle
-William Howard Hinton
 Aleister Crowley
+William Howard Hinton
+Charles Leadbeater
 
 Percentage identified from the proper data set (positive matches): 
 90.00
 
 Those identified by method that have not provided a match with the manual data :
 
-ana
 Charles' mother
-Christ
-Fourth
-Charles Leadbeater's Clairvoyance
-Madeleine L'Engle's A Wrinkle in Time
 stodgy
-Charles Hinton
 Flatland
+Charles H. Hinton
+ana
+Fourth
+Madeleine L'Engle's A Wrinkle in Time
+Christ
+Charles Leadbeater's Clairvoyance
 
 precision
 0.8

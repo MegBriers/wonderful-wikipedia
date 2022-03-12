@@ -1,3 +1,4 @@
+./output/nltk/Mary_Somerville_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -5,71 +6,71 @@
 
 Those not identified by method : 
 
-Thomas Phillips
-Louis-Benjamin Francoeur
-E Bowell
-Joanna Baillie
-Earl of Minto
-Jean-Baptiste Biot
 Admiral Duncan
-Alexander Keith Johnston
+J.M.W. Turner
+E Bowell
+Louis-Benjamin Francoeur
+Jean-Baptiste Biot
 Pierre-Simon Laplace
 John Robertson
-J.M.W. Turner
+Earl of Minto
 Joseph-Louis Lagrange
+Alexander Keith Johnston
+Thomas Phillips
+Joanna Baillie
 
 Percentage identified from the proper data set (positive matches): 
 84.81
 
 Those identified by method that have not provided a match with the manual data :
 
-
-Physical
-Engine
-Hanover Square
-Mechanism Joanna Baillie
-Geography
-Latin
-Newton
-Scott
-Nasmyth
-Molecular
-Mécanique Céleste
-John
-Ada
-Fairfax
-Useful Knowledge
-College
-Somerville
-Mechanism
-Uranus
-Fife
-Lagrange
-Henry Brougham
-Earth
-Woronzow
-Francœur
-Calculus Treatise
-Microscopic Science
-Physical Geography
-Marines
-Algebra
-Murray
-Legacy
 Naturelle
-Chelsea Hospital
+
+Club
+Useful Knowledge
+Mechanism
+Scott
+Fife
+Marines
+Engine
+Geography
+John
+Physical
+Principia
+Langrenus
+Astronomy
+Ada Lovelace
+Newton
+Murray
+Mary Somerville
+Lagrange
+Somerville House
+Microscopic Science
+Latin
+Crown
+Legacy
 Nunavut
 Google
-Ada Lovelace
-Somerville House
-Potter
-Principia
-Club
 Biot
-Astronomy
+Fairfax
+Nasmyth
+Physical Geography
+ Brougham
+Potter
+Earth
+Woronzow
 Strange
-Crown
-Langrenus
+College
+Francœur
+Mechanism Joanna Baillie
+Ada
+Calculus Treatise
+Molecular
+Algebra
+Uranus
+Hanover Square
+Chelsea Hospital
+Mécanique Céleste
 
 precision
 0.5877192982456141

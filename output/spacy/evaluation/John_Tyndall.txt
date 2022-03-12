@@ -1,3 +1,4 @@
+./output/spacy/John_Tyndall_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -5,43 +6,43 @@
 
 Those not identified by method : 
 
-Mihajlo Idvorski Pupin
-Desains
 Pope Pius IX
-Poggendoff
  Claud Hamilton
+Desains
+Poggendoff
+Mihajlo Idvorski Pupin
 
 Percentage identified from the proper data set (positive matches): 
 88.89
 
 Those identified by method that have not provided a match with the manual data :
 
-Roman Catholicism
-Co.
+Boston Tyndall  J.
+Magnus
+May
+Tyndall Glacier
+Tyndall Scattering
+Faraday
+Desains  Forbes
 Colladon
-Pasteur
+Huxley
+Roman Catholicism
+Longman
 Sound
+Co.
+Catholicism
+Ballinabranna Primary
+Subjects
+Bunsen
 He'd
 Pius IX
-Regelation
 Green
-Boston Tyndall  J.
-Tyndall Scattering
-Catholicism
-Tyndall Glacier
-Huxley
-Frankland
-Subjects
 Louisa.
-Ballinabranna Primary
-Desains  Forbes
-Researches
-Bunsen
-May
-Faraday
-Magnus
-Longman
 London Tyndall  J.
+Frankland
+Regelation
+Pasteur
+Researches
 
 precision
 0.6060606060606061

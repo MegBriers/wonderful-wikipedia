@@ -37,6 +37,7 @@ Martineau,John Stuart Mill,Martineau,Undirected,linked,True
 Martineau,Edward Bulwer-Lytton,Martineau,Undirected,linked,True
 Martineau,Elizabeth Barrett Browning,Martineau,Undirected,linked,True
 Martineau,Sarah Austin,Martineau,Undirected,linked,True
+Martineau,Charles Lyell,Martineau,Undirected,linked,True
 Martineau,Jane Welsh Carlyle,Martineau,Undirected,linked,True
 Martineau,Thomas Carlyle,Martineau,Undirected,linked,True
 Martineau,Florence Nightingale,Martineau,Undirected,linked,True

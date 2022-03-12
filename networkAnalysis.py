@@ -14,35 +14,11 @@ from openpyxl import load_workbook
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import csv
 
 plt.rc('figure', figsize=(15, 5))
 my_colors = ['#79CDCD', '#FF7F00']
 folders = ['maths', 'philosophy']
-
-
-def get_file_path(file, bonus):
-    """
-
-    A method to find the file path of the given file
-
-    Parameters
-    ----------
-    file : string
-        the file needed to be found
-
-    bonus : string
-        a string that (if spacy) will make sure the code finds the spacy output
-        as opposed to other NER methods
-
-    Returns
-    -------
-    file path of the given file (None if not found)
-
-
-    """
-    for (root, dirs, files) in os.walk('.' + bonus):
-        if file in files:
-            return os.path.join(root, file)
 
 
 def update_counts(figures, people, cur_person, method):
@@ -85,42 +61,43 @@ def update_counts(figures, people, cur_person, method):
 def setup():
     """
 
-    A method that reads in
+    A method that creates files to hold the data generated from the run of the code on the
+    whole network of philosophers and mathematicians
 
     Parameters
     ----------
-    file : string
-        the file needed to be found
-
-    bonus : string
-         a string that (if spacy) will make sure the code finds the spacy output
-        as opposed to other NER methods
+    None.
 
     Returns
     -------
-        file path of the given file (None if not found)
+    None.
 
 
     """
     subfolder = {"https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers": "philosophy",
                  "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians": "maths"}
 
+    # these will be used to store the number of times people mentioned in a page are mentioned across the whole network
     pop = {'spacy': [], 'wikidata': []}
-
     maths_pop_s = {}
     phil_pop_s = {}
-
     maths_pop_w = {}
     phil_pop_w = {}
 
-    with open('./analysis/mentions.txt', 'w') as f:
+    with open('./analysis/mentions.csv', 'w') as f:
+        f.write('name,method,category,mentions,length')
+        f.write('\n')
         for category in subfolder.keys():
             list_of_people = helper.get_list(category)
             for person in list_of_people:
                 person_format = person.replace(" ", "_")
 
-                file_path_linked = get_file_path(person_format + "_Linked.txt", "")
-                file_path_unlinked = get_file_path(person_format + "_Unlinked.txt", "\output\spacy")
+                if "," in person:
+                    split = person.split(",",1)
+                    person = split[0]
+
+                file_path_linked = helper.get_file_path(person_format + "_Linked.txt", "")
+                file_path_unlinked = helper.get_file_path(person_format + "_Unlinked.txt", "\output\spacy")
 
                 if file_path_linked is None or file_path_unlinked is None:
                     continue
@@ -131,13 +108,11 @@ def setup():
                 # get rid of the first line
                 length_of_file = file_unlinked.readline().rstrip()
 
-                # when number goes at the top put this back in
                 mentioned = list(set(line.rstrip("\n") for count, line in enumerate(file_unlinked)))
-
                 linked = list(set(line.rstrip("\n") for count, line in enumerate(file_linked)))
 
-                # dealing with requests that went wrong
-                if len(mentioned) == 0 and len(linked) == 0:
+                # dealing with requests that went wrong (not counted towards analysis because it will throw off figures)
+                if len(mentioned) == 0 or len(linked) == 0:
                     continue
 
                 if subfolder[category] == "maths":
@@ -147,11 +122,9 @@ def setup():
                     phil_pop_s = update_counts(phil_pop_s, mentioned, person, "spacy")
                     phil_pop_w = update_counts(phil_pop_w, linked, person, "wikidata")
 
-                f.write(person + ",spacy" + "," + subfolder[category] + "," + str(len(mentioned)) + "," + str(
-                    length_of_file))
+                f.write(person + ",spacy" + "," + subfolder[category] + "," + str(len(mentioned)) + "," + str(length_of_file))
                 f.write('\n')
-                f.write(person + ",wikidata" + "," + subfolder[category] + "," + str(len(linked)) + "," + str(
-                    length_of_file))
+                f.write(person + ",wikidata" + "," + subfolder[category] + "," + str(len(linked)) + "," + str(length_of_file))
                 f.write('\n')
 
     pop['spacy'] = {'maths': maths_pop_s, 'phil': phil_pop_s}
@@ -161,23 +134,52 @@ def setup():
         for method in pop.keys():
             for group in pop[method].keys():
                 for person in pop[method][group].keys():
-                    f.write(method + ',' + group + ',' + person + "," + str(pop[method][group][person][0]) + "," + str(pop[method][group][person][1]))
+                    first_name = person
+                    if "," in person:
+                        split = person.split(",", 1)
+                        first_name = split[0]
+                    # not writing the right thing
+                    f.write(method + ',' + group + ',' + first_name + "," + str(pop[method][group][person][0]) + "," + str(pop[method][group][person][1]))
                     f.write('\n')
 
 
 # most popular people in articles
-def analysis_part3(figs):
-    # NEED TO LOOP THROUGH KEYS (different methods)
+def analysis_part3():
+    """
 
+     A method that identifies the most commonly mentioned/linked figures
+     across the networks of mathematicians and philosophers
+
+     Parameters
+     ----------
+     figs
+        the statistics on how many times each entity has been mentioned 
+
+     Returns
+     -------
+     None.
+
+
+     """
+    positions = {'maths':0, 'philosophy':1}
+    pop = {'spacy': [], 'wikidata': []}
+
+    print("from file")
+    with open('./analysis/popular_figures.txt') as csvfile:
+        currentreader = csv.reader(csvfile)
+        for row in currentreader:
+            pop[row[0]].append((row[2], int(row[3]), row[1]))
+            print(row[2], row[3], row[1])
+
+    for method in pop.keys():
+        maths = []
+        phil = []
+
+        # this is definitely broken
+        sorted_method = sorted(pop[method], key=lambda item:item[2], reverse=True)
+
+    """
     for method in figs.keys():
-        print(len(figs[method]))
-
-        print("")
-        print(figs[method][0])
-        print("")
-        print(figs[method][1])
-        print("")
-
         sorted_maths = dict(sorted(figs[method][0].items(), key=lambda item: item[1], reverse=True))
         sorted_phil = dict(sorted(figs[method][1].items(), key=lambda item: item[1], reverse=True))
 
@@ -223,6 +225,7 @@ def analysis_part3(figs):
         ax2.set_xticks(np.arange(0, max(phil_num) + 1, 1))
 
         plt.show()
+    """
 
 
 # comparison with epsilon data
@@ -324,15 +327,11 @@ def analysis_part4():
 
 
 def start():
-    print("YEE HAW")
-
     # only do set up when files don't already exist
-    setup()
-    print("")
-    # analysis_part1(spacy_lengths, wikidata_lengths)
+    if not(os.path.isfile('./analysis/popular_figures.txt')) or not(os.path.isfile('./analysis/mentions.csv')):
+        setup()
+    print("a")
 
-    # analysis_part2(breakdown[0], breakdown[1], breakdown[2], breakdown[3], breakdown[4], breakdown[5])
-
-    # analysis_part3(pop_figs)
+    analysis_part3()
 
     # analysis_part4()

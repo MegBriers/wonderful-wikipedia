@@ -1,104 +1,104 @@
-Source,Target,weight,Type 
-Harriet Martineau,Harriet,Harriet Martineau,Undirected
-Harriet Martineau,Ricardo,Harriet Martineau,Undirected
-Harriet Martineau,Perfect,Harriet Martineau,Undirected
-Harriet Martineau,Rachel,Harriet Martineau,Undirected
-Harriet Martineau,Poor Laws,Harriet Martineau,Undirected
-Harriet Martineau,Elizabeth Barrett,Harriet Martineau,Undirected
-Harriet Martineau,Elizabeth Greenhow,Harriet Martineau,Undirected
-Harriet Martineau,Thomas Malthus,Harriet Martineau,Undirected
-Harriet Martineau,Charlotte Brontë,Harriet Martineau,Undirected
-Harriet Martineau,Peace,Harriet Martineau,Undirected
-Harriet Martineau,Monckton Milnes,Harriet Martineau,Undirected
-Harriet Martineau,Harriet Martineau,Harriet Martineau,Undirected
-Harriet Martineau,Radicals,Harriet Martineau,Undirected
-Harriet Martineau,Paupers Illustrated,Harriet Martineau,Undirected
-Harriet Martineau,James,Harriet Martineau,Undirected
-Harriet Martineau,London,Harriet Martineau,Undirected
-Harriet Martineau,Sydney Smith,Harriet Martineau,Undirected
-Harriet Martineau,Dalley Lana,Harriet Martineau,Undirected
-Harriet Martineau,Frances Lupton,Harriet Martineau,Undirected
-Harriet Martineau,Feats,Harriet Martineau,Undirected
-Harriet Martineau,Margaret Oliphant,Harriet Martineau,Undirected
-Harriet Martineau,Atkinson,Harriet Martineau,Undirected
-Harriet Martineau,Henry Hart Milman,Harriet Martineau,Undirected
-Harriet Martineau,Jane Welsh Carlyle,Harriet Martineau,Undirected
-Harriet Martineau,Philosophie Positive,Harriet Martineau,Undirected
-Harriet Martineau,Auguste Comte,Harriet Martineau,Undirected
-Harriet Martineau,Edward Bulwer-Lytton,Harriet Martineau,Undirected
-Harriet Martineau,Species,Harriet Martineau,Undirected
-Harriet Martineau,Hockley,Harriet Martineau,Undirected
-Harriet Martineau,John Murray,Harriet Martineau,Undirected
-Harriet Martineau,Henry Hallam,Harriet Martineau,Undirected
-Harriet Martineau,Elizabeth,Harriet Martineau,Undirected
-Harriet Martineau,James Martineau,Harriet Martineau,Undirected
-Harriet Martineau,Charles Lyell,Harriet Martineau,Undirected
-Harriet Martineau,Elizabeth Barrett Browning,Harriet Martineau,Undirected
-Harriet Martineau,Samuel Taylor Coleridge,Harriet Martineau,Undirected
-Harriet Martineau,Religion,Harriet Martineau,Undirected
-Harriet Martineau,Darwin,Harriet Martineau,Undirected
-Harriet Martineau,Malthus,Harriet Martineau,Undirected
-Harriet Martineau,Simon Griffiths,Harriet Martineau,Undirected
-Harriet Martineau,Hensleigh Wedgwood,Harriet Martineau,Undirected
-Harriet Martineau,Jane Carlyle,Harriet Martineau,Undirected
-Harriet Martineau,Thomas,Harriet Martineau,Undirected
-Harriet Martineau,John Stuart Mill,Harriet Martineau,Undirected
-Harriet Martineau,Billie Melman,Harriet Martineau,Undirected
-Harriet Martineau,Fanny Wedgwood,Harriet Martineau,Undirected
-Harriet Martineau,Thomas Michael Greenhow,Harriet Martineau,Undirected
-Harriet Martineau,Bodichon,Harriet Martineau,Undirected
-Harriet Martineau,Past,Harriet Martineau,Undirected
-Harriet Martineau,Charles,Harriet Martineau,Undirected
-Harriet Martineau,Charles Knight,Harriet Martineau,Undirected
-Harriet Martineau,Spencer T. Hall,Harriet Martineau,Undirected
-Harriet Martineau,Lyell,Harriet Martineau,Undirected
-Harriet Martineau,Alexander Maconochie,Harriet Martineau,Undirected
-Harriet Martineau,William Wordsworth,Harriet Martineau,Undirected
-Harriet Martineau,Philip Meadows Martineau,Harriet Martineau,Undirected
-Harriet Martineau,Life,Harriet Martineau,Undirected
-Harriet Martineau,Observe Morals,Harriet Martineau,Undirected
-Harriet Martineau,Harriet Taylor,Harriet Martineau,Undirected
-Harriet Martineau,Robert,Harriet Martineau,Undirected
-Harriet Martineau,Addresses,Harriet Martineau,Undirected
-Harriet Martineau,George Eliot,Harriet Martineau,Undirected
-Harriet Martineau,James Madison,Harriet Martineau,Undirected
-Harriet Martineau,Game Law Tales,Harriet Martineau,Undirected
-Harriet Martineau,Darwins,Harriet Martineau,Undirected
-Harriet Martineau,Richard Cobden,Harriet Martineau,Undirected
-Harriet Martineau,Johnson Fox,Harriet Martineau,Undirected
-Harriet Martineau,William,Harriet Martineau,Undirected
-Harriet Martineau,Fox,Harriet Martineau,Undirected
-Harriet Martineau,Charles Dickens,Harriet Martineau,Undirected
-Harriet Martineau,Peter Finch Martineau,Harriet Martineau,Undirected
-Harriet Martineau,Mesmerism,Harriet Martineau,Undirected
-Harriet Martineau,Hymns,Harriet Martineau,Undirected
-Harriet Martineau,Erasmus,Harriet Martineau,Undirected
-Harriet Martineau,George Holyoake,Harriet Martineau,Undirected
-Harriet Martineau,Final Causes,Harriet Martineau,Undirected
-Harriet Martineau,James Mill,Harriet Martineau,Undirected
-Harriet Martineau,Adam Smith,Harriet Martineau,Undirected
-Harriet Martineau,Martineau,Harriet Martineau,Undirected
-Harriet Martineau,Man,Harriet Martineau,Undirected
-Harriet Martineau,Susan,Harriet Martineau,Undirected
-Harriet Martineau,William Darwin Fox,Harriet Martineau,Undirected
-Harriet Martineau,Martineau Guest House,Harriet Martineau,Undirected
-Harriet Martineau,Eastern Life,Harriet Martineau,Undirected
-Harriet Martineau,Bentham,Harriet Martineau,Undirected
-Harriet Martineau,Diana Postlethwaite,Harriet Martineau,Undirected
-Harriet Martineau,Hill Cemetery,Harriet Martineau,Undirected
-Harriet Martineau,Henry G. Atkinson,Harriet Martineau,Undirected
-Harriet Martineau,Legacy,Harriet Martineau,Undirected
-Harriet Martineau,Florence Fenwick Miller,Harriet Martineau,Undirected
-Harriet Martineau,Giddens,Harriet Martineau,Undirected
-Harriet Martineau,Thomas Carlyle,Harriet Martineau,Undirected
-Harriet Martineau,Charles Darwin,Harriet Martineau,Undirected
-Harriet Martineau,Sarah Austin,Harriet Martineau,Undirected
-Harriet Martineau,Barbara Bodichon,Harriet Martineau,Undirected
-Harriet Martineau,Hilary Bonham Carter,Harriet Martineau,Undirected
-Harriet Martineau,Bracondale Lodge,Harriet Martineau,Undirected
-Harriet Martineau,Eldon Square,Harriet Martineau,Undirected
-Harriet Martineau,Miss Martineau,Harriet Martineau,Undirected
-Harriet Martineau,Erasmus Alvey Darwin,Harriet Martineau,Undirected
-Harriet Martineau,Florence Nightingale,Harriet Martineau,Undirected
-Harriet Martineau,Francis Martineau Lupton,Harriet Martineau,Undirected
-Harriet Martineau,Toussaint L'Ouverture,Harriet Martineau,Undirected
+14
+Toussaint L'Ouverture
+Robert
+Observe Morals
+Charlotte Brontë
+Margaret Oliphant
+Species
+Erasmus Alvey Darwin
+John Murray
+Susan
+Charles Dickens
+Barbara Bodichon
+Mesmerism
+Elizabeth Barrett Browning
+Darwins
+Simon Griffiths
+William Darwin Fox
+Alexander Maconochie
+London
+Harriet Taylor
+Radicals
+George Eliot
+Thomas Carlyle
+Sydney Smith
+Darwin
+Peter Finch Martineau
+Martineau
+Bodichon
+Johnson Fox
+Eastern Life
+Spencer T. Hall
+Erasmus
+Richard Cobden
+Man
+Paupers Illustrated
+Fox
+Elizabeth Barrett
+Ricardo
+Thomas
+Henry Hart Milman
+Legacy
+William
+Malthus
+Rachel
+Harriet Martineau
+Hilary Bonham Carter
+Florence Fenwick Miller
+George Holyoake
+Bracondale Lodge
+Thomas Malthus
+Game Law Tales
+Feats
+Giddens
+Life
+Auguste Comte
+Dalley Lana
+Harriet
+Past
+Charles Knight
+Elizabeth Greenhow
+Atkinson
+Religion
+Hymns
+James Madison
+Fanny Wedgwood
+Lyell
+Monckton Milnes
+Elizabeth
+Billie Melman
+Eldon Square
+Henry Hallam
+William Wordsworth
+James Mill
+Diana Postlethwaite
+Poor Laws
+Hensleigh Wedgwood
+Philip Meadows Martineau
+Charles Lyell
+James Martineau
+Perfect
+Martineau Guest House
+Final Causes
+Florence Nightingale
+Peace
+Charles Darwin
+Francis Martineau Lupton
+Addresses
+Frances Lupton
+Adam Smith
+Jane Welsh Carlyle
+James
+Henry G. Atkinson
+Jane Carlyle
+Sarah Austin
+Hill Cemetery
+Samuel Taylor Coleridge
+Edward Bulwer-Lytton
+John Stuart Mill
+Thomas Michael Greenhow
+Miss Martineau
+Charles
+Bentham
+Philosophie Positive
+Hockley

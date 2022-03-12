@@ -1,3 +1,4 @@
+./output/nltk/John_Herschel_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -5,67 +6,66 @@
 
 Those not identified by method : 
 
-Alfred Edward Chalon
-John Frederick William Herschel
-Daguerre
-Julia Margaret Cameron
+Homer
 Caroline Emilia Mary Herschel
-Isabella Herschel
+Matilda Rose Herschel
+John Frederick William Herschel
+Alfred Edward Chalon
 Constance Anne Herschel
 Lagrange
+Isabella Herschel
 Euler
+Julia Margaret Cameron
+Alexander Hamilton-Gordon
 John Fiot Lee Pearse Maclear
 Duke of Sussex
-Matilda Rose Herschel
+Daguerre
 Brahmagupta
 Amelia Herschel
-Homer
-Alexander Hamilton-Gordon
 
 Percentage identified from the proper data set (positive matches): 
-68.00
+68.63
 
 Those identified by method that have not provided a match with the manual data :
 
 
-Cape Town
-Double Stars
-Family
-Results
-Dione
-Africa
+Herschel Island
 Alexander Hamilton-Gordon Isabella Herschel
-Uranus
-John Fiot Lee Pearse Maclear Matilda Rose Herschel
-Dionysius Lardner
-Death
-John Herschel FRS
-Mount Herschel Antarctica
-Anne Herschel
+Enceladus
+Iapetus
+Africa
+Double Stars
+Field Houses
 Mimas
+Oberon
+Results
+Family
+Rhea
+Flora Herscheliana
+Death
+John Fiot Lee Pearse Maclear Matilda Rose Herschel
+School
+John Frederick
 Cambridge
 Ariel
-John Frederick
-Rhea
-Field Houses
-John Herschel
-Umbriel
-Herschel Island
-Oberon
-William Herschel
-Light
-Darwin
-School
-Flora Herscheliana
-Caroline Emilia
 Table Mountain
-Iapetus
+Umbriel
+William Herschel
+Darwin
+Herschel
+Caroline Emilia
+Light
+John Herschel FRS
 Copley Medal
-Enceladus
+Uranus
+Cape Town
+Mount Herschel Antarctica
+Dione
+Anne Herschel
 
 precision
-0.4927536231884058
+0.5072463768115942
 
 recall
-0.68
+0.6862745098039216
 

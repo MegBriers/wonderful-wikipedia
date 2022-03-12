@@ -137,7 +137,7 @@ def nltk_names(text, title):
                     text = ' '.join(c[0] for c in chunk)
                     people.append(text)
 
-    write_to_file("nltk", title, list(set(people)), len(text))
+    write_to_file("nltk", title, list(set(people)), "", len(text))
 
 
 def extracting_unlinked_spacy(data, title, method, folder):

@@ -1,3 +1,4 @@
+./output/nltk/Michael_Faraday_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -5,71 +6,71 @@
 
 Those not identified by method : 
 
+Prince Consort
 John Daniell
-Robert Gordon
+John 'Mad Jack' Fuller
+Hans Christian Ørsted
+Julian Huxley
 Harriet Jane Moore
-Michael Faraday
+Albert Einstein
 James Faraday
+Michael Faraday
+Aldous Huzley
+Robert Gordon
+Wollaston
+Pieter Zeeman
 William Whewell
 John Henry Foley
-Julian Huxley
-Wollaston
-John 'Mad Jack' Fuller
-T. H. Huxley
-Pieter Zeeman
-Aldous Huzley
-Prince Consort
-Hans Christian Ørsted
 Faraday
-Albert Einstein
+T. H. Huxley
 
 Percentage identified from the proper data set (positive matches): 
 60.47
 
 Those identified by method that have not provided a match with the manual data :
 
-Einstein
-Barnsbury Grove
-Swansea
 Albert
-Jack
-John
-Michael
-Fuller
-C2Cl6
+Chance
 Fife
+Deep River
+Shakespeare
+C2Cl4
+Fullerian 
+Fuller
+John
+Aylesbury
+Jack
+Fox
+Hermsdorf
+C2Cl6
+Awards
+Physicist
+County Durham
+Swansea
+Barnsbury Grove
+Chemical Assistant
+Einstein
+Clerk Maxwell
+ Humphry Davy
+Adult
+William
+Buoy Store
+Pieter
+Oxford
+Cosmos
+Chemistry
+Paul
+Crawley
+Civil Law
+Royal Institution
+Michael
+Christian
+Voltaic Electricity
 Stevenage
+John Templeton
+Hawke
 Quebec City
 Education
-Hermsdorf
-Fullerian Professor
-Chance
-Adult
-Cosmos
-Crawley
-Buoy Store
-Hawke
-Chemical Assistant
-Deep River
-Royal Institution
-Shakespeare
-Chemistry
-Aylesbury
-Awards
-James Clerk Maxwell
-John Templeton
-Voltaic Electricity
-Physicist
-William
-County Durham
-Oxford
-Civil Law
-Pieter
-Fox
-Paul
-C2Cl4
-Humphry Davy
-Christian
 
 precision
 0.38235294117647056

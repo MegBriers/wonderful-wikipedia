@@ -7,6 +7,7 @@ performed against the manual test data
 @author: Meg
 """
 import pandas as pd
+import matplotlib.pyplot as plt
 import Levenshtein
 import sys
 import helper
@@ -109,7 +110,7 @@ def statistics(false_pos, false_neg, true_pos):
     # f1 score = 2 x (precision * recall)/(precision + recll)
     f1 = 2 * ((precision * recall) / (precision + recall))
 
-    return f1
+    return f1, precision, recall
 
 
 def wikidata_evaluation(person, rel_linked, linked):
@@ -137,7 +138,7 @@ def wikidata_evaluation(person, rel_linked, linked):
 
     """
     stdoutOrigin = sys.stdout
-    person = helper.formatting(person,"_")
+    person = helper.formatting(person, "_")
     sys.stdout = open("./output/wikidata/evaluation/" + person + ".txt", "w", encoding="utf-8")
 
     print("")
@@ -201,12 +202,12 @@ def wikidata_evaluation(person, rel_linked, linked):
     false_pos = len(additional)  # how many were identified as human but are not human
     false_neg = len(notIdentified)  # how many of our true ones are missing
 
-    f1 = statistics(false_pos, false_neg, true_pos)
+    f1, precision, recall = statistics(false_pos, false_neg, true_pos)
 
     sys.stdout.close()
     sys.stdout = stdoutOrigin
 
-    return f1
+    return f1, precision, recall
 
 
 def multiple_evaluation(person, complete):
@@ -228,8 +229,10 @@ def multiple_evaluation(person, complete):
     """
     performances = []
     for item in ["spacy", "nltk", "spacy_new"]:
-        acc = method_evaluation(item, person, complete)
-        performances.append(acc)
+        f1, precision, recall = method_evaluation(item, person, complete)
+        performances.append(f1)
+        performances.append(precision)
+        performances.append(recall)
     return performances
 
 
@@ -255,15 +258,15 @@ def method_evaluation(method, person, complete):
 
     """
     stdoutOrigin = sys.stdout
-    person = helper.formatting(person,"_")
+    person = helper.formatting(person, "_")
     sys.stdout = open("./output/" + method + "/evaluation/" + person + ".txt", "w", encoding="utf-8")
 
     filename = "./output/" + method + "/" + person + "_Unlinked.txt"
 
     # the file that stores the method names
-    # breaking here for john tyndall
-    fileUnlinked = open(filename)
-    identifiedUnlinked = list(set(line.rstrip("\n") for count, line in enumerate(fileUnlinked) if count!=0))
+    fileUnlinked = open(filename, encoding="utf-8")
+    print(filename)
+    identifiedUnlinked = list(set(line.rstrip("\n") for count, line in enumerate(fileUnlinked) if count != 0))
 
     strippedUnlinked = []
     for ele in identifiedUnlinked:
@@ -289,7 +292,9 @@ def method_evaluation(method, person, complete):
 
     for people in complete:
         for identified in identifiedUnlinked:
-            if ((people in identified or identified in people) and Levenshtein.ratio(people,identified) > .75) or Levenshtein.ratio(people,identified) > 0.9:
+            if ((people in identified or identified in people) and Levenshtein.ratio(people,
+                                                                                     identified) > .75) or Levenshtein.ratio(
+                people, identified) > 0.9:
                 copyComplete.remove(people)
                 # method picks up the same person multiple time, so this is okay
                 if not (identified in copyIdentified):
@@ -317,12 +322,12 @@ def method_evaluation(method, person, complete):
     true_pos = numberIdentified
     false_neg = len(copyComplete)
 
-    stats = statistics(false_pos, false_neg, true_pos)
+    f1, precision, recall = statistics(false_pos, false_neg, true_pos)
 
     sys.stdout.close()
     sys.stdout = stdoutOrigin
 
-    return stats
+    return f1, precision, recall
 
 
 def evaluate_statistics(performances):
@@ -339,34 +344,54 @@ def evaluate_statistics(performances):
     """
     stdoutOrigin = sys.stdout
     sys.stdout = open("./output/evaluation.txt", "w", encoding="utf-8")
-    wikidata_scores = []
-    spacy_scores = []
-    nltk_scores = []
-    new_spacy_scores = []
 
-    for person in performances.keys():
-        print(person + " performance")
-        print("spacy " + str(performances[person][0]))
-        spacy_scores.append(performances[person][0])
-        print("nltk " + str(performances[person][1]))
-        nltk_scores.append(performances[person][1])
-        print("new spacy " + str(performances[person][2]))
-        new_spacy_scores.append(performances[person][2])
-        print("wikidata " + str(performances[person][3]))
-        wikidata_scores.append(performances[person][3])
+    methods = {'spacy':0, 'nltk':1, 'spacy_new':2, 'wikidata':3}
+    small_methods=['spacy','nltk','spacy_new']
+
+    f1_spacy = []
+    precision_spacy = []
+    recall_spacy = []
+
+    f1_nltk = []
+    precision_nltk = []
+    recall_nltk = []
+
+    f1_spacy_new = []
+    precision_spacy_new = []
+    recall_spacy_new = []
+
+    for key in performances.keys():
+        performance = performances[key]
         print("")
+        print(performance)
+        print("")
+        f1_spacy.append(float(performance[0]))
+        precision_spacy.append(float(performance[1]))
+        recall_spacy.append(float(performance[2]))
+        f1_nltk.append(float(performance[3]))
+        precision_nltk.append(float(performance[4]))
+        recall_nltk.append(float(performance[5]))
+        f1_spacy_new.append(float(performance[6]))
+        precision_spacy_new.append(float(performance[7]))
+        recall_spacy_new.append(float(performance[8]))
 
-    # take the average of each method
-    num = len(performances.keys())
-    spacy_average = sum(spacy_scores)/num
-    nltk_average = sum(nltk_scores)/num
-    new_spacy_average = sum(new_spacy_scores)/num
-    wikidata_average = sum(wikidata_scores)/num
+    f1s = [sum(f1_spacy)/len(f1_spacy), sum(f1_nltk)/len(f1_nltk), sum(f1_spacy_new)/len(f1_spacy_new)]
+    precisions = [sum(precision_spacy)/len(f1_spacy), sum(precision_nltk)/len(f1_nltk), sum(precision_spacy_new)/len(f1_spacy_new)]
+    recalls = [sum(recall_spacy)/len(f1_spacy), sum(recall_nltk)/len(f1_nltk), sum(recall_spacy_new)/len(f1_spacy_new)]
 
-    print("spacy average : " + str(spacy_average))
-    print("nltk_average : " + str(nltk_average))
-    print("new spacy average : " + str(new_spacy_average))
-    print("new wikidata average : " + str(wikidata_average))
+    df = pd.DataFrame({'f1': f1s, 'precision': precisions, 'recall': recalls}, index=small_methods)
+
+    my_colors = ['#00B2EE', '#E9967A', '#3CB371', '#8B475D']
+
+    fig = plt.figure()
+    ax = plt.subplot(111)
+
+    df.plot.bar(rot=0, color=my_colors, ax=ax)
+    plt.xlabel('proportion')
+    plt.ylabel('method for NER')
+
+    plt.savefig('./analysis/nlp_evaluation.png')
+    plt.show()
 
     sys.stdout.close()
     sys.stdout = stdoutOrigin
@@ -386,25 +411,24 @@ def evaluate(method):
     """
 
     people = helper.get_test_data()
+
     if method == "all":
         performances = {}
         for peep in people:
             complete, linked, unlinked, rel_linked = setup(peep)
-            performance = multiple_evaluation(peep, complete)
-            performance.append(wikidata_evaluation(peep, rel_linked, linked))
-            performances[peep] = performance
+            values = multiple_evaluation(peep, complete)
+            f1_w, precision_w, recall_w = wikidata_evaluation(peep, rel_linked, linked)
+            values.append(f1_w)
+            values.append(precision_w)
+            values.append(recall_w)
+            performances[peep] = values
         evaluate_statistics(performances)
     else:
         performances = []
         for peep in people:
             complete, linked, unlinked, rel_linked = setup(peep)
             if method != "wikidata":
-                value = method_evaluation(method, peep, complete)
+                f1, prec, recall = method_evaluation(method, peep, complete)
             else:
-                value = wikidata_evaluation(peep, rel_linked, linked)
-            performances.append(value)
-            print("")
-            print(peep + ":" + str(value))
-            print("")
-        print("average")
-        print(sum(performances)/len(performances))
+                f1, prec, recall = wikidata_evaluation(peep, rel_linked, linked)
+            performances.append(f1)

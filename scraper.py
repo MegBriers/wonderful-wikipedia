@@ -266,7 +266,7 @@ def request_page(URL):
             # the ones at the top
             if cur_h2 == None or not (cur_h2.text[:len(cur_h2.text) - 6] in unaccepted_headings):
                 url = item.get("href", "")
-                if url.startswith("/wiki/") and "/wiki/Category" not in url and "":
+                if url.startswith("/wiki/") and "/wiki/Category" not in url and "/wiki/Special" not in url:
                     title = item.get("title")
                     if title in links.keys():
                         continue
@@ -282,13 +282,12 @@ def request_page(URL):
         dictionary = map_to_wiki_data(values)
         title_true = get_title(URL)
         dictionary_true = {title_true: "https://en.wikipedia.org/wiki/" + helper.formatting(title_true, "_")}
+
         wikidata_true = map_to_wiki_data(dictionary_true)
         futures = []
         results = []
 
         client = Client()
-
-        print(list(wikidata_true.keys())[0])
 
         # manually setting up an entity we know is a person to compare the entity types
         # Q268702 - Mary Somerville (can be used as the dummy variable regardless of the person being tested)

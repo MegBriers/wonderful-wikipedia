@@ -1,3 +1,4 @@
+./output/spacy/James_McCosh_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -5,20 +6,20 @@
 
 Those not identified by method : 
 
-John McCosh
 A. J. McCosh
-Francis Landey Patton
 Emmett Louis Till
+John McCosh
+Francis Landey Patton
 
 Percentage identified from the proper data set (positive matches): 
 73.33
 
 Those identified by method that have not provided a match with the manual data :
 
-Darwinian
 Covenanting
+Darwinian
 Presbyterian Seminary
-Darwin
+Darwinism
 
 precision
 0.7333333333333333

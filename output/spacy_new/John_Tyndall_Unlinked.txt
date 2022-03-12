@@ -1,120 +1,120 @@
-Source,Target,weight,Type 
-John Tyndall,John Tyndall,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Gloucestershire,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Ballinabranna Primary School,John Tyndall,Undirected
-John Tyndall,Subjects,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Edward Frankland,John Tyndall,Undirected
-John Tyndall,Robert Bunsen,John Tyndall,Undirected
-John Tyndall,Bunsen,John Tyndall,Undirected
-John Tyndall,Hermann Knoblauch,John Tyndall,Undirected
-John Tyndall,Friedrich Ludwig Stegmann,John Tyndall,Undirected
-John Tyndall,Knoblauch,John Tyndall,Undirected
-John Tyndall,Knoblauch,John Tyndall,Undirected
-John Tyndall,Heinrich Gustav Magnus,John Tyndall,Undirected
-John Tyndall,Bunsen,John Tyndall,Undirected
-John Tyndall,Magnus,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Knoblauch,John Tyndall,Undirected
-John Tyndall,Natural Philosophy,John Tyndall,Undirected
-John Tyndall,Michael Faraday,John Tyndall,Undirected
-John Tyndall,Michael Faraday,John Tyndall,Undirected
-John Tyndall,Alps,John Tyndall,Undirected
-John Tyndall,Alps,John Tyndall,Undirected
-John Tyndall,James David Forbes,John Tyndall,Undirected
-John Tyndall,Forbes,John Tyndall,Undirected
-John Tyndall,Forbes,John Tyndall,Undirected
-John Tyndall,Michael Faraday,John Tyndall,Undirected
-John Tyndall,Forbes,John Tyndall,Undirected
-John Tyndall,Forbes,John Tyndall,Undirected
-John Tyndall,Forbes,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Louis Rendu,John Tyndall,Undirected
-John Tyndall,Rendu,John Tyndall,Undirected
-John Tyndall,Louis Agassiz,John Tyndall,Undirected
-John Tyndall,Forbes,John Tyndall,Undirected
-John Tyndall,Forbes,John Tyndall,Undirected
-John Tyndall,John Tyndall,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Fourier,John Tyndall,Undirected
-John Tyndall,William Hopkins,John Tyndall,Undirected
-John Tyndall,Melloni,John Tyndall,Undirected
-John Tyndall,M. Pouillet,John Tyndall,Undirected
-John Tyndall,Absorption,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Desains,John Tyndall,Undirected
-John Tyndall,Forbes,John Tyndall,Undirected
-John Tyndall,Knoblauch,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Louis Pasteur,John Tyndall,Undirected
-John Tyndall,Ferdinand Cohn,John Tyndall,Undirected
-John Tyndall,e.g.,John Tyndall,Undirected
-John Tyndall,John Tyndall,John Tyndall,Undirected
-John Tyndall,Jean-Daniel Colladon,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Molecular,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Considered,John Tyndall,Undirected
-John Tyndall,Invisible,John Tyndall,Undirected
-John Tyndall,Balfour Stewart,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,John Tyndall,John Tyndall,Undirected
-John Tyndall,John Tyndall,John Tyndall,Undirected
-John Tyndall,Faraday,John Tyndall,Undirected
-John Tyndall,Hermann von Helmholtz,John Tyndall,Undirected
-John Tyndall,James Clerk Maxwell,John Tyndall,Undirected
-John Tyndall,"Tyndall,John Tyndall,Undirected
-John Tyndall,Light,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,James Joule,John Tyndall,Undirected
-John Tyndall,Balfour Stewart,John Tyndall,Undirected
-John Tyndall,James Clerk Maxwell,John Tyndall,Undirected
-John Tyndall,George Gabriel Stokes,John Tyndall,Undirected
-John Tyndall,William Thomson –,John Tyndall,Undirected
-John Tyndall,Charles Darwin,John Tyndall,Undirected
-John Tyndall,Thomas Henry Huxley,John Tyndall,Undirected
-John Tyndall,Huxley,John Tyndall,Undirected
-John Tyndall,Thomas Archer Hirst,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Herbert Spencer,John Tyndall,Undirected
-John Tyndall,Huxley,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Darwin,John Tyndall,Undirected
-John Tyndall,Pope Pius IX,John Tyndall,Undirected
-John Tyndall,Huxley,John Tyndall,Undirected
-John Tyndall,Darwin,John Tyndall,Undirected
-John Tyndall,Catholicism,John Tyndall,Undirected
-John Tyndall,Catholic,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Louisa Hamilton,John Tyndall,Undirected
-John Tyndall,Lord Claud Hamilton,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,Louisa,John Tyndall,Undirected
-John Tyndall,John.,John Tyndall,Undirected
-John Tyndall,Tyndall,John Tyndall,Undirected
-John Tyndall,A. S. Eve,John Tyndall,Undirected
-John Tyndall,C. H. Creasey,John Tyndall,Undirected
-John Tyndall,John Tyndall,John Tyndall,Undirected
-John Tyndall,Tyndalldenkmal,John Tyndall,Undirected
-John Tyndall,John Tyndall,John Tyndall,Undirected
-John Tyndall,Ticknor,John Tyndall,Undirected
-John Tyndall,Fields,John Tyndall,Undirected
-John Tyndall,Boston Tyndall,John Tyndall,Undirected
-John Tyndall,Longman,John Tyndall,Undirected
-John Tyndall,Longman,John Tyndall,Undirected
-John Tyndall,D. Appleton,John Tyndall,Undirected
-John Tyndall,Easy Lessons,John Tyndall,Undirected
-John Tyndall,Faraday,John Tyndall,Undirected
-John Tyndall,Prof. John Tyndall,John Tyndall,Undirected
-John Tyndall,D. Appleton,John Tyndall,Undirected
-John Tyndall,H. S.,John Tyndall,Undirected
-John Tyndall,D. Appleton,John Tyndall,Undirected
-John Tyndall,J.,John Tyndall,Undirected
-John Tyndall,D. Appleton,John Tyndall,Undirected
-John Tyndall,D. Appleton,John Tyndall,Undirected
+35222
+John Tyndall
+Tyndall
+Gloucestershire
+Tyndall
+Ballinabranna Primary School
+Subjects
+Tyndall
+Tyndall
+Edward Frankland
+Robert Bunsen
+Bunsen
+Hermann Knoblauch
+Friedrich Ludwig Stegmann
+Knoblauch
+Knoblauch
+Heinrich Gustav Magnus
+Bunsen
+Magnus
+Tyndall
+Knoblauch
+Natural Philosophy
+Michael Faraday
+Michael Faraday
+Alps
+Alps
+James David Forbes
+Forbes
+Forbes
+Michael Faraday
+Forbes
+Forbes
+Forbes
+Tyndall
+Tyndall
+Louis Rendu
+Rendu
+Louis Agassiz
+Forbes
+Forbes
+John Tyndall
+Tyndall
+Fourier
+William Hopkins
+Melloni
+M. Pouillet
+Absorption
+Tyndall
+Desains
+Forbes
+Knoblauch
+Tyndall
+Louis Pasteur
+Ferdinand Cohn
+e.g.
+John Tyndall
+Jean-Daniel Colladon
+Tyndall
+Tyndall
+Molecular
+Tyndall
+Considered
+Invisible
+Balfour Stewart
+Tyndall
+John Tyndall
+John Tyndall
+Faraday
+Hermann von Helmholtz
+James Clerk Maxwell
+"Tyndall
+Light
+Tyndall
+James Joule
+Balfour Stewart
+James Clerk Maxwell
+George Gabriel Stokes
+William Thomson –
+Charles Darwin
+Thomas Henry Huxley
+Huxley
+Thomas Archer Hirst
+Tyndall
+Herbert Spencer
+Huxley
+Tyndall
+Darwin
+Pope Pius IX
+Huxley
+Darwin
+Catholicism
+Catholic
+Tyndall
+Louisa Hamilton
+Lord Claud Hamilton
+Tyndall
+Tyndall
+Louisa
+John.
+Tyndall
+A. S. Eve
+C. H. Creasey
+John Tyndall
+Tyndalldenkmal
+John Tyndall
+Ticknor
+Fields
+Boston Tyndall
+Longman
+Longman
+D. Appleton
+Easy Lessons
+Faraday
+Prof. John Tyndall
+D. Appleton
+H. S.
+D. Appleton
+J.
+D. Appleton
+D. Appleton

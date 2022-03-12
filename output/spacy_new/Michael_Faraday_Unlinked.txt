@@ -1,198 +1,174 @@
-Source,Target,weight,Type 
-Michael Faraday,Michael Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Bunsen,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,James Clerk Maxwell,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Maxwell,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Albert Einstein,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Arthur Schopenhauer,Michael Faraday,Undirected
-Michael Faraday,James Clerk Maxwell,Michael Faraday,Undirected
-Michael Faraday,Ernest Rutherford,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Michael Faraday,Michael Faraday,Undirected
-Michael Faraday,James,Michael Faraday,Undirected
-Michael Faraday,Glasite,Michael Faraday,Undirected
-Michael Faraday,James Faraday,Michael Faraday,Undirected
-Michael Faraday,Outhgill,Michael Faraday,Undirected
-Michael Faraday,Michael Faraday,Michael Faraday,Undirected
-Michael Faraday,George Riebau,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Isaac Watts,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Jane Marcet,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Humphry Davy,Michael Faraday,Undirected
-Michael Faraday,John Tatum,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,William Dance,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Coincidentally,Michael Faraday,Undirected
-Michael Faraday,John Payne,Michael Faraday,Undirected
-Michael Faraday,Humphry Davy,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Chemical Assistant,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Sarah Barnard,Michael Faraday,Undirected
-Michael Faraday,Sandemanian,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Barnsbury Grove,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday House,Michael Faraday,Undirected
-Michael Faraday,Hampton Court Road,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Isaac Newton,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Humphry Davy,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,John Dalton,Michael Faraday,Undirected
-Michael Faraday,Thomas Graham,Michael Faraday,Undirected
-Michael Faraday,Joseph Loschmidt,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Bunsen,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Humphry Davy,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,William Whewell,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Abbott,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,William Hyde Wollaston,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Wollaston,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,James Clerk Maxwell,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Maxwell,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Pieter Zeeman,Michael Faraday,Undirected
-Michael Faraday,Zeeman,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,John 'Mad,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Chance,Michael Faraday,Undirected
-Michael Faraday,Charles Lyell,Michael Faraday,Undirected
-Michael Faraday,County Durham,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Chain,Michael Faraday,Undirected
-Michael Faraday,Buoy Store,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Christmas,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Benjamin Abbott,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Michael Faraday Memorial,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Chain,Michael Faraday,Undirected
-Michael Faraday,Buoy Store,Michael Faraday,Undirected
-Michael Faraday,Faraday Gardens,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Michael Faraday Primary,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Deep River,Michael Faraday,Undirected
-Michael Faraday,Virginia,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,John Templeton,Michael Faraday,Undirected
-Michael Faraday,Michael Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Huxley,Michael Faraday,Undirected
-Michael Faraday,T. H. Huxley,Michael Faraday,Undirected
-Michael Faraday,Matthew Arnold,Michael Faraday,Undirected
-Michael Faraday,Julian Huxley,Michael Faraday,Undirected
-Michael Faraday,Andrew Huxley,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Shakespeare,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,” Calling Faraday,Michael Faraday,Undirected
-Michael Faraday,Margaret Thatcher,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday Medal,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,John Murray,Michael Faraday,Undirected
-Michael Faraday,Richard,Michael Faraday,Undirected
-Michael Faraday,John Edward Taylor,Michael Faraday,Undirected
-Michael Faraday,Richard Taylor,Michael Faraday,Undirected
-Michael Faraday,William Francis,Michael Faraday,Undirected
-Michael Faraday,Francis.,Michael Faraday,Undirected
-Michael Faraday,W. Crookes,Michael Faraday,Undirected
-Michael Faraday,W. Crookes,Michael Faraday,Undirected
-Michael Faraday,T. Martin,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,B. Bowers,Michael Faraday,Undirected
-Michael Faraday,L. Symons,Michael Faraday,Undirected
-Michael Faraday,James,Michael Faraday,Undirected
-Michael Faraday,Inc. ISBN,Michael Faraday,Undirected
-Michael Faraday,Alice Jenkins,Michael Faraday,Undirected
-Michael Faraday,Michael Faraday's Mental Exercises,Michael Faraday,Undirected
-Michael Faraday,Artisan Essay Circle,Michael Faraday,Undirected
-Michael Faraday,R. Griffin,Michael Faraday,Undirected
-Michael Faraday,Edinburgh: W.F. Clay,Michael Faraday,Undirected
-Michael Faraday,Faraday,Michael Faraday,Undirected
-Michael Faraday,Schoenbein,Michael Faraday,Undirected
+26129
+Michael Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Bunsen
+Faraday
+Faraday
+James Clerk Maxwell
+Faraday
+Faraday
+Maxwell
+Faraday
+Albert Einstein
+Faraday
+Arthur Schopenhauer
+James Clerk Maxwell
+Ernest Rutherford
+Faraday
+Michael Faraday
+James
+Glasite
+James Faraday
+Outhgill
+Michael Faraday
+George Riebau
+Faraday
+Isaac Watts
+Faraday
+Jane Marcet
+Faraday
+Humphry Davy
+John Tatum
+Faraday
+William Dance
+Faraday
+Davy
+Davy
+Faraday
+Coincidentally
+John Payne
+Humphry Davy
+Faraday
+Chemical Assistant
+Davy
+Faraday
+Faraday
+Sarah Barnard
+Sandemanian
+Faraday
+Barnsbury Grove
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday House
+Hampton Court Road
+Faraday
+Faraday
+Faraday
+Isaac Newton
+Faraday
+Humphry Davy
+Faraday
+John Dalton
+Thomas Graham
+Joseph Loschmidt
+Faraday
+Faraday
+Faraday
+Bunsen
+Faraday
+Faraday
+Faraday
+Humphry Davy
+Faraday
+William Whewell
+Faraday
+Faraday
+Abbott
+Davy
+William Hyde Wollaston
+Faraday
+Faraday
+Wollaston
+Davy
+Davy
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Davy
+Davy
+James Clerk Maxwell
+Faraday
+Maxwell
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Pieter Zeeman
+Zeeman
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+John 'Mad
+Faraday
+Chance
+Charles Lyell
+County Durham
+Faraday
+Faraday
+Chain
+Buoy Store
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Christmas
+Faraday
+Faraday
+Benjamin Abbott
+Faraday
+Faraday
+Faraday
+Michael Faraday Memorial
+Faraday
+Chain
+Buoy Store
+Faraday Gardens
+Faraday
+Michael Faraday Primary
+Faraday
+Faraday
+Faraday
+Faraday
+Faraday
+Deep River
+Virginia
+Faraday
+Faraday
+Faraday
+Faraday
+John Templeton
+Michael Faraday
+Faraday
+Huxley
+T. H. Huxley
+Matthew Arnold
+Julian Huxley
+Andrew Huxley
+Faraday
+Shakespeare
+Faraday
+” Calling Faraday
+Margaret Thatcher
+Faraday
+Faraday Medal

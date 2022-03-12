@@ -9,6 +9,7 @@ OR WITH THE POTENTIAL TO BE USED ACROSS THE FILES
 """
 import wikipedia
 import requests
+import os
 from bs4 import BeautifulSoup
 import scraper
 import random
@@ -143,3 +144,28 @@ def get_name_from_filename(file_name, method):
     else:
         file_name = file_name.replace(' Linked.txt', '')
     return file_name
+
+
+def get_file_path(file, bonus):
+    """
+
+    A method to find the file path of the given file
+
+    Parameters
+    ----------
+    file : string
+        the file needed to be found
+
+    bonus : string
+        a string that (if spacy) will make sure the code finds the spacy output
+        as opposed to other NER methods
+
+    Returns
+    -------
+    file path of the given file (None if not found)
+
+
+    """
+    for (root, dirs, files) in os.walk('.' + bonus):
+        if file in files:
+            return os.path.join(root, file)

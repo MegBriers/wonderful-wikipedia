@@ -11,18 +11,18 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
-Poggendoff
-Mihajlo Idvorski Pupin
-de Saussure
 Louisa Hamilton
+Poggendoff
+de Saussure
+Mihajlo Idvorski Pupin
 
 
 those who were picked up additionally by wikidata
 
-Johann Christian Poggendorff
 Louisa Charlotte Tyndall
 35222
 Mihajlo Pupin
+Johann Christian Poggendorff
 
 
 precision

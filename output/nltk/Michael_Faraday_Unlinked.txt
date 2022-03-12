@@ -1,69 +1,69 @@
-Source,Target,weight,Type 
-Michael Faraday,Einstein,Michael Faraday,Undirected
-Michael Faraday,George Riebau,Michael Faraday,Undirected
-Michael Faraday,William Dance,Michael Faraday,Undirected
-Michael Faraday,John Payne,Michael Faraday,Undirected
-Michael Faraday,Barnsbury Grove,Michael Faraday,Undirected
-Michael Faraday,Swansea,Michael Faraday,Undirected
-Michael Faraday,Albert,Michael Faraday,Undirected
-Michael Faraday,Sir Humphry Davy,Michael Faraday,Undirected
-Michael Faraday,Jack,Michael Faraday,Undirected
-Michael Faraday,John,Michael Faraday,Undirected
-Michael Faraday,Margaret Thatcher,Michael Faraday,Undirected
-Michael Faraday,Michael,Michael Faraday,Undirected
-Michael Faraday,Joseph Loschmidt,Michael Faraday,Undirected
-Michael Faraday,Isaac Newton,Michael Faraday,Undirected
-Michael Faraday,Sarah Barnard,Michael Faraday,Undirected
-Michael Faraday,Fuller,Michael Faraday,Undirected
-Michael Faraday,C2Cl6,Michael Faraday,Undirected
-Michael Faraday,Zeeman,Michael Faraday,Undirected
-Michael Faraday,Fife,Michael Faraday,Undirected
-Michael Faraday,Clerk Maxwell,Michael Faraday,Undirected
-Michael Faraday,Stevenage,Michael Faraday,Undirected
-Michael Faraday,Quebec City,Michael Faraday,Undirected
-Michael Faraday,Education,Michael Faraday,Undirected
-Michael Faraday,Hermsdorf,Michael Faraday,Undirected
-Michael Faraday,Fullerian Professor,Michael Faraday,Undirected
-Michael Faraday,Chance,Michael Faraday,Undirected
-Michael Faraday,Ernest Rutherford,Michael Faraday,Undirected
-Michael Faraday,Adult,Michael Faraday,Undirected
-Michael Faraday,Cosmos,Michael Faraday,Undirected
-Michael Faraday,Crawley,Michael Faraday,Undirected
-Michael Faraday,Buoy Store,Michael Faraday,Undirected
-Michael Faraday,Hawke,Michael Faraday,Undirected
-Michael Faraday,Chemical Assistant,Michael Faraday,Undirected
-Michael Faraday,Deep River,Michael Faraday,Undirected
-Michael Faraday,Isaac Watts,Michael Faraday,Undirected
-Michael Faraday,Charles Lyell,Michael Faraday,Undirected
-Michael Faraday,Royal Institution,Michael Faraday,Undirected
-Michael Faraday,Arthur Schopenhauer,Michael Faraday,Undirected
-Michael Faraday,Shakespeare,Michael Faraday,Undirected
-Michael Faraday,Chemistry,Michael Faraday,Undirected
-Michael Faraday,James,Michael Faraday,Undirected
-Michael Faraday,William Hyde Wollaston,Michael Faraday,Undirected
-Michael Faraday,Aylesbury,Michael Faraday,Undirected
-Michael Faraday,Benjamin Abbott,Michael Faraday,Undirected
-Michael Faraday,Matthew Arnold,Michael Faraday,Undirected
-Michael Faraday,Awards,Michael Faraday,Undirected
-Michael Faraday,James Clerk Maxwell,Michael Faraday,Undirected
-Michael Faraday,John Templeton,Michael Faraday,Undirected
-Michael Faraday,Thomas Graham,Michael Faraday,Undirected
-Michael Faraday,Davy,Michael Faraday,Undirected
-Michael Faraday,Voltaic Electricity,Michael Faraday,Undirected
-Michael Faraday,Physicist,Michael Faraday,Undirected
-Michael Faraday,William,Michael Faraday,Undirected
-Michael Faraday,County Durham,Michael Faraday,Undirected
-Michael Faraday,Andrew Huxley,Michael Faraday,Undirected
-Michael Faraday,Oxford,Michael Faraday,Undirected
-Michael Faraday,Civil Law,Michael Faraday,Undirected
-Michael Faraday,Maxwell,Michael Faraday,Undirected
-Michael Faraday,John Dalton,Michael Faraday,Undirected
-Michael Faraday,Pieter,Michael Faraday,Undirected
-Michael Faraday,Rodney Gordon,Michael Faraday,Undirected
-Michael Faraday,Fox,Michael Faraday,Undirected
-Michael Faraday,Paul,Michael Faraday,Undirected
-Michael Faraday,Jane Marcet,Michael Faraday,Undirected
-Michael Faraday,C2Cl4,Michael Faraday,Undirected
-Michael Faraday,Humphry Davy,Michael Faraday,Undirected
-Michael Faraday,Christian,Michael Faraday,Undirected
-Michael Faraday,John Tatum,Michael Faraday,Undirected
+7
+Quebec City
+Matthew Arnold
+Isaac Watts
+William Dance
+Zeeman
+Albert
+Chance
+James
+Fife
+Deep River
+Shakespeare
+C2Cl4
+John
+Aylesbury
+James Clerk Maxwell
+Sarah Barnard
+John Tatum
+Joseph Loschmidt
+Jack
+Fox
+Hermsdorf
+C2Cl6
+John Dalton
+Awards
+Physicist
+Isaac Newton
+County Durham
+Swansea
+Chemical Assistant
+Arthur Schopenhauer
+Clerk Maxwell
+Jane Marcet
+Adult
+Thomas Graham
+William
+Andrew Huxley
+Buoy Store
+Rodney Gordon
+Pieter
+Oxford
+Margaret Thatcher
+Davy
+George Riebau
+John Payne
+Humphry Davy
+Chemistry
+Cosmos
+Maxwell
+William Hyde Wollaston
+Paul
+Education
+Charles Lyell
+Crawley
+Civil Law
+John Templeton
+Royal Institution
+Michael
+Sir Humphry Davy
+Christian
+Ernest Rutherford
+Benjamin Abbott
+Voltaic Electricity
+Stevenage
+Fuller
+Fullerian Professor
+Hawke
+Barnsbury Grove
+Einstein

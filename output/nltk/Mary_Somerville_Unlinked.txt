@@ -1,113 +1,113 @@
-Source,Target,weight,Type 
-Mary Somerville,Engine,Mary Somerville,Undirected
-Mary Somerville,Geography,Mary Somerville,Undirected
-Mary Somerville,Newton,Mary Somerville,Undirected
-Mary Somerville,Babbage,Mary Somerville,Undirected
-Mary Somerville,William George Fairfax,Mary Somerville,Undirected
-Mary Somerville,Maria Mitchell,Mary Somerville,Undirected
-Mary Somerville,Isaac Newton,Mary Somerville,Undirected
-Mary Somerville,Janet,Mary Somerville,Undirected
-Mary Somerville,Sylvestre François Lacroix,Mary Somerville,Undirected
-Mary Somerville,Anne Isabella Milbanke,Mary Somerville,Undirected
-Mary Somerville,Lagrange,Mary Somerville,Undirected
-Mary Somerville,William Somerville,Mary Somerville,Undirected
-Mary Somerville,Woronzow,Mary Somerville,Undirected
-Mary Somerville,William Wallace,Mary Somerville,Undirected
-Mary Somerville,Calculus Treatise,Mary Somerville,Undirected
-Mary Somerville,Physical Geography,Mary Somerville,Undirected
-Mary Somerville,Marines,Mary Somerville,Undirected
-Mary Somerville,Murray,Mary Somerville,Undirected
-Mary Somerville,Chelsea Hospital,Mary Somerville,Undirected
-Mary Somerville,John Herschel,Mary Somerville,Undirected
-Mary Somerville,Nunavut,Mary Somerville,Undirected
-Mary Somerville,Lady Burchan,Mary Somerville,Undirected
-Mary Somerville,Baroness Wentworth,Mary Somerville,Undirected
-Mary Somerville,Principia,Mary Somerville,Undirected
-Mary Somerville,Humboldt,Mary Somerville,Undirected
-Mary Somerville,Astronomy,Mary Somerville,Undirected
-Mary Somerville,Sir James Mackintosh,Mary Somerville,Undirected
-Mary Somerville,Crown,Mary Somerville,Undirected
-Mary Somerville,Langrenus,Mary Somerville,Undirected
-Mary Somerville,Physical,Mary Somerville,Undirected
-Mary Somerville,Latin,Mary Somerville,Undirected
-Mary Somerville,Lord Brougham,Mary Somerville,Undirected
-Mary Somerville,Margaret Farquhar Somerville,Mary Somerville,Undirected
-Mary Somerville,Lovelace,Mary Somerville,Undirected
-Mary Somerville,Nasmyth,Mary Somerville,Undirected
-Mary Somerville,Mécanique Céleste,Mary Somerville,Undirected
-Mary Somerville,Ada,Mary Somerville,Undirected
-Mary Somerville,Fairfax,Mary Somerville,Undirected
-Mary Somerville,Charles Babbage,Mary Somerville,Undirected
-Mary Somerville,Uranus,Mary Somerville,Undirected
-Mary Somerville,Fife,Mary Somerville,Undirected
-Mary Somerville,Earth,Mary Somerville,Undirected
-Mary Somerville,Lord Balmuto,Mary Somerville,Undirected
-Mary Somerville,Francœur,Mary Somerville,Undirected
-Mary Somerville,John Murray,Mary Somerville,Undirected
-Mary Somerville,Charles Lyell,Mary Somerville,Undirected
-Mary Somerville,Euclid,Mary Somerville,Undirected
-Mary Somerville,Count Semyon Vorontsov,Mary Somerville,Undirected
-Mary Somerville,Potter,Mary Somerville,Undirected
-Mary Somerville,Alexis Clairaut,Mary Somerville,Undirected
-Mary Somerville,James Ferguson,Mary Somerville,Undirected
-Mary Somerville,Samuel Charters,Mary Somerville,Undirected
-Mary Somerville,Mary Charlotte Somerville,Mary Somerville,Undirected
-Mary Somerville,John Stuart Mill,Mary Somerville,Undirected
-Mary Somerville,Scott,Mary Somerville,Undirected
-Mary Somerville,Samuel Greig,Mary Somerville,Undirected
-Mary Somerville,Craw,Mary Somerville,Undirected
-Mary Somerville,Sir William Edward Parry,Mary Somerville,Undirected
-Mary Somerville,College,Mary Somerville,Undirected
-Mary Somerville,Siméon Denis Poisson,Mary Somerville,Undirected
-Mary Somerville,John Bonnycastle,Mary Somerville,Undirected
-Mary Somerville,Henry Brougham,Mary Somerville,Undirected
-Mary Somerville,John Playfair,Mary Somerville,Undirected
-Mary Somerville,Sam,Mary Somerville,Undirected
-Mary Somerville,Microscopic Science,Mary Somerville,Undirected
-Mary Somerville,Xenophon,Mary Somerville,Undirected
-Mary Somerville,Laplace,Mary Somerville,Undirected
-Mary Somerville,Mary Somerville,Mary Somerville,Undirected
-Mary Somerville,Google,Mary Somerville,Undirected
-Mary Somerville,Woronzow Greig,Mary Somerville,Undirected
-Mary Somerville,James Clerk Maxwell,Mary Somerville,Undirected
-Mary Somerville,Thomas Bruce,Mary Somerville,Undirected
-Mary Somerville,Club,Mary Somerville,Undirected
-Mary Somerville,Alexander Nasmyth,Mary Somerville,Undirected
-Mary Somerville,Herodotus,Mary Somerville,Undirected
-Mary Somerville,William Charters,Mary Somerville,Undirected
-Mary Somerville,Hanover Square,Mary Somerville,Undirected
-Mary Somerville,Mechanism Joanna Baillie,Mary Somerville,Undirected
-Mary Somerville,Letitia Elizabeth Landon,Mary Somerville,Undirected
-Mary Somerville,Thomas Somerville,Mary Somerville,Undirected
-Mary Somerville,Molecular,Mary Somerville,Undirected
-Mary Somerville,Margaret Charters,Mary Somerville,Undirected
-Mary Somerville,George Peacock,Mary Somerville,Undirected
-Mary Somerville,John,Mary Somerville,Undirected
-Mary Somerville,Thomas Telford,Mary Somerville,Undirected
-Mary Somerville,Useful Knowledge,Mary Somerville,Undirected
-Mary Somerville,Agnes Graham,Mary Somerville,Undirected
-Mary Somerville,Somerville,Mary Somerville,Undirected
-Mary Somerville,Mechanism,Mary Somerville,Undirected
-Mary Somerville,Sir,Mary Somerville,Undirected
-Mary Somerville,Algebra,Mary Somerville,Undirected
-Mary Somerville,Gaspard Monge,Mary Somerville,Undirected
-Mary Somerville,David Brewster,Mary Somerville,Undirected
-Mary Somerville,Legacy,Mary Somerville,Undirected
-Mary Somerville,Shakespeare,Mary Somerville,Undirected
-Mary Somerville,François Callet,Mary Somerville,Undirected
-Mary Somerville,Naturelle,Mary Somerville,Undirected
-Mary Somerville,Charles Darwin,Mary Somerville,Undirected
-Mary Somerville,Baron Humboldt,Mary Somerville,Undirected
-Mary Somerville,Caroline Herschel,Mary Somerville,Undirected
-Mary Somerville,Elizabeth Oswald,Mary Somerville,Undirected
-Mary Somerville,Henry,Mary Somerville,Undirected
-Mary Somerville,Martha Charters Somerville,Mary Somerville,Undirected
-Mary Somerville,Mary,Mary Somerville,Undirected
-Mary Somerville,Ada Lovelace,Mary Somerville,Undirected
-Mary Somerville,Somerville House,Mary Somerville,Undirected
-Mary Somerville,Maria Edgeworth,Mary Somerville,Undirected
-Mary Somerville,Virgil,Mary Somerville,Undirected
-Mary Somerville,Walter Scott,Mary Somerville,Undirected
-Mary Somerville,Biot,Mary Somerville,Undirected
-Mary Somerville,Strange,Mary Somerville,Undirected
-Mary Somerville,Leonhard Euler,Mary Somerville,Undirected
+25
+Naturelle
+Thomas Somerville
+Somerville
+Club
+Walter Scott
+Shakespeare
+Anne Isabella Milbanke
+John
+Henry
+James Clerk Maxwell
+John Murray
+Janet
+Thomas Bruce
+Elizabeth Oswald
+Mary
+Sam
+Lagrange
+Crown
+Thomas Telford
+Biot
+William George Fairfax
+Physical Geography
+Virgil
+Herodotus
+Francœur
+Alexander Nasmyth
+Molecular
+John Bonnycastle
+Algebra
+Baroness Wentworth
+François Callet
+Henry Brougham
+Fife
+Marines
+William Somerville
+Physical
+Samuel Charters
+Count Semyon Vorontsov
+Newton
+John Herschel
+Somerville House
+Latin
+Legacy
+Google
+Fairfax
+Margaret Charters
+Maria Mitchell
+Lord Balmuto
+Sir James Mackintosh
+Potter
+Woronzow Greig
+Siméon Denis Poisson
+Gaspard Monge
+Ada
+Hanover Square
+Leonhard Euler
+Sir William Edward Parry
+Scott
+Samuel Greig
+Lady Burchan
+Engine
+Letitia Elizabeth Landon
+Lovelace
+Xenophon
+Principia
+Martha Charters Somerville
+John Playfair
+Sir
+Lord Brougham
+Isaac Newton
+Ada Lovelace
+Murray
+Craw
+Mary Somerville
+Microscopic Science
+Humboldt
+Nunavut
+Mary Charlotte Somerville
+Nasmyth
+Baron Humboldt
+William Charters
+Woronzow
+College
+Euclid
+Charles Lyell
+Mechanism Joanna Baillie
+Calculus Treatise
+Uranus
+Charles Darwin
+David Brewster
+Sylvestre François Lacroix
+Laplace
+Useful Knowledge
+George Peacock
+Mechanism
+Babbage
+Geography
+Maria Edgeworth
+Caroline Herschel
+Langrenus
+Astronomy
+Agnes Graham
+Alexis Clairaut
+John Stuart Mill
+James Ferguson
+Margaret Farquhar Somerville
+Earth
+Strange
+Charles Babbage
+William Wallace
+Chelsea Hospital
+Mécanique Céleste

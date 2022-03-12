@@ -17,9 +17,9 @@ George Riebau
 
 those who were picked up additionally by wikidata
 
-William Thomas Brande
-John Frederic Daniell
 26129
+John Frederic Daniell
+William Thomas Brande
 
 
 precision

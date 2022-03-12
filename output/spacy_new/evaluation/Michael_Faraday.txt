@@ -1,3 +1,4 @@
+./output/spacy_new/Michael_Faraday_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -5,65 +6,51 @@
 
 Those not identified by method : 
 
-W.F. Clay
-Aldous Huzley
-John Henry Foley
-Griffin
-Hans Christian Ørsted
-Robert Gordon
-Bohn
-Windus
-F.A.J.L. James
-John Daniell
-Chatto
-John 'Mad Jack' Fuller
-Harriet Jane Moore
 Prince Consort
+John Daniell
+John 'Mad Jack' Fuller
+Hans Christian Ørsted
+Harriet Jane Moore
+Aldous Huzley
+Robert Gordon
+Rodney Gordon
+John Henry Foley
 
 Percentage identified from the proper data set (positive matches): 
-76.27
+79.07
 
 Those identified by method that have not provided a match with the manual data :
 
-Chain
-Faraday Medal
-Artisan Essay Circle
-Deep River
-Bunsen
-Edinburgh: W.F. Clay
-Huxley
-Abbott
-Hampton Court Road
-Michael Faraday Primary
-John 'Mad
-Coincidentally
-Michael Faraday's Mental Exercises
-Outhgill
-Glasite
-Sandemanian
-Faraday Gardens
-John Templeton
-Michael Faraday Memorial
-Inc. ISBN
-Virginia
-Barnsbury Grove
 Chance
+Faraday Gardens
+Glasite
+Hampton Court Road
+Huxley
+Chain
+Deep River
 Shakespeare
-Buoy Store
-Francis.
 Faraday House
-Chemical Assistant
+Sandemanian
 County Durham
+Michael Faraday Primary
+Bunsen
+Virginia
+Abbott
+Barnsbury Grove
+Chemical Assistant
+Faraday Medal
+Michael Faraday
+Coincidentally
 ” Calling Faraday
-Schoenbein
+Buoy Store
 Christmas
+John 'Mad
+John Templeton
+Outhgill
 
 precision
-0.5844155844155844
+0.5666666666666667
 
 recall
-0.7627118644067796
-
-the f1 score
-0.6617647058823529
+0.7906976744186046
 
