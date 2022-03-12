@@ -6,46 +6,46 @@
 
 Those not identified by method : 
 
+John Fiot Lee Pearse Maclear
+Constance Anne Herschel
+Henry W Field
+Daguerre
 Homer
 Robert FitzRoy
-Alfred Edward Chalon
-Constance Anne Herschel
-Julia Margaret Cameron
-John Fiot Lee Pearse Maclear
 Queen Victoria
 Duke of Sussex
+Alfred Edward Chalon
+Julia Margaret Cameron
 Charles Lyell
-Daguerre
-Henry W Field
 
 Percentage identified from the proper data set (positive matches): 
 78.43
 
 Those identified by method that have not provided a match with the manual data :
 
-Herschel Island
-Dione  Rhea
+Uranus: Ariel
+Field Houses
+Mount Herschel Antarctica
+Charles Lyell's Principles of Geology
+Uranus
 Saskatchewan Canada
 Iapetus
-John Fiot Lee
-Field Houses
-Oberon
-Uranus: Ariel
-Patriarchs
-Flora Herscheliana
-Comet Halley
-S.S. Mountstuart Elphinstone
-Charles Lyell's Principles of Geology
-Henry W
-Senior Wrangler
-Darwin
-Herschel
 Copley Medal
-J. Herschel
-Transactions
-Uranus
+S.S. Mountstuart Elphinstone
+John Fiot Lee
+Darwin
 John.   
-Mount Herschel Antarctica
+Henry W
+Patriarchs
+Dione  Rhea
+Herschel Island
+Flora Herscheliana
+Senior Wrangler
+Oberon
+J. Herschel
+John Herschel
+Transactions
+Comet Halley
 
 precision
 0.6349206349206349

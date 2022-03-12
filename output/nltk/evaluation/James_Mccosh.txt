@@ -6,12 +6,12 @@
 
 Those not identified by method : 
 
-James McCosh
-A. J. McCosh
+Kant
 Emmett Louis Till
 John McCosh
-Kant
 Francis Landey Patton
+James McCosh
+A. J. McCosh
 
 Percentage identified from the proper data set (positive matches): 
 60.00
@@ -20,9 +20,9 @@ Those identified by method that have not provided a match with the manual data :
 
 Queen
 Edinburgh
-James
-Darwinism
 God
+James
+Darwin
 
 precision
 0.6428571428571429

@@ -6,71 +6,71 @@
 
 Those not identified by method : 
 
-Admiral Duncan
-J.M.W. Turner
+Earl of Minto
 E Bowell
 Louis-Benjamin Francoeur
-Jean-Baptiste Biot
-Pierre-Simon Laplace
 John Robertson
-Earl of Minto
-Joseph-Louis Lagrange
 Alexander Keith Johnston
-Thomas Phillips
 Joanna Baillie
+Thomas Phillips
+Pierre-Simon Laplace
+Admiral Duncan
+J.M.W. Turner
+Jean-Baptiste Biot
+Joseph-Louis Lagrange
 
 Percentage identified from the proper data set (positive matches): 
 84.81
 
 Those identified by method that have not provided a match with the manual data :
 
-Naturelle
 
-Club
-Useful Knowledge
-Mechanism
-Scott
-Fife
-Marines
-Engine
-Geography
-John
-Physical
-Principia
-Langrenus
-Astronomy
-Ada Lovelace
-Newton
-Murray
-Mary Somerville
-Lagrange
-Somerville House
-Microscopic Science
-Latin
-Crown
-Legacy
-Nunavut
-Google
-Biot
-Fairfax
 Nasmyth
-Physical Geography
- Brougham
+Latin
+Biot
 Potter
-Earth
-Woronzow
-Strange
-College
-Francœur
-Mechanism Joanna Baillie
-Ada
-Calculus Treatise
-Molecular
-Algebra
+Somerville House
 Uranus
-Hanover Square
-Chelsea Hospital
+Nunavut
+Mechanism Joanna Baillie
+Francœur
+Molecular
+Microscopic Science
 Mécanique Céleste
+Engine
+College
+Google
+Strange
+Principia
+ Brougham
+Club
+Murray
+Earth
+Legacy
+Algebra
+Geography
+Physical
+Langrenus
+Newton
+Lagrange
+Chelsea Hospital
+Astronomy
+Naturelle
+Crown
+John
+Woronzow
+Mechanism
+Marines
+Ada Lovelace
+Ada
+Useful Knowledge
+Fife
+Scott
+Physical Geography
+Fairfax
+Mary Somerville
+Hanover Square
+Calculus Treatise
 
 precision
 0.5877192982456141

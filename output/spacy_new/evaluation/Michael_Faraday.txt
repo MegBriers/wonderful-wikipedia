@@ -6,47 +6,47 @@
 
 Those not identified by method : 
 
-Prince Consort
-John Daniell
-John 'Mad Jack' Fuller
-Hans Christian Ørsted
 Harriet Jane Moore
 Aldous Huzley
-Robert Gordon
+John 'Mad Jack' Fuller
+Prince Consort
 Rodney Gordon
+Hans Christian Ørsted
 John Henry Foley
+Robert Gordon
+John Daniell
 
 Percentage identified from the proper data set (positive matches): 
 79.07
 
 Those identified by method that have not provided a match with the manual data :
 
-Chance
-Faraday Gardens
-Glasite
-Hampton Court Road
-Huxley
-Chain
-Deep River
-Shakespeare
-Faraday House
-Sandemanian
-County Durham
-Michael Faraday Primary
-Bunsen
-Virginia
 Abbott
-Barnsbury Grove
-Chemical Assistant
+Faraday Gardens
+Chance
+Sandemanian
+Outhgill
+Bunsen
+Huxley
+Christmas
+Faraday House
+Hampton Court Road
+Michael Faraday Primary
+Chain
+Shakespeare
+County Durham
 Faraday Medal
+John 'Mad
+Virginia
+Barnsbury Grove
+” Calling Faraday
+Glasite
+Chemical Assistant
 Michael Faraday
 Coincidentally
-” Calling Faraday
-Buoy Store
-Christmas
-John 'Mad
+Deep River
 John Templeton
-Outhgill
+Buoy Store
 
 precision
 0.5666666666666667

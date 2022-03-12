@@ -1,39 +1,37 @@
-./output/spacy/Sir_William_Hamilton,_9th_Baronet_Unlinked.txt
+./output/spacy_new/Sir_William_Hamilton,_9th_Baronet_Unlinked.txt
 
 
-＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
 
 
 Those not identified by method : 
 
-HL Mansel
+Wilhelm Esser
 William Brodie
  Robert Hamilton of Preston
+Veitch
 Aristotle
 Target
 
 Percentage identified from the proper data set (positive matches): 
-86.49
+83.78
 
 Those identified by method that have not provided a match with the manual data :
 
-Regius  of Anatomy
-Discussions
-Baronet FRSE
+Additional Notes
+Deeply
+Regius
 Janet
-Philosophy
-Snell Exhibitioner
-Blackwood
 Hamilton
-God
+Considerably
 Robert Hamilton
 Esser
 Thomas Hamilton
 William Stirling Hamilton
 
 precision
-0.7111111111111111
+0.7560975609756098
 
 recall
-0.8648648648648649
+0.8378378378378378
 

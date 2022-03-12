@@ -11,15 +11,15 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
+John Fiot Lee Pearse Maclear
 James South
 Robert FitzRoy
-John Fiot Lee Pearse Maclear
 
 
 those who were picked up additionally by wikidata
 
-John Maclear
 15142
+John Maclear
 Charles Lyell
 
 

@@ -6,43 +6,44 @@
 
 Those not identified by method : 
 
-Homer
+Maria Sophia Herschel
 Francisca Herschel
-Caroline Emilia Mary Herschel
-Matilda Rose Herschel
 Julia Herschel
-Alfred Edward Chalon
+Alexander Hamilton-Gordon
 Constance Anne Herschel
+Henry W Field
+Homer
+Matilda Rose Herschel
+Queen Victoria
+Caroline Emilia Mary Herschel
+Duke of Sussex
+Alfred Edward Chalon
 Isabella Herschel
 Julia Margaret Cameron
-Alexander Hamilton-Gordon
-Queen Victoria
-Duke of Sussex
-Maria Sophia Herschel
-Henry W Field
 
 Percentage identified from the proper data set (positive matches): 
 72.55
 
 Those identified by method that have not provided a match with the manual data :
 
-Julian
-Creation
-Herschel Island
 Alexander Hamilton-Gordon Isabella Herschel
-Senior Wrangler
-Herschel
-Darwin
-Herschel Girls' School
-Copley Medal
 J. Herschel
+John Herschel
+Herschel Girls' School
+Creation
+Copley Medal
 Transactions
 Henry W Field of London
-FRAS Col
+Darwin
 Flora Herscheliana
+Julian
+Herschel Island
+Mary Herschel
+FRAS Col
+Senior Wrangler
 
 precision
-0.7254901960784313
+0.7115384615384616
 
 recall
 0.7254901960784313

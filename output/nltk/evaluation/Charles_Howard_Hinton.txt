@@ -6,34 +6,34 @@
 
 Those not identified by method : 
 
-Eric
-Carlos Atanes
-George
+Jorge Luis Borge
+Parmenides
 Sebastian
 P. D. Ouspensky
-Alan Moore
-Jorge Luis Borge
+Eric
+George
+Carlos Atanes
 H. P. Lovecraft
-Parmenides
+Alan Moore
 
 Percentage identified from the proper data set (positive matches): 
 77.50
 
 Those identified by method that have not provided a match with the manual data :
 
-Swan Sonnenschein
 Alicia
-Atanes
-Tertium Organum
-Patent Office
 Uqbar
-Orbis Tertius
-Lovecraft
 Unæa
 Higher Space
-Naval
-Christ
+Patent Office
+Tertium Organum
 Charles Howard Hinton
+Naval
+Swan Sonnenschein
+Atanes
+Orbis Tertius
+Lovecraft
+Christ
 
 precision
 0.7045454545454546

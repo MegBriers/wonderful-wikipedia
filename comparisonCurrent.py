@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 import Levenshtein
 import sys
 import helper
+import csv
+import os
 
 
 def setup(name):
@@ -330,7 +332,7 @@ def method_evaluation(method, person, complete):
     return f1, precision, recall
 
 
-def evaluate_statistics(performances):
+def evaluate_statistics():
     """
     [DESCRIPTION OF METHOD HERE]
 
@@ -348,36 +350,44 @@ def evaluate_statistics(performances):
     methods = {'spacy':0, 'nltk':1, 'spacy_new':2, 'wikidata':3}
     small_methods=['spacy','nltk','spacy_new']
 
+    # NEED TO READ IN FILE HERE
+
     f1_spacy = []
-    precision_spacy = []
-    recall_spacy = []
-
     f1_nltk = []
-    precision_nltk = []
-    recall_nltk = []
-
     f1_spacy_new = []
+
+    precision_spacy = []
+    precision_nltk = []
     precision_spacy_new = []
+
+    recall_spacy = []
+    recall_nltk = []
     recall_spacy_new = []
 
-    for key in performances.keys():
-        performance = performances[key]
-        print("")
-        print(performance)
-        print("")
-        f1_spacy.append(float(performance[0]))
-        precision_spacy.append(float(performance[1]))
-        recall_spacy.append(float(performance[2]))
-        f1_nltk.append(float(performance[3]))
-        precision_nltk.append(float(performance[4]))
-        recall_nltk.append(float(performance[5]))
-        f1_spacy_new.append(float(performance[6]))
-        precision_spacy_new.append(float(performance[7]))
-        recall_spacy_new.append(float(performance[8]))
+    people = []
+
+    with open('./analysis/evaluation.csv', 'r') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            people.append(row["name"])
+
+            f1_spacy.append(float(row["f1 spacy"]))
+            f1_nltk.append(float(row["f1 nltk"]))
+            f1_spacy_new.append(float(row["f1 spacy new"]))
+
+            precision_spacy.append(float(row["precision spacy"]))
+            precision_nltk.append(float(row["precision nltk"]))
+            precision_spacy_new.append(float(row["precision spacy new"]))
+
+            recall_spacy.append(float(row["recall spacy"]))
+            recall_nltk.append(float(row["recall nltk"]))
+            recall_spacy_new.append(float(row["recall spacy new"]))
 
     f1s = [sum(f1_spacy)/len(f1_spacy), sum(f1_nltk)/len(f1_nltk), sum(f1_spacy_new)/len(f1_spacy_new)]
     precisions = [sum(precision_spacy)/len(f1_spacy), sum(precision_nltk)/len(f1_nltk), sum(precision_spacy_new)/len(f1_spacy_new)]
     recalls = [sum(recall_spacy)/len(f1_spacy), sum(recall_nltk)/len(f1_nltk), sum(recall_spacy_new)/len(f1_spacy_new)]
+
+    print(f1s)
 
     df = pd.DataFrame({'f1': f1s, 'precision': precisions, 'recall': recalls}, index=small_methods)
 
@@ -387,14 +397,41 @@ def evaluate_statistics(performances):
     ax = plt.subplot(111)
 
     df.plot.bar(rot=0, color=my_colors, ax=ax)
-    plt.xlabel('proportion')
-    plt.ylabel('method for NER')
+    plt.xlabel('method for NER')
+    plt.ylabel('idek')
 
     plt.savefig('./analysis/nlp_evaluation.png')
     plt.show()
 
     sys.stdout.close()
     sys.stdout = stdoutOrigin
+
+def setup():
+    people = helper.get_test_data()
+
+    performances = {}
+    with open('./analysis/evaluation.csv', 'w') as f:
+        f.write(
+            'name,f1 spacy,precision spacy,recall spacy,f1 nltk,precision nltk,recall nltk,f1 spacy new,precision spacy new,recall spacy new,f1 wikidata,precision wikidata,recall wikidata')
+        f.write('\n')
+        for peep in people:
+            complete, linked, unlinked, rel_linked = setup(peep)
+            values = multiple_evaluation(peep, complete)
+            f1_w, precision_w, recall_w = wikidata_evaluation(peep, rel_linked, linked)
+            values.append(f1_w)
+            values.append(precision_w)
+            values.append(recall_w)
+            performances[peep] = values
+
+            first_name = peep
+            if "," in peep:
+                split = peep.split(",", 1)
+                first_name = split[0]
+
+            f.write(first_name + "," + str(values[0]) + "," + str(values[1]) + "," + str(values[2]) + "," + str(
+                values[3]) + "," + str(values[4]) + "," + str(values[5]) + "," + str(values[6]) + "," + str(
+                values[7]) + "," + str(values[8]) + "," + str(f1_w) + "," + str(precision_w) + "," + str(recall_w))
+            f.write('\n')
 
 
 def evaluate(method):
@@ -409,26 +446,8 @@ def evaluate(method):
     -------
     None.
     """
-
-    people = helper.get_test_data()
-
     if method == "all":
-        performances = {}
-        for peep in people:
-            complete, linked, unlinked, rel_linked = setup(peep)
-            values = multiple_evaluation(peep, complete)
-            f1_w, precision_w, recall_w = wikidata_evaluation(peep, rel_linked, linked)
-            values.append(f1_w)
-            values.append(precision_w)
-            values.append(recall_w)
-            performances[peep] = values
-        evaluate_statistics(performances)
-    else:
-        performances = []
-        for peep in people:
-            complete, linked, unlinked, rel_linked = setup(peep)
-            if method != "wikidata":
-                f1, prec, recall = method_evaluation(method, peep, complete)
-            else:
-                f1, prec, recall = wikidata_evaluation(peep, rel_linked, linked)
-            performances.append(f1)
+        print(os.path.isfile('./analysis/evaluation.csv'))
+        if not(os.path.isfile('./analysis/evaluation.csv')):
+            setup()
+        evaluate_statistics()

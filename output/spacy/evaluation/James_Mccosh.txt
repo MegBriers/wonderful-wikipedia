@@ -6,20 +6,20 @@
 
 Those not identified by method : 
 
-A. J. McCosh
 Emmett Louis Till
 John McCosh
 Francis Landey Patton
+A. J. McCosh
 
 Percentage identified from the proper data set (positive matches): 
 73.33
 
 Those identified by method that have not provided a match with the manual data :
 
-Covenanting
 Darwinian
+Darwin
 Presbyterian Seminary
-Darwinism
+Covenanting
 
 precision
 0.7333333333333333

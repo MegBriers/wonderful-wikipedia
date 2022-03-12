@@ -6,71 +6,71 @@
 
 Those not identified by method : 
 
-Prince Consort
-John Daniell
-John 'Mad Jack' Fuller
-Hans Christian Ørsted
-Julian Huxley
 Harriet Jane Moore
-Albert Einstein
-James Faraday
-Michael Faraday
-Aldous Huzley
-Robert Gordon
 Wollaston
-Pieter Zeeman
-William Whewell
-John Henry Foley
-Faraday
 T. H. Huxley
+Aldous Huzley
+Pieter Zeeman
+John 'Mad Jack' Fuller
+Faraday
+James Faraday
+Prince Consort
+Julian Huxley
+Hans Christian Ørsted
+John Henry Foley
+Albert Einstein
+Robert Gordon
+John Daniell
+Michael Faraday
+William Whewell
 
 Percentage identified from the proper data set (positive matches): 
 60.47
 
 Those identified by method that have not provided a match with the manual data :
 
-Albert
-Chance
-Fife
-Deep River
-Shakespeare
-C2Cl4
 Fullerian 
-Fuller
-John
-Aylesbury
-Jack
-Fox
-Hermsdorf
-C2Cl6
-Awards
-Physicist
-County Durham
-Swansea
-Barnsbury Grove
-Chemical Assistant
-Einstein
-Clerk Maxwell
- Humphry Davy
-Adult
-William
-Buoy Store
-Pieter
-Oxford
-Cosmos
-Chemistry
-Paul
-Crawley
-Civil Law
-Royal Institution
 Michael
-Christian
-Voltaic Electricity
-Stevenage
-John Templeton
-Hawke
+ Humphry Davy
+Chance
+Pieter
 Quebec City
 Education
+Hermsdorf
+Physicist
+Hawke
+Einstein
+Fox
+Fuller
+C2Cl6
+Paul
+Cosmos
+Aylesbury
+Swansea
+Christian
+Stevenage
+Shakespeare
+Chemistry
+County Durham
+Oxford
+Jack
+John
+Barnsbury Grove
+Voltaic Electricity
+Albert
+Crawley
+Awards
+Chemical Assistant
+Clerk Maxwell
+C2Cl4
+Royal Institution
+Deep River
+Fife
+Adult
+John Templeton
+Civil Law
+Buoy Store
+William
 
 precision
 0.38235294117647056

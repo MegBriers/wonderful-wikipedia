@@ -6,62 +6,62 @@
 
 Those not identified by method : 
 
-Homer
-Caroline Emilia Mary Herschel
-Matilda Rose Herschel
-John Frederick William Herschel
-Alfred Edward Chalon
-Constance Anne Herschel
-Lagrange
-Isabella Herschel
-Euler
-Julia Margaret Cameron
-Alexander Hamilton-Gordon
 John Fiot Lee Pearse Maclear
-Duke of Sussex
+Euler
+Alexander Hamilton-Gordon
+Constance Anne Herschel
 Daguerre
-Brahmagupta
+Homer
 Amelia Herschel
+John Frederick William Herschel
+Matilda Rose Herschel
+Lagrange
+Brahmagupta
+Caroline Emilia Mary Herschel
+Duke of Sussex
+Alfred Edward Chalon
+Isabella Herschel
+Julia Margaret Cameron
 
 Percentage identified from the proper data set (positive matches): 
 68.63
 
 Those identified by method that have not provided a match with the manual data :
 
-
-Herschel Island
 Alexander Hamilton-Gordon Isabella Herschel
-Enceladus
-Iapetus
-Africa
-Double Stars
-Field Houses
+
 Mimas
-Oberon
+Field Houses
+Mount Herschel Antarctica
+Uranus
+Enceladus
+School
+Table Mountain
+Cambridge
+Iapetus
+Umbriel
+Copley Medal
+William Herschel
+Cape Town
 Results
+Ariel
+John Fiot Lee Pearse Maclear Matilda Rose Herschel
+Darwin
 Family
 Rhea
-Flora Herscheliana
-Death
-John Fiot Lee Pearse Maclear Matilda Rose Herschel
-School
-John Frederick
-Cambridge
-Ariel
-Table Mountain
-Umbriel
-William Herschel
-Darwin
-Herschel
-Caroline Emilia
-Light
-John Herschel FRS
-Copley Medal
-Uranus
-Cape Town
-Mount Herschel Antarctica
-Dione
 Anne Herschel
+Herschel Island
+Flora Herscheliana
+John Frederick
+Africa
+Light
+Oberon
+John Herschel
+Caroline Emilia
+John Herschel FRS
+Double Stars
+Death
+Dione
 
 precision
 0.5072463768115942
