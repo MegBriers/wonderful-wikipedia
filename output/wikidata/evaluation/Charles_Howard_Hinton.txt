@@ -11,23 +11,22 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
-Edwin Abbott Abott
-Claude Bragdon
 Ada Netlleship
-Francis Bradley
-Charles Leadbeater
+Claude Bragdon
 Madeleine L'Engle
+Edwin Abbott Abott
+Charles Leadbeater
+Francis Bradley
 
 
 those who were picked up additionally by wikidata
 
-Francis Herbert Bradley
-8724
 Claude Fayette Bragdon
+Francis Herbert Bradley
 
 
 precision
-0.8125
+0.8666666666666667
 
 recall
 0.6842105263157895

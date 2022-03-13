@@ -6,48 +6,48 @@
 
 Those not identified by method : 
 
-Louisa Tyndall
-de Saussure
-Eunice Newton Foote
-H. S. King
-Mihajlo Idvorski Pupin
 Poggendoff
+de Saussure
+Louisa Tyndall
+Mihajlo Idvorski Pupin
+H. S. King
+Eunice Newton Foote
 
 Percentage identified from the proper data set (positive matches): 
 86.67
 
 Those identified by method that have not provided a match with the manual data :
 
+Natural Philosophy
 Catholic
-Easy Lessons
-Fields
-Longman
-H. S.
+Alps
+e.g.
+J.
+Gloucestershire
+Boston Tyndall
+Ballinabranna Primary School
+Light
 Molecular
 Tyndalldenkmal
-Ticknor
-Bunsen
-J.
-Huxley
-John.
-"Tyndall
-Alps
-Gloucestershire
-e.g.
-Faraday
-Considered
-Rendu
-Louisa
-Prof. John Tyndall
-Invisible
-Light
-Catholicism
-Ballinabranna Primary School
 Subjects
-Natural Philosophy
+Huxley
+H. S.
+Considered
+Invisible
+Rendu
+John.
+Faraday
+Longman
+Ticknor
+Catholicism
 Magnus
-Boston Tyndall
+John Tyndall
+"Tyndall
+Easy Lessons
+Bunsen
 Absorption
+Louisa
+Fields
 
 precision
 0.5652173913043478

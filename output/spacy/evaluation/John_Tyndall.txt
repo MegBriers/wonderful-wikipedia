@@ -6,43 +6,43 @@
 
 Those not identified by method : 
 
-Pope Pius IX
-Desains
+Poggendoff
  Claud Hamilton
 Mihajlo Idvorski Pupin
-Poggendoff
+Pope Pius IX
+Desains
 
 Percentage identified from the proper data set (positive matches): 
 88.89
 
 Those identified by method that have not provided a match with the manual data :
 
-Longman
-Colladon
-Tyndall Scattering
-May
-Bunsen
-Regelation
-Huxley
+He'd
+Pius IX
+Boston Tyndall  J.
+Co.
 Researches
 Frankland
-Tyndall Glacier
 Ballinabranna Primary
-London Tyndall  J.
-Faraday
-Boston Tyndall  J.
-He'd
-Pasteur
-Pius IX
-Louisa.
 Sound
-Co.
-Catholicism
 Subjects
-Magnus
-Desains  Forbes
-Roman Catholicism
+Tyndall Glacier
+Huxley
 Green
+Pasteur
+London Tyndall  J.
+May
+Roman Catholicism
+Faraday
+Longman
+Desains  Forbes
+Colladon
+Magnus
+Catholicism
+Tyndall Scattering
+Louisa.
+Bunsen
+Regelation
 
 precision
 0.6060606060606061

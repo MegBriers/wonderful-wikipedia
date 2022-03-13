@@ -6,65 +6,64 @@
 
 Those not identified by method : 
 
+Matilda Rose Herschel
 John Fiot Lee Pearse Maclear
-Euler
-Alexander Hamilton-Gordon
+Isabella Herschel
+Homer
 Constance Anne Herschel
 Daguerre
-Homer
-Amelia Herschel
-John Frederick William Herschel
-Matilda Rose Herschel
+Julia Margaret Cameron
 Lagrange
 Brahmagupta
+Alfred Edward Chalon
+Alexander Hamilton-Gordon
+John Frederick William Herschel
 Caroline Emilia Mary Herschel
 Duke of Sussex
-Alfred Edward Chalon
-Isabella Herschel
-Julia Margaret Cameron
+Euler
+Amelia Herschel
 
 Percentage identified from the proper data set (positive matches): 
 68.63
 
 Those identified by method that have not provided a match with the manual data :
 
-Alexander Hamilton-Gordon Isabella Herschel
 
-Mimas
-Field Houses
-Mount Herschel Antarctica
-Uranus
+Rhea
 Enceladus
 School
-Table Mountain
-Cambridge
-Iapetus
-Umbriel
-Copley Medal
-William Herschel
-Cape Town
-Results
-Ariel
+Mimas
+Field Houses
 John Fiot Lee Pearse Maclear Matilda Rose Herschel
-Darwin
 Family
-Rhea
-Anne Herschel
-Herschel Island
-Flora Herscheliana
+Double Stars
+Ariel
 John Frederick
 Africa
+Table Mountain
+Cambridge
 Light
-Oberon
-John Herschel
-Caroline Emilia
-John Herschel FRS
-Double Stars
+Darwin
 Death
+Mount Herschel Antarctica
+Iapetus
+Results
+Umbriel
 Dione
+Alexander Hamilton-Gordon Isabella Herschel
+Oberon
+Herschel
+Cape Town
+Uranus
+Caroline Emilia
+Herschel Island
+John Herschel FRS
+Flora Herscheliana
+William Herschel
+Copley Medal
 
 precision
-0.5072463768115942
+0.5147058823529411
 
 recall
 0.6862745098039216

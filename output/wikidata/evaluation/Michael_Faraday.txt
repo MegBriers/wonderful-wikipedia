@@ -18,12 +18,11 @@ John Daniell
 those who were picked up additionally by wikidata
 
 John Frederic Daniell
-26129
 William Thomas Brande
 
 
 precision
-0.8695652173913043
+0.9090909090909091
 
 recall
 0.9090909090909091

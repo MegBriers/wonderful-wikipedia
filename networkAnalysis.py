@@ -85,7 +85,7 @@ def setup():
     phil_pop_w = {}
 
     with open('./analysis/mentions.csv', 'w') as f:
-        f.write('name,method,category,mentions,length')
+        f.write('name,method,category,mentions,length,gender')
         f.write('\n')
         for category in subfolder.keys():
             list_of_people = helper.get_list(category)
@@ -123,9 +123,14 @@ def setup():
                     phil_pop_s = update_counts(phil_pop_s, mentioned, person, "spacy")
                     phil_pop_w = update_counts(phil_pop_w, linked, person, "wikidata")
 
-                f.write(person + ",spacy" + "," + subfolder[category] + "," + str(len(mentioned)) + "," + str(length_of_file))
+                if 'female' in file_path_linked:
+                    gender = 'female'
+                else:
+                    gender = 'male'
+
+                f.write(person + ",spacy" + "," + subfolder[category] + "," + str(len(mentioned)) + "," + str(length_of_file) + "," + gender)
                 f.write('\n')
-                f.write(person + ",wikidata" + "," + subfolder[category] + "," + str(len(linked)) + "," + str(length_of_file))
+                f.write(person + ",wikidata" + "," + subfolder[category] + "," + str(len(linked)) + "," + str(length_of_file) + "," + gender)
                 f.write('\n')
 
     pop['spacy'] = {'maths': maths_pop_s, 'phil': phil_pop_s}

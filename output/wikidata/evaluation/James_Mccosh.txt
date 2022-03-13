@@ -18,11 +18,10 @@ Darwin
 those who were picked up additionally by wikidata
 
 John Stuart Mill
-4956
 
 
 precision
-0.75
+0.8571428571428571
 
 recall
 0.75

@@ -6,11 +6,11 @@
 
 Those not identified by method : 
 
-Wilhelm Esser
-William Brodie
  Robert Hamilton of Preston
-Veitch
+William Brodie
 Aristotle
+Wilhelm Esser
+Veitch
 Target
 
 Percentage identified from the proper data set (positive matches): 
@@ -18,16 +18,16 @@ Percentage identified from the proper data set (positive matches):
 
 Those identified by method that have not provided a match with the manual data :
 
-Additional Notes
-Deeply
-Regius
-Janet
-Hamilton
-Considerably
-Robert Hamilton
 Esser
-Thomas Hamilton
-William Stirling Hamilton
+Deeply
+William Stirling-Hamilton
+Hamilton
+Additional Notes
+Regius
+Robert Hamilton
+Considerably
+ Thomas Hamilton
+Janet
 
 precision
 0.7560975609756098

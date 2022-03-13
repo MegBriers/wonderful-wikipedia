@@ -6,18 +6,18 @@
 
 Those not identified by method : 
 
-Earl of Minto
 E Bowell
-Louis-Benjamin Francoeur
-John Robertson
-Alexander Keith Johnston
 Joanna Baillie
+J.M.W. Turner
+Alexander Keith Johnston
+Joseph-Louis Lagrange
+Jean-Baptiste Biot
+Earl of Minto
+Admiral Duncan
+John Robertson
 Thomas Phillips
 Pierre-Simon Laplace
-Admiral Duncan
-J.M.W. Turner
-Jean-Baptiste Biot
-Joseph-Louis Lagrange
+Louis-Benjamin Francoeur
 
 Percentage identified from the proper data set (positive matches): 
 84.81
@@ -25,52 +25,52 @@ Percentage identified from the proper data set (positive matches):
 Those identified by method that have not provided a match with the manual data :
 
 
-Nasmyth
-Latin
-Biot
-Potter
 Somerville House
-Uranus
-Nunavut
+Useful Knowledge
+Earth
+Club
+Mécanique Céleste
+Calculus Treatise
+Langrenus
+Crown
+Biot
+Microscopic Science
+Scott
+Woronzow
+ Brougham
+Chelsea Hospital
+Fife
+Newton
+Hanover Square
+Mechanism
+Physical Geography
+Lovelace
+Fairfax
+Molecular
 Mechanism Joanna Baillie
 Francœur
-Molecular
-Microscopic Science
-Mécanique Céleste
-Engine
-College
-Google
-Strange
-Principia
- Brougham
-Club
-Murray
-Earth
-Legacy
-Algebra
-Geography
-Physical
-Langrenus
-Newton
-Lagrange
-Chelsea Hospital
-Astronomy
-Naturelle
-Crown
-John
-Woronzow
-Mechanism
-Marines
-Ada Lovelace
 Ada
-Useful Knowledge
-Fife
-Scott
-Physical Geography
-Fairfax
-Mary Somerville
-Hanover Square
-Calculus Treatise
+Legacy
+John
+Algebra
+Strange
+Astronomy
+Engine
+Lagrange
+Principia
+College
+Marines
+Somerville
+Uranus
+Naturelle
+Physical
+Latin
+Nasmyth
+Geography
+Nunavut
+Potter
+Murray
+Google
 
 precision
 0.5877192982456141

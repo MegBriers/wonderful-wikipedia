@@ -6,49 +6,49 @@
 
 Those not identified by method : 
 
- Craw
-Siméon Denis Poisson
-Earl of Minto
-Semyon Vorontsov
 Alexander Keith Johnston
+Joseph-Louis Lagrange
+Earl of Minto
+Admiral Duncan
+Semyon Vorontsov
 Thomas Phillips
 Henry
+ Craw
+Siméon Denis Poisson
 Sylvestre François Lacroix
-Admiral Duncan
-Joseph-Louis Lagrange
 
 Percentage identified from the proper data set (positive matches): 
 87.34
 
 Those identified by method that have not provided a match with the manual data :
 
-Nasmyth
-Rev
 Somerville House
-Uranus
-Henry.  Craw
-Lacroix
-Byron
-François Lacroix' Algebra
-Wallace
-Strange
- Brougham
-Murray
-Recollections Mary
+Rev
 Lyell
-Count Semyon
 Langrenus
-Newton
-Fairfaxes
-Woronzow
-Mechanism
-Ada Lovelace
-Somervilles
-Duncan
-Recollections Somerville
+Henry.  Craw
 Scott
-Mary Somerville
+Woronzow
+ Brougham
+Newton
+Recollections Mary
+Mechanism
+Lovelace
+Count Semyon
+Fairfaxes
+Recollections Somerville
+Duncan
+Strange
+Byron
+Somervilles
+Wallace
+Lacroix
+Somerville
+Uranus
+François Lacroix' Algebra
+Nasmyth
 Navigations
+Murray
 
 precision
 0.71875

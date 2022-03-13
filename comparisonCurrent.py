@@ -13,11 +13,11 @@ import sys
 import helper
 import csv
 import os
-plt.rc('figure', figsize=(25, 22))
-plt.rcParams.update({'font.size': 22})
+plt.rc('figure', figsize=(20, 15))
+plt.rcParams.update({'font.size': 25})
 
 
-def setup(name):
+def setup2(name):
     """
 
     This method sets up all the information used for the rest of the methods, regardless if
@@ -160,7 +160,9 @@ def wikidata_evaluation(person, rel_linked, linked):
     # need to get the wikidata people at this point
     fileLinked = open("./output/wikidata/" + person + "_Linked.txt", "r")
 
+    length_of_file = fileLinked.readline().rstrip()
     content = fileLinked.read()
+
     # identified by wikidata
     wikiData = content.split("\n")
     fileLinked.close()
@@ -366,6 +368,10 @@ def evaluate_statistics():
     recall_nltk = []
     recall_spacy_new = []
 
+    f1_wikidata = []
+    precision_wikidata = []
+    recall_wikidata = []
+
     people = []
 
     with open('./analysis/evaluation.csv', 'r') as csvfile:
@@ -378,14 +384,17 @@ def evaluate_statistics():
             f1_spacy.append(float(row["f1 spacy"]))
             f1_nltk.append(float(row["f1 nltk"]))
             f1_spacy_new.append(float(row["f1 spacy new"]))
+            f1_wikidata.append(float(row["f1 wikidata"]))
 
             precision_spacy.append(float(row["precision spacy"]))
             precision_nltk.append(float(row["precision nltk"]))
             precision_spacy_new.append(float(row["precision spacy new"]))
+            precision_wikidata.append(float(row["precision wikidata"]))
 
             recall_spacy.append(float(row["recall spacy"]))
             recall_nltk.append(float(row["recall nltk"]))
             recall_spacy_new.append(float(row["recall spacy new"]))
+            recall_wikidata.append(float(row["recall wikidata"]))
 
     f1s = [sum(f1_spacy)/len(f1_spacy), sum(f1_nltk)/len(f1_nltk), sum(f1_spacy_new)/len(f1_spacy_new)]
     precisions = [sum(precision_spacy)/len(f1_spacy), sum(precision_nltk)/len(f1_nltk), sum(precision_spacy_new)/len(f1_spacy_new)]
@@ -393,9 +402,13 @@ def evaluate_statistics():
 
     print(f1s)
 
+    shrunk_peep = ["CHH", "WH", "MS", "JT", "HM", "JH", "JM", "MF"]
+
     df = pd.DataFrame({'f1': f1s, 'precision': precisions, 'recall': recalls}, index=small_methods)
 
-    df2 = pd.DataFrame({'nltk' : precision_nltk, 'spacy' : precision_spacy}, index=people)
+    df2 = pd.DataFrame({'nltk' : precision_nltk, 'spacy' : precision_spacy}, index=shrunk_peep)
+
+    df3 = pd.DataFrame({'f1': f1_wikidata, 'precision': precision_wikidata, 'recall': recall_wikidata}, index=shrunk_peep)
 
     my_colors = ['#00B2EE', '#E9967A', '#3CB371', '#8B475D']
 
@@ -403,7 +416,11 @@ def evaluate_statistics():
 
     df.plot.bar(rot=0, color=my_colors, ax=ax)
     plt.xlabel('method for NER')
-    plt.ylabel('idek')
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+    # Put a legend to the right of the current axis
+    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.savefig('./analysis/nlp_evaluation.png')
     plt.show()
 
@@ -414,19 +431,32 @@ def evaluate_statistics():
     plt.ylabel('precision value')
     plt.show()
 
+    ax3 = plt.subplot(111)
+    df3.plot.bar(rot=0, color=my_colors,ax=ax3)
+    plt.xlabel('test figure')
+    plt.xticks(rotation=45)
+    box = ax3.get_position()
+    ax3.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+    ax3.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+    plt.show()
+
     sys.stdout.close()
     sys.stdout = stdoutOrigin
 
 def setup():
     people = helper.get_test_data()
 
+    print("people")
+    print(people)
+
     performances = {}
     with open('./analysis/evaluation.csv', 'w') as f:
         f.write(
             'name,f1 spacy,precision spacy,recall spacy,f1 nltk,precision nltk,recall nltk,f1 spacy new,precision spacy new,recall spacy new,f1 wikidata,precision wikidata,recall wikidata')
         f.write('\n')
+
         for peep in people:
-            complete, linked, unlinked, rel_linked = setup(peep)
+            complete, linked, unlinked, rel_linked = setup2(peep)
             values = multiple_evaluation(peep, complete)
             f1_w, precision_w, recall_w = wikidata_evaluation(peep, rel_linked, linked)
             values.append(f1_w)

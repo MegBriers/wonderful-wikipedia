@@ -6,25 +6,25 @@
 
 Those not identified by method : 
 
+Madeleine L'Engle
 William Howard Hinton
 Charles Leadbeater
 Aleister Crowley
-Madeleine L'Engle
 
 Percentage identified from the proper data set (positive matches): 
 90.00
 
 Those identified by method that have not provided a match with the manual data :
 
-Fourth
 Charles' mother
+Christ
 Charles Leadbeater's Clairvoyance
-Madeleine L'Engle's A Wrinkle in Time
 ana
-Charles Hinton
+Madeleine L'Engle's A Wrinkle in Time
 stodgy
 Flatland
-Christ
+Fourth
+Charles Hinton
 
 precision
 0.8

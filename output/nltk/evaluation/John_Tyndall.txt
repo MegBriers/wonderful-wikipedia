@@ -6,58 +6,58 @@
 
 Those not identified by method : 
 
-A. S. Eve
-de Saussure
+Poggendoff
 Fourier
-Hermann von Helmholtz
-Desains
  Claud Hamilton
-H. S. King
+de Saussure
 Michael Faraday
+Hermann von Helmholtz
+A. S. Eve
 Mihajlo Idvorski Pupin
 C. H. Creasey
-Poggendoff
+Desains
+H. S. King
 
 Percentage identified from the proper data set (positive matches): 
 75.56
 
 Those identified by method that have not provided a match with the manual data :
 
+Seven Lectures
+London Tyndall
+Roberts
+Researches
+Tyndall FRS
+Six
+Boston Tyndall
+Hermann
+Light
+County Carlow
+Greenwood Press
+Reviews
+Great Britain
+John
+Huxley
+Lessons
+Heat
+Solar Radiation
+Marburg
+Mount Tyndall
+Rendu
+Three Scientific Addresses
+Roman Catholicism
 Michael
 Longman
-Notes
-County Carlow
-Solar Radiation
+Heat Considered
+Louisa
 Ticknor
+Magnus
+John Tyndall
 Nine Lectures
+Notes
 Bunsen
 Regelation
-Huxley
-Researches
-Seven Lectures
-Six
-Mount Tyndall
-Three Scientific Addresses
 Chemist
-Greenwood Press
-Heat Considered
-Marburg
-Rendu
-Louisa
-Reviews
-London Tyndall
-John
-John Tyndall
-Roberts
-Light
-Heat
-Tyndall FRS
-Lessons
-Hermann
-Magnus
-Boston Tyndall
-Roman Catholicism
-Great Britain
 
 precision
 0.4927536231884058

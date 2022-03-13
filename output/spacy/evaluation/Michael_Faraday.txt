@@ -6,36 +6,35 @@
 
 Those not identified by method : 
 
-Harriet Jane Moore
 John 'Mad Jack' Fuller
-Prince Consort
-John Henry Foley
-Albert Einstein
 Robert Gordon
+Prince Consort
+Harriet Jane Moore
 John Daniell
+Albert Einstein
+John Henry Foley
 
 Percentage identified from the proper data set (positive matches): 
 83.72
 
 Those identified by method that have not provided a match with the manual data :
 
-Faraday
-James Faraday
 London
-Shakespeare
-Chemistry
-Michael Faraday
-Abbott
-Faraday Gardens
-glass
-Chance
-Jack' Fuller
-Nobel
 John
+Jack' Fuller
 Adult
+glass
+Abbott
+Nobel
+Faraday Gardens
+ Faraday
+Chemistry
+Chance
+Shakespeare
+Michael Faraday
 
 precision
-0.72
+0.7346938775510204
 
 recall
 0.8372093023255814
