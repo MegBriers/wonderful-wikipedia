@@ -1,4 +1,4 @@
-24623
+24877
 William Rowan Hamilton
 Newtonian
 Hamilton
@@ -11,7 +11,9 @@ Archibald Hamilton
 Hamilton
 Hamilton
 James Hamilton
-Meath.Hamilton
+Meath. James
+Mary Elizabeth Townsend
+Hamilton
 Hamilton
 John Brinkley
 Hamilton
@@ -136,6 +138,7 @@ Eliza Mary Hamilton
 Calvinism
 Hamilton
 Catherine
+William Barlow
 Ellen De Vere
 Hamilton
 Helen Maria Bayly

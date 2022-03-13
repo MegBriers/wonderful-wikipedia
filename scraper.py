@@ -95,8 +95,9 @@ def write_to_file(person, links, length_of_file, network, subfolder, subsubfolde
         f.write(str(length_of_file))
         f.write('\n')
         for tup in links:
-            f.write(tup)
-            f.write('\n')
+            if tup is not None:
+                f.write(tup)
+                f.write('\n')
 
 
 def substring_after(s, delim):
@@ -257,7 +258,7 @@ def request_page(URL):
 
     links = {}
 
-    unaccepted_headings = ['Works', 'Bibliography', 'Further Reading', 'References', 'Main Works', 'See also']
+    unaccepted_headings = ['Works', 'Bibliography', 'Further Reading', 'References', 'Main Works', 'Main works', 'See also', 'Select bibliography']
 
     try:
         for item in soup.select('a'):
@@ -341,12 +342,15 @@ def request_page(URL):
 
     except Exception as inst:
         print(type(inst))
-        return []
+        return "", ""
 
 
 def request_linked(person, network, subfolder, length_of_file):
     page = "https://en.wikipedia.org/wiki/" + person
 
     names, subsubfolder = request_page(page)
+
+    print(names)
+    print("")
 
     write_to_file(person, names, length_of_file, network, subfolder, subsubfolder)

@@ -1,4 +1,4 @@
-50225
+50693
 John Stuart Mill
 Mill
 Jeremy Bentham
@@ -43,6 +43,10 @@ Mill
 Auguste Comte
 Comte
 Comte
+Comte
+Bentham
+Bentham
+Comte
 Mill
 John Austin
 Jurisprudence
@@ -73,8 +77,9 @@ Herschel
 John Stuart Mill
 Joint Method
 Mill
-Barbarians
-Gregory Claeys
+Mill
+John Stuart
+Dyer. p.
 Mill
 Mill
 "Mill

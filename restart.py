@@ -95,11 +95,7 @@ if __name__ == '__main__':
     elif sys.argv[1] == "network":
         URLS = ["https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers",
                 "https://en.wikipedia.org/wiki/Category:19th-century_British_mathematicians"]
-        #network.run_on_group(URLS, sys.argv[2])
-        #networkAnalysis.analysis_part1("wikidata")
-        networkAnalysis.analysis_part1("spacy")
-        networkAnalysis.analysis_part2()
-        networkAnalysis.analysis_part3("spacy")
+        network.run_on_group(URLS, sys.argv[2])
 
     elif sys.argv[1] == "evaluation":
         networkAnalysis.start()

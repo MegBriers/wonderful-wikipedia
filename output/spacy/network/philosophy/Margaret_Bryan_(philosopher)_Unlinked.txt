@@ -1,8 +1,7 @@
-2144
+2689
 Margaret Bryan
 Bryan House
 Compendious System of Astronomy
-Bryan
 Bryan
 near Hyde Park Corner
 Bryan House
@@ -13,5 +12,7 @@ Bryan
 Heath
 T. Kearsley
 Bryan
+Newton
+Benjamin Franklin
 Watt
 Jane Marcet

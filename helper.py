@@ -70,7 +70,7 @@ def get_page_content(person):
     split_string = content.split("== See also ==", 1)
 
     other_areas = ["== Works ==", "== Bibliography ==", "== Further Reading ==", "== References ==", "== Main Works ==",
-                   "== Main works =="]
+                   "== Main works ==", "== Select bibliography =="]
     for area in other_areas:
         if area in split_string[0]:
             split_string = content.split(area, 1)

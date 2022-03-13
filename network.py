@@ -23,4 +23,4 @@ def run_on_group(URLS, method):
             if method == "spacy":
                 spacyExtract.extracting_unlinked_spacy(data, title, "spacy/network", subfolder[category])
             else:
-                scraper.request_linked(title, "network/", subfolder[category])
+                scraper.request_linked(title, "network/", subfolder[category], len(data))

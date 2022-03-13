@@ -18,23 +18,32 @@ new_data <- rbind.data.frame(maths, phil)
 
 new_data$per_typical <- (new_data$mentions/new_data$length) * new_data$typical 
 
+# typical number of mentions per article 
 q <- ggplot(new_data, aes(x=method, y=per_typical, fill=category)) +
   geom_violin(position=position_dodge(1), trim=TRUE)+
   geom_boxplot(width=.1, position=position_dodge(1), show.legend=FALSE) +
   stat_summary(fun=mean, geom="point", shape=23, size=5, position=position_dodge(1), show.legend=FALSE)+
   xlab("method of analysis") + 
-  ylab("mentions per 1000 characters") +
+  ylab("mentions per typical lengthed article") +
   scale_fill_manual(values=c('#79CDCD', '#FF7F00'))+
-  theme_bw()
+  theme_bw(base_size=15)
 
 q
 
+# testing whether difference in proportion of types of links  
+mq <- lm(log(per_typical)~method*category, data=new_data)
+plot(mq,which=1)
+plot(mq,which=2)
+res.aov <- aov(log(per_typical)~method*category, data=new_data)
+summary(res.aov)
+
+# typical length of an article
 r <- ggplot(new_data, aes(x=category, y=length, fill=category)) +
   geom_violin(position=position_dodge(1), trim=TRUE)+
   geom_boxplot(width=.1, position=position_dodge(1), show.legend=FALSE) +
   stat_summary(fun=mean, geom="point", shape=23, size=5, position=position_dodge(1), show.legend=FALSE)+
-  xlab("method of analysis") + 
-  ylab("mentions per 1000 characters") +
+  xlab("category of article") + 
+  ylab("number of characters in article") +
   scale_fill_manual(values=c('#79CDCD', '#FF7F00'))+
   theme_bw()
 

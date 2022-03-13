@@ -107,6 +107,7 @@ def setup():
 
                 # get rid of the first line
                 length_of_file = file_unlinked.readline().rstrip()
+                file_linked.readline().rstrip()
 
                 mentioned = list(set(line.rstrip("\n") for count, line in enumerate(file_unlinked)))
                 linked = list(set(line.rstrip("\n") for count, line in enumerate(file_linked)))

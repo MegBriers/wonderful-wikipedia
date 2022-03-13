@@ -1,9 +1,10 @@
+13694
 George Eliot
 Margaret Fuller
-Leigh Hunt
-John Stuart Mill
 Thomas Carlyle
+Leigh Hunt
 Thornton Leigh Hunt
+John Stuart Mill
 Charles Dickens
 Thomas Southwood Smith
 Miranda Hill
@@ -13,7 +14,7 @@ William Charles Macready
 Johann Wolfgang von Goethe
 Wilhelm Max Wundt
 Criticism of Ellen G. White
+John Morley
+Auguste Comte
 Georg Wilhelm Friedrich Hegel
 Shadworth Hodgson
-Auguste Comte
-John Morley

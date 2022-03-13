@@ -1,22 +1,10 @@
-33918
+33142
 Thomas Carlyle
-George Eliot
-Calvinism
-Clothes Philosophy
-Hero-Worship
+Known
+Carlyle
 Oliver Cromwell
-Speeches
-Elucidations
-Cromwell
-Carlyle
-Latter-Day Pamphlets
-Carlyle
-Called Frederick
-Froude
-Emerson
-Judgment Day
-James Anthony Froude
-Interest
+Frederick the Great
+Crafts
 Carlyle
 Edward Irving
 Carlisle
@@ -208,4 +196,6 @@ Paul de Lagarde
 Carlyle
 Carlyle
 Hero-Worship & the Heroic
+Thomas Carlyle
+Cheyne Row
 Carlyle
