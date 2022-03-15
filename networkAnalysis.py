@@ -17,8 +17,8 @@ import numpy as np
 import csv
 import sys
 
-plt.rc('figure', figsize=(30, 20))
-plt.rcParams.update({'font.size': 30})
+plt.rc('figure', figsize=(25, 20))
+#plt.rcParams.update({'font.size': 29})
 my_colors = ['#79CDCD', '#FF7F00']
 folders = ['maths', 'philosophy']
 
@@ -134,6 +134,7 @@ def setup():
                 f.write('\n')
                 f.write(person + ",wikidata" + "," + subfolder[category] + "," + str(len(linked)) + "," + str(length_of_file) + "," + gender)
                 f.write('\n')
+    f.close()
 
     pop['spacy'] = {'maths': maths_pop_s, 'phil': phil_pop_s}
     pop['wikidata'] = {'maths': maths_pop_w, 'phil': phil_pop_w}
@@ -149,7 +150,14 @@ def setup():
                     # not writing the right thing
                     f.write(method + ',' + group + ',' + first_name + "," + str(pop[method][group][person][0]) + "," + str(pop[method][group][person][1]))
                     f.write('\n')
+    f.close()
 
+def initials(name):
+    if len(name) > 14:
+        words = name.split()
+        letters = [word[0] for word in words]
+        name = "".join(letters)
+    return name
 
 def popular_figs():
     """
@@ -181,10 +189,6 @@ def popular_figs():
             name = row[2]
             if "content" in row[2]:
                 continue
-            if len(row[2]) > 14:
-                words = row[2].split()
-                letters = [word[0] for word in words]
-                name = "".join(letters)
             if row[0] == "spacy":
                 if row[1] == "maths":
                     spacy_pop_maths[name] = int(row[3])
@@ -196,6 +200,8 @@ def popular_figs():
                 else:
                     wikidata_pop_phil[name] = int(row[3])
 
+    csvfile.close()
+
     graphs = [spacy_pop_maths, spacy_pop_phil, wikidata_pop_maths, wikidata_pop_phil]
 
     for graph in graphs:
@@ -203,9 +209,14 @@ def popular_figs():
 
         top = {key: sorted_list[key] for count, key in enumerate(sorted_list.keys()) if count < 10}
 
+        shortened_top = {}
+        for person in top.keys():
+            print(person, initials(person))
+            shortened_top[initials(person)] = top[person]
+
         fig, ax = plt.subplots()
 
-        ax.barh(list(top.keys()), list(top.values()), color=my_colors[0])
+        ax.barh(list(shortened_top.keys()), list(top.values()), color=my_colors[0])
         ax.invert_yaxis()
         ax.set_xlabel('Number of mentions')
         ax.set_xticks(np.arange(0, max(list(top.values())) + 1, 1))
