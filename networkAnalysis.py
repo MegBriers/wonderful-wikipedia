@@ -17,17 +17,21 @@ import numpy as np
 import csv
 import sys
 
-plt.rc('figure', figsize=(25, 20))
-#plt.rcParams.update({'font.size': 29})
+# can be uncommented as required (changes properties of plt frame)
+# plt.rc('figure', figsize=(25, 20))
+# plt.rcParams.update({'font.size': 29})
 my_colors = ['#79CDCD', '#FF7F00']
 folders = ['maths', 'philosophy']
 
 
-def update_counts(figures, people, cur_person, method):
-    # add one into the dictionary counts of each person if mentioned in another article
+def update_counts(figures, people, cur_person):
     """
 
-    A method to find the file path of the given file
+    A method to update the record of people who have been mentioned
+    across multiple Wikipedia articles
+    each line of the figures dictionary will store a mentioned figure, as well
+    as the number of times they have been mentioned, and who they have been
+    mentioned by
 
     Parameters
     ----------
@@ -40,9 +44,6 @@ def update_counts(figures, people, cur_person, method):
 
     cur_person : string
         the person whose article mentions we are working with currently
-
-    method : string
-        the way these mentions have been identified (spacy or wikidata)
 
     Returns
     -------
@@ -65,6 +66,13 @@ def setup():
 
     A method that creates files to hold the data generated from the run of the code on the
     whole network of philosophers and mathematicians
+
+    The files store information such as the category that the subject of the
+    article falls under, their gender, and how many mentions were picked up using
+    a specified method
+
+    Each person will be in the file twice (one for the record with spacy extraction,
+    and one with the wikidata extraction)
 
     Parameters
     ----------
@@ -95,7 +103,7 @@ def setup():
                 person_format = person.replace(" ", "_")
 
                 if "," in person:
-                    split = person.split(",",1)
+                    split = person.split(",", 1)
                     person = split[0]
 
                 file_path_linked = helper.get_file_path(person_format + "_Linked.txt", "")
@@ -107,7 +115,7 @@ def setup():
                 file_linked = open(file_path_linked)
                 file_unlinked = open(file_path_unlinked)
 
-                # get rid of the first line
+                # get rid of the first line as just stores length of file
                 length_of_file = file_unlinked.readline().rstrip()
                 file_linked.readline().rstrip()
 
@@ -119,20 +127,23 @@ def setup():
                     continue
 
                 if subfolder[category] == "maths":
-                    maths_pop_s = update_counts(maths_pop_s, mentioned, person, "spacy")
-                    maths_pop_w = update_counts(maths_pop_w, linked, person, "wikidata")
+                    maths_pop_s = update_counts(maths_pop_s, mentioned, person)
+                    maths_pop_w = update_counts(maths_pop_w, linked, person)
                 else:
-                    phil_pop_s = update_counts(phil_pop_s, mentioned, person, "spacy")
-                    phil_pop_w = update_counts(phil_pop_w, linked, person, "wikidata")
+                    phil_pop_s = update_counts(phil_pop_s, mentioned, person)
+                    phil_pop_w = update_counts(phil_pop_w, linked, person)
 
+                # longest identifiable substring
                 if 'female' in file_path_linked:
                     gender = 'female'
                 else:
                     gender = 'male'
 
-                f.write(person + ",spacy" + "," + subfolder[category] + "," + str(len(mentioned)) + "," + str(length_of_file) + "," + gender)
+                f.write(person + ",spacy" + "," + subfolder[category] + "," + str(len(mentioned)) + "," + str(
+                    length_of_file) + "," + gender)
                 f.write('\n')
-                f.write(person + ",wikidata" + "," + subfolder[category] + "," + str(len(linked)) + "," + str(length_of_file) + "," + gender)
+                f.write(person + ",wikidata" + "," + subfolder[category] + "," + str(len(linked)) + "," + str(
+                    length_of_file) + "," + gender)
                 f.write('\n')
     f.close()
 
@@ -147,17 +158,24 @@ def setup():
                     if "," in person:
                         split = person.split(",", 1)
                         first_name = split[0]
-                    # not writing the right thing
-                    f.write(method + ',' + group + ',' + first_name + "," + str(pop[method][group][person][0]) + "," + str(pop[method][group][person][1]))
+                    f.write(
+                        method + ',' + group + ',' + first_name + "," + str(pop[method][group][person][0]) + "," + str(
+                            pop[method][group][person][1]))
                     f.write('\n')
     f.close()
 
+
 def initials(name):
+    """
+    A method used to return only the first initial of each part of a given name
+    Used to shorten names for printing out on the graph
+    """
     if len(name) > 14:
         words = name.split()
         letters = [word[0] for word in words]
         name = "".join(letters)
     return name
+
 
 def popular_figs():
     """
@@ -187,6 +205,7 @@ def popular_figs():
         current_reader = csv.reader(csvfile)
         for row in current_reader:
             name = row[2]
+            # not required for the analysis as identified error in wikidata extraction
             if "content" in row[2]:
                 continue
             if row[0] == "spacy":
@@ -207,8 +226,10 @@ def popular_figs():
     for graph in graphs:
         sorted_list = dict(sorted(graph.items(), key=lambda item: item[1], reverse=True))
 
+        # only want top 10 values for the graph
         top = {key: sorted_list[key] for count, key in enumerate(sorted_list.keys()) if count < 10}
 
+        # shortening the name that will be displayed on the graph if needed
         shortened_top = {}
         for person in top.keys():
             print(person, initials(person))
@@ -224,7 +245,6 @@ def popular_figs():
         plt.show()
 
 
-# comparison with epsilon data
 def epsilon_analysis():
     """
 
@@ -330,9 +350,10 @@ def epsilon_analysis():
 
 
 def start():
-    # only do set up when files don't already exist
-    if not(os.path.isfile('./analysis/popular_figures.txt')) or not(os.path.isfile('./analysis/mentions.csv')):
+    """
+    driver method that ensures the files are set up before continuing with analysis
+    """
+    if not (os.path.isfile('./analysis/popular_figures.txt')) or not (os.path.isfile('./analysis/mentions.csv')):
         setup()
-    print("a")
 
     popular_figs()

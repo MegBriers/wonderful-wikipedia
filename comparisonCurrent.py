@@ -14,8 +14,11 @@ import helper
 import csv
 import os
 
-plt.rc('figure', figsize=(20, 15))
-plt.rcParams.update({'font.size': 25})
+# to be uncommented as required
+# changes window size
+# plt.rc('figure', figsize=(20, 15))
+# changes the font size on the graph
+# plt.rcParams.update({'font.size': 25})
 
 
 def setup(name):
@@ -63,8 +66,8 @@ def setup(name):
     for index, row in manual.iterrows():
         dob = row["alive"]
         complete.append(row["Target"])
-        actualRow = row["link"].replace(' ', '')
-        if actualRow == "linked":
+        actual_row = row["link"].replace(' ', '')
+        if actual_row == "linked":
             linked.append(row["Target"])
             if dob:
                 relevant_linked.append(row["Target"])
@@ -128,6 +131,9 @@ def wikidata_evaluation(person, rel_linked, linked):
     A method that analyses the performance of the wikidata way of extracting
     people that are linked in an article
 
+    This will write to a file related to person, and only be used on the
+    test set of people
+
     Parameters
     ----------
     person : string
@@ -141,8 +147,8 @@ def wikidata_evaluation(person, rel_linked, linked):
 
     Returns
     -------
-    f1 : float
-        the f1 value based on the precision and recall from data
+    f1, precision, recall : float
+        the f1 value as well as the precision and recall
         (representation of how well the method is picking up the people)
 
     """
@@ -224,7 +230,7 @@ def wikidata_evaluation(person, rel_linked, linked):
 
 def multiple_evaluation(person, complete):
     """
-    A driver method that sets off the evaluation of the
+    A driver method that sets off the evaluation of all the
     methods to do nlp processing of the text
 
     Parameters
@@ -236,7 +242,7 @@ def multiple_evaluation(person, complete):
 
     Returns
     -------
-    performances : list of list of floats
+    performances : list of floats
         the precision, recall and f1 value for all the methods
     """
     performances = []
@@ -253,6 +259,9 @@ def method_evaluation(method, person, complete):
 
     A method to give statistics on how accurate the
     method passed in is performing on the wikipedia page
+
+    Compares the list of identified people with the list of manually
+    extracted people from the page to assess accuracy
 
     Parameters
     ----------
@@ -277,7 +286,7 @@ def method_evaluation(method, person, complete):
 
     # the file that stores the method names
     file_unlinked = open(filename, encoding="utf-8")
-    print(filename)
+    # first line of the file stores the length of the file in characters so needs to be ignored
     identified_unlinked = list(set(line.rstrip("\n") for count, line in enumerate(file_unlinked) if count != 0))
 
     stripped_unlinked = []
@@ -291,7 +300,7 @@ def method_evaluation(method, person, complete):
     print("")
     print("")
 
-    # remove all the typical titles - is leaving a space at the start
+    # remove all the typical titles
     typical_titles = ["Dr", "Miss", "Mrs", "Sir", "Mr", "Lord", "Professor"]
 
     for title in typical_titles:
@@ -304,6 +313,7 @@ def method_evaluation(method, person, complete):
 
     for people in complete:
         for identified in identified_unlinked:
+            # criteria used to evaluate if referring to the same people (not infallible, but multiple references is not an easy problem to solve)
             if ((people in identified or identified in people) and Levenshtein.ratio(people,
                                                                                      identified) > .75) or Levenshtein.ratio(
                 people, identified) > 0.9:
@@ -343,11 +353,15 @@ def method_evaluation(method, person, complete):
 
 def evaluate_statistics():
     """
-    [DESCRIPTION OF METHOD HERE]
+    A method to produce graphs to illustrate the f1, precision
+    and recall values for the various methods
+
+    Not the most efficient storage system, but double indexing
+    dictionaries was not the way I wanted to do it.
 
     Parameters
     ----------
-    performances :
+    None.
 
     Returns
     -------
@@ -356,10 +370,7 @@ def evaluate_statistics():
     stdoutOrigin = sys.stdout
     sys.stdout = open("./output/evaluation.txt", "w", encoding="utf-8")
 
-    methods = {'spacy': 0, 'nltk': 1, 'spacy_new': 2, 'wikidata': 3}
     small_methods = ['spacy', 'nltk', 'spacy_new']
-
-    # NEED TO READ IN FILE HERE
 
     f1_spacy = []
     f1_nltk = []
@@ -384,8 +395,6 @@ def evaluate_statistics():
         for row in reader:
             people.append(row["name"])
 
-            # get first letter of first name and second letter of second name for axis purposes
-
             f1_spacy.append(float(row["f1 spacy"]))
             f1_nltk.append(float(row["f1 nltk"]))
             f1_spacy_new.append(float(row["f1 spacy new"]))
@@ -407,8 +416,7 @@ def evaluate_statistics():
     recalls = [sum(recall_spacy) / len(f1_spacy), sum(recall_nltk) / len(f1_nltk),
                sum(recall_spacy_new) / len(f1_spacy_new)]
 
-    print(f1s)
-
+    # used to ensure that the size of the graph was not excessive while having readable axis labels
     shrunk_peep = ["CHH", "WH", "MS", "JT", "HM", "JH", "JM", "MF"]
 
     df = pd.DataFrame({'f1': f1s, 'precision': precisions, 'recall': recalls}, index=small_methods)
@@ -427,7 +435,7 @@ def evaluate_statistics():
     box = ax.get_position()
     ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
-    # Put a legend to the right of the current axis
+    # moving the legend outside of the graph
     ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.savefig('./analysis/nlp_evaluation.png')
     plt.show()
@@ -453,6 +461,22 @@ def evaluate_statistics():
 
 
 def write_data():
+    """
+    A method that writes the f1, precision and recall values of the methods to a file
+    to minimise the time spent on each run generating these numbers
+
+    If the code is re-run on the network and new .txt files have been generated for each
+    person then the evaluation.csv file should be deleted to this is run again and the
+    statistics are re-generated
+
+    Parameters
+    ----------
+    None.
+
+    Returns
+    -------
+    None.
+    """
     people = helper.get_test_data()
 
     performances = {}
@@ -472,6 +496,7 @@ def write_data():
             performances[peep] = values
 
             first_name = peep
+            # prevents names with commas from ruining csv storage
             if "," in peep:
                 split = peep.split(",", 1)
                 first_name = split[0]
@@ -486,7 +511,7 @@ def evaluate(method):
     """
 
     A method used to ensure that the statistics data is written to the correct place
-    and for evaluation of these methods to occur
+    and call analysis on this data once written
 
     Parameters
     ----------
