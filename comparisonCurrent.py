@@ -13,11 +13,12 @@ import sys
 import helper
 import csv
 import os
+
 plt.rc('figure', figsize=(20, 15))
 plt.rcParams.update({'font.size': 25})
 
 
-def setup2(name):
+def setup(name):
     """
 
     This method sets up all the information used for the rest of the methods, regardless if
@@ -111,8 +112,12 @@ def statistics(false_pos, false_neg, true_pos):
     print(recall)
     print("")
 
-    # f1 score = 2 x (precision * recall)/(precision + recll)
+    # f1 score = 2 x (precision * recall)/(precision + recall)
     f1 = 2 * ((precision * recall) / (precision + recall))
+
+    print("f1")
+    print(f1)
+    print("")
 
     return f1, precision, recall
 
@@ -152,47 +157,48 @@ def wikidata_evaluation(person, rel_linked, linked):
     print("")
 
     print("proportion of the links that are going to contemporaries of the person")
-    # does default to yes if it's unknown - statistically more likely (can be proven by looking at these values for all test files)
     print("%.2f" % (len(rel_linked) / len(linked) * 100))
 
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
     print("proportion of people linked who have been picked up by wikidata")
     # need to get the wikidata people at this point
-    fileLinked = open("./output/wikidata/" + person + "_Linked.txt", "r")
+    file_linked = open("./output/wikidata/" + person + "_Linked.txt", "r")
 
-    length_of_file = fileLinked.readline().rstrip()
-    content = fileLinked.read()
+    # just need to get rid of first line (not needed here)
+    length_of_file = file_linked.readline().rstrip()
+    content = file_linked.read()
 
     # identified by wikidata
-    wikiData = content.split("\n")
-    fileLinked.close()
+    wiki_data = content.split("\n")
+    file_linked.close()
 
     # additional line in the file due to the way it was set up
-    wikiData.pop()
-    wikiData = list(set(wikiData))
+    wiki_data.pop()
+    wiki_data = list(set(wiki_data))
 
-    allLinked = len(rel_linked)
+    all_linked = len(rel_linked)
     count = 0
 
-    notIdentified = rel_linked[:]
+    not_identified = rel_linked[:]
 
-    additional = wikiData[:]
+    additional = wiki_data[:]
 
     for human in rel_linked:
-        for wiki in wikiData:
+        for wiki in wiki_data:
+            # comparing the given names with previously identified names
             if human in wiki or wiki in human or Levenshtein.ratio(human, wiki) > .85:
                 count += 1
-                notIdentified.remove(human)
+                not_identified.remove(human)
                 if wiki in additional:
                     additional.remove(wiki)
                 break
 
-    print("%.2f" % ((count / allLinked) * 100))
+    print("%.2f" % ((count / all_linked) * 100))
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
 
     print("those who were not identified: ")
     print("")
-    for no in notIdentified:
+    for no in not_identified:
         print(no)
     print("")
     print("")
@@ -206,7 +212,7 @@ def wikidata_evaluation(person, rel_linked, linked):
 
     true_pos = count  # how many were correctly identified
     false_pos = len(additional)  # how many were identified as human but are not human
-    false_neg = len(notIdentified)  # how many of our true ones are missing
+    false_neg = len(not_identified)  # how many of our true ones are missing
 
     f1, precision, recall = statistics(false_pos, false_neg, true_pos)
 
@@ -270,14 +276,14 @@ def method_evaluation(method, person, complete):
     filename = "./output/" + method + "/" + person + "_Unlinked.txt"
 
     # the file that stores the method names
-    fileUnlinked = open(filename, encoding="utf-8")
+    file_unlinked = open(filename, encoding="utf-8")
     print(filename)
-    identifiedUnlinked = list(set(line.rstrip("\n") for count, line in enumerate(fileUnlinked) if count != 0))
+    identified_unlinked = list(set(line.rstrip("\n") for count, line in enumerate(file_unlinked) if count != 0))
 
-    strippedUnlinked = []
-    for ele in identifiedUnlinked:
+    stripped_unlinked = []
+    for ele in identified_unlinked:
         if ele.strip():
-            strippedUnlinked.append(ele)
+            stripped_unlinked.append(ele)
 
     print("")
     print("")
@@ -286,47 +292,46 @@ def method_evaluation(method, person, complete):
     print("")
 
     # remove all the typical titles - is leaving a space at the start
-    typicalTitles = ["Dr", "Miss", "Mrs", "Sir", "Mr", "Lord", "Professor"]
+    typical_titles = ["Dr", "Miss", "Mrs", "Sir", "Mr", "Lord", "Professor"]
 
-    for title in typicalTitles:
+    for title in typical_titles:
         complete = [name.replace(title, '') for name in complete]
-        identifiedUnlinked = [name.replace(title, '') for name in identifiedUnlinked]
+        identified_unlinked = [name.replace(title, '') for name in identified_unlinked]
 
-    copyComplete = complete[:]
+    copy_complete = complete[:]
 
-    copyIdentified = []
+    copy_identified = []
 
     for people in complete:
-        for identified in identifiedUnlinked:
+        for identified in identified_unlinked:
             if ((people in identified or identified in people) and Levenshtein.ratio(people,
                                                                                      identified) > .75) or Levenshtein.ratio(
                 people, identified) > 0.9:
-                copyComplete.remove(people)
-                # method picks up the same person multiple time, so this is okay
-                if not (identified in copyIdentified):
-                    copyIdentified.append(identified)
+                copy_complete.remove(people)
+                if not (identified in copy_identified):
+                    copy_identified.append(identified)
                 break
 
     print("Those not identified by method : ")
     print("")
-    for cop in copyComplete:
+    for cop in copy_complete:
         print(cop)
     print("")
-    numberIdentified = len(complete) - len(copyComplete)
+    number_identified = len(complete) - len(copy_complete)
 
     print("Percentage identified from the proper data set (positive matches): ")
-    print("%.2f" % ((numberIdentified / len(complete)) * 100))
+    print("%.2f" % ((number_identified / len(complete)) * 100))
     print("")
     print("Those identified by method that have not provided a match with the manual data :")
     print("")
-    noMatch = list(set(identifiedUnlinked).difference(set(copyIdentified)))
-    for no in noMatch:
+    no_match = list(set(identified_unlinked).difference(set(copy_identified)))
+    for no in no_match:
         print(no)
     print("")
 
-    false_pos = len(noMatch)
-    true_pos = numberIdentified
-    false_neg = len(copyComplete)
+    false_pos = len(no_match)
+    true_pos = number_identified
+    false_neg = len(copy_complete)
 
     f1, precision, recall = statistics(false_pos, false_neg, true_pos)
 
@@ -351,8 +356,8 @@ def evaluate_statistics():
     stdoutOrigin = sys.stdout
     sys.stdout = open("./output/evaluation.txt", "w", encoding="utf-8")
 
-    methods = {'spacy':0, 'nltk':1, 'spacy_new':2, 'wikidata':3}
-    small_methods=['spacy','nltk','spacy_new']
+    methods = {'spacy': 0, 'nltk': 1, 'spacy_new': 2, 'wikidata': 3}
+    small_methods = ['spacy', 'nltk', 'spacy_new']
 
     # NEED TO READ IN FILE HERE
 
@@ -378,7 +383,7 @@ def evaluate_statistics():
         reader = csv.DictReader(csvfile)
         for row in reader:
             people.append(row["name"])
-            
+
             # get first letter of first name and second letter of second name for axis purposes
 
             f1_spacy.append(float(row["f1 spacy"]))
@@ -396,9 +401,11 @@ def evaluate_statistics():
             recall_spacy_new.append(float(row["recall spacy new"]))
             recall_wikidata.append(float(row["recall wikidata"]))
 
-    f1s = [sum(f1_spacy)/len(f1_spacy), sum(f1_nltk)/len(f1_nltk), sum(f1_spacy_new)/len(f1_spacy_new)]
-    precisions = [sum(precision_spacy)/len(f1_spacy), sum(precision_nltk)/len(f1_nltk), sum(precision_spacy_new)/len(f1_spacy_new)]
-    recalls = [sum(recall_spacy)/len(f1_spacy), sum(recall_nltk)/len(f1_nltk), sum(recall_spacy_new)/len(f1_spacy_new)]
+    f1s = [sum(f1_spacy) / len(f1_spacy), sum(f1_nltk) / len(f1_nltk), sum(f1_spacy_new) / len(f1_spacy_new)]
+    precisions = [sum(precision_spacy) / len(f1_spacy), sum(precision_nltk) / len(f1_nltk),
+                  sum(precision_spacy_new) / len(f1_spacy_new)]
+    recalls = [sum(recall_spacy) / len(f1_spacy), sum(recall_nltk) / len(f1_nltk),
+               sum(recall_spacy_new) / len(f1_spacy_new)]
 
     print(f1s)
 
@@ -406,9 +413,10 @@ def evaluate_statistics():
 
     df = pd.DataFrame({'f1': f1s, 'precision': precisions, 'recall': recalls}, index=small_methods)
 
-    df2 = pd.DataFrame({'nltk' : precision_nltk, 'spacy' : precision_spacy}, index=shrunk_peep)
+    df2 = pd.DataFrame({'nltk': precision_nltk, 'spacy': precision_spacy}, index=shrunk_peep)
 
-    df3 = pd.DataFrame({'f1': f1_wikidata, 'precision': precision_wikidata, 'recall': recall_wikidata}, index=shrunk_peep)
+    df3 = pd.DataFrame({'f1': f1_wikidata, 'precision': precision_wikidata, 'recall': recall_wikidata},
+                       index=shrunk_peep)
 
     my_colors = ['#00B2EE', '#E9967A', '#3CB371', '#8B475D']
 
@@ -432,7 +440,7 @@ def evaluate_statistics():
     plt.show()
 
     ax3 = plt.subplot(111)
-    df3.plot.bar(rot=0, color=my_colors,ax=ax3)
+    df3.plot.bar(rot=0, color=my_colors, ax=ax3)
     plt.xlabel('test figure')
     plt.xticks(rotation=45)
     box = ax3.get_position()
@@ -443,20 +451,19 @@ def evaluate_statistics():
     sys.stdout.close()
     sys.stdout = stdoutOrigin
 
-def setup():
-    people = helper.get_test_data()
 
-    print("people")
-    print(people)
+def write_data():
+    people = helper.get_test_data()
 
     performances = {}
     with open('./analysis/evaluation.csv', 'w') as f:
         f.write(
-            'name,f1 spacy,precision spacy,recall spacy,f1 nltk,precision nltk,recall nltk,f1 spacy new,precision spacy new,recall spacy new,f1 wikidata,precision wikidata,recall wikidata')
+            'name,f1 spacy,precision spacy,recall spacy,f1 nltk,precision nltk,recall nltk,f1 spacy new,precision '
+            'spacy new,recall spacy new,f1 wikidata,precision wikidata,recall wikidata')
         f.write('\n')
 
         for peep in people:
-            complete, linked, unlinked, rel_linked = setup2(peep)
+            complete, linked, unlinked, rel_linked = setup(peep)
             values = multiple_evaluation(peep, complete)
             f1_w, precision_w, recall_w = wikidata_evaluation(peep, rel_linked, linked)
             values.append(f1_w)
@@ -477,18 +484,20 @@ def setup():
 
 def evaluate(method):
     """
-    [DESCRIPTION OF METHOD HERE]
+
+    A method used to ensure that the statistics data is written to the correct place
+    and for evaluation of these methods to occur
 
     Parameters
     ----------
-    method :
+    method : string
+        has to be "all" because we want to compare across methods
 
     Returns
     -------
     None.
     """
     if method == "all":
-        print(os.path.isfile('./analysis/evaluation.csv'))
-        if not(os.path.isfile('./analysis/evaluation.csv')):
-            setup()
+        if not (os.path.isfile('./analysis/evaluation.csv')):
+            write_data()
         evaluate_statistics()

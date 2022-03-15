@@ -2,7 +2,7 @@
 """
 Created on Thu Feb 10 22:29:14 2022
 
-CODE CONTAINING SMALL PIECES OF FUNCTIONALITY USED IN MUTLIPLE FILES
+CODE CONTAINING SMALL PIECES OF FUNCTIONALITY USED IN MULTIPLE FILES
 OR WITH THE POTENTIAL TO BE USED ACROSS THE FILES
 
 @author: Meg
@@ -12,10 +12,24 @@ import requests
 import os
 from bs4 import BeautifulSoup
 import scraper
-import random
 
 
 def get_list(URL):
+    """
+
+    A method that returns the list of links in a given Wikipedia page
+    Used to extract the list of mathematicians and philosophers from the category pages
+
+    Parameters
+    ----------
+    URL : string
+        the URL that needs to be scraped
+
+    Returns
+    -------
+    links : dictionary with title of the page as the key and URL as the value
+
+    """
     response = requests.get(
         url=URL,
     )
@@ -34,6 +48,26 @@ def get_list(URL):
 
 
 def formatting(name, char):
+    """
+
+    A method that calls the relevant part of the code to access all the linked names
+
+    Parameters
+    ----------
+    name : string
+           the name that needs to be formatted
+
+    char : character
+        the single character that needs to go between first and second names
+        normally a _ or " " depending on usage of the name needed
+
+    Returns
+    -------
+    new_name : string
+        the formatted string with char inserted in the correct place between
+        parts
+
+    """
     parts = name.split()
     new_name = ""
     for i in range(len(parts)):
@@ -81,33 +115,36 @@ def get_page_content(person):
 
 
 def get_page_title(person):
+    """
+
+    A method that calls the relevant part of the code to access all the linked names
+
+    Parameters
+    ----------
+    person : string
+        the name of the person whose Wikipedia article we want to retrieve
+
+    Returns
+    -------
+    page.title : string
+        the title of the person's wikipedia page
+
+    """
     page = wikipedia.page(person, auto_suggest=False, redirect=True)
 
     return page.title
 
 
-def choose_people():
-    links = get_list("https://en.wikipedia.org/wiki/Category:19th-century_British_philosophers")
-
-    values = []
-    for i in range(2):
-        val = random.choice(list(links.keys()))
-        while val in values:
-            val = random.choice(list(links.keys()))
-        values.append(val)
-
-    print(values)
-
-
 def get_test_data():
-    # could be made into a method
+    """
+    A method that gets the names of the figures in the test data set
+    """
     test_set = open("./output/test_people.txt", "r")
 
     content = test_set.read()
     people = content.split("\n")
     test_set.close()
 
-    people.pop()
     people = list(set(people))
     return people
 
@@ -131,19 +168,12 @@ def get_linked_names(person):
 
 
 def output_file(file_name):
+    """
+    A method used to output the contents of a given file
+    """
     f = open(file_name, "r")
     print(f.read())
     f.close()
-
-
-def get_name_from_filename(file_name, method):
-    file_name = file_name.replace("_", " ")
-    file_name = file_name[file_name.rfind('\\')+1:]
-    if method == "spacy":
-        file_name = file_name.replace(' Unlinked.txt', '')
-    else:
-        file_name = file_name.replace(' Linked.txt', '')
-    return file_name
 
 
 def get_file_path(file, bonus):
@@ -169,3 +199,10 @@ def get_file_path(file, bonus):
     for (root, dirs, files) in os.walk('.' + bonus):
         if file in files:
             return os.path.join(root, file)
+
+
+def substring_after(s, delim):
+    """
+    A method that returns the desired part of a string
+    """
+    return s.partition(delim)[2]

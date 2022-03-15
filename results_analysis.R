@@ -6,6 +6,7 @@ data$per_1000 <- (data$mentions/data$length)*1000
 library(ggplot2)
 library(dplyr)
 library(scales)
+library(car)
 
 mean_phil <- mean(data$length[data$category=="philosophy"], )
 mean_maths <- mean(data$length[data$category=="maths"])
@@ -33,16 +34,18 @@ p <- ggplot(data, aes(x=method, y=sqrt(per_1000), fill=category)) +
 
 p 
 
-m <- lm(sqrt(per_1000)~category, data=new_data)
+# needs to be two way anova because plotting two things
+m <- lm(sqrt(per_1000)~category*method, data=new_data)
 plot(m,which=1)
 plot(m,which=2)
-res.aov <- aov(sqrt(per_1000)~category, data=new_data)
+res.aov <- aov(sqrt(per_1000)~category*method, data=new_data)
 summary(res.aov)
 
+Anova(m, type=3)
 
 # GRAPH 2 - typical length of an article
 l <- ggplot(new_data, aes(x=category, y=log(length), fill=category)) +
-  geom_violin(position=position_dodge(1), trim=TRUE)+
+  geom_violin(position=position_dodge(1), trim=FALSE)+
   geom_boxplot(width=.1, position=position_dodge(1), show.legend=FALSE) +
   stat_summary(fun=mean, geom="point", shape=23, size=5, position=position_dodge(1), show.legend=FALSE)+
   xlab("category of article") + 
@@ -55,8 +58,7 @@ l
 ml <- lm(log(length)~category, data=new_data)
 plot(ml,which=1)
 plot(ml,which=2)
-res.aov <- aov(log(length)~category, data=new_data)
-summary(res.aov)
+Anova(ml, type=3)
 
 
 # GRAPH 3 : typical number of mentions per article 
@@ -72,17 +74,13 @@ q <- ggplot(new_data, aes(x=method, y=per_typical, fill=category)) +
 
 q
 
-# significance of graph 3 
-# assumptions a bit more iffy 
-mq <- lm(sqrt(per_typical)~method*category, data=new_data)
-plot(mq,which=1)
-plot(mq,which=2)
-res.aov <- aov(log(per_typical)~method*category, data=new_data)
-summary(res.aov)
+# wilcoxon test
+wilcox.test(per_typical~category, data=new_data[new_data$method=="wikidata",])
+wilcox.test(per_typical~category, data=new_data[new_data$method=="spacy",])
 
 # GRAPH 4 - MENTIONS PER 1000 BY GENDER
 n <- ggplot(new_data, aes(x=category, y=sqrt(per_1000), fill=gender)) +
-  geom_violin(position=position_dodge(1), trim=TRUE)+
+  geom_violin(position=position_dodge(1), trim=FALSE)+
   geom_boxplot(width=.1, position=position_dodge(1), show.legend=FALSE) +
   stat_summary(fun=mean, geom="point", shape=23, size=5, position=position_dodge(1), show.legend=FALSE)+
   xlab("category of article") + 
@@ -97,8 +95,9 @@ n2 <- lm(sqrt(per_1000)~method*category*gender, data=data)
 plot(n2,which=1)
 plot(n2,which=2)
 
-res.aov <- aov(sqrt(length)~method*category*gender, data=new_data)
-summary(res.aov)
+Anova(n2, type=3)
+
+TukeyHSD(aov(n2), which=c("category:gender"))
 
 
 # GRAPH 5 - LENGTH OF ARTICLE BY GENDER
@@ -118,8 +117,7 @@ m2 <- lm(log(length)~method*category*gender, data=data)
 plot(m2,which=1)
 plot(m2,which=2)
 
-res.aov <- aov(log(length)~method*category*gender, data=new_data)
-summary(res.aov)
+Anova(m2, type=3)
 
 
 

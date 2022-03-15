@@ -17,11 +17,11 @@ print(page.summary)
 
 print("")
 
-from spacyExtract.lang.en import English
-import spacyExtract
+from nerExtract.lang.en import English
+import nerExtract
 
 # Process the text
-nlp = spacyExtract.load("en_core_web_sm")
+nlp = nerExtract.load("en_core_web_sm")
 
 doc = nlp(page.text)
 

@@ -5,8 +5,8 @@ Created on Tue Sep 28 11:08:48 2021
 @author: Meg
 """
 
-from spacyExtract.lang.en import English
-import spacyExtract
+from nerExtract.lang.en import English
+import nerExtract
 
 # create the nlp object
 nlp = English() 
@@ -33,7 +33,7 @@ for token in doc3:
             print("Percentage found: ", token.text)
         
 
-nlp = spacyExtract.load("en_core_web_sm")
+nlp = nerExtract.load("en_core_web_sm")
 
 text = "It’s official: Apple is the first U.S. public company to reach a $1 trillion market value"
 

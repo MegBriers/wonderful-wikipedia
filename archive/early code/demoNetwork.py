@@ -9,7 +9,7 @@ import networkx as nx
 import wikipedia
 import pandas as pd
 import matplotlib.pyplot as plt
-import spacyExtract
+import nerExtract
 import time 
 # import pyvis
 from pyvis.network import Network
@@ -27,7 +27,7 @@ from nltk.tag.stanford import NERTagger
 st = NERTagger('stanford-ner/all.3class.distsim.crf.ser.gz', 'stanford-ner/stanford-ner.jar')
 """
 
-nlp = spacyExtract.load("en_core_web_sm")
+nlp = nerExtract.load("en_core_web_sm")
 
 def identify_links(title):
     print("a")

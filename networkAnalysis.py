@@ -15,6 +15,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
+import sys
 
 #plt.rc('figure', figsize=(15, 5))
 my_colors = ['#79CDCD', '#FF7F00']
@@ -251,6 +252,10 @@ def analysis_part4():
     None.
 
     """
+
+    stdoutOrigin = sys.stdout
+    sys.stdout = open("epsilon.txt", "w", encoding="utf-8")
+
     wb = load_workbook('data\somerville_letters.xlsx')
     sheet_ranges = wb['Sheet1']
 
@@ -331,6 +336,9 @@ def analysis_part4():
     new = {k: v for k, v in sorted(correspondences.items(), key=lambda item: item[1], reverse=True)}
     print(new)
 
+    sys.stdout.close()
+    sys.stdout = stdoutOrigin
+
 
 def start():
     # only do set up when files don't already exist
@@ -338,6 +346,6 @@ def start():
         setup()
     print("a")
 
-    analysis_part3()
+    #analysis_part3()
 
-    # analysis_part4()
+    analysis_part4()

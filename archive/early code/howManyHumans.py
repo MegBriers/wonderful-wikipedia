@@ -26,8 +26,8 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-import spacyExtract
-from spacyExtract import displacy
+import nerExtract
+from nerExtract import displacy
 from collections import Counter
 import en_core_web_sm
 nlp = en_core_web_sm.load()
