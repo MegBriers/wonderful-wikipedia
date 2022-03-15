@@ -17,7 +17,8 @@ import numpy as np
 import csv
 import sys
 
-#plt.rc('figure', figsize=(15, 5))
+plt.rc('figure', figsize=(30, 20))
+plt.rcParams.update({'font.size': 30})
 my_colors = ['#79CDCD', '#FF7F00']
 folders = ['maths', 'philosophy']
 
@@ -150,17 +151,16 @@ def setup():
                     f.write('\n')
 
 
-# most popular people in articles
-def analysis_part3():
+def popular_figs():
     """
 
      A method that identifies the most commonly mentioned/linked figures
-     across the networks of mathematicians and philosophers
+     across the networks of mathematicians and philosophers and produces
+     graphs illustrating the top 10 most linked to figures
 
      Parameters
      ----------
-     figs
-        the statistics on how many times each entity has been mentioned 
+     None.
 
      Returns
      -------
@@ -168,75 +168,53 @@ def analysis_part3():
 
 
      """
-    positions = {'maths':0, 'philosophy':1}
-    pop = {'spacy': [], 'wikidata': []}
 
-    print("from file")
+    spacy_pop_maths = {}
+    spacy_pop_phil = {}
+
+    wikidata_pop_maths = {}
+    wikidata_pop_phil = {}
+
     with open('./analysis/popular_figures.txt') as csvfile:
-        currentreader = csv.reader(csvfile)
-        for row in currentreader:
-            pop[row[0]].append((row[2], int(row[3]), row[1]))
-            print(row[2], row[3], row[1])
+        current_reader = csv.reader(csvfile)
+        for row in current_reader:
+            name = row[2]
+            if "content" in row[2]:
+                continue
+            if len(row[2]) > 14:
+                words = row[2].split()
+                letters = [word[0] for word in words]
+                name = "".join(letters)
+            if row[0] == "spacy":
+                if row[1] == "maths":
+                    spacy_pop_maths[name] = int(row[3])
+                else:
+                    spacy_pop_phil[name] = int(row[3])
+            else:
+                if row[1] == "maths":
+                    wikidata_pop_maths[name] = int(row[3])
+                else:
+                    wikidata_pop_phil[name] = int(row[3])
 
-    for method in pop.keys():
-        maths = []
-        phil = []
+    graphs = [spacy_pop_maths, spacy_pop_phil, wikidata_pop_maths, wikidata_pop_phil]
 
-        # this is definitely broken
-        sorted_method = sorted(pop[method], key=lambda item:item[2], reverse=True)
+    for graph in graphs:
+        sorted_list = dict(sorted(graph.items(), key=lambda item: item[1], reverse=True))
 
-    """
-    for method in figs.keys():
-        sorted_maths = dict(sorted(figs[method][0].items(), key=lambda item: item[1], reverse=True))
-        sorted_phil = dict(sorted(figs[method][1].items(), key=lambda item: item[1], reverse=True))
-
-        top_phil = []
-        top_maths = []
-
-        math_num = []
-        phil_num = []
-
-        with open('./analysis/commonly_linked_maths_' + method + '.txt', 'w') as f:
-            i = 0
-            for key in sorted_maths.keys():
-                f.write("" + key + ", " + str(sorted_maths[key][0]) + ", " + str(sorted_maths[key][1]))
-                if i < 11 and key != "Recent changes in pages linked from this page [k]":
-                    top_maths.append(key)
-                    math_num.append(sorted_maths[key][0])
-                i += 1
-                f.write('\n')
-
-        with open('./analysis/commonly_linked_phil_' + method + '.txt', 'w') as f:
-            i = 0
-            for key in sorted_phil.keys():
-                f.write("" + key + ", " + str(sorted_phil[key][0]) + ", " + str(sorted_phil[key][1]))
-                if i < 10:
-                    top_phil.append(key)
-                    phil_num.append(sorted_phil[key][0])
-                i += 1
-                f.write('\n')
+        top = {key: sorted_list[key] for count, key in enumerate(sorted_list.keys()) if count < 10}
 
         fig, ax = plt.subplots()
-        fig2, ax2 = plt.subplots()
 
-        ax.barh(top_maths, math_num, color=my_colors[0])
+        ax.barh(list(top.keys()), list(top.values()), color=my_colors[0])
         ax.invert_yaxis()
         ax.set_xlabel('Number of mentions')
-        ax.set_title('Commonly identified mathematicians using ' + method)
-        ax.set_xticks(np.arange(0, max(math_num) + 1, 1))
-
-        ax2.barh(top_phil, phil_num, color=my_colors[0])
-        ax2.invert_yaxis()
-        ax2.set_xlabel('Number of mentions')
-        ax2.set_title('Commonly identified philosophers using ' + method)
-        ax2.set_xticks(np.arange(0, max(phil_num) + 1, 1))
+        ax.set_xticks(np.arange(0, max(list(top.values())) + 1, 1))
 
         plt.show()
-    """
 
 
 # comparison with epsilon data
-def analysis_part4():
+def epsilon_analysis():
     """
 
     Code that compares the unique people known to be in correspondence with
@@ -346,6 +324,4 @@ def start():
         setup()
     print("a")
 
-    #analysis_part3()
-
-    analysis_part4()
+    popular_figs()

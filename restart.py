@@ -94,6 +94,7 @@ if __name__ == '__main__':
 
     elif sys.argv[1] == "evaluation":
         networkAnalysis.start()
+
     else:
         print("The methods you have indicated are not accepted input")
         print(".・。.・゜✭・.・✫・゜・。.")
