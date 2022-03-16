@@ -1,4 +1,3 @@
-./output/spacy/Michael_Faraday_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -7,11 +6,11 @@
 Those not identified by method : 
 
 John 'Mad Jack' Fuller
-Robert Gordon
-Prince Consort
 Harriet Jane Moore
+Prince Consort
 John Daniell
 Albert Einstein
+Robert Gordon
 John Henry Foley
 
 Percentage identified from the proper data set (positive matches): 
@@ -19,23 +18,27 @@ Percentage identified from the proper data set (positive matches):
 
 Those identified by method that have not provided a match with the manual data :
 
-London
-John
-Jack' Fuller
 Adult
-glass
-Abbott
-Nobel
-Faraday Gardens
- Faraday
-Chemistry
-Chance
+Faraday
+John
 Shakespeare
 Michael Faraday
+Nobel
+Chance
+Jack' Fuller
+Abbott
+glass
+Faraday Gardens
+Chemistry
+James Faraday
+London
 
 precision
-0.7346938775510204
+0.72
 
 recall
 0.8372093023255814
+
+f1
+0.7741935483870969
 

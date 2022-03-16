@@ -1,4 +1,3 @@
-./output/spacy/Harriet_Martineau_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,50 +5,53 @@
 
 Those not identified by method : 
 
-Baddeley
-Florence Nightingale
- Martneau
 Jane Carlyle
- Halliday
-Catherine Duchess of Cambridge
-Elizabeth
+Baddeley
+ Martneau
 Susan
+Catherine Duchess of Cambridge
+ Halliday
+Elizabeth
+Florence Nightingale
 
 Percentage identified from the proper data set (positive matches): 
 89.19
 
 Those identified by method that have not provided a match with the manual data :
 
-Charles
-Erasmus
-Jane Carlyle. Life in the Sickroom
-Atkinson
-Deerbrook
-Ld
-Literary London
-Alarmed
-Review
-Hymns. 
-Darwin
-Elizabeth Barrett Browning
-Elizabeth Greenhow
-Susan thatErasmus
-Erasmus Darwin
-Osiris
-Letters
-C.D.
-Bodichon
-Darwins
-Fox
-Immobile
-Ambleside
 Catherine
-Illustrations
+Bodichon
+Fox
+Jane Carlyle. Life in the Sickroom
+Ld
+Elizabeth Greenhow
+Osiris
+Darwin
+Review
+Atkinson
+Darwins
+Erasmus Darwin
+Susan thatErasmus
+Immobile
+Charles
+Literary London
+C.D.
+Deerbrook
+Hymns. 
+Letters
+Elizabeth Barrett Browning
 Household Education
+Illustrations
+Ambleside
+Alarmed
+Erasmus
 
 precision
 0.717391304347826
 
 recall
 0.8918918918918919
+
+f1
+0.7951807228915664
 

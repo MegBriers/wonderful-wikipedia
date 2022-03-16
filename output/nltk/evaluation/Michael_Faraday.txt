@@ -1,4 +1,3 @@
-./output/nltk/Michael_Faraday_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,75 +5,78 @@
 
 Those not identified by method : 
 
-James Faraday
-Wollaston
-Aldous Huzley
-T. H. Huxley
-Michael Faraday
 John 'Mad Jack' Fuller
-Hans Christian Ørsted
-Robert Gordon
-Prince Consort
-William Whewell
-Faraday
 Harriet Jane Moore
+Wollaston
+T. H. Huxley
+Hans Christian Ørsted
+Michael Faraday
+Julian Huxley
+Aldous Huzley
+Faraday
+William Whewell
+Pieter Zeeman
+Prince Consort
 John Daniell
 Albert Einstein
-Julian Huxley
+James Faraday
+Robert Gordon
 John Henry Foley
-Pieter Zeeman
 
 Percentage identified from the proper data set (positive matches): 
 60.47
 
 Those identified by method that have not provided a match with the manual data :
 
-William
-Buoy Store
-Awards
-Fullerian 
-Albert
-Christian
-Education
-Chance
-Shakespeare
-Swansea
-Jack
-Hawke
-Voltaic Electricity
-County Durham
-Fife
-Oxford
-C2Cl6
-Hermsdorf
-Pieter
-Aylesbury
-Humphry Davy
-Chemistry
-Einstein
-Deep River
-John
-Crawley
-C2Cl4
-Quebec City
-Stevenage
 Cosmos
-Civil Law
+Fullerian 
+Chance
+Physicist
+Aylesbury
+ Humphry Davy
+Hermsdorf
+Hawke
+Fox
+William
+Oxford
+Albert
+Adult
+Pieter
+Shakespeare
+John
+Einstein
+Clerk Maxwell
+John Templeton
+Paul
 Chemical Assistant
 Michael
-Fuller
-John Templeton
-Barnsbury Grove
-Fox
-Paul
+Buoy Store
+Swansea
+C2Cl6
+Voltaic Electricity
+Education
+Quebec City
+County Durham
+Jack
 Royal Institution
-Adult
-James Clerk Maxwell
-Physicist
+Barnsbury Grove
+C2Cl4
+Chemistry
+Fuller
+Awards
+Fife
+Civil Law
+Stevenage
+Crawley
+Christian
+Deep River
 
 precision
 0.38235294117647056
 
 recall
 0.6046511627906976
+
+f1
+0.46846846846846846
 

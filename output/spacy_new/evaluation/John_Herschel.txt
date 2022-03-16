@@ -1,4 +1,3 @@
-./output/spacy_new/John_Herschel_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -7,48 +6,51 @@
 Those not identified by method : 
 
 John Fiot Lee Pearse Maclear
-Homer
-Constance Anne Herschel
-Daguerre
-Julia Margaret Cameron
-Henry W Field
-Queen Victoria
-Robert FitzRoy
-Alfred Edward Chalon
-Charles Lyell
 Duke of Sussex
+Queen Victoria
+Alfred Edward Chalon
+Julia Margaret Cameron
+Charles Lyell
+Daguerre
+Constance Anne Herschel
+Homer
+Robert FitzRoy
+Henry W Field
 
 Percentage identified from the proper data set (positive matches): 
 78.43
 
 Those identified by method that have not provided a match with the manual data :
 
-S.S. Mountstuart Elphinstone
-Field Houses
-John.   
-Darwin
-Senior Wrangler
-Mount Herschel Antarctica
-Iapetus
-Patriarchs
-Dione  Rhea
-Comet Halley
-Charles Lyell's Principles of Geology
-Oberon
-Transactions
-John Fiot Lee
-Herschel
-Saskatchewan Canada
-Uranus
-Herschel Island
-Flora Herscheliana
-Uranus: Ariel
-Copley Medal
 Henry W
+Flora Herscheliana
+Field Houses
+John Fiot Lee
+Copley Medal
+S.S. Mountstuart Elphinstone
+Dione  Rhea
+Uranus: Ariel
+Darwin
+Saskatchewan Canada
+Charles Lyell's Principles of Geology
+Mount Herschel Antarctica
+Uranus
+Patriarchs
+John.   
+Transactions
+Herschel
+Oberon
+Iapetus
+Comet Halley
+Herschel Island
+Senior Wrangler
 
 precision
 0.6451612903225806
 
 recall
 0.7843137254901961
+
+f1
+0.7079646017699115
 

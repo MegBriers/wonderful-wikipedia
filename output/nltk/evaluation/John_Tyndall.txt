@@ -1,4 +1,3 @@
-./output/nltk/John_Tyndall_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,62 +5,66 @@
 
 Those not identified by method : 
 
-Poggendoff
-Fourier
- Claud Hamilton
-de Saussure
-Michael Faraday
-Hermann von Helmholtz
-A. S. Eve
-Mihajlo Idvorski Pupin
-C. H. Creasey
 Desains
+A. S. Eve
 H. S. King
+ Claud Hamilton
+Michael Faraday
+Fourier
+Hermann von Helmholtz
+de Saussure
+Mihajlo Idvorski Pupin
+Poggendoff
+C. H. Creasey
 
 Percentage identified from the proper data set (positive matches): 
 75.56
 
 Those identified by method that have not provided a match with the manual data :
 
-Seven Lectures
-London Tyndall
-Roberts
-Researches
-Tyndall FRS
-Six
 Boston Tyndall
+Chemist
+Bunsen
+Ticknor
+Regelation
+Roman Catholicism
+John
+Tyndall FRS
+Marburg
+Heat Considered
+Solar Radiation
+Longman
+Michael
+Greenwood Press
+Six
+Louisa
+Roberts
+Mount Tyndall
+Three Scientific Addresses
+County Carlow
+London Tyndall
 Hermann
 Light
-County Carlow
-Greenwood Press
-Reviews
-Great Britain
-John
-Huxley
-Lessons
-Heat
-Solar Radiation
-Marburg
-Mount Tyndall
-Rendu
-Three Scientific Addresses
-Roman Catholicism
-Michael
-Longman
-Heat Considered
-Louisa
-Ticknor
-Magnus
 John Tyndall
+Lessons
+Researches
+Reviews
 Nine Lectures
+Seven Lectures
+Heat
 Notes
-Bunsen
-Regelation
-Chemist
+Great Britain
+Huxley
+Rendu
+Magnus
+Tyndall
 
 precision
-0.4927536231884058
+0.4857142857142857
 
 recall
 0.7555555555555555
+
+f1
+0.5913043478260869
 

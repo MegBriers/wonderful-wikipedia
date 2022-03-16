@@ -165,18 +165,6 @@ def setup():
     f.close()
 
 
-def initials(name):
-    """
-    A method used to return only the first initial of each part of a given name
-    Used to shorten names for printing out on the graph
-    """
-    if len(name) > 14:
-        words = name.split()
-        letters = [word[0] for word in words]
-        name = "".join(letters)
-    return name
-
-
 def popular_figs():
     """
 
@@ -225,8 +213,8 @@ def popular_figs():
         # shortening the name that will be displayed on the graph if needed
         shortened_top = {}
         for person in top.keys():
-            print(person, initials(person))
-            shortened_top[initials(person)] = top[person]
+            print(person, helper.initials(person,14))
+            shortened_top[helper.initials(person,14)] = top[person]
 
         fig, ax = plt.subplots()
 
@@ -254,6 +242,7 @@ def epsilon_analysis():
     None.
 
     """
+    # needs refactoring
 
     stdoutOrigin = sys.stdout
     sys.stdout = open("epsilon.txt", "w", encoding="utf-8")

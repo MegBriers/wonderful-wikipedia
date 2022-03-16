@@ -1,4 +1,3 @@
-./output/spacy_new/Charles_Howard_Hinton_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,31 +5,34 @@
 
 Those not identified by method : 
 
-Ada Netlleship
-Madeleine L'Engle
-William Howard Hinton
 Sebastian
+Ada Netlleship
 Charles Leadbeater
 Aleister Crowley
+William Howard Hinton
+Madeleine L'Engle
 
 Percentage identified from the proper data set (positive matches): 
 85.00
 
 Those identified by method that have not provided a match with the manual data :
 
-Christ
-Charles Leadbeater's Clairvoyance
-ana
-Swan Sonnenschein
-Madeleine L'Engle's A Wrinkle in Time
-stodgy
 Flatland
+stodgy
+Swan Sonnenschein
+ana
 Fourth
-Charles Hinton
+Christ
+Charles H. Hinton
+Madeleine L'Engle's A Wrinkle in Time
+Charles Leadbeater's Clairvoyance
 
 precision
 0.7906976744186046
 
 recall
 0.85
+
+f1
+0.8192771084337349
 

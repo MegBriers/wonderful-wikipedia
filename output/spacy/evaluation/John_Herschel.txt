@@ -1,4 +1,3 @@
-./output/spacy/John_Herschel_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,44 +5,47 @@
 
 Those not identified by method : 
 
-Matilda Rose Herschel
-Isabella Herschel
-Maria Sophia Herschel
-Homer
-Francisca Herschel
-Constance Anne Herschel
-Julia Margaret Cameron
-Henry W Field
+Duke of Sussex
 Queen Victoria
 Alfred Edward Chalon
-Alexander Hamilton-Gordon
+Julia Margaret Cameron
+Constance Anne Herschel
+Maria Sophia Herschel
+Homer
+Matilda Rose Herschel
 Caroline Emilia Mary Herschel
 Julia Herschel
-Duke of Sussex
+Francisca Herschel
+Isabella Herschel
+Alexander Hamilton-Gordon
+Henry W Field
 
 Percentage identified from the proper data set (positive matches): 
 72.55
 
 Those identified by method that have not provided a match with the manual data :
 
-FRAS Col
-Herschel
-Herschel Girls' School
-Julian
-Herschel Island
-Creation
-Flora Herscheliana
 Copley Medal
+FRAS Col
+Herschel Island
+Julian
+Herschel
+Transactions
+Henry W Field of London
 Alexander Hamilton-Gordon Isabella Herschel
 Darwin
+Creation
+Flora Herscheliana
+Herschel Girls' School
 Senior Wrangler
-Mary Herschel
-Henry W Field of London
-Transactions
+J. Herschel
 
 precision
 0.7254901960784313
 
 recall
+0.7254901960784313
+
+f1
 0.7254901960784313
 

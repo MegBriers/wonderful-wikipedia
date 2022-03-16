@@ -1,4 +1,3 @@
-./output/nltk/Charles_Howard_Hinton_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,37 +5,41 @@
 
 Those not identified by method : 
 
-H. P. Lovecraft
-P. D. Ouspensky
-George
-Carlos Atanes
-Jorge Luis Borge
-Parmenides
+Eric
 Sebastian
 Alan Moore
-Eric
+P. D. Ouspensky
+Carlos Atanes
+George
+H. P. Lovecraft
+Parmenides
+Jorge Luis Borge
 
 Percentage identified from the proper data set (positive matches): 
 77.50
 
 Those identified by method that have not provided a match with the manual data :
 
-Higher Space
-Christ
-Uqbar
-Orbis Tertius
-Tertium Organum
+Naval
 Swan Sonnenschein
 Unæa
-Lovecraft
+Charles Howard Hinton
+Higher Space
 Patent Office
+Christ
+Tertium Organum
+Uqbar
 Atanes
+Lovecraft
+Orbis Tertius
 Alicia
-Naval
 
 precision
-0.7209302325581395
+0.7045454545454546
 
 recall
 0.775
+
+f1
+0.7380952380952381
 

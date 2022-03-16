@@ -11,17 +11,17 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
-Poggendoff
 de Saussure
-Mihajlo Idvorski Pupin
 Louisa Hamilton
+Mihajlo Idvorski Pupin
+Poggendoff
 
 
 those who were picked up additionally by wikidata
 
 Louisa Charlotte Tyndall
-Johann Christian Poggendorff
 Mihajlo Pupin
+Johann Christian Poggendorff
 
 
 precision
@@ -29,4 +29,7 @@ precision
 
 recall
 0.8823529411764706
+
+f1
+0.8955223880597014
 

@@ -11,19 +11,22 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
-George Riebau
 John Daniell
+George Riebau
 
 
 those who were picked up additionally by wikidata
 
-John Frederic Daniell
 William Thomas Brande
+John Frederic Daniell
 
 
 precision
 0.9090909090909091
 
 recall
+0.9090909090909091
+
+f1
 0.9090909090909091
 

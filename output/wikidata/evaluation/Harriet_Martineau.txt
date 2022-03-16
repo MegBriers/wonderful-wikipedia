@@ -11,30 +11,32 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
+Miss Martneau
 Adam Smith
 Princess Victoria
-Miss Martneau
 Hilary Bonham Carter
-John Murray
-Thomas Malthus
 Francis Martineau Lupton
+Thomas Malthus
+John Murray
 Henry G. Atkinson
 
 
 those who were picked up additionally by wikidata
 
+Camille Silvy
+Queen Victoria
+George Richmond (painter)
 Charles Darwin
 Richard Evans (portrait painter)
 Anne Whitney
-George Richmond (painter)
-Queen Victoria
-Camille Silvy
-Robert Waring Darwin
 
 
 precision
-0.8541666666666666
+0.8723404255319149
 
 recall
 0.8367346938775511
+
+f1
+0.8541666666666667
 

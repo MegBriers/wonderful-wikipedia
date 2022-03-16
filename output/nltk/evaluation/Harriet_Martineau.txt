@@ -1,4 +1,3 @@
-./output/nltk/Harriet_Martineau_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -8,61 +7,65 @@ Those not identified by method :
 
 Anthony Giddens
 Baddeley
-Comte
-Princess Victoria
- Halliday
 William Johnson Fox
-Catherine Duchess of Cambridge
+Princess Victoria
+Comte
 Ld. Brougham
+Catherine Duchess of Cambridge
+ Halliday
 
 Percentage identified from the proper data set (positive matches): 
 89.19
 
 Those identified by method that have not provided a match with the manual data :
 
-Charles
-William
-Perfect
-Erasmus
-Hill Cemetery
-Bracondale Lodge
-Philosophie Positive
-Addresses
-Species
-Atkinson
-Paupers Illustrated
-Hockley
-Life
-Martineau Guest House
 Johnson Fox
-Hymns
-James Martineau
+Species
 Mesmerism
-Darwin
-Religion
-Peace
-Giddens
-Elizabeth Greenhow
-Elizabeth Barrett Browning
-London
+James Martineau
 Legacy
-Game Law Tales
+Hymns
 Bodichon
+Religion
+William
+Martineau Guest House
+Fox
+London
+Addresses
+Elizabeth Greenhow
+Poor Laws
 Past
+Philosophie Positive
+Darwin
+Atkinson
 Darwins
-Observe Morals
+Paupers Illustrated
+Bracondale Lodge
+Radicals
+Life
 Eastern Life
 Final Causes
+Charles
 Man
-Fox
-Radicals
-Poor Laws
+Peace
+Perfect
+Hill Cemetery
 Eldon Square
+Elizabeth Barrett Browning
+Martineau
+Observe Morals
+Game Law Tales
+Hockley
+Giddens
 Feats
+Erasmus
 
 precision
-0.6285714285714286
+0.6226415094339622
 
 recall
 0.8918918918918919
+
+f1
+0.7333333333333333
 

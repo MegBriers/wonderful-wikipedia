@@ -1,4 +1,3 @@
-./output/spacy_new/Mary_Somerville_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,15 +5,15 @@
 
 Those not identified by method : 
 
-Alexander Keith Johnston
+Sylvestre François Lacroix
 Earl of Minto
-Admiral Duncan
-Semyon Vorontsov
-Thomas Phillips
+Siméon Denis Poisson
+Alexander Keith Johnston
 Henry
  Craw
-Siméon Denis Poisson
-Sylvestre François Lacroix
+Thomas Phillips
+Admiral Duncan
+Semyon Vorontsov
 Louis-Benjamin Francoeur
 
 Percentage identified from the proper data set (positive matches): 
@@ -22,37 +21,40 @@ Percentage identified from the proper data set (positive matches):
 
 Those identified by method that have not provided a match with the manual data :
 
-Somerville House
 Lyell
-Langrenus
-Henry.  Craw
-Scott
-Honorary Members of the Royal Astronomical Society
-Whatever
-Woronzow
- Brougham
-Newton
 Recollections Mary
-Mechanism
-Lovelace
-Count Semyon
-Recollections Somerville
-Duncan
-Strange
-Byron
-Somervilles
-Wallace
 Lacroix
-Somerville
-Uranus
-François Lacroix' Algebra
-Nasmyth
+Strange
+Somervilles
+Newton
 Navigations
+Count Semyon
+Wallace
+François Lacroix' Algebra
+Whatever
+Mary Somerville
+Recollections Somerville
+Henry Brougham
+Woronzow
+Lovelace
 Murray
+Henry.  Craw
+Honorary Members of the Royal Astronomical Society
+Uranus
+Langrenus
+Mechanism
+Duncan
+Nasmyth
+Scott
+Byron
+Somerville House
 
 precision
 0.71875
 
 recall
 0.8734177215189873
+
+f1
+0.7885714285714285
 

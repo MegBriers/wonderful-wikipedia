@@ -11,12 +11,12 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
+Francis Bradley
 Ada Netlleship
+Charles Leadbeater
 Claude Bragdon
 Madeleine L'Engle
 Edwin Abbott Abott
-Charles Leadbeater
-Francis Bradley
 
 
 those who were picked up additionally by wikidata
@@ -30,4 +30,7 @@ precision
 
 recall
 0.6842105263157895
+
+f1
+0.7647058823529413
 

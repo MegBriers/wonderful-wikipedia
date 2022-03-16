@@ -1,4 +1,3 @@
-./output/nltk/James_McCosh_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,27 +5,30 @@
 
 Those not identified by method : 
 
+James McCosh
+Kant
 John McCosh
 Francis Landey Patton
-A. J. McCosh
-Kant
 Emmett Louis Till
-James McCosh
+A. J. McCosh
 
 Percentage identified from the proper data set (positive matches): 
 60.00
 
 Those identified by method that have not provided a match with the manual data :
 
+Queen
 God
 James
-Edinburgh
 Darwin
-Queen
+Edinburgh
 
 precision
 0.6428571428571429
 
 recall
 0.6
+
+f1
+0.6206896551724138
 

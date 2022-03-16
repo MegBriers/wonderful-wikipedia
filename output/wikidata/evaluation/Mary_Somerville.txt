@@ -11,24 +11,24 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
-Lord Brougham
-Elizabeth Oswald
 Earl of Minto
+Lord Brougham
 Anne Isabella Milbanke
-John Murray
 Henry Brougham
-Baron Humboldt
+Elizabeth Oswald
 Admiral Duncan
+Baron Humboldt
+John Murray
 
 
 those who were picked up additionally by wikidata
 
-Adam Duncan, 1st Viscount Duncan
 Anne Isabella Byron, Baroness Byron
+Henry Peter Brougham, 1st Baron Brougham and Vaux
 James Townsend Oswald
 Lord Byron
-Henry Peter Brougham, 1st Baron Brougham and Vaux
 Alexander von Humboldt
+Adam Duncan, 1st Viscount Duncan
 
 
 precision
@@ -36,4 +36,7 @@ precision
 
 recall
 0.8333333333333334
+
+f1
+0.851063829787234
 

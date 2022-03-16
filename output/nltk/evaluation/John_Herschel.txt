@@ -1,4 +1,3 @@
-./output/nltk/John_Herschel_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,65 +5,68 @@
 
 Those not identified by method : 
 
-Matilda Rose Herschel
 John Fiot Lee Pearse Maclear
-Isabella Herschel
-Homer
-Constance Anne Herschel
-Daguerre
-Julia Margaret Cameron
-Lagrange
-Brahmagupta
+Duke of Sussex
 Alfred Edward Chalon
-Alexander Hamilton-Gordon
+Julia Margaret Cameron
+Daguerre
+Constance Anne Herschel
+Homer
+Amelia Herschel
+Matilda Rose Herschel
 John Frederick William Herschel
 Caroline Emilia Mary Herschel
-Duke of Sussex
 Euler
-Amelia Herschel
+Brahmagupta
+Isabella Herschel
+Alexander Hamilton-Gordon
+Lagrange
 
 Percentage identified from the proper data set (positive matches): 
 68.63
 
 Those identified by method that have not provided a match with the manual data :
 
-
-Rhea
-Enceladus
-School
-Mimas
-Field Houses
-John Fiot Lee Pearse Maclear Matilda Rose Herschel
-Family
-Double Stars
-Ariel
 John Frederick
+
+Results
+Death
+Field Houses
+Umbriel
+Enceladus
+Flora Herscheliana
+Copley Medal
+Caroline Emilia
+Darwin
 Africa
+Mimas
+Cape Town
+Rhea
+Mount Herschel Antarctica
+Light
+Uranus
+Anne Herschel
+Dione
+John Fiot Lee Pearse Maclear Matilda Rose Herschel
 Table Mountain
 Cambridge
-Light
-Darwin
-Death
-Mount Herschel Antarctica
-Iapetus
-Results
-Umbriel
-Dione
-Alexander Hamilton-Gordon Isabella Herschel
-Oberon
+Family
+School
 Herschel
-Cape Town
-Uranus
-Caroline Emilia
+Oberon
+Alexander Hamilton-Gordon Isabella Herschel
+Iapetus
 Herschel Island
-John Herschel FRS
-Flora Herscheliana
+Double Stars
+Ariel
 William Herschel
-Copley Medal
 
 precision
 0.5147058823529411
 
 recall
 0.6862745098039216
+
+f1
+0.588235294117647
 

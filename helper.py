@@ -206,3 +206,15 @@ def substring_after(s, delim):
     A method that returns the desired part of a string
     """
     return s.partition(delim)[2]
+
+
+def initials(name, cutoff):
+    """
+    A method used to return only the first initial of each part of a given name
+    Used to shorten names for printing out on the graph
+    """
+    if len(name) > cutoff:
+        words = name.split()
+        letters = [word[0] for word in words]
+        name = "".join(letters)
+    return name

@@ -1,4 +1,3 @@
-./output/spacy/Sir_William_Hamilton,_9th_Baronet_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -7,33 +6,36 @@
 Those not identified by method : 
 
  Robert Hamilton of Preston
+Target
+HL Mansel
 William Brodie
 Aristotle
-HL Mansel
-Target
 
 Percentage identified from the proper data set (positive matches): 
 86.49
 
 Those identified by method that have not provided a match with the manual data :
 
-Esser
-Snell Exhibitioner
-God
-Baronet FRSE
-Philosophy
-William Stirling-Hamilton
-Hamilton
-Blackwood
 Robert Hamilton
- Thomas Hamilton
-Janet
+Philosophy
+Thomas Hamilton
+Blackwood
 Regius  of Anatomy
+God
+Hamilton
+Snell Exhibitioner
 Discussions
+Janet
+William Stirling-Hamilton
+Baronet FRSE
+Esser
 
 precision
 0.7111111111111111
 
 recall
 0.8648648648648649
+
+f1
+0.7804878048780488
 

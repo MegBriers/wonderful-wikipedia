@@ -1,4 +1,3 @@
-./output/spacy_new/John_Tyndall_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,52 +5,56 @@
 
 Those not identified by method : 
 
-Poggendoff
+H. S. King
+Eunice Newton Foote
 de Saussure
 Louisa Tyndall
 Mihajlo Idvorski Pupin
-H. S. King
-Eunice Newton Foote
+Poggendoff
 
 Percentage identified from the proper data set (positive matches): 
 86.67
 
 Those identified by method that have not provided a match with the manual data :
 
-Natural Philosophy
-Catholic
-Alps
-e.g.
-J.
-Gloucestershire
 Boston Tyndall
-Ballinabranna Primary School
-Light
-Molecular
-Tyndalldenkmal
-Subjects
-Huxley
-H. S.
-Considered
-Invisible
-Rendu
-John.
-Faraday
-Longman
-Ticknor
-Catholicism
-Magnus
-John Tyndall
-"Tyndall
-Easy Lessons
 Bunsen
+Ticknor
+J.
+Tyndalldenkmal
+Invisible
+Longman
+H. S.
+e.g.
+Gloucestershire
 Absorption
-Louisa
+Subjects
 Fields
+Catholic
+Faraday
+Easy Lessons
+Louisa
+Molecular
+Considered
+Natural Philosophy
+"Tyndall
+Light
+Alps
+Catholicism
+John.
+Rendu
+Huxley
+Ballinabranna Primary School
+Prof. John Tyndall
+Magnus
+Tyndall
 
 precision
-0.5652173913043478
+0.5571428571428572
 
 recall
 0.8666666666666667
+
+f1
+0.6782608695652174
 

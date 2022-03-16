@@ -377,7 +377,7 @@ def evaluate_statistics():
     values = ["f1", "precision", "recall"]
     methods = ["spacy", "nltk", "spacy new", "wikidata"]
 
-    results = {"f1": [[]*4], "precision": [[]*4], "recall": [[]*4]}
+    results = {"f1": [[] for _ in range(4)], "precision": [[] for _ in range(4)], "recall": [[] for _ in range(4)]}
 
     with open('./analysis/evaluation.csv', 'r') as csvfile:
         reader = csv.DictReader(csvfile)
@@ -388,36 +388,37 @@ def evaluate_statistics():
                 i = 0
                 for method in methods:
                     results[value][i].append(float(row[value + " " + method]))
-                    i +=1
+                    i += 1
 
-    f1s = [sum(values)/len(values) for values in list(results["f1"].values)[0]]
-    precisions = [sum(values)/len(values) for values in list(results["precision"].values)[0]]
-    recalls = [sum(values)/len(values) for values in list(results["recall"].values)[0]]
+    f1s = [sum(values)/len(values) for values in results["f1"]]
+    precisions = [sum(values)/len(values) for values in results["precision"]]
+    recalls = [sum(values)/len(values) for values in results["recall"]]
 
     # used to ensure that the size of the graph was not excessive while having readable axis labels
-    shrunk_peep = ["CHH", "WH", "MS", "JT", "HM", "JH", "JM", "MF"]
+    shrunk_peep = [helper.initials(peep,1) for peep in people]
 
-    df = pd.DataFrame({'f1': f1s, 'precision': precisions, 'recall': recalls}, index=small_methods)
+    # don't want wikidata values for this particular graph
+    df = pd.DataFrame({'f1': f1s[:-1], 'precision': precisions[:-1], 'recall': recalls[:-1]}, index=small_methods)
 
-    df2 = pd.DataFrame({'nltk': precisions[1], 'spacy': precisions[0]}, index=shrunk_peep)
+    df2 = pd.DataFrame({'nltk': results["precision"][1], 'spacy': results["precision"][0]}, index=shrunk_peep)
 
-    df3 = pd.DataFrame({'f1': f1s[3], 'precision': precisions[3], 'recall': recalls[3]},
+    df3 = pd.DataFrame({'f1': results["f1"][3], 'precision': results["precision"][3], 'recall': results["recall"][3]},
                        index=shrunk_peep)
 
     my_colors = ['#00B2EE', '#E9967A', '#3CB371', '#8B475D']
 
+    # comparing all NER methods f1, precision and recall
     ax = plt.subplot(111)
-
     df.plot.bar(rot=0, color=my_colors, ax=ax)
     plt.xlabel('method for NER')
     box = ax.get_position()
     ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
-
     # moving the legend outside of the graph
     ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.savefig('./analysis/nlp_evaluation.png')
     plt.show()
 
+    # comparing the precision values for nltk on each test figure
     ax2 = plt.subplot(111)
     df2.plot.bar(rot=0, color=my_colors, ax=ax2)
     plt.xlabel('test figure')
@@ -425,6 +426,7 @@ def evaluate_statistics():
     plt.ylabel('precision value')
     plt.show()
 
+    # seeing the f1, recall and precision of wikidata on test data
     ax3 = plt.subplot(111)
     df3.plot.bar(rot=0, color=my_colors, ax=ax3)
     plt.xlabel('test figure')
@@ -479,9 +481,13 @@ def write_data():
                 split = peep.split(",", 1)
                 first_name = split[0]
 
-            f.write(first_name + "," + str(values[0]) + "," + str(values[1]) + "," + str(values[2]) + "," + str(
-                values[3]) + "," + str(values[4]) + "," + str(values[5]) + "," + str(values[6]) + "," + str(
-                values[7]) + "," + str(values[8]) + "," + str(f1_w) + "," + str(precision_w) + "," + str(recall_w))
+            output_line = first_name
+            for i in range(9):
+                output_line = output_line + "," + str(values[i])
+
+            output_line += "," + str(f1_w) + "," + str(precision_w) + "," + str(recall_w)
+
+            f.write(output_line)
             f.write('\n')
 
 

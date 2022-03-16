@@ -1,4 +1,3 @@
-./output/spacy_new/Sir_William_Hamilton,_9th_Baronet_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -7,31 +6,34 @@
 Those not identified by method : 
 
  Robert Hamilton of Preston
-William Brodie
-Aristotle
+Target
 Wilhelm Esser
 Veitch
-Target
+William Brodie
+Aristotle
 
 Percentage identified from the proper data set (positive matches): 
 83.78
 
 Those identified by method that have not provided a match with the manual data :
 
-Esser
-Deeply
-William Stirling-Hamilton
-Hamilton
-Additional Notes
 Regius
 Robert Hamilton
+Deeply
 Considerably
- Thomas Hamilton
+Thomas Hamilton
+Additional Notes
 Janet
+W. Hamilton
+William Stirling-Hamilton
+Esser
 
 precision
 0.7560975609756098
 
 recall
 0.8378378378378378
+
+f1
+0.7948717948717948
 

@@ -1,4 +1,3 @@
-./output/nltk/Sir_William_Hamilton,_9th_Baronet_Unlinked.txt
 
 
 ＊*•̩̩͙✩•̩̩͙*˚　nltk PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
@@ -6,14 +5,14 @@
 
 Those not identified by method : 
 
-Augustus de Morgan
-H. W. B. Joseph
-Christopher North
  Robert Hamilton of Preston
-William Brodie
-HL Mansel
-Veitch
 Target
+HL Mansel
+Christopher North
+Veitch
+William Brodie
+H. W. B. Joseph
+Augustus de Morgan
 
 Percentage identified from the proper data set (positive matches): 
 78.38
@@ -21,26 +20,29 @@ Percentage identified from the proper data set (positive matches):
 Those identified by method that have not provided a match with the manual data :
 
 
+John
 Balliol College
-Esser
-Janet
+Blackwood
+Hamilton
+Education
+Augustus
  Robert Hamilton
+Works
+William Stirling Hamilton
+Janet
+Leyden
 Episcopal Churchyard
 Baronet FRSE
-John
-Hamilton
-Regius 
-Leyden
-Blackwood
-Augustus
-Education
-Works
 Magazine
- William Stirling-Hamilton
+Regius 
+Esser
 
 precision
 0.6304347826086957
 
 recall
 0.7837837837837838
+
+f1
+0.6987951807228915
 
