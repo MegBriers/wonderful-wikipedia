@@ -327,7 +327,6 @@ def request_page(URL):
         results = []
 
         client = Client()
-
         # entity to compare to is the wikidata information of the current person whose page we are looking at
         entity_compare = client.get(list(wikidata_true.keys())[0], load=True)
         # P31 - 'instance of'
@@ -360,12 +359,13 @@ def request_page(URL):
             print("had to go manual style")
             print(type(e))
 
+
         # based on code from : https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
         # requests are sent concurrently in order to decrease execution time
         with concurrent.futures.ThreadPoolExecutor() as executor:
             for wikidataId in dictionary.keys():
                 futures.append(executor.submit(is_name, id=wikidataId, client=client, date_of_birth=date_of_birth,
-                                               date_of_death=date_of_death, typesCompare=types_compare))
+                                               date_of_death=date_of_death, types_compare=types_compare))
             for future in concurrent.futures.as_completed(futures):
                 try:
                     if future.result()[0]:

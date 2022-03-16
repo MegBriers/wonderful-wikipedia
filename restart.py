@@ -75,10 +75,11 @@ if __name__ == '__main__':
             elif sys.argv[2] == 'wikidata':
                 scraper.request_linked(pep, "", "", len(data))
             elif sys.argv[2] == 'all':
-                nerExtract.extracting_unlinked_spacy(data, pep, "spacy", "")
-                nerExtract.nltk_names(data, pep)
+                #nerExtract.extracting_unlinked_spacy(data, pep, "spacy", "")
+                #nerExtract.nltk_names(data, pep)
                 #spacyExtract.extracting_unlinked_spacy(data, pep, "spacy_new", "")
-                scraper.request_linked(pep, "", "", len(data))
+                #scraper.request_linked(pep, "", "", len(data))
+                print(":)")
             else:
                 print("method is incorrect, please refer to usage instructions")
                 usage_options()

@@ -34,11 +34,12 @@ def run_on_group(method):
         # list of people within the category
         list = helper.get_list(category)
         for person in list:
+            # the text from the wikipedia page
             data = helper.get_page_content(person)
+            # the title of the wikipedia page
             title = helper.get_page_title(person)
 
-            # to avoid messing up csv files
-            # is this messing up wikidata ?
+            # to avoid csv errors
             if "," in title:
                 substring = title.split(",", 1)
                 title = substring[0]

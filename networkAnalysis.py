@@ -195,12 +195,7 @@ def popular_figs():
 
      """
 
-    spacy_pop_maths = {}
-    spacy_pop_phil = {}
-
-    wikidata_pop_maths = {}
-    wikidata_pop_phil = {}
-
+    pop_figs = [{}, {}, {}, {}]
     with open('./analysis/popular_figures.txt') as csvfile:
         current_reader = csv.reader(csvfile)
         for row in current_reader:
@@ -210,20 +205,18 @@ def popular_figs():
                 continue
             if row[0] == "spacy":
                 if row[1] == "maths":
-                    spacy_pop_maths[name] = int(row[3])
+                    pop_figs[0][name] = int(row[3])
                 else:
-                    spacy_pop_phil[name] = int(row[3])
+                    pop_figs[1][name] = int(row[3])
             else:
                 if row[1] == "maths":
-                    wikidata_pop_maths[name] = int(row[3])
+                    pop_figs[2][name] = int(row[3])
                 else:
-                    wikidata_pop_phil[name] = int(row[3])
+                    pop_figs[3][name] = int(row[3])
 
     csvfile.close()
 
-    graphs = [spacy_pop_maths, spacy_pop_phil, wikidata_pop_maths, wikidata_pop_phil]
-
-    for graph in graphs:
+    for graph in pop_figs:
         sorted_list = dict(sorted(graph.items(), key=lambda item: item[1], reverse=True))
 
         # only want top 10 values for the graph
@@ -270,7 +263,6 @@ def epsilon_analysis():
 
     correspondences = {}
 
-    # currently unaware on how to get length of file from openpyxl hence the magic number
     for i in range(2, 649):
         # the relevant places in the excel file
         E_cur = 'E' + str(i)
@@ -296,7 +288,6 @@ def epsilon_analysis():
     print("The name of people in correspondence with Somerville:")
     print(correspondences)
     print(".・。.・゜✭・.・✫・゜・。.")
-    # 148 unique correspondences
     print("Number of unique correspondences:")
     print(len(correspondences))
     print(".・。.・゜✭・.・✫・゜・。.")
@@ -320,10 +311,10 @@ def epsilon_analysis():
         found = False
         for line in complete:
             if not (found):
-                # sort of arbitarily chosen, but experimentation with 0.7 meant too many false positives were getting through
-                # could also add in a check for Ada Byron in Ada Byron (King) but then run the risk of combining fathers and sons if they are just
-                # marked different by Jnr
-                # at > 0.8 we get rid of a lot of misidentified williams but we also lose the Humboldt being identified by his proper title
+                # experimentation with 0.7 meant too many false positives were getting through. could also add in a
+                # check for Ada Byron in Ada Byron (King) but then run the risk of combining fathers and sons if they
+                # are just marked different by Jnr. at > 0.8 we get rid of a lot of misidentified williams but we also
+                # lose the Humboldt being identified by his proper title
                 if Levenshtein.ratio(name, line) > .8 and not (line in common_names):
                     print("")
                     print("Identified correspondence:")

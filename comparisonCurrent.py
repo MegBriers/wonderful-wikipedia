@@ -372,58 +372,36 @@ def evaluate_statistics():
 
     small_methods = ['spacy', 'nltk', 'spacy_new']
 
-    f1_spacy = []
-    f1_nltk = []
-    f1_spacy_new = []
-
-    precision_spacy = []
-    precision_nltk = []
-    precision_spacy_new = []
-
-    recall_spacy = []
-    recall_nltk = []
-    recall_spacy_new = []
-
-    f1_wikidata = []
-    precision_wikidata = []
-    recall_wikidata = []
-
     people = []
+
+    values = ["f1", "precision", "recall"]
+    methods = ["spacy", "nltk", "spacy new", "wikidata"]
+
+    results = {"f1": [[]*4], "precision": [[]*4], "recall": [[]*4]}
 
     with open('./analysis/evaluation.csv', 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             people.append(row["name"])
 
-            f1_spacy.append(float(row["f1 spacy"]))
-            f1_nltk.append(float(row["f1 nltk"]))
-            f1_spacy_new.append(float(row["f1 spacy new"]))
-            f1_wikidata.append(float(row["f1 wikidata"]))
+            for value in values:
+                i = 0
+                for method in methods:
+                    results[value][i].append(float(row[value + " " + method]))
+                    i +=1
 
-            precision_spacy.append(float(row["precision spacy"]))
-            precision_nltk.append(float(row["precision nltk"]))
-            precision_spacy_new.append(float(row["precision spacy new"]))
-            precision_wikidata.append(float(row["precision wikidata"]))
-
-            recall_spacy.append(float(row["recall spacy"]))
-            recall_nltk.append(float(row["recall nltk"]))
-            recall_spacy_new.append(float(row["recall spacy new"]))
-            recall_wikidata.append(float(row["recall wikidata"]))
-
-    f1s = [sum(f1_spacy) / len(f1_spacy), sum(f1_nltk) / len(f1_nltk), sum(f1_spacy_new) / len(f1_spacy_new)]
-    precisions = [sum(precision_spacy) / len(f1_spacy), sum(precision_nltk) / len(f1_nltk),
-                  sum(precision_spacy_new) / len(f1_spacy_new)]
-    recalls = [sum(recall_spacy) / len(f1_spacy), sum(recall_nltk) / len(f1_nltk),
-               sum(recall_spacy_new) / len(f1_spacy_new)]
+    f1s = [sum(values)/len(values) for values in list(results["f1"].values)[0]]
+    precisions = [sum(values)/len(values) for values in list(results["precision"].values)[0]]
+    recalls = [sum(values)/len(values) for values in list(results["recall"].values)[0]]
 
     # used to ensure that the size of the graph was not excessive while having readable axis labels
     shrunk_peep = ["CHH", "WH", "MS", "JT", "HM", "JH", "JM", "MF"]
 
     df = pd.DataFrame({'f1': f1s, 'precision': precisions, 'recall': recalls}, index=small_methods)
 
-    df2 = pd.DataFrame({'nltk': precision_nltk, 'spacy': precision_spacy}, index=shrunk_peep)
+    df2 = pd.DataFrame({'nltk': precisions[1], 'spacy': precisions[0]}, index=shrunk_peep)
 
-    df3 = pd.DataFrame({'f1': f1_wikidata, 'precision': precision_wikidata, 'recall': recall_wikidata},
+    df3 = pd.DataFrame({'f1': f1s[3], 'precision': precisions[3], 'recall': recalls[3]},
                        index=shrunk_peep)
 
     my_colors = ['#00B2EE', '#E9967A', '#3CB371', '#8B475D']
