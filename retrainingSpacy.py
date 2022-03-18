@@ -72,6 +72,7 @@ def train_spacy(data, iterations):
         nlp.add_pipe('ner', last=True)
     for _, annotations in TRAIN_DATA:
         for ent in annotations.get("entities"):
+            # just interested in person 
             ner.add_label(ent[2])
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != "ner"]
     with nlp.disable_pipes(*other_pipes):
@@ -94,6 +95,13 @@ def train_model():
     A method that turns our text based training data into the required
     JSON form
 
+    the form that the training data has to be in is as follows
+    TRAIN_DATA = [(text, {"entities": [(start, end, label)]})]
+     text - the specified bit of text
+     start - the starting character of that entity
+     end - the ending character of that entity
+     label - what kind of entity is it (person, organisation etc)
+
     Parameters
     ----------
     None.
@@ -103,12 +111,6 @@ def train_model():
     None.
 
     """
-    # the form that the training data has to be in
-    # TRAIN_DATA = [(text, {"entities": [(start, end, label)]})]
-    # text - the specified bit of text
-    # start - the starting character of that entity
-    # end - the ending character of that entity
-    # label - what kind of entity is it (person, organisation etc)
 
     with open("data/training_data_maths.txt", "r", encoding="utf-8")as f:
         text = f.read()
