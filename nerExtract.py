@@ -10,9 +10,10 @@ USING THE STANDARD SPACY AND NLTK METHODS
 
 import spacy
 import nltk
+import comparisonCurrent
 
 nlp1 = spacy.load("xx_ent_wiki_sm")
-#nlp2 = spacy.load("maths_ner_model")
+nlp2 = spacy.load("maths_ner_model")
 
 
 def spacy_text(page, nlp_cur):

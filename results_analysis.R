@@ -1,27 +1,34 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-data <- read.csv("./analysis/mentions.csv", stringsAsFactors=TRUE)
 
-data$per_1000 <- (data$mentions/data$length)*1000 
-
+# necessary imports 
 library(ggplot2)
 library(dplyr)
 library(scales)
 library(car)
 
+# the code to produce the data must have been run before this code ! 
+data <- read.csv("./analysis/mentions.csv", stringsAsFactors=TRUE)
+
+# saving the average number of mentions per 1000 characters 
+data$per_1000 <- (data$mentions/data$length)*1000 
+
+# the average number of characters of an article in each category 
 mean_phil <- mean(data$length[data$category=="philosophy"], )
 mean_maths <- mean(data$length[data$category=="maths"])
 
 phil <- data[data$category=="philosophy", ]
 maths <- data[data$category=="maths", ]
+
 phil$typical <- round(mean_phil, 0)
 maths$typical <- round(mean_maths, 0)
 
+# creating a new data set that also stores average length of articles 
 new_data <- rbind.data.frame(maths, phil)
 
+# stores how many mentions per typical lengthed article 
 new_data$per_typical <- (new_data$mentions/new_data$length) * new_data$typical 
 
 # GRAPH 1 - mentions per 1000 characters
-
 p <- ggplot(data, aes(x=method, y=sqrt(per_1000), fill=category)) +
   geom_violin(position=position_dodge(1), trim=FALSE)+
   geom_boxplot(width=.1, position=position_dodge(1), show.legend=FALSE) +
@@ -36,10 +43,10 @@ p
 
 # needs to be two way anova because plotting two things
 m <- lm(sqrt(per_1000)~category*method, data=new_data)
+
+# checking assumptions for anova 
 plot(m,which=1)
 plot(m,which=2)
-res.aov <- aov(sqrt(per_1000)~category*method, data=new_data)
-summary(res.aov)
 
 Anova(m, type=3)
 
@@ -55,6 +62,7 @@ l <- ggplot(new_data, aes(x=category, y=log(length), fill=category)) +
 
 l
 
+# anova test
 ml <- lm(log(length)~category, data=new_data)
 plot(ml,which=1)
 plot(ml,which=2)
@@ -80,7 +88,7 @@ wilcox.test(per_typical~category, data=new_data[new_data$method=="spacy",])
 
 # GRAPH 4 - MENTIONS PER 1000 BY GENDER
 n <- ggplot(new_data, aes(x=category, y=sqrt(per_1000), fill=gender)) +
-  geom_violin(position=position_dodge(1), trim=FALSE)+
+  geom_violin(position=position_dodge(1), trim=TRUE)+
   geom_boxplot(width=.1, position=position_dodge(1), show.legend=FALSE) +
   stat_summary(fun=mean, geom="point", shape=23, size=5, position=position_dodge(1), show.legend=FALSE)+
   xlab("category of article") + 
@@ -97,6 +105,7 @@ plot(n2,which=2)
 
 Anova(n2, type=3)
 
+# seeing where the significance effect stems from 
 TukeyHSD(aov(n2), which=c("category:gender"))
 
 

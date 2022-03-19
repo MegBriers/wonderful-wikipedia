@@ -14,6 +14,7 @@ import helper
 import csv
 import os
 
+
 # to be uncommented as required
 # changes window size
 # plt.rc('figure', figsize=(20, 15))
@@ -156,8 +157,6 @@ def wikidata_evaluation(person, rel_linked, linked):
     person = helper.formatting(person, "_")
     sys.stdout = open("./output/wikidata/evaluation/" + person + ".txt", "w", encoding="utf-8")
 
-    print("")
-    print("")
     print("＊*•̩̩͙✩•̩̩͙*˚　LINKED (WIKIDATA) PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("")
     print("")
@@ -294,8 +293,6 @@ def method_evaluation(method, person, complete):
         if ele.strip():
             stripped_unlinked.append(ele)
 
-    print("")
-    print("")
     print("＊*•̩̩͙✩•̩̩͙*˚　" + method + " PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊")
     print("")
     print("")
@@ -313,10 +310,9 @@ def method_evaluation(method, person, complete):
 
     for people in complete:
         for identified in identified_unlinked:
-            # criteria used to evaluate if referring to the same people (not infallible, but multiple references is not an easy problem to solve)
-            if ((people in identified or identified in people) and Levenshtein.ratio(people,
-                                                                                     identified) > .75) or Levenshtein.ratio(
-                people, identified) > 0.9:
+            # criteria used to evaluate if referring to the same people (not infallible, but multiple references is
+            # not an easy problem to solve)
+            if ((people in identified or identified in people) and Levenshtein.ratio(people,identified) > .75) or Levenshtein.ratio(people, identified) > 0.9:
                 copy_complete.remove(people)
                 if not (identified in copy_identified):
                     copy_identified.append(identified)
@@ -377,7 +373,10 @@ def evaluate_statistics():
     values = ["f1", "precision", "recall"]
     methods = ["spacy", "nltk", "spacy new", "wikidata"]
 
+    mathematicians = ["Mary Somerville", "Charles Howard Hinton"]
     results = {"f1": [[] for _ in range(4)], "precision": [[] for _ in range(4)], "recall": [[] for _ in range(4)]}
+    non_maths = {"f1": [[] for _ in range(3)], "precision": [[] for _ in range(3)],
+                 "recall": [[] for _ in range(3)]}
 
     with open('./analysis/evaluation.csv', 'r') as csvfile:
         reader = csv.DictReader(csvfile)
@@ -387,35 +386,74 @@ def evaluate_statistics():
             for value in values:
                 i = 0
                 for method in methods:
-                    results[value][i].append(float(row[value + " " + method]))
+                    fig = float(row[value + " " + method])
+                    results[value][i].append(fig)
+                    if row["name"] not in mathematicians and method != "wikidata":
+                        non_maths[value][i].append(fig)
                     i += 1
 
-    f1s = [sum(values)/len(values) for values in results["f1"]]
-    precisions = [sum(values)/len(values) for values in results["precision"]]
-    recalls = [sum(values)/len(values) for values in results["recall"]]
+    averages = {"overall": {"f1": [], "precision": [], "recall": []},
+                "non maths": {"f1": [], "precision": [], "recall": []}}
+    arrays = [results, non_maths]
+    for i, group in enumerate(averages.keys()):
+        for value in values:
+            averages[group][value] = ([sum(cur_vals) / len(cur_vals) for cur_vals in arrays[i][value]])
 
     # used to ensure that the size of the graph was not excessive while having readable axis labels
-    shrunk_peep = [helper.initials(peep,1) for peep in people]
+    shrunk_peep = [helper.initials(peep, 1) for peep in people]
 
-    # don't want wikidata values for this particular graph
-    df = pd.DataFrame({'f1': f1s[:-1], 'precision': precisions[:-1], 'recall': recalls[:-1]}, index=small_methods)
+    non_maths_peep = [peep for peep in shrunk_peep if
+                      peep not in [helper.initials(mathematician, 1) for mathematician in mathematicians]]
 
+    print("overall f1s")
+    print(averages["overall"]["f1"])
+    print("non maths f1s")
+    print(averages["non maths"]["f1"])
+
+    print("overall precisions")
+    print(averages["overall"]["precision"])
+    print("non maths precisions")
+    print(averages["non maths"]["precision"])
+
+    print("overall recalls")
+    print(averages["overall"]["recall"])
+    print("non maths recalls")
+    print(averages["non maths"]["recall"])
+
+    # named entity recognition methods comparison
+    # whole group - graph 1
+    df0 = pd.DataFrame({'f1': averages["overall"]["f1"][:-2], 'precision': averages["overall"]["precision"][:-2],
+                        'recall': averages["overall"]["recall"][:-2]}, index=small_methods[:-1])
+
+    # non maths subset - graph 2
+    df1 = pd.DataFrame({'f1': averages["non maths"]["f1"], 'precision': averages["non maths"]["precision"],
+                        'recall': averages["non maths"]["recall"]}, index=small_methods)
+
+    # nltk vs spacy precision comparison - graph 3
     df2 = pd.DataFrame({'nltk': results["precision"][1], 'spacy': results["precision"][0]}, index=shrunk_peep)
 
-    df3 = pd.DataFrame({'f1': results["f1"][3], 'precision': results["precision"][3], 'recall': results["recall"][3]},
-                       index=shrunk_peep)
+    # nltk vs spacy recall comparison - graph 4
+    df2_b = pd.DataFrame({'nltk': results["recall"][1], 'spacy': results["recall"][0]}, index=shrunk_peep)
 
     my_colors = ['#00B2EE', '#E9967A', '#3CB371', '#8B475D']
 
     # comparing all NER methods f1, precision and recall
     ax = plt.subplot(111)
-    df.plot.bar(rot=0, color=my_colors, ax=ax)
+    df0.plot.bar(rot=0, color=my_colors, ax=ax)
     plt.xlabel('method for NER')
     box = ax.get_position()
     ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
     # moving the legend outside of the graph
     ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-    plt.savefig('./analysis/nlp_evaluation.png')
+    plt.show()
+
+    ax1 = plt.subplot(111)
+    df1.plot.bar(rot=0, color=my_colors, ax=ax1)
+    plt.xlabel('method for NER')
+    box = ax1.get_position()
+    ax1.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+    # moving the legend outside of the graph
+    ax1.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.show()
 
     # comparing the precision values for nltk on each test figure
@@ -426,15 +464,33 @@ def evaluate_statistics():
     plt.ylabel('precision value')
     plt.show()
 
-    # seeing the f1, recall and precision of wikidata on test data
     ax3 = plt.subplot(111)
-    df3.plot.bar(rot=0, color=my_colors, ax=ax3)
+    df2_b.plot.bar(rot=0, color=my_colors, ax=ax3)
     plt.xlabel('test figure')
     plt.xticks(rotation=45)
-    box = ax3.get_position()
-    ax3.set_position([box.x0, box.y0, box.width * 0.8, box.height])
-    ax3.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+    plt.ylabel('recall value')
     plt.show()
+
+    index_cur = shrunk_peep
+    cur_values = results
+    for i in range(4):
+        if i == 2:
+            index_cur = non_maths_peep
+            cur_values = non_maths
+        df_cur = pd.DataFrame(
+            {'f1': cur_values["f1"][i], 'precision': cur_values["precision"][i], 'recall': cur_values["recall"][i]},
+            index=index_cur)
+        ax_cur = plt.subplot(111)
+        df_cur.plot.bar(rot=0, color=my_colors, ax=ax_cur)
+        plt.xlabel('test figure')
+        plt.xticks(rotation=45)
+        plt.title(i)
+        box = ax_cur.get_position()
+        ax_cur.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+        ax_cur.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+        plt.show()
+        index_cur = shrunk_peep
+        cur_values = results
 
     sys.stdout.close()
     sys.stdout = stdoutOrigin
@@ -458,8 +514,16 @@ def write_data():
     None.
     """
     people = helper.get_test_data()
-
     performances = {}
+    for peep in people:
+        complete, linked, unlinked, rel_linked = setup(peep)
+        values = multiple_evaluation(peep, complete)
+        f1_w, precision_w, recall_w = wikidata_evaluation(peep, rel_linked, linked)
+        values.append(f1_w)
+        values.append(precision_w)
+        values.append(recall_w)
+        performances[peep] = values
+
     with open('./analysis/evaluation.csv', 'w') as f:
         f.write(
             'name,f1 spacy,precision spacy,recall spacy,f1 nltk,precision nltk,recall nltk,f1 spacy new,precision '
@@ -467,14 +531,6 @@ def write_data():
         f.write('\n')
 
         for peep in people:
-            complete, linked, unlinked, rel_linked = setup(peep)
-            values = multiple_evaluation(peep, complete)
-            f1_w, precision_w, recall_w = wikidata_evaluation(peep, rel_linked, linked)
-            values.append(f1_w)
-            values.append(precision_w)
-            values.append(recall_w)
-            performances[peep] = values
-
             first_name = peep
             # prevents names with commas from ruining csv storage
             if "," in peep:
@@ -482,13 +538,12 @@ def write_data():
                 first_name = split[0]
 
             output_line = first_name
-            for i in range(9):
-                output_line = output_line + "," + str(values[i])
-
-            output_line += "," + str(f1_w) + "," + str(precision_w) + "," + str(recall_w)
+            for i in range(12):
+                output_line = output_line + "," + str(performances[peep][i])
 
             f.write(output_line)
             f.write('\n')
+    f.close()
 
 
 def evaluate(method):

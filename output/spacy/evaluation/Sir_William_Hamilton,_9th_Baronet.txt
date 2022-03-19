@@ -5,30 +5,30 @@
 
 Those not identified by method : 
 
- Robert Hamilton of Preston
 Target
-HL Mansel
 William Brodie
+ Robert Hamilton of Preston
 Aristotle
+HL Mansel
 
 Percentage identified from the proper data set (positive matches): 
 86.49
 
 Those identified by method that have not provided a match with the manual data :
 
+Thomas Hamilton
+God
+Blackwood
+Janet
+Esser
 Robert Hamilton
 Philosophy
-Thomas Hamilton
-Blackwood
-Regius  of Anatomy
-God
-Hamilton
 Snell Exhibitioner
-Discussions
-Janet
-William Stirling-Hamilton
+Regius  of Anatomy
+William Stirling Hamilton
+Hamilton
 Baronet FRSE
-Esser
+Discussions
 
 precision
 0.7111111111111111

@@ -5,14 +5,14 @@
 
 Those not identified by method : 
 
- Robert Hamilton of Preston
-Target
-HL Mansel
-Christopher North
-Veitch
-William Brodie
-H. W. B. Joseph
 Augustus de Morgan
+Veitch
+Target
+William Brodie
+ Robert Hamilton of Preston
+Christopher North
+HL Mansel
+H. W. B. Joseph
 
 Percentage identified from the proper data set (positive matches): 
 78.38
@@ -20,22 +20,22 @@ Percentage identified from the proper data set (positive matches):
 Those identified by method that have not provided a match with the manual data :
 
 
-John
+Augustus
 Balliol College
 Blackwood
-Hamilton
-Education
-Augustus
  Robert Hamilton
-Works
-William Stirling Hamilton
 Janet
-Leyden
-Episcopal Churchyard
-Baronet FRSE
-Magazine
-Regius 
+Education
 Esser
+Regius 
+ William Stirling-Hamilton
+Episcopal Churchyard
+Leyden
+Works
+Magazine
+Hamilton
+Baronet FRSE
+John
 
 precision
 0.6304347826086957

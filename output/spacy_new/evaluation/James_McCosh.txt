@@ -5,35 +5,30 @@
 
 Those not identified by method : 
 
-Veitch
-Target
-William Brodie
- Robert Hamilton of Preston
-Wilhelm Esser
-Aristotle
+A. J. McCosh
+Francis Landey Patton
+Emmett Louis Till
+John McCosh
 
 Percentage identified from the proper data set (positive matches): 
-83.78
+73.33
 
 Those identified by method that have not provided a match with the manual data :
 
-Deeply
-Additional Notes
-Janet
-Esser
-Robert Hamilton
-William Stirling Hamilton
-Considerably
-W. Hamilton
-Thomas Hamilton
-Regius
+Seminary
+Darwin
+Darwinian
+McCosh Hall
+Meanwhile
+Metaphysics
+Louis Till
 
 precision
-0.7560975609756098
+0.6111111111111112
 
 recall
-0.8378378378378378
+0.7333333333333333
 
 f1
-0.7948717948717948
+0.6666666666666666
 

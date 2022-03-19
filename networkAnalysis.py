@@ -106,7 +106,7 @@ def setup():
                     split = person.split(",", 1)
                     person = split[0]
 
-                file_path_linked = helper.get_file_path(person_format + "_Linked.txt", "")
+                file_path_linked = helper.get_file_path(person_format + "_Linked.txt", "\output\wikidata\\network")
                 file_path_unlinked = helper.get_file_path(person_format + "_Unlinked.txt", "\output\spacy")
 
                 if file_path_linked is None or file_path_unlinked is None:

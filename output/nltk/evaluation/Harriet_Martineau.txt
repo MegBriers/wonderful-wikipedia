@@ -5,67 +5,66 @@
 
 Those not identified by method : 
 
-Anthony Giddens
-Baddeley
 William Johnson Fox
-Princess Victoria
-Comte
-Ld. Brougham
-Catherine Duchess of Cambridge
+Baddeley
  Halliday
+Ld. Brougham
+Comte
+Anthony Giddens
+Catherine Duchess of Cambridge
+Princess Victoria
 
 Percentage identified from the proper data set (positive matches): 
 89.19
 
 Those identified by method that have not provided a match with the manual data :
 
-Johnson Fox
-Species
-Mesmerism
-James Martineau
-Legacy
-Hymns
-Bodichon
-Religion
 William
-Martineau Guest House
-Fox
-London
-Addresses
-Elizabeth Greenhow
-Poor Laws
-Past
-Philosophie Positive
+Observe Morals
 Darwin
+Past
+Fox
+Bodichon
+Eastern Life
+Addresses
+Game Law Tales
 Atkinson
-Darwins
-Paupers Illustrated
-Bracondale Lodge
 Radicals
 Life
-Eastern Life
-Final Causes
-Charles
-Man
-Peace
-Perfect
-Hill Cemetery
-Eldon Square
-Elizabeth Barrett Browning
-Martineau
-Observe Morals
-Game Law Tales
-Hockley
-Giddens
-Feats
 Erasmus
+Bracondale Lodge
+Giddens
+Eldon Square
+Mesmerism
+Man
+Johnson Fox
+Peace
+Poor Laws
+Elizabeth Greenhow
+Legacy
+Hymns
+Hill Cemetery
+Paupers Illustrated
+Darwins
+Philosophie Positive
+London
+Martineau Guest House
+Perfect
+Elizabeth Barrett Browning
+Final Causes
+Species
+Martineau
+Religion
+Hockley
+Charles
+Feats
 
 precision
-0.6226415094339622
+0.6285714285714286
 
 recall
 0.8918918918918919
 
 f1
-0.7333333333333333
+0.7374301675977654
 

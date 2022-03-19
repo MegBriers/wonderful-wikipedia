@@ -5,27 +5,27 @@
 
 Those not identified by method : 
 
-Sebastian
-Ada Netlleship
+Madeleine L'Engle
 Charles Leadbeater
+Ada Netlleship
+Sebastian
 Aleister Crowley
 William Howard Hinton
-Madeleine L'Engle
 
 Percentage identified from the proper data set (positive matches): 
 85.00
 
 Those identified by method that have not provided a match with the manual data :
 
-Flatland
-stodgy
-Swan Sonnenschein
-ana
-Fourth
-Christ
 Charles H. Hinton
+Christ
 Madeleine L'Engle's A Wrinkle in Time
+Flatland
+Swan Sonnenschein
+Fourth
 Charles Leadbeater's Clairvoyance
+stodgy
+ana
 
 precision
 0.7906976744186046

@@ -11,21 +11,21 @@ proportion of people linked who have been picked up by wikidata
 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
 those who were not identified: 
 
+William Hunter
+Professor William Hamilton
+Martin Luther
 Sir Robert Hamilton of Preston
 HL Mansel
-Martin Luther
-Professor William Hamilton
-William Hunter
 H. W. B. Joseph
 
 
 those who were picked up additionally by wikidata
 
-William Hamilton (physician)
-Henry Longueville Mansel
-Herbert Spencer
-William Rowan Hamilton
 James Hutchison Stirling
+William Rowan Hamilton
+Herbert Spencer
+Henry Longueville Mansel
+William Hamilton (physician)
 
 
 precision

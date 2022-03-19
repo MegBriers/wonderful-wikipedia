@@ -1,0 +1,65 @@
+
+
+＊*•̩̩͙✩•̩̩͙*˚　spacy_new PERFORMANCE　˚*•̩̩͙✩•̩̩͙*˚＊
+
+
+Those not identified by method : 
+
+Toussaint L'Ouverture
+Eramus Alvey Darwin
+William Johnson Fox
+Baddeley
+Fanny Wedgwood
+Hensleigh Wedgwood
+Rachel
+Spencer T. Hall
+Harriet
+Susan
+
+Percentage identified from the proper data set (positive matches): 
+86.49
+
+Those identified by method that have not provided a match with the manual data :
+
+Nile
+Darwin
+Fox
+Bodichon
+Writing
+Bracondale
+Game Law Tales
+Atkinson
+Radicals
+Erasmus
+Household Education
+Bracondale Lodge
+house
+C.D.
+Huguenot
+Poor Laws
+Elizabeth Greenhow
+Completed
+'Erasmus
+Hymns
+Review
+Prayers
+Elizabeth Barrett Browning
+Susan thatErasmus
+Across
+Tyne
+Martineau
+Britain
+Hockley
+Thomas and
+Osiris
+Charles
+
+precision
+0.6666666666666666
+
+recall
+0.8648648648648649
+
+f1
+0.7529411764705882
+

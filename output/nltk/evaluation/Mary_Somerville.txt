@@ -5,18 +5,18 @@
 
 Those not identified by method : 
 
-Jean-Baptiste Biot
-Joseph-Louis Lagrange
-Earl of Minto
 Alexander Keith Johnston
-Pierre-Simon Laplace
-Thomas Phillips
-Joanna Baillie
 Admiral Duncan
-E Bowell
+Pierre-Simon Laplace
 John Robertson
+Earl of Minto
 J.M.W. Turner
 Louis-Benjamin Francoeur
+E Bowell
+Joseph-Louis Lagrange
+Joanna Baillie
+Jean-Baptiste Biot
+Thomas Phillips
 
 Percentage identified from the proper data set (positive matches): 
 84.81
@@ -24,52 +24,52 @@ Percentage identified from the proper data set (positive matches):
 Those identified by method that have not provided a match with the manual data :
 
 
-Fairfax
+ Brougham
+Scott
 Astronomy
-Geography
-Strange
-Algebra
-Ada
-Useful Knowledge
-Legacy
-Newton
-Earth
-Chelsea Hospital
 Physical Geography
-Physical
-Marines
-Nunavut
-John
-Latin
-Naturelle
-Potter
-Mary Somerville
-Henry Brougham
-Engine
-Woronzow
-Lovelace
-Murray
-Crown
-Principia
-College
-Calculus Treatise
+Microscopic Science
+Chelsea Hospital
 Molecular
 Club
-Biot
 Uranus
 Mécanique Céleste
+Potter
 Fife
-Langrenus
-Mechanism
-Hanover Square
-Microscopic Science
-Mechanism Joanna Baillie
-Nasmyth
-Scott
-Somerville House
+Biot
+Mary Somerville
+Physical
+Legacy
+Algebra
+Fairfax
+John
+Engine
 Lagrange
-Google
+College
+Principia
+Newton
+Useful Knowledge
+Marines
 Francœur
+Langrenus
+Strange
+Latin
+Crown
+Somerville House
+Google
+Murray
+Nunavut
+Woronzow
+Nasmyth
+Calculus Treatise
+Lovelace
+Mechanism Joanna Baillie
+Hanover Square
+Geography
+Naturelle
+Earth
+Mechanism
+Ada
 
 precision
 0.5877192982456141

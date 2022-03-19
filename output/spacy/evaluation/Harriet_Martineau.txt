@@ -5,46 +5,46 @@
 
 Those not identified by method : 
 
-Jane Carlyle
 Baddeley
- Martneau
-Susan
-Catherine Duchess of Cambridge
  Halliday
+Catherine Duchess of Cambridge
+ Martneau
 Elizabeth
+Jane Carlyle
 Florence Nightingale
+Susan
 
 Percentage identified from the proper data set (positive matches): 
 89.19
 
 Those identified by method that have not provided a match with the manual data :
 
-Catherine
-Bodichon
-Fox
-Jane Carlyle. Life in the Sickroom
-Ld
-Elizabeth Greenhow
-Osiris
-Darwin
-Review
-Atkinson
-Darwins
-Erasmus Darwin
-Susan thatErasmus
 Immobile
-Charles
-Literary London
-C.D.
 Deerbrook
-Hymns. 
-Letters
-Elizabeth Barrett Browning
-Household Education
-Illustrations
+Ld
+Darwin
 Ambleside
+Fox
+Bodichon
+Atkinson
 Alarmed
 Erasmus
+Household Education
+C.D.
+Hymns. 
+Illustrations
+Elizabeth Greenhow
+Jane Carlyle. Life in the Sickroom
+Letters
+Erasmus Darwin
+Darwins
+Review
+Catherine
+Elizabeth Barrett Browning
+Susan thatErasmus
+Literary London
+Osiris
+Charles
 
 precision
 0.717391304347826

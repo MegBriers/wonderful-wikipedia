@@ -1,0 +1,237 @@
+name,method,category,mentions,length,gender
+John Abercrombie (physician),spacy,philosophy,18,6062,male
+John Abercrombie (physician),wikidata,philosophy,4,6062,male
+Robert Adamson (philosopher),spacy,philosophy,31,6347,male
+Robert Adamson (philosopher),wikidata,philosophy,9,6347,male
+Samuel Alexander,spacy,philosophy,34,14248,male
+Samuel Alexander,wikidata,philosophy,16,14248,male
+Archibald Alison (author),spacy,philosophy,11,1725,male
+Archibald Alison (author),wikidata,philosophy,5,1725,male
+John Austin (legal philosopher),spacy,philosophy,14,4234,male
+John Austin (legal philosopher),wikidata,philosophy,5,4234,male
+Samuel Bailey,spacy,philosophy,13,4690,male
+Samuel Bailey,wikidata,philosophy,4,4690,male
+Alfred Barratt,spacy,philosophy,10,2553,male
+Alfred Barratt,wikidata,philosophy,4,2553,male
+Jeremy Bentham,spacy,philosophy,81,34813,male
+Jeremy Bentham,wikidata,philosophy,62,34813,male
+George Boole,spacy,philosophy,16,4095,male
+George Boole,wikidata,philosophy,25,4095,male
+Mary Everest Boole,spacy,philosophy,24,6533,female
+Mary Everest Boole,wikidata,philosophy,11,6533,female
+Matthew Piers Watt Boulton,spacy,philosophy,132,32450,male
+Matthew Piers Watt Boulton,wikidata,philosophy,28,32450,male
+F. H. Bradley,spacy,philosophy,25,4881,male
+F. H. Bradley,wikidata,philosophy,14,4881,male
+Robert Buchanan (playwright),spacy,philosophy,10,1399,male
+Robert Buchanan (playwright),wikidata,philosophy,3,1399,male
+Alfred Caldecott,spacy,philosophy,17,2266,male
+Alfred Caldecott,wikidata,philosophy,3,2266,male
+Henry Calderwood,spacy,philosophy,13,2857,male
+Henry Calderwood,wikidata,philosophy,4,2857,male
+Thomas Carlyle,spacy,philosophy,100,33142,male
+Thomas Carlyle,wikidata,philosophy,77,33142,male
+William Kingdon Clifford,spacy,philosophy,53,17606,male
+William Kingdon Clifford,wikidata,philosophy,20,17606,male
+Ebenezer Cooke (art education reformer),spacy,philosophy,14,1734,male
+Ebenezer Cooke (art education reformer),wikidata,philosophy,7,1734,male
+Augustus De Morgan,spacy,philosophy,83,43528,male
+Augustus De Morgan,wikidata,philosophy,34,43528,male
+George Eliot,spacy,philosophy,92,20478,female
+George Eliot,wikidata,philosophy,27,20478,female
+James Frederick Ferrier,spacy,philosophy,21,6733,male
+James Frederick Ferrier,wikidata,philosophy,6,6733,male
+T. H. Green,spacy,philosophy,27,17189,male
+T. H. Green,wikidata,philosophy,34,17189,male
+Caroline Haddon,spacy,philosophy,8,1005,female
+Caroline Haddon,wikidata,philosophy,2,1005,female
+Auberon Herbert,spacy,philosophy,38,11887,male
+Auberon Herbert,wikidata,philosophy,67,11887,male
+John Hoppus,spacy,philosophy,36,7614,male
+John Hoppus,wikidata,philosophy,16,7614,male
+George Jardine,spacy,philosophy,22,4265,male
+George Jardine,wikidata,philosophy,7,4265,male
+William Stanley Jevons,spacy,philosophy,32,18854,male
+William Stanley Jevons,wikidata,philosophy,15,18854,male
+Constance Jones,spacy,philosophy,17,3587,female
+Constance Jones,wikidata,philosophy,13,3587,female
+Henry Jones (philosopher),spacy,philosophy,4,1064,male
+Henry Jones (philosopher),wikidata,philosophy,2,1064,male
+George Henry Lewes,spacy,philosophy,40,13694,male
+George Henry Lewes,wikidata,philosophy,19,13694,male
+Robert Lewins,spacy,philosophy,14,3153,male
+Robert Lewins,wikidata,philosophy,3,3153,male
+Harriet Martineau,spacy,philosophy,91,30946,female
+Harriet Martineau,wikidata,philosophy,45,30946,female
+James McCosh,spacy,philosophy,14,4956,male
+James McCosh,wikidata,philosophy,6,4956,male
+Harriet Taylor Mill,spacy,philosophy,23,8852,female
+Harriet Taylor Mill,wikidata,philosophy,4,8852,female
+James Mill,spacy,philosophy,37,11954,male
+James Mill,wikidata,philosophy,29,11954,male
+John Stuart Mill,spacy,philosophy,67,50693,male
+John Stuart Mill,wikidata,philosophy,97,50693,male
+Edmund Montgomery,spacy,philosophy,29,7726,male
+Edmund Montgomery,wikidata,philosophy,7,7726,male
+Aubrey Moore,spacy,philosophy,15,3522,female
+Aubrey Moore,wikidata,philosophy,3,3522,female
+G. E. Moore,spacy,philosophy,23,14959,male
+G. E. Moore,wikidata,philosophy,15,14959,male
+James Mylne,spacy,philosophy,10,1403,male
+James Mylne,wikidata,philosophy,4,1403,male
+James Allanson Picton,spacy,philosophy,19,3862,male
+James Allanson Picton,wikidata,philosophy,3,3862,male
+Joseph Priestley,spacy,philosophy,152,63194,male
+Joseph Priestley,wikidata,philosophy,6,63194,male
+John Ruskin,spacy,philosophy,326,92387,male
+John Ruskin,wikidata,philosophy,133,92387,male
+F. C. S. Schiller,spacy,philosophy,38,41275,male
+F. C. S. Schiller,wikidata,philosophy,7,41275,male
+Lady Mary Shepherd,spacy,philosophy,12,1440,female
+Lady Mary Shepherd,wikidata,philosophy,5,1440,female
+Richard Shute,spacy,philosophy,3,869,male
+Richard Shute,wikidata,philosophy,1,869,male
+Henry Sidgwick,spacy,philosophy,37,15114,male
+Henry Sidgwick,wikidata,philosophy,15,15114,male
+Herbert Spencer,spacy,philosophy,118,46998,male
+Herbert Spencer,wikidata,philosophy,121,46998,male
+Walking Stewart,spacy,philosophy,18,3122,male
+Walking Stewart,wikidata,philosophy,8,3122,male
+James Hutchison Stirling,spacy,philosophy,31,4868,male
+James Hutchison Stirling,wikidata,philosophy,5,4868,male
+George Johnston Allman,spacy,maths,9,1578,male
+George Johnston Allman,wikidata,maths,1,1578,male
+H. F. Baker,spacy,maths,15,1533,male
+H. F. Baker,wikidata,maths,12,1533,male
+W. H. Besant,spacy,maths,24,5338,male
+W. H. Besant,wikidata,maths,7,5338,male
+George Boole,spacy,maths,16,4095,male
+George Boole,wikidata,maths,25,4095,male
+Sophie Bryant,spacy,maths,11,3183,female
+Sophie Bryant,wikidata,maths,1,3183,female
+Oliver Byrne (mathematician),spacy,maths,21,4527,male
+Oliver Byrne (mathematician),wikidata,maths,1,4527,male
+John Edward Campbell,spacy,maths,18,2663,male
+John Edward Campbell,wikidata,maths,5,2663,male
+G. S. Carr,spacy,maths,7,860,male
+G. S. Carr,wikidata,maths,2,860,male
+John Casey (mathematician),spacy,maths,8,2311,male
+John Casey (mathematician),wikidata,maths,1,2311,male
+Arthur Cayley,spacy,maths,29,9321,male
+Arthur Cayley,wikidata,maths,16,9321,male
+Thomas Chalmers,spacy,maths,19,7758,male
+Thomas Chalmers,wikidata,maths,16,7758,male
+Samuel Hunter Christie,spacy,maths,10,1763,male
+Samuel Hunter Christie,wikidata,maths,3,1763,male
+John Colenso,spacy,maths,41,11455,male
+John Colenso,wikidata,maths,20,11455,male
+Allan J. C. Cunningham,spacy,maths,4,1202,male
+Allan J. C. Cunningham,wikidata,maths,1,1202,male
+Thomas Stephens Davies,spacy,maths,15,3194,male
+Thomas Stephens Davies,wikidata,maths,4,3194,male
+James Douglas Hamilton Dickson,spacy,maths,19,2485,male
+James Douglas Hamilton Dickson,wikidata,maths,7,2485,male
+Mary Edwards (human computer),spacy,maths,7,2228,female
+Mary Edwards (human computer),wikidata,maths,3,2228,female
+William Esson,spacy,maths,6,869,male
+William Esson,wikidata,maths,1,869,male
+Lewis Evans (mathematician),spacy,maths,9,1612,male
+Lewis Evans (mathematician),wikidata,maths,5,1612,male
+Norman Macleod Ferrers,spacy,maths,11,2630,male
+Norman Macleod Ferrers,wikidata,maths,4,2630,male
+Herschell Filipowski,spacy,maths,23,4498,male
+Herschell Filipowski,wikidata,maths,2,4498,male
+Andrew Forsyth,spacy,maths,13,1817,male
+Andrew Forsyth,wikidata,maths,6,1817,male
+William Galbraith (mathematician),spacy,maths,8,1577,male
+William Galbraith (mathematician),wikidata,maths,2,1577,male
+Thomas Galloway,spacy,maths,5,1332,male
+Thomas Galloway,wikidata,maths,3,1332,male
+Robert William Genese,spacy,maths,6,1865,male
+Robert William Genese,wikidata,maths,3,1865,male
+Thorold Gosset,spacy,maths,16,2299,male
+Thorold Gosset,wikidata,maths,4,2299,male
+John Hilton Grace,spacy,maths,10,10025,male
+John Hilton Grace,wikidata,maths,1,10025,male
+Robert Haldane (mathematician),spacy,maths,15,2352,male
+Robert Haldane (mathematician),wikidata,maths,6,2352,male
+William Rowan Hamilton,spacy,maths,83,24877,male
+William Rowan Hamilton,wikidata,maths,34,24877,male
+Thomas Heath (classicist),spacy,maths,23,4805,male
+Thomas Heath (classicist),wikidata,maths,4,4805,male
+Percy John Heawood,spacy,maths,9,2260,male
+Percy John Heawood,wikidata,maths,4,2260,male
+William Philip Hiern,spacy,maths,5,1608,male
+William Philip Hiern,wikidata,maths,2,1608,male
+Charles Howard Hinton,spacy,maths,45,8724,male
+Charles Howard Hinton,wikidata,maths,14,8724,male
+Thomas Hornsby,spacy,maths,10,3600,male
+Thomas Hornsby,wikidata,maths,11,3600,male
+James Ivory (mathematician),spacy,maths,7,3480,male
+James Ivory (mathematician),wikidata,maths,2,3480,male
+George Jerrard,spacy,maths,2,528,male
+George Jerrard,wikidata,maths,1,528,male
+George Johnson (priest),spacy,maths,5,1478,male
+George Johnson (priest),wikidata,maths,1,1478,male
+John Viriamu Jones,spacy,maths,18,2748,male
+John Viriamu Jones,wikidata,maths,6,2748,male
+Patrick Kelly (metrologist),spacy,maths,7,1062,male
+Patrick Kelly (metrologist),wikidata,maths,6,1062,male
+Joseph Larmor,spacy,maths,23,11622,male
+Joseph Larmor,wikidata,maths,11,11622,male
+Augustus Edward Hough Love,spacy,maths,9,1974,male
+Augustus Edward Hough Love,wikidata,maths,1,1974,male
+William Herrick Macaulay,spacy,maths,6,834,male
+William Herrick Macaulay,wikidata,maths,5,834,male
+Alexander Macfarlane,spacy,maths,21,4939,male
+Alexander Macfarlane,wikidata,maths,12,4939,male
+Isabel Maddison,spacy,maths,20,5129,female
+Isabel Maddison,wikidata,maths,4,5129,female
+Alexander McAulay,spacy,maths,10,2232,male
+Alexander McAulay,wikidata,maths,6,2232,male
+Donald McIntosh (mathematician),spacy,maths,7,928,male
+Donald McIntosh (mathematician),wikidata,maths,3,928,male
+Margaret Meyer,spacy,maths,11,2104,female
+Margaret Meyer,wikidata,maths,4,2104,female
+Frank Morley,spacy,maths,11,2027,male
+Frank Morley,wikidata,maths,12,2027,male
+Robert Murphy (mathematician),spacy,maths,15,3856,male
+Robert Murphy (mathematician),wikidata,maths,4,3856,male
+William Davidson Niven,spacy,maths,10,1413,male
+William Davidson Niven,wikidata,maths,6,1413,male
+John Playfair,spacy,maths,25,4645,male
+John Playfair,wikidata,maths,19,4645,male
+Arthur Stanley Ramsey,spacy,maths,18,1954,male
+Arthur Stanley Ramsey,wikidata,maths,5,1954,male
+Mary Rickett,spacy,maths,3,1077,female
+Mary Rickett,wikidata,maths,1,1077,female
+Ronald Ross,spacy,maths,62,21025,male
+Ronald Ross,wikidata,maths,10,21025,male
+Arthur Schuster,spacy,maths,33,7408,male
+Arthur Schuster,wikidata,maths,18,7408,male
+Archibald Smith,spacy,maths,25,2982,male
+Archibald Smith,wikidata,maths,10,2982,male
+Henry John Stephen Smith,spacy,maths,24,8279,male
+Henry John Stephen Smith,wikidata,maths,6,8279,male
+Mary Somerville,spacy,maths,94,25673,female
+Mary Somerville,wikidata,maths,46,25673,female
+Thomas Bond Sprague,spacy,maths,11,1601,male
+Thomas Bond Sprague,wikidata,maths,3,1601,male
+John Steggall,spacy,maths,16,2268,male
+John Steggall,wikidata,maths,9,2268,male
+Peter Tait (physicist),spacy,maths,37,9371,male
+Peter Tait (physicist),wikidata,maths,20,9371,male
+H. W. Lloyd Tanner,spacy,maths,8,1190,male
+H. W. Lloyd Tanner,wikidata,maths,2,1190,male
+William Wallace (mathematician),spacy,maths,19,3893,male
+William Wallace (mathematician),wikidata,maths,8,3893,male
+William Whewell,spacy,maths,52,19374,male
+William Whewell,wikidata,maths,25,19374,male
+Francis John Welsh Whipple,spacy,maths,6,1147,male
+Francis John Welsh Whipple,wikidata,maths,2,1147,male
+Charles Thomas Whitmell,spacy,maths,14,4927,male
+Charles Thomas Whitmell,wikidata,maths,3,4927,male
+William Henry Young,spacy,maths,5,1257,male
+William Henry Young,wikidata,maths,3,1257,male
+Udny Yule,spacy,maths,24,7021,male
+Udny Yule,wikidata,maths,15,7021,male
