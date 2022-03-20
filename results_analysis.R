@@ -48,6 +48,7 @@ m <- lm(sqrt(per_1000)~category*method, data=new_data)
 plot(m,which=1)
 plot(m,which=2)
 
+# statistical test 1 - ANOVA for the influence of category and method on mentions per 1000 characters
 Anova(m, type=3)
 
 # GRAPH 2 - typical length of an article
@@ -66,6 +67,7 @@ l
 ml <- lm(log(length)~category, data=new_data)
 plot(ml,which=1)
 plot(ml,which=2)
+# statistical test 2 -  ANOVA for the influence of category on length of article
 Anova(ml, type=3)
 
 
@@ -83,6 +85,7 @@ q <- ggplot(new_data, aes(x=method, y=per_typical, fill=category)) +
 q
 
 # wilcoxon test
+# statstical test 3 - Wilcoxon tests for the influence of category (and method) on mentions per 1000 characters
 wilcox.test(per_typical~category, data=new_data[new_data$method=="wikidata",])
 wilcox.test(per_typical~category, data=new_data[new_data$method=="spacy",])
 
@@ -103,9 +106,11 @@ n2 <- lm(sqrt(per_1000)~method*category*gender, data=data)
 plot(n2,which=1)
 plot(n2,which=2)
 
+# statistical test 4 -  ANOVA for the influence of category, method and gender on mentions per 1000 characters
 Anova(n2, type=3)
 
-# seeing where the significance effect stems from 
+# seeing where the significance effect stems from
+# statistical test 5 - checking which pairwise combination is significant
 TukeyHSD(aov(n2), which=c("category:gender"))
 
 
@@ -126,6 +131,7 @@ m2 <- lm(log(length)~method*category*gender, data=data)
 plot(m2,which=1)
 plot(m2,which=2)
 
+# statistical test 6 - ANOVA for the influence on method, category and gender on the length of article
 Anova(m2, type=3)
 
 

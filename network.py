@@ -15,8 +15,9 @@ import scraper
 def run_on_group(method):
     """
 
-    A method that uses NLTK to extract named people in the text
-    from a Wikipedia article
+    A method that extracts the names of the articles in each of the categories
+    and uses the given method to extract names (spacy) or articles about people (wikidata)
+    from each of the pages in the category
 
     Parameters
     ----------
@@ -39,7 +40,7 @@ def run_on_group(method):
             # the title of the wikipedia page
             title = helper.get_page_title(person)
 
-            # to avoid csv errors
+            # to avoid csv errors when writing to file
             if "," in title:
                 substring = title.split(",", 1)
                 title = substring[0]

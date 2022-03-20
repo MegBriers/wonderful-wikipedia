@@ -21,6 +21,7 @@ import json
 import random
 from spacy.training.example import Example
 
+
 # block methods to do basic tasks
 def load_data(file):
     with open(file, "r", encoding="utf-8") as f:
@@ -86,7 +87,7 @@ def train_spacy(data, iterations):
                 example = Example.from_dict(doc, annotations)
                 nlp.update([example], losses=losses, drop=0.2, sgd=optimizer)
             print(losses)
-    return (nlp)
+    return nlp
 
 
 def train_model():
@@ -123,7 +124,7 @@ def train_model():
                 segment = segment.strip()
                 segment = segment.replace("\n", " ")
                 results = test_model(nlp, segment)
-                if results != None:
+                if results is not None:
                     TRAIN_DATA.append(results)
 
     print(len(TRAIN_DATA))

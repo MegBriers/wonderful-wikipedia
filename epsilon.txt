@@ -1,0 +1,137 @@
+The name of people in correspondence with Somerville:
+{'RAS': 1, 'George Biddell Airy': 2, 'Francois Arago': 1, 'Charles Babbage': 33, 'Francis Baily': 8, 'Dr Adolph Barth': 1, 'Francis Beaufort': 2, 'William Beaufort': 1, '(William?) Potter': 1, 'Henry Beaufoy': 1, 'Jean-Baptiste Biot': 5, 'George Birckbeck': 1, 'George Boole': 1, 'Alexis Bouvard': 3, 'Bouvard': 1, 'David Brewster': 3, 'William J Broderip': 1, 'Henry Ingersoll Bowditch': 4, 'Nathaniel Bowditch': 2, 'Alex Young': 1, 'Henry Brougham': 11, 'William Buckland': 1, 'Henry Bunbury': 3, 'Josephine E Butler': 3, 'Ada Byron': 16, 'Ada Byron (King)': 23, 'John George Children': 2, 'James Dwight Dana (?)': 1, 'Charles Darwin': 1, 'David': 1, 'Paulina Kellog Wright Davis': 1, 'Thomas Stephens Davies': 5, 'Jane Davy': 1, 'Augustus De Morgan': 9, 'Benjamin Disraeli (Earl of Beaconsfield)': 1, 'Louisa Drewry': 1, 'John Elliot Drinkwater Bethune': 1, 'Charles Dupin': 2, None: 2, "Dupin's brother?": 1, 'Maria Edgeworth': 14, 'Michael Faraday': 15, 'Edward Forbes': 1, 'James D Forbes ': 1, 'Annibale de Gasparis': 1, 'Thomas Galloway': 2, 'Alfred Baring Garrod': 1, 'Joseph Louis Gay Lussac': 3, 'Hudson Gurney': 1, 'James Gregory': 1, 'Mary Griffith': 1, 'William Herschel': 1, 'John Herschel': 92, 'Margaret Brodie Herschel': 11, 'John Herschel / Margaret Brodie Herschel': 1, 'Isabella Herschel': 1, 'John Herschel jnr': 1, 'John Russell Hind': 2, 'Henry Holland ': 1, 'Henry Holland': 7, 'Henry Holland (1st Baronet, 27 October 1788 – 27 October 1873)': 1, 'Hooker': 1, 'Leonard Horner': 1, 'William Huggins': 1, 'Alexander von Humboldt': 1, 'James Ivory': 3, 'Robert Jameson': 1, 'Francis Jeffrey': 3, 'J Gwyn Jeffreys': 2, 'M H Jenkins': 1, 'Wartan Josephus': 4, 'Henry Kater': 3, 'Mary Frances Kater': 1, 'Edward Kater': 1, 'William Burnet Kinney': 1, 'Adelaide Kemble': 1, 'Lafeyette family': 1, 'Pierre Simon Laplace': 2, 'madame Laplace': 5, 'William Lassell': 1, 'William Leake': 1, 'Grand Duke Leopold of Tuscany': 1, 'John Lindley': 2, 'Sir Coutts Lindsey': 1, 'John Gibson Lockhart': 2, 'Sophia Lockhart (nee Scott)': 2, 'John William Lubbock': 22, 'John Lubbock, 1st Baron Avebury': 1, 'Charles Lyell': 12, 'Susan Horner': 1, 'Charles Macintosh': 1, 'James Mackintosh': 6, 'Robert Mallet': 1, 'Jane Marcet': 8, 'Frederick Marryat': 1, 'Harriet Marineau': 4, 'Nevil Story Maskelyne': 1, 'Moulien': 1, 'Maury': 1, 'Charlotte Murchison': 1, 'Roderick Murchison': 2, 'John Murray III': 62, 'Joseph Pentland': 4, 'John Murray': 18, 'Miss [Ada] Byron': 1, 'Joseph Pentland ': 2, 'Macvey Napier': 3, 'Francis Russell Nixon': 1, 'Caroline Norton': 1, 'William Parry': 1, 'George Peacock': 1, '[Thomas] Phillips': 2, 'Jean Plana': 3, 'Thomas Plateau': 2, 'John Playfair': 1, 'Baden Powell': 2, 'Simeon-Denis Poisson': 1, '?Pierre Prevost': 1, 'Adolphe Quetelet': 7, 'Adam Sedgwick': 3, 'Annarella Smyth': 5, 'William Henry Smyth': 16, 'James South': 1, 'William Spottiswoode': 2, 'William Stratford': 1, 'Stratford de Redcliffe': 2, 'William Wallace': 3, 'Henry Warburton': 1, 'William Whewell': 10, 'Thomas Young': 3}
+.・。.・゜✭・.・✫・゜・。.
+Number of unique correspondences:
+130
+.・。.・゜✭・.・✫・゜・。.
+Names manually identified from Somerville page:
+['Mary Somerville', 'Caroline Herschel', 'John Stuart Mill', 'Thomas Phillips', 'William George Fairfax', 'Margaret Charters', 'Samuel Charters', 'Thomas Somerville', 'Sam', 'Mary', 'Shakespeare', 'Janet', 'Thomas Somerville', 'Virgil', 'William Charters', 'Charles Lyell', 'Xenophon', 'Herodotus', 'Alexander Nasmyth', 'Euclid', 'John Robertson', 'Henry', 'Mr Craw', 'John Bonnycastle', 'Lord Balmuto', 'Elizabeth Oswald', 'Thomas Bruce', 'Lady Burchan', 'Earl of Minto', 'Admiral Duncan', 'Samuel Greig', 'Samuel Greig', 'Woronzow Greig', 'James Ferguson', 'Isaac Newton', 'John Playfair', 'William Wallace', 'Pierre-Simon Laplace', 'Louis-Benjamin Francoeur', 'Sylvestre François Lacroix', 'Jean-Baptiste Biot', 'Siméon Denis Poisson', 'Joseph-Louis Lagrange', 'Leonhard Euler', 'Alexis Clairaut', 'Gaspard Monge', 'François Callet', 'Charles Babbage', 'John Herschel', 'George Peacock', 'Henry Brougham', 'Letitia Elizabeth Landon', 'William Somerville', 'J.M.W. Turner', 'Walter Scott', 'Anne Isabella Milbanke', 'Baroness Wentworth', 'Babbage', 'Ada Lovelace', 'Lovelace', 'Sir James Mackintosh', 'Maria Edgeworth', 'David Brewster', 'Lord Brougham', 'Pierre-Simon Laplace', 'Laplace', 'Joanna Baillie', 'George Peacock', 'John Murray', 'Charles Darwin', 'Baron Humboldt', 'Alexander Keith Johnston', 'Humboldt', 'Maria Mitchell', 'William Edward Parry', 'E Bowell', 'James Clerk Maxwell', 'Thomas Telford', 'Semyon Vorontsov', 'Samuel Greig', 'Agnes Graham', 'Margaret Farquhar Somerville', 'Thomas Somerville', 'Martha Charters Somerville', 'Mary Charlotte Somerville']
+.・。.・゜✭・.・✫・゜・。.
+85
+
+Identified correspondence:
+Charles Babbage
+Identified in article:
+Charles Babbage
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+Jean-Baptiste Biot
+Identified in article:
+Jean-Baptiste Biot
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+David Brewster
+Identified in article:
+David Brewster
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+Henry Brougham
+Identified in article:
+Henry Brougham
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+Charles Darwin
+Identified in article:
+Charles Darwin
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+Maria Edgeworth
+Identified in article:
+Maria Edgeworth
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+John Herschel
+Identified in article:
+John Herschel
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+Pierre Simon Laplace
+Identified in article:
+Pierre-Simon Laplace
+Levenshtein ratio:
+0.95
+
+Identified correspondence:
+Charles Lyell
+Identified in article:
+Charles Lyell
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+James Mackintosh
+Identified in article:
+Sir James Mackintosh
+Levenshtein ratio:
+0.8888888888888888
+
+Identified correspondence:
+Maury
+Identified in article:
+Mary
+Levenshtein ratio:
+0.8888888888888888
+
+Identified correspondence:
+John Murray III
+Identified in article:
+John Murray
+Levenshtein ratio:
+0.8461538461538461
+
+Identified correspondence:
+George Peacock
+Identified in article:
+George Peacock
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+[Thomas] Phillips
+Identified in article:
+Thomas Phillips
+Levenshtein ratio:
+0.9375
+
+Identified correspondence:
+John Playfair
+Identified in article:
+John Playfair
+Levenshtein ratio:
+1.0
+
+Identified correspondence:
+Simeon-Denis Poisson
+Identified in article:
+Siméon Denis Poisson
+Levenshtein ratio:
+0.9
+
+Identified correspondence:
+William Wallace
+Identified in article:
+William Wallace
+Levenshtein ratio:
+1.0
+.・。.・゜✭・.・✫・゜・。.
+Number of people found in correspondence and Wikipedia
+17
+People identified in correspondence and Wikipedia
+['Charles Babbage', 'Jean-Baptiste Biot', 'David Brewster', 'Henry Brougham', 'Charles Darwin', 'Maria Edgeworth', 'John Herschel', 'Pierre-Simon Laplace', 'Charles Lyell', 'Sir James Mackintosh', 'Mary', 'John Murray', 'George Peacock', 'Thomas Phillips', 'John Playfair', 'Siméon Denis Poisson', 'William Wallace']
+.・。.・゜✭・.・✫・゜・。.
+People written to in order of decreasing number of correspondences
+{'John Herschel': 92, 'John Murray III': 62, 'Charles Babbage': 33, 'Ada Byron (King)': 23, 'John William Lubbock': 22, 'John Murray': 18, 'Ada Byron': 16, 'William Henry Smyth': 16, 'Michael Faraday': 15, 'Maria Edgeworth': 14, 'Charles Lyell': 12, 'Henry Brougham': 11, 'Margaret Brodie Herschel': 11, 'William Whewell': 10, 'Augustus De Morgan': 9, 'Francis Baily': 8, 'Jane Marcet': 8, 'Henry Holland': 7, 'Adolphe Quetelet': 7, 'James Mackintosh': 6, 'Jean-Baptiste Biot': 5, 'Thomas Stephens Davies': 5, 'madame Laplace': 5, 'Annarella Smyth': 5, 'Henry Ingersoll Bowditch': 4, 'Wartan Josephus': 4, 'Harriet Marineau': 4, 'Joseph Pentland': 4, 'Alexis Bouvard': 3, 'David Brewster': 3, 'Henry Bunbury': 3, 'Josephine E Butler': 3, 'Joseph Louis Gay Lussac': 3, 'James Ivory': 3, 'Francis Jeffrey': 3, 'Henry Kater': 3, 'Macvey Napier': 3, 'Jean Plana': 3, 'Adam Sedgwick': 3, 'William Wallace': 3, 'Thomas Young': 3, 'George Biddell Airy': 2, 'Francis Beaufort': 2, 'Nathaniel Bowditch': 2, 'John George Children': 2, 'Charles Dupin': 2, None: 2, 'Thomas Galloway': 2, 'John Russell Hind': 2, 'J Gwyn Jeffreys': 2, 'Pierre Simon Laplace': 2, 'John Lindley': 2, 'John Gibson Lockhart': 2, 'Sophia Lockhart (nee Scott)': 2, 'Roderick Murchison': 2, 'Joseph Pentland ': 2, '[Thomas] Phillips': 2, 'Thomas Plateau': 2, 'Baden Powell': 2, 'William Spottiswoode': 2, 'Stratford de Redcliffe': 2, 'RAS': 1, 'Francois Arago': 1, 'Dr Adolph Barth': 1, 'William Beaufort': 1, '(William?) Potter': 1, 'Henry Beaufoy': 1, 'George Birckbeck': 1, 'George Boole': 1, 'Bouvard': 1, 'William J Broderip': 1, 'Alex Young': 1, 'William Buckland': 1, 'James Dwight Dana (?)': 1, 'Charles Darwin': 1, 'David': 1, 'Paulina Kellog Wright Davis': 1, 'Jane Davy': 1, 'Benjamin Disraeli (Earl of Beaconsfield)': 1, 'Louisa Drewry': 1, 'John Elliot Drinkwater Bethune': 1, "Dupin's brother?": 1, 'Edward Forbes': 1, 'James D Forbes ': 1, 'Annibale de Gasparis': 1, 'Alfred Baring Garrod': 1, 'Hudson Gurney': 1, 'James Gregory': 1, 'Mary Griffith': 1, 'William Herschel': 1, 'John Herschel / Margaret Brodie Herschel': 1, 'Isabella Herschel': 1, 'John Herschel jnr': 1, 'Henry Holland ': 1, 'Henry Holland (1st Baronet, 27 October 1788 – 27 October 1873)': 1, 'Hooker': 1, 'Leonard Horner': 1, 'William Huggins': 1, 'Alexander von Humboldt': 1, 'Robert Jameson': 1, 'M H Jenkins': 1, 'Mary Frances Kater': 1, 'Edward Kater': 1, 'William Burnet Kinney': 1, 'Adelaide Kemble': 1, 'Lafeyette family': 1, 'William Lassell': 1, 'William Leake': 1, 'Grand Duke Leopold of Tuscany': 1, 'Sir Coutts Lindsey': 1, 'John Lubbock, 1st Baron Avebury': 1, 'Susan Horner': 1, 'Charles Macintosh': 1, 'Robert Mallet': 1, 'Frederick Marryat': 1, 'Nevil Story Maskelyne': 1, 'Moulien': 1, 'Maury': 1, 'Charlotte Murchison': 1, 'Miss [Ada] Byron': 1, 'Francis Russell Nixon': 1, 'Caroline Norton': 1, 'William Parry': 1, 'George Peacock': 1, 'John Playfair': 1, 'Simeon-Denis Poisson': 1, '?Pierre Prevost': 1, 'James South': 1, 'William Stratford': 1, 'Henry Warburton': 1}

@@ -2,7 +2,8 @@
 """
 Created on Wed Feb 23 09:09:30 2022
 
-CODE TO PERFORM ANALYSIS OF DATA EXTRACTED FROM WIKIPEDIA ARTICLES
+CODE TO PERFORM ANALYSIS OF POPULAR FIGURES ACROSS
+WIKIPEDIA ARTICLES AND THE EPSILON DATA WORK
 
 @author: Meg
 """
@@ -71,8 +72,11 @@ def setup():
     article falls under, their gender, and how many mentions were picked up using
     a specified method
 
-    Each person will be in the file twice (one for the record with spacy extraction,
+    Each person will be in the mentions file twice (one for the record with spacy extraction,
     and one with the wikidata extraction)
+
+    Also creates a file to store how often each person found in these articles has been
+    mentioned/linked across the network
 
     Parameters
     ----------
@@ -106,9 +110,11 @@ def setup():
                     split = person.split(",", 1)
                     person = split[0]
 
+                # finding the relevant path files for the person's mentions
                 file_path_linked = helper.get_file_path(person_format + "_Linked.txt", "\output\wikidata\\network")
                 file_path_unlinked = helper.get_file_path(person_format + "_Unlinked.txt", "\output\spacy")
 
+                # if something has gone wrong during name extraction
                 if file_path_linked is None or file_path_unlinked is None:
                     continue
 
@@ -126,6 +132,7 @@ def setup():
                 if len(mentioned) == 0 or len(linked) == 0:
                     continue
 
+                # updating counts for mentions of each person in each category
                 if subfolder[category] == "maths":
                     maths_pop_s = update_counts(maths_pop_s, mentioned, person)
                     maths_pop_w = update_counts(maths_pop_w, linked, person)
@@ -133,7 +140,7 @@ def setup():
                     phil_pop_s = update_counts(phil_pop_s, mentioned, person)
                     phil_pop_w = update_counts(phil_pop_w, linked, person)
 
-                # longest identifiable substring
+                # longest identifiable substring to decide on gender
                 if 'female' in file_path_linked:
                     gender = 'female'
                 else:
@@ -145,11 +152,14 @@ def setup():
                 f.write(person + ",wikidata" + "," + subfolder[category] + "," + str(len(linked)) + "," + str(
                     length_of_file) + "," + gender)
                 f.write('\n')
+                file_linked.close()
+                file_unlinked.close()
     f.close()
 
     pop['spacy'] = {'maths': maths_pop_s, 'phil': phil_pop_s}
     pop['wikidata'] = {'maths': maths_pop_w, 'phil': phil_pop_w}
 
+    # writing the popular figures to a file
     with open('./analysis/popular_figures.txt', 'w') as f:
         for method in pop.keys():
             for group in pop[method].keys():
@@ -184,6 +194,16 @@ def popular_figs():
      """
 
     pop_figs = [{}, {}, {}, {}]
+
+    # each row stores the following information in the indices
+    # 0 - method used to extract name
+    # 1 - category that the mentions come from
+    # 2 - name being mentioned
+    # 3 - how many wikipedia articles mentioned them
+    # 4 - which wikipedia articles mentioned them
+
+    # ideally needs to be shifted to have header values so it can be accessed by column title
+    # which would allow more flexibility with order of file
     with open('./analysis/popular_figures.txt') as csvfile:
         current_reader = csv.reader(csvfile)
         for row in current_reader:
@@ -191,6 +211,7 @@ def popular_figs():
             # not required for the analysis as identified error in wikidata extraction
             if "content" in row[2]:
                 continue
+
             if row[0] == "spacy":
                 if row[1] == "maths":
                     pop_figs[0][name] = int(row[3])
@@ -204,6 +225,7 @@ def popular_figs():
 
     csvfile.close()
 
+    # generates four graphs in this order; maths spacy, maths wikidata, philosophy spacy, philosophy wikidata
     for graph in pop_figs:
         sorted_list = dict(sorted(graph.items(), key=lambda item: item[1], reverse=True))
 
@@ -213,6 +235,7 @@ def popular_figs():
         # shortening the name that will be displayed on the graph if needed
         shortened_top = {}
         for person in top.keys():
+            # so the full names can be identifiable
             print(person, helper.initials(person,14))
             shortened_top[helper.initials(person,14)] = top[person]
 
@@ -242,6 +265,7 @@ def epsilon_analysis():
     None.
 
     """
+
     # needs refactoring
 
     stdoutOrigin = sys.stdout
@@ -299,7 +323,7 @@ def epsilon_analysis():
     for name in correspondences.keys():
         found = False
         for line in complete:
-            if not (found):
+            if not found:
                 # experimentation with 0.7 meant too many false positives were getting through. could also add in a
                 # check for Ada Byron in Ada Byron (King) but then run the risk of combining fathers and sons if they
                 # are just marked different by Jnr. at > 0.8 we get rid of a lot of misidentified williams but we also
@@ -337,3 +361,4 @@ def start():
         setup()
 
     popular_figs()
+    epsilon_analysis()

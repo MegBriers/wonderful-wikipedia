@@ -1,34 +1,34 @@
-30946
-James Martineau
-Thomas Michael Greenhow
-Peter Finch Martineau
+30947
 Richard Evans (portrait painter)
-Queen Victoria
-Margaret Oliphant
+James Martineau
+Peter Finch Martineau
+Thomas Michael Greenhow
 Auguste Comte
+Margaret Oliphant
+Queen Victoria
+David Ricardo
 James Mill
 Charles Dickens
+Erasmus Alvey Darwin
+Jeremy Bentham
+Thomas Robert Malthus
 William Johnson Fox
 Harriet Taylor Mill
-Henry Hallam
-Jeremy Bentham
-David Ricardo
-Thomas Robert Malthus
-Erasmus Alvey Darwin
 Alexander Maconochie (penal reformer)
+Sydney Smith
 Henry Hart Milman
+Henry Hallam
 Monckton Milnes
 Sarah Austin (translator)
-Jane Welsh Carlyle
-Edward Bulwer-Lytton
 Charles Lyell
-Sydney Smith
-Florence Nightingale
-Thomas Carlyle
-John Stuart Mill
-Charlotte Brontë
-George Eliot
 Elizabeth Barrett
+Edward Bulwer-Lytton
+John Stuart Mill
+Jane Welsh Carlyle
+Thomas Carlyle
+Florence Nightingale
+George Eliot
+Charlotte Brontë
 Charles Darwin
 James Madison
 Robert Waring Darwin
@@ -38,9 +38,9 @@ Camille Silvy
 Samuel Taylor Coleridge
 M. J. B. Baddeley
 Charles Knight (publisher)
-William Wordsworth
 George Richmond (painter)
 Barbara Bodichon
+William Wordsworth
 George Holyoake
 Hensleigh Wedgwood
 Frances Lupton

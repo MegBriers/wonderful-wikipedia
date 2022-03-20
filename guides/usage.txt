@@ -1,0 +1,19 @@
+BEFORE RESTART.PY IS RUN IN ANY FORM, RETRAININGSPACY.PY MUST HAVE BEEN RUN ONCE
+(in order to generate the new retrained spacy ner model)
+
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+usage : restart.py [type of run] [optional : specified NER method]
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+type of run : 
+test = evaluates the methods based off of annotated test data
+network = applies the methods to a larger group with no test data or evaluation option
+evaluation = performs the statistical analysis 
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+optional NER method : 
+spacy = off the shelf spacy methods
+nltk = off the shelf nltk methods
+spacy_new = retrained spacy model
+wikidata = extraction of the linked people using wikidata files
+all = all three methods compared
+｡･:*:･ﾟ★,｡･:*:･ﾟ☆　　 ｡･:*:･ﾟ★,｡･:*:･ﾟ☆
+

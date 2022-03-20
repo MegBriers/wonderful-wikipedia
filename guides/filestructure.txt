@@ -1,0 +1,47 @@
+file structure 
+
+the following file will detail the uses of each folder and where to find certain files 
+it is important that files stay in their relative positions due to a reliance on this in the code 
+
+MATHS_NER_MODEL
+- this folder stores the retrained spacy ner model when generated using retrainingSpacy.py
+
+DATA
+this will store 
+- the training data for the retrained spacy model when generated
+
+- the enwiki database sql files 
+
+- the letters excel spreadsheet detailing somerville's correspondences  
+
+PEOPLE
+- this stores the manually identified names from the wikipedia articles of the figures in the text set 
+
+OUTPUT
+- this stores what was returned for each article in the networks by the various methods used to extract names
+
+- there are four sub folders for the different methods (nltk, spacy, spacy_new and wikidata)
+
+- within each sub folder there are the files for the test figures and then an evaluation folder which will have 
+a corresponding file for each person in the network detailing names that were not identified and additional names that 
+the method brough back 
+
+- also within each sub folder is a network folder which stores the results from the run on the whole network
+divided by category. the wikidata network folder is additionally divided by gender, using the information extracted
+from wikidata 
+
+ANALYSIS
+this folder stores data used for the analysis stage of the project
+- a visualisations folder is present which holds all the figures inserted in the report divided by the type 
+of information they are representing 
+
+- evaluation.csv : stores the performance statistics for each method across each article in the test figure set
+
+- mentions.csv : stores everyone that had an article in each category, along with how many mentions they had for each method, their 
+gender and the length of their article in characters 
+
+- popular_figures.txt : stores everyone mentioned on all of the wikipedia pages, how many wikipedia articles mentioned them, how they were mentioned
+(spacy or wikidata), and the titles of the wikipedia articles that mentioned them (used for popular figures analysis) 
+
+- commonly_linked_[category]_[method].txt : reminents of previously written popular figures analysis, but contains an ordered list of mentioned people
+for each method and category (useful to see at a glance who is coming towards the top) 

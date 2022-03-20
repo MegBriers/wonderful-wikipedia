@@ -1,0 +1,19 @@
+libaries that must be installed can be found in requirements.txt 
+
+external sources that also must be installed: 
+
+DATABASE OF WIKIDATA IDS: 
+(more instructions can be found here : https://github.com/jcklie/wikimapper)
+pip install wikimapper
+
+wikimapper download en-wiki-latest --dir data
+
+wikimapper create en-wiki-latest --dump dir --target data/index_enwiki-latest
+
+
+SPACY ADDITIONAL MODELS 
+python -m spacy download xx_ent_wiki_sm
+
+
+ADDITIONAL REQUIREMENTS FOR WEB SCRAPPING
+pip install lxml 

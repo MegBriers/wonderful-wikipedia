@@ -1,5 +1,0 @@
-Source,Target,weight,Type 
-Ragoonathachary, N.R. Pogson, UndirectedRagoonathachary
-Ragoonathachary, N. R. Pogson, UndirectedRagoonathachary
-Ragoonathachary, Stephen, Leslie, UndirectedRagoonathachary
-Ragoonathachary, Visvanatha Sastriyar, UndirectedRagoonathachary

@@ -2,7 +2,8 @@
 """
 Created on Tue Jan 04 15:45:07 2022
 code that should assess how well the methods have
-performed against the manual test data
+performed against the manual test data and generates
+graphs to illustrate performance
 
 @author: Meg
 """
@@ -16,7 +17,7 @@ import os
 
 
 # to be uncommented as required
-# changes window size
+# changes window size for the graphs
 # plt.rc('figure', figsize=(20, 15))
 # changes the font size on the graph
 # plt.rcParams.update({'font.size': 25})
@@ -27,6 +28,9 @@ def setup(name):
 
     This method sets up all the information used for the rest of the methods, regardless if
     multiple evaluation or single evaluation
+
+    It extracts from the manual data who should have been found by
+    the NER and the Wikidata methods
 
     Parameters
     ----------
@@ -83,8 +87,10 @@ def setup(name):
 def statistics(false_pos, false_neg, true_pos):
     """
 
-    A method that analyses the performance of the wikidata way of extracting
-    people that are linked in an article
+    A method that analyses the performance of the method for extracting
+    people that are mentioned/linked in an article by generating the
+    f1, precision and recall values for that article based on the statistics
+    given
 
     Parameters
     ----------
@@ -181,11 +187,16 @@ def wikidata_evaluation(person, rel_linked, linked):
     wiki_data.pop()
     wiki_data = list(set(wiki_data))
 
+    # the number of people who were manually identified as linked
+    # and relevant in the given article
     all_linked = len(rel_linked)
+
     count = 0
 
+    # to store a list of all the people who were not identified
     not_identified = rel_linked[:]
 
+    # to store a list of who was additionally picked up by the wikidata method
     additional = wiki_data[:]
 
     for human in rel_linked:
@@ -193,7 +204,9 @@ def wikidata_evaluation(person, rel_linked, linked):
             # comparing the given names with previously identified names
             if human in wiki or wiki in human or Levenshtein.ratio(human, wiki) > .85:
                 count += 1
+                # removing because they have been identified
                 not_identified.remove(human)
+                # removing because they should have been identified, so they aren't additional
                 if wiki in additional:
                     additional.remove(wiki)
                 break
@@ -289,6 +302,7 @@ def method_evaluation(method, person, complete):
     identified_unlinked = list(set(line.rstrip("\n") for count, line in enumerate(file_unlinked) if count != 0))
 
     stripped_unlinked = []
+    # removing any trailing characters
     for ele in identified_unlinked:
         if ele.strip():
             stripped_unlinked.append(ele)
@@ -297,22 +311,28 @@ def method_evaluation(method, person, complete):
     print("")
     print("")
 
-    # remove all the typical titles
+    # used to remove all the typical titles
     typical_titles = ["Dr", "Miss", "Mrs", "Sir", "Mr", "Lord", "Professor"]
 
+    # stripping all typical titles from names
     for title in typical_titles:
         complete = [name.replace(title, '') for name in complete]
         identified_unlinked = [name.replace(title, '') for name in identified_unlinked]
 
+    # used to store who has not been identified
     copy_complete = complete[:]
 
+    # used to store everyone who has been identified by method
     copy_identified = []
 
     for people in complete:
         for identified in identified_unlinked:
             # criteria used to evaluate if referring to the same people (not infallible, but multiple references is
             # not an easy problem to solve)
-            if ((people in identified or identified in people) and Levenshtein.ratio(people,identified) > .75) or Levenshtein.ratio(people, identified) > 0.9:
+            if ((people in identified or identified in people) and Levenshtein.ratio(people,
+                                                                                     identified) > .75) or Levenshtein.ratio(
+                    people, identified) > 0.9:
+                # they have been identified so can be removed
                 copy_complete.remove(people)
                 if not (identified in copy_identified):
                     copy_identified.append(identified)
@@ -352,8 +372,21 @@ def evaluate_statistics():
     A method to produce graphs to illustrate the f1, precision
     and recall values for the various methods
 
-    Not the most efficient storage system, but double indexing
-    dictionaries was not the way I wanted to do it.
+    graph 1 - overall comparison of NER methods across whole set of test figures (nltk and spacy)
+
+    graph 2 - overall comparison of NER methods across subset of test figures (ntlk, spacy, retrained spacy)
+
+    graph 3 - comparison of precision values across articles for nltk and spacy
+
+    graph 4 - comparison of recall values across articles for nltk and spacy
+
+    graph 5 - spacy f1, precision and recall values across articles
+
+    graph 6 - nltk f1, precision and recall values across articles
+
+    graph 7 - retrained spacy f1, precision and recall values across articles
+
+    graph 8 - wikidata extraction f1, precision and recall values across articles
 
     Parameters
     ----------
@@ -363,18 +396,20 @@ def evaluate_statistics():
     -------
     None.
     """
-    stdoutOrigin = sys.stdout
-    sys.stdout = open("./output/evaluation.txt", "w", encoding="utf-8")
-
-    small_methods = ['spacy', 'nltk', 'spacy_new']
 
     people = []
 
+    # so we can loop over the various statistics for the various methods
     values = ["f1", "precision", "recall"]
     methods = ["spacy", "nltk", "spacy new", "wikidata"]
 
+    # the people that we do not want to see the performance of the retrained spacy on (because they are part of the
+    # training data)
     mathematicians = ["Mary Somerville", "Charles Howard Hinton"]
+
+    # stores the results for the whole subset
     results = {"f1": [[] for _ in range(4)], "precision": [[] for _ in range(4)], "recall": [[] for _ in range(4)]}
+    # stores the results for the subset that does not include the mathematicians
     non_maths = {"f1": [[] for _ in range(3)], "precision": [[] for _ in range(3)],
                  "recall": [[] for _ in range(3)]}
 
@@ -384,50 +419,43 @@ def evaluate_statistics():
             people.append(row["name"])
 
             for value in values:
+                # 0 - f1, 1 - precision, 2 - recall
                 i = 0
                 for method in methods:
+                    # picking out the desired statistic
                     fig = float(row[value + " " + method])
+                    # and putting it in the correct part of the data structure
                     results[value][i].append(fig)
+                    # we don't want to look at wikidata values on only subset as not relevant
                     if row["name"] not in mathematicians and method != "wikidata":
                         non_maths[value][i].append(fig)
                     i += 1
 
+    # used to store the averages of the values across the data sets
     averages = {"overall": {"f1": [], "precision": [], "recall": []},
                 "non maths": {"f1": [], "precision": [], "recall": []}}
+
     arrays = [results, non_maths]
+    # taking the averages for each group (whole group for overall and subset without mathematicians for non maths)
     for i, group in enumerate(averages.keys()):
         for value in values:
+            # finding the average for each combination of method and statistic (spacy f1, ntlk precision etc)
             averages[group][value] = ([sum(cur_vals) / len(cur_vals) for cur_vals in arrays[i][value]])
 
     # used to ensure that the size of the graph was not excessive while having readable axis labels
     shrunk_peep = [helper.initials(peep, 1) for peep in people]
-
+    # again shrinking the x axis labels for the non mathematicians graphs
     non_maths_peep = [peep for peep in shrunk_peep if
                       peep not in [helper.initials(mathematician, 1) for mathematician in mathematicians]]
 
-    print("overall f1s")
-    print(averages["overall"]["f1"])
-    print("non maths f1s")
-    print(averages["non maths"]["f1"])
-
-    print("overall precisions")
-    print(averages["overall"]["precision"])
-    print("non maths precisions")
-    print(averages["non maths"]["precision"])
-
-    print("overall recalls")
-    print(averages["overall"]["recall"])
-    print("non maths recalls")
-    print(averages["non maths"]["recall"])
-
-    # named entity recognition methods comparison
-    # whole group - graph 1
+    # named entity recognition methods comparison used for whole group comparison of methods (nltk and spacy hence
+    # the -2 because we don't need wikidata or retrained spacy values) - graph 1
     df0 = pd.DataFrame({'f1': averages["overall"]["f1"][:-2], 'precision': averages["overall"]["precision"][:-2],
-                        'recall': averages["overall"]["recall"][:-2]}, index=small_methods[:-1])
+                        'recall': averages["overall"]["recall"][:-2]}, index=methods[:-2])
 
     # non maths subset - graph 2
     df1 = pd.DataFrame({'f1': averages["non maths"]["f1"], 'precision': averages["non maths"]["precision"],
-                        'recall': averages["non maths"]["recall"]}, index=small_methods)
+                        'recall': averages["non maths"]["recall"]}, index=methods[:-1])
 
     # nltk vs spacy precision comparison - graph 3
     df2 = pd.DataFrame({'nltk': results["precision"][1], 'spacy': results["precision"][0]}, index=shrunk_peep)
@@ -435,9 +463,10 @@ def evaluate_statistics():
     # nltk vs spacy recall comparison - graph 4
     df2_b = pd.DataFrame({'nltk': results["recall"][1], 'spacy': results["recall"][0]}, index=shrunk_peep)
 
+    # colours used for making the graphs
     my_colors = ['#00B2EE', '#E9967A', '#3CB371', '#8B475D']
 
-    # comparing all NER methods f1, precision and recall
+    # GRAPH 1 - overall comparison of NER methods across whole set of test figures (nltk and spacy)
     ax = plt.subplot(111)
     df0.plot.bar(rot=0, color=my_colors, ax=ax)
     plt.xlabel('method for NER')
@@ -447,6 +476,7 @@ def evaluate_statistics():
     ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.show()
 
+    # GRAPH 2 - overall comparison of NER methods across subset of test figures (ntlk, spacy, retrained spacy)
     ax1 = plt.subplot(111)
     df1.plot.bar(rot=0, color=my_colors, ax=ax1)
     plt.xlabel('method for NER')
@@ -456,7 +486,7 @@ def evaluate_statistics():
     ax1.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.show()
 
-    # comparing the precision values for nltk on each test figure
+    # GRAPH 3 - comparison of precision values across articles for nltk and spacy
     ax2 = plt.subplot(111)
     df2.plot.bar(rot=0, color=my_colors, ax=ax2)
     plt.xlabel('test figure')
@@ -464,6 +494,7 @@ def evaluate_statistics():
     plt.ylabel('precision value')
     plt.show()
 
+    # GRAPH 4 - comparison of recall values across articles for nltk and spacy
     ax3 = plt.subplot(111)
     df2_b.plot.bar(rot=0, color=my_colors, ax=ax3)
     plt.xlabel('test figure')
@@ -471,9 +502,11 @@ def evaluate_statistics():
     plt.ylabel('recall value')
     plt.show()
 
-    index_cur = shrunk_peep
-    cur_values = results
+    # GRAPH 5 - 8 : f1, precision and recall values across articles for each method
     for i in range(4):
+        index_cur = shrunk_peep
+        cur_values = results
+        # the x axis is different when looking at retrained spacy
         if i == 2:
             index_cur = non_maths_peep
             cur_values = non_maths
@@ -489,11 +522,6 @@ def evaluate_statistics():
         ax_cur.set_position([box.x0, box.y0, box.width * 0.8, box.height])
         ax_cur.legend(loc='center left', bbox_to_anchor=(1, 0.5))
         plt.show()
-        index_cur = shrunk_peep
-        cur_values = results
-
-    sys.stdout.close()
-    sys.stdout = stdoutOrigin
 
 
 def write_data():
@@ -538,7 +566,8 @@ def write_data():
                 first_name = split[0]
 
             output_line = first_name
-            for i in range(12):
+            # f1, precision, recall for all 4 methods
+            for i in range(len(performances[peep])):
                 output_line = output_line + "," + str(performances[peep][i])
 
             f.write(output_line)

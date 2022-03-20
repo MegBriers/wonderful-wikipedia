@@ -27,7 +27,8 @@ def usage_options():
 def validate_name(name):
     """
 
-    A method that calls the relevant part of the code to access all the linked names
+    A method that checks the test figure has a file with the manually
+    identified names in it (only used for evaluation on test figures)
 
     Parameters
     ----------
@@ -65,6 +66,7 @@ if __name__ == '__main__':
     if sys.argv[1] == "test":
         people = helper.get_test_data()
         for pep in people:
+            print("✨extracting names from " + pep + "'s Wikipedia article✨")
             data = helper.get_page_content(pep)
             if sys.argv[2] == 'spacy':
                 nerExtract.extracting_unlinked_spacy(data, pep, sys.argv[2], "")
@@ -78,8 +80,7 @@ if __name__ == '__main__':
                 nerExtract.extracting_unlinked_spacy(data, pep, "spacy", "")
                 nerExtract.nltk_names(data, pep)
                 nerExtract.extracting_unlinked_spacy(data, pep, "spacy_new", "")
-                #scraper.request_linked(pep, "", "", len(data))
-                print(":)")
+                scraper.request_linked(pep, "", "", len(data))
             else:
                 print("method is incorrect, please refer to usage instructions")
                 usage_options()

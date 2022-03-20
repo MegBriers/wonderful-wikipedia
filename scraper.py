@@ -115,7 +115,7 @@ def write_to_file(person, links, length_of_file, network, subfolder, subsubfolde
 def map_to_wiki_data(articles):
     """
 
-    A  method to map the wikipedia article to the wikidata id
+    A method to map the wikipedia article to the wikidata id
     so we can figure out if the article refers to a human
 
     Parameters
@@ -241,7 +241,7 @@ def is_name(id, client, date_of_birth, date_of_death, types_compare):
                     # they aren't a relevant person
                     result = False
             else:
-                # probably still alive (doesn't still assume this)
+                # assumed not relevant
                 result = False
         return result, id
 
@@ -261,8 +261,12 @@ def convert_fake_unicode_to_real_unicode(string):
 def request_page(URL):
     """
 
-    The driver method, gets all the titles of the wikipedia
-    pages of people linked to on a given page
+    A method that gets all the titles of the wikipedia
+    pages of people linked to on a given page and the gender
+    of the subject
+
+    Ensures that any link returned is relevant (i.e. a Wikipedid
+    article about a person who lived within the correct time frame)
 
     Parameters
     ----------
@@ -341,6 +345,7 @@ def request_page(URL):
         date_of_death = 1899
 
         try:
+            # retrieving the date of birth and date of deaths from wikidata
             dob = client.get('P569', load=True)
             dod = client.get('P570', load=True)
 
@@ -358,7 +363,6 @@ def request_page(URL):
             # broad exception to catch people in the 19th century
             print("had to go manual style")
             print(type(e))
-
 
         # based on code from : https://stackoverflow.com/questions/52082665/store-results-threadpoolexecutor
         # requests are sent concurrently in order to decrease execution time
@@ -387,8 +391,9 @@ def request_page(URL):
 def request_linked(person, network, subfolder, length_of_file):
     """
 
-    A  method to map the wikipedia article to the wikidata id
-    so we can figure out if the article refers to a human
+    The driver method that gets the collection of
+    titles linked off a given page and writes this
+    to a file
 
     Parameters
     ----------
@@ -413,7 +418,7 @@ def request_linked(person, network, subfolder, length_of_file):
     """
     page = "https://en.wikipedia.org/wiki/" + person
 
-    # subsubfolder deals with gender
+    # subsubfolder deals with placing the people in the correct gender folder
     names, subsubfolder = request_page(page)
 
     write_to_file(person, names, length_of_file, network, subfolder, subsubfolder)

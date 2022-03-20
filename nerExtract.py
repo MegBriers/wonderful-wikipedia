@@ -10,7 +10,6 @@ USING THE STANDARD SPACY AND NLTK METHODS
 
 import spacy
 import nltk
-import comparisonCurrent
 
 nlp1 = spacy.load("xx_ent_wiki_sm")
 nlp2 = spacy.load("maths_ner_model")
@@ -20,7 +19,7 @@ def spacy_text(page, nlp_cur):
     """
 
     A method to extract all the identified people in
-    the file currently being worked with
+    the file currently being worked with using SPACY
 
     Parameters
     ----------
@@ -44,7 +43,9 @@ def spacy_text(page, nlp_cur):
 
 def write_to_file(method, title, names, folder, file_length):
     """
-    
+
+    A method that writes the identified names to a file
+    for each person in the correct subfolder
 
     Parameters
     ----------
@@ -122,8 +123,7 @@ def extracting_unlinked_spacy(data, title, method, folder):
     """
 
     A method that allows the correct spacy model to be chosen for the method that
-    was chosen for NER
-    (won't be needed if we get rid of new spacy)
+    was chosen for NER and ensures the names are then written to a file
 
     Parameters
     ----------

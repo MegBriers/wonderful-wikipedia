@@ -50,7 +50,8 @@ def get_list(URL):
 def formatting(name, char):
     """
 
-    A method that calls the relevant part of the code to access all the linked names
+    A method that returns the name formatted in the
+    desired way (e.g. Mary_Somerville or Mary Somerville)
 
     Parameters
     ----------
@@ -117,7 +118,7 @@ def get_page_content(person):
 def get_page_title(person):
     """
 
-    A method that calls the relevant part of the code to access all the linked names
+    A method that returns the title of a wikipedia page for the given name
 
     Parameters
     ----------
@@ -187,8 +188,9 @@ def get_file_path(file, bonus):
         the file needed to be found
 
     bonus : string
-        a string that (if spacy) will make sure the code finds the spacy output
-        as opposed to other NER methods
+        a string that  will make sure the code finds the correct path
+        (names that are also in the test data run the risk of being found in the base folder
+        rather than the gender divided folders)
 
     Returns
     -------
