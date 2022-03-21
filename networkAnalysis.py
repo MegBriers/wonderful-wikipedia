@@ -98,7 +98,7 @@ def setup():
     maths_pop_w = {}
     phil_pop_w = {}
 
-    with open('./analysis/mentions.csv', 'w') as f:
+    with open('./analysis/mentions.csv', 'w', encoding='utf-8') as f:
         f.write('name,method,category,mentions,length,gender')
         f.write('\n')
         for category in subfolder.keys():
@@ -118,8 +118,8 @@ def setup():
                 if file_path_linked is None or file_path_unlinked is None:
                     continue
 
-                file_linked = open(file_path_linked)
-                file_unlinked = open(file_path_unlinked)
+                file_linked = open(file_path_linked, encoding='utf-8')
+                file_unlinked = open(file_path_unlinked, encoding='utf-8')
 
                 # get rid of the first line as just stores length of file
                 length_of_file = file_unlinked.readline().rstrip()
@@ -160,7 +160,7 @@ def setup():
     pop['wikidata'] = {'maths': maths_pop_w, 'phil': phil_pop_w}
 
     # writing the popular figures to a file
-    with open('./analysis/popular_figures.txt', 'w') as f:
+    with open('./analysis/popular_figures.txt', 'w', encoding='utf-8') as f:
         for method in pop.keys():
             for group in pop[method].keys():
                 for person in pop[method][group].keys():
@@ -204,7 +204,7 @@ def popular_figs():
 
     # ideally needs to be shifted to have header values so it can be accessed by column title
     # which would allow more flexibility with order of file
-    with open('./analysis/popular_figures.txt') as csvfile:
+    with open('./analysis/popular_figures.txt', encoding='utf-8') as csvfile:
         current_reader = csv.reader(csvfile)
         for row in current_reader:
             name = row[2]
