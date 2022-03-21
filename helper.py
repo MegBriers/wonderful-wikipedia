@@ -172,7 +172,7 @@ def output_file(file_name):
     """
     A method used to output the contents of a given file
     """
-    f = open(file_name, "r")
+    f = open(file_name, "r", encoding="utf-8")
     print(f.read())
     f.close()
 

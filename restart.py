@@ -21,7 +21,7 @@ def usage_options():
     """
     A method to output the usage instructions if the wrong set of parameters is entered
     """
-    helper.output_file("usage.txt")
+    helper.output_file("guides/usage.txt")
 
 
 def validate_name(name):

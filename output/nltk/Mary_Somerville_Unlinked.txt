@@ -1,113 +1,113 @@
 25
-Charles Babbage
-Nunavut
-Anne Isabella Milbanke
-John
-John Playfair
-Baron Humboldt
-Lagrange
-Shakespeare
-Charles Darwin
-Fairfax
-John Herschel
-John Stuart Mill
-Biot
-Chelsea Hospital
-Letitia Elizabeth Landon
-Ada Lovelace
-Uranus
-Xenophon
-Margaret Farquhar Somerville
-Principia
-Scott
-William George Fairfax
-Sir William Edward Parry
-Sir James Mackintosh
-Isaac Newton
-William Wallace
-Herodotus
-Samuel Charters
-Sam
-Laplace
-Thomas Telford
-James Clerk Maxwell
-Mary Charlotte Somerville
+James Ferguson
+Naturelle
+Leonhard Euler
 Nasmyth
-Samuel Greig
-Elizabeth Oswald
-Calculus Treatise
-David Brewster
-Mary Somerville
-Siméon Denis Poisson
-Babbage
-William Somerville
-Thomas Bruce
-Francœur
-Maria Edgeworth
-Woronzow
-Mary
-Physical Geography
-Lord Balmuto
-Sir
+Janet
+Charles Lyell
+Caroline Herschel
+William Charters
 François Callet
 Earth
-Crown
-Useful Knowledge
-Henry
-Woronzow Greig
-James Ferguson
-Maria Mitchell
-Somerville House
-Mécanique Céleste
-Hanover Square
-Caroline Herschel
-Margaret Charters
-Legacy
-Agnes Graham
-Murray
-Astronomy
-Henry Brougham
-Alexis Clairaut
-Baroness Wentworth
-Algebra
-Microscopic Science
-Latin
-Marines
-Langrenus
-Fife
-Alexander Nasmyth
-Lady Burchan
-Lovelace
+Mary Somerville
+Xenophon
 Thomas Somerville
-Craw
-Gaspard Monge
-John Bonnycastle
-Walter Scott
-College
-Count Semyon Vorontsov
-Naturelle
-Physical
-Engine
+Legacy
+Babbage
+Somerville House
+William Somerville
+Margaret Charters
 Newton
-Strange
-Mechanism Joanna Baillie
-Leonhard Euler
 Geography
-Janet
-Humboldt
-Martha Charters Somerville
-Charles Lyell
-Ada
-Mechanism
-Lord Brougham
+Nunavut
+Thomas Telford
 Molecular
-Euclid
-Virgil
-John Murray
-Sylvestre François Lacroix
-Somerville
 George Peacock
-Potter
+Woronzow
+Mechanism Joanna Baillie
+Marines
+Astronomy
+Samuel Charters
+Hanover Square
+Useful Knowledge
+Sir William Edward Parry
+Crown
+Letitia Elizabeth Landon
+Ada Lovelace
+Lovelace
+John Playfair
+Sylvestre François Lacroix
+Murray
+Physical Geography
+Lagrange
+Mary Charlotte Somerville
+William Wallace
+Maria Mitchell
+Shakespeare
+Virgil
+Mécanique Céleste
+Mary
+Alexander Nasmyth
+Henry
+Siméon Denis Poisson
+Walter Scott
+Principia
+Sir
+James Clerk Maxwell
+Uranus
+Laplace
+Chelsea Hospital
+Scott
+Humboldt
+Francœur
+Microscopic Science
+John Bonnycastle
+Euclid
+Somerville
+Engine
+David Brewster
+College
 Club
+Charles Darwin
+William George Fairfax
+Elizabeth Oswald
+Fairfax
+Maria Edgeworth
+Algebra
+Biot
+Anne Isabella Milbanke
+Charles Babbage
+Henry Brougham
+Strange
+Ada
+Sir James Mackintosh
+Mechanism
+Lord Balmuto
+John
+Count Semyon Vorontsov
+John Stuart Mill
+Lady Burchan
+Herodotus
+Langrenus
+Sam
+John Herschel
+Craw
+Woronzow Greig
+Baroness Wentworth
+Agnes Graham
+Fife
+Alexis Clairaut
+Potter
+Margaret Farquhar Somerville
+Samuel Greig
+Martha Charters Somerville
+Latin
+Calculus Treatise
+Lord Brougham
+Isaac Newton
+Baron Humboldt
+Gaspard Monge
+Physical
+Thomas Bruce
 Google
-William Charters
+John Murray

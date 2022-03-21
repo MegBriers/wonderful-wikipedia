@@ -1,69 +1,69 @@
 7
-Hawke
-Isaac Newton
-Jane Marcet
-Einstein
-Deep River
-Maxwell
-Jack
-County Durham
-John
-Barnsbury Grove
-Hermsdorf
-Clerk Maxwell
-Buoy Store
-William Dance
-William
-Fox
-Sir Humphry Davy
-Shakespeare
-Oxford
-Royal Institution
-John Templeton
-James Clerk Maxwell
-Voltaic Electricity
 Humphry Davy
-Matthew Arnold
 Christian
-C2Cl6
-John Payne
-William Hyde Wollaston
-Paul
-Isaac Watts
-Joseph Loschmidt
-Thomas Graham
-Zeeman
-Charles Lyell
-Davy
-Rodney Gordon
-Michael
-Ernest Rutherford
-Fuller
-Andrew Huxley
-Adult
-Chemistry
-Albert
-C2Cl4
-Aylesbury
-Cosmos
-Physicist
-John Tatum
-Sarah Barnard
-Chance
-Margaret Thatcher
-Swansea
-Pieter
-Fife
 Education
+Benjamin Abbott
+Crawley
+William Hyde Wollaston
+Maxwell
+James Clerk Maxwell
+John
+Buoy Store
+Ernest Rutherford
+James
+Jack
+Deep River
+Hawke
 Fullerian Professor
+William Dance
+Charles Lyell
+Aylesbury
+C2Cl4
+Stevenage
+Pieter
+Davy
+Albert
+Chance
+Michael
+County Durham
+Margaret Thatcher
 Awards
 Quebec City
-Arthur Schopenhauer
-Civil Law
-Benjamin Abbott
-Stevenage
-John Dalton
-James
-George Riebau
-Crawley
+Physicist
+Fife
+Paul
 Chemical Assistant
+Swansea
+Royal Institution
+Chemistry
+Civil Law
+John Tatum
+Sarah Barnard
+Joseph Loschmidt
+Rodney Gordon
+Barnsbury Grove
+Isaac Watts
+John Payne
+Cosmos
+Adult
+Zeeman
+Hermsdorf
+Matthew Arnold
+Einstein
+Andrew Huxley
+Clerk Maxwell
+Isaac Newton
+Oxford
+Thomas Graham
+John Dalton
+William
+Fox
+George Riebau
+Shakespeare
+Sir Humphry Davy
+John Templeton
+C2Cl6
+Fuller
+Arthur Schopenhauer
+Jane Marcet
+Voltaic Electricity
