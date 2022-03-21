@@ -36,7 +36,7 @@ def get_list(URL):
 
     assert response.status_code == 200, "request did not succeed"
 
-    soup = BeautifulSoup(response.content, 'lxml')
+    soup = BeautifulSoup(response.content, 'html.parser')
 
     links = {}
     for link in soup.find(id="bodyContent").find_all("a"):
