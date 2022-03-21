@@ -45,3 +45,5 @@ gender and the length of their article in characters
 
 - commonly_linked_[category]_[method].txt : reminents of previously written popular figures analysis, but contains an ordered list of mentioned people
 for each method and category (useful to see at a glance who is coming towards the top) 
+
+- epsilon.txt : stores the results of the epsilon analysis 

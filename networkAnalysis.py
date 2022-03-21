@@ -269,34 +269,36 @@ def epsilon_analysis():
     # needs refactoring
 
     stdoutOrigin = sys.stdout
-    sys.stdout = open("epsilon.txt", "w", encoding="utf-8")
+    sys.stdout = open("analysis/epsilon.txt", "w", encoding="utf-8")
 
     wb = load_workbook('data\somerville_letters.xlsx')
     sheet_ranges = wb['Sheet1']
 
+    row_count = sheet_ranges.max_row
+
     correspondences = {}
 
-    for i in range(2, 649):
+    for i in range(2, row_count):
         # the relevant places in the excel file
-        E_cur = 'E' + str(i)
-        F_cur = 'F' + str(i)
+        person_from = 'D' + str(i)
+        person_to = 'E' + str(i)
 
-        E_val = sheet_ranges[E_cur].value
-        F_val = sheet_ranges[F_cur].value
+        person_from = sheet_ranges[person_from].value
+        person_to = sheet_ranges[person_to].value
 
         # either writing to or from her or her husband
         # getting rid of family members in the analysis
-        if 'Somerville' in str(E_val):
-            if not (F_val in correspondences.keys()):
-                correspondences[F_val] = 1
+        if 'Somerville' in str(person_from):
+            if not (person_to in correspondences.keys()):
+                correspondences[person_to] = 1
             else:
-                correspondences[F_val] += 1
+                correspondences[person_to] += 1
         else:
-            if 'Somerville' in str(F_val):
-                if not (E_val in correspondences):
-                    correspondences[E_val] = 1
+            if 'Somerville' in str(person_to):
+                if not (person_from in correspondences):
+                    correspondences[person_from] = 1
                 else:
-                    correspondences[E_val] += 1
+                    correspondences[person_from] += 1
 
     print("The name of people in correspondence with Somerville:")
     print(correspondences)
