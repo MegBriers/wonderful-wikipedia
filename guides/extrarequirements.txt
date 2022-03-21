@@ -11,9 +11,15 @@ wikimapper download en-wiki-latest --dir data
 wikimapper create en-wiki-latest --dump dir --target data/index_enwiki-latest
 
 
-SPACY ADDITIONAL MODELS 
+NER ADDITIONAL MODELS 
 python -m spacy download xx_ent_wiki_sm
 
+nltk.download('punkt')
+nltk.download('average_perceptron_tagger')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
 
 ADDITIONAL REQUIREMENTS FOR WEB SCRAPPING
 pip install lxml 
+(i've had trouble with this in the past so in the worse case, replace all 
+instances of lxml in the code with 'html.parser' instead)
