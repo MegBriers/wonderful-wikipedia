@@ -15,10 +15,10 @@ based off the code from https://github.com/wjbmattingly/ner_youtube
 import requests
 from bs4 import BeautifulSoup
 import os
-import restart
 import spacy
 import json
 import random
+import helper
 from spacy.training.example import Example
 
 
@@ -113,6 +113,8 @@ def train_model():
 
     """
 
+    TRAIN_DATA = []
+
     with open("data/training_data_maths.txt", "r", encoding="utf-8")as f:
         text = f.read()
 
@@ -157,7 +159,7 @@ def write_lists_to_file(identified, subject):
         for person in identified:
             print(person)
             try:
-                content = restart.get_page_content(person)
+                content = helper.get_page_content(person)
                 f.write(person)
                 f.write('\n \n')
                 f.write(content)
@@ -191,7 +193,7 @@ def get_list_data(URL):
 
     assert response.status_code == 200, "request did not succeed"
 
-    soup = BeautifulSoup(response.content, 'lxml')
+    soup = BeautifulSoup(response.content, 'html.parser')
 
     links = {}
     for link in soup.find(id="bodyContent").find_all("a"):
@@ -221,7 +223,8 @@ if __name__ == '__main__':
 
     print("｡･:*:･ﾟ★,｡･:*:･ﾟ☆　retraining spacy, this might take a while   ｡･:*:･ﾟ★,｡･:*:･ﾟ☆")
     # just training on maths data atm
-    nlp = spacy.load("xx_ent_wiki_sm")
+    nlp = spacy.load('xx_ent_wiki_sm')
+    train_model()
     TRAIN_DATA = load_data("data/training_data_m.json")
     nlp = train_spacy(TRAIN_DATA, 30)
     nlp.to_disk("maths_ner_model")
